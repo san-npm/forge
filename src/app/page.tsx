@@ -7,9 +7,10 @@ import LandingPage from '@/components/LandingPage'
 import Quiz from '@/components/Quiz'
 import Results from '@/components/Results'
 import AgentContact from '@/components/AgentContact'
+import Blog from '@/components/Blog'
 import { QuizAnswers, computeEligibility, Program, ProjectRecommendation } from '@/lib/eligibility'
 
-type Screen = 'landing' | 'quiz' | 'results' | 'agent'
+type Screen = 'landing' | 'quiz' | 'results' | 'agent' | 'blog'
 
 function SimulatorApp() {
   const [screen, setScreen] = useState<Screen>('landing')
@@ -33,7 +34,7 @@ function SimulatorApp() {
 
   return (
     <>
-      <Navbar />
+      <Navbar onNavigate={(s) => navigateTo(s as Screen)} />
       {screen === 'landing' && (
         <LandingPage onStart={() => navigateTo('quiz')} />
       )}
@@ -52,6 +53,7 @@ function SimulatorApp() {
         />
       )}
       {screen === 'agent' && <AgentContact />}
+      {screen === 'blog' && <Blog onBack={() => navigateTo('landing')} />}
     </>
   )
 }
