@@ -19,6 +19,10 @@ export default function AgentContact() {
 
   // Contact form state
   const [name, setName] = useState('')
+  const [company, setCompany] = useState('')
+  const [role, setRole] = useState('')
+  const [companySize, setCompanySize] = useState('')
+  const [subject, setSubject] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
@@ -92,7 +96,7 @@ export default function AgentContact() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, message }),
+        body: JSON.stringify({ name, company, role, companySize, subject, email, phone, message }),
       })
 
       if (res.ok) {
@@ -174,45 +178,110 @@ export default function AgentContact() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">
               {t('contact.title')}
             </h2>
-            <div className="bg-white border border-gray-200 rounded-2xl p-6" style={{ height: '500px' }}>
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden" style={{ height: '500px' }}>
               {!formSent ? (
-                <form onSubmit={handleFormSubmit} className="h-full flex flex-col justify-between">
-                  <div className="space-y-4">
+                <form onSubmit={handleFormSubmit} className="h-full flex flex-col">
+                  <div className="flex-1 overflow-y-auto p-6 space-y-3">
+                    {/* Name + Company (side by side) */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          {t('contact.name')} *
+                        </label>
+                        <input
+                          type="text"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          required
+                          className="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          {t('contact.company')}
+                        </label>
+                        <input
+                          type="text"
+                          value={company}
+                          onChange={(e) => setCompany(e.target.value)}
+                          className="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                        />
+                      </div>
+                    </div>
+                    {/* Role + Company size */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          {t('contact.role')}
+                        </label>
+                        <input
+                          type="text"
+                          value={role}
+                          onChange={(e) => setRole(e.target.value)}
+                          className="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          {t('contact.companySize')}
+                        </label>
+                        <select
+                          value={companySize}
+                          onChange={(e) => setCompanySize(e.target.value)}
+                          className="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm bg-white"
+                        >
+                          <option value="">—</option>
+                          <option value="1-10">{t('contact.companySize.o1')}</option>
+                          <option value="11-50">{t('contact.companySize.o2')}</option>
+                          <option value="51-250">{t('contact.companySize.o3')}</option>
+                          <option value="250+">{t('contact.companySize.o4')}</option>
+                        </select>
+                      </div>
+                    </div>
+                    {/* Subject */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('contact.name')} *
+                        {t('contact.subject')}
                       </label>
-                      <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      />
+                      <select
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                        className="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm bg-white"
+                      >
+                        <option value="">—</option>
+                        <option value="digital">{t('contact.subject.digital')}</option>
+                        <option value="ai">{t('contact.subject.ai')}</option>
+                        <option value="innovation">{t('contact.subject.innovation')}</option>
+                        <option value="other">{t('contact.subject.other')}</option>
+                      </select>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('contact.email')} *
-                      </label>
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      />
+                    {/* Email + Phone */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          {t('contact.email')} *
+                        </label>
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                          className="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          {t('contact.phone')}
+                        </label>
+                        <input
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          className="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('contact.phone')}
-                      </label>
-                      <input
-                        type="tel"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      />
-                    </div>
+                    {/* Message */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
                         {t('contact.message')}
@@ -220,24 +289,26 @@ export default function AgentContact() {
                       <textarea
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        rows={3}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+                        rows={2}
+                        className="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none text-sm"
                       />
                     </div>
                     {formError && (
                       <p className="text-sm text-red-600">{formError}</p>
                     )}
                   </div>
-                  <button
-                    type="submit"
-                    className="w-full py-3.5 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/25 hover:shadow-xl hover:from-primary-700 hover:to-primary-800 transition-all mt-4"
-                  >
-                    {t('contact.submit')}
-                  </button>
+                  <div className="p-4 border-t border-gray-100">
+                    <button
+                      type="submit"
+                      className="w-full py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/25 hover:shadow-xl hover:from-primary-700 hover:to-primary-800 transition-all"
+                    >
+                      {t('contact.submit')}
+                    </button>
+                  </div>
                 </form>
               ) : (
                 <div className="h-full flex items-center justify-center">
-                  <div className="text-center">
+                  <div className="text-center p-6">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
