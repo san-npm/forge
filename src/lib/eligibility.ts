@@ -1,12 +1,10 @@
 export interface QuizAnswers {
   companySize: string
   sector: string
-  hqLuxembourg: string
-  businessPermit: string
+  luxembourgStatus: string
   digitalMaturity: string
   biggestProblem: string
   aiUsage: string
-  budget: string
 }
 
 export interface Program {
@@ -32,9 +30,8 @@ export function computeEligibility(answers: QuizAnswers): {
   programs: Program[]
   projects: ProjectRecommendation[]
 } {
-  // Base eligibility: must be in Luxembourg with business permit
-  const isBasicallyEligible =
-    answers.hqLuxembourg === 'yes' && answers.businessPermit !== 'no'
+  // Base eligibility: must be established in Luxembourg (with or without permit)
+  const isBasicallyEligible = answers.luxembourgStatus !== 'no'
 
   if (!isBasicallyEligible) {
     return { eligible: false, programs: [], projects: [] }
@@ -272,44 +269,4 @@ export function computeEligibility(answers: QuizAnswers): {
   }
 
   return { eligible: true, programs, projects }
-}
-
-export function getAgentResponse(question: string, lang: string): string {
-  const q = question.toLowerCase()
-
-  const responses: Record<string, Record<string, string>> = {
-    eligibility: {
-      fr: "Pour être éligible aux programmes d'aides luxembourgeois, votre entreprise doit : 1) Avoir son siège social au Luxembourg, 2) Disposer d'une autorisation d'établissement, 3) Être une PME (pour la plupart des programmes). Les auto-entrepreneurs et grandes entreprises peuvent aussi être éligibles à certains programmes.",
-      en: 'To be eligible for Luxembourg funding programs, your company must: 1) Have its headquarters in Luxembourg, 2) Have a business permit (autorisation d\'établissement), 3) Be an SME (for most programs). Sole proprietors and large companies may also be eligible for certain programs.',
-    },
-    duration: {
-      fr: "Le processus varie selon le programme : le SME Package prend généralement 2-3 mois du diagnostic à la mise en œuvre. Les programmes Fit 4 peuvent durer 4-6 mois. La demande initiale est traitée en 2-4 semaines.",
-      en: 'The process varies by program: the SME Package typically takes 2-3 months from assessment to implementation. Fit 4 programs can last 4-6 months. The initial application is processed in 2-4 weeks.',
-    },
-    luxinnovation: {
-      fr: "Luxinnovation est l'agence nationale de l'innovation au Luxembourg. Elle gère plusieurs programmes d'aide à la digitalisation et à l'innovation des entreprises, dont les SME Packages et les programmes Fit 4. C'est votre interlocuteur principal pour ces aides.",
-      en: 'Luxinnovation is Luxembourg\'s national innovation agency. It manages several digitalization and innovation support programs for businesses, including SME Packages and Fit 4 programs. They are your main point of contact for these grants.',
-    },
-    cost: {
-      fr: "L'utilisation du simulateur est 100% gratuite. Les programmes d'aide couvrent entre 50% et 70% des coûts de votre projet. Par exemple, pour un projet à 10 000 €, vous pourriez ne payer que 3 000 €, le reste étant couvert par la subvention.",
-      en: 'Using the simulator is 100% free. Support programs cover between 50% and 70% of your project costs. For example, for a €10,000 project, you might only pay €3,000, with the rest covered by the grant.',
-    },
-    default: {
-      fr: "Merci pour votre question ! Pour une réponse précise et personnalisée, je vous recommande de remplir le formulaire de contact. Un expert vous rappellera sous 48h pour répondre à toutes vos questions. Vous pouvez aussi relancer le simulateur pour estimer vos aides.",
-      en: 'Thanks for your question! For a precise and personalized answer, I recommend filling out the contact form. An expert will call you back within 48h to answer all your questions. You can also run the simulator again to estimate your funding.',
-    },
-  }
-
-  let key = 'default'
-  if (q.includes('éligib') || q.includes('eligib') || q.includes('eligible') || q.includes('activité')) {
-    key = 'eligibility'
-  } else if (q.includes('temps') || q.includes('durée') || q.includes('duration') || q.includes('long') || q.includes('how long')) {
-    key = 'duration'
-  } else if (q.includes('luxinnovation') || q.includes('qui est') || q.includes('who is')) {
-    key = 'luxinnovation'
-  } else if (q.includes('coût') || q.includes('cost') || q.includes('prix') || q.includes('price') || q.includes('combien') || q.includes('how much') || q.includes('gratuit') || q.includes('free')) {
-    key = 'cost'
-  }
-
-  return responses[key]?.[lang] ?? responses.default[lang === 'fr' ? 'fr' : 'en']
 }

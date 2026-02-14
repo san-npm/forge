@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Forge — Simulateur aides Luxembourg',
-  description: 'Découvrez combien le Luxembourg finance votre transformation digitale & IA. Simulez vos aides en 2 minutes.',
+  title: 'Forge — Simulateur aides Luxembourg / Luxembourg Grants Simulator',
+  description: 'Simulez vos aides à la digitalisation et IA au Luxembourg. Gratuit, 6 langues. / Simulate your digitalization and AI grants in Luxembourg. Free, 6 languages.',
 }
 
 export default function RootLayout({
