@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
-import { getAgentResponse } from '@/lib/eligibility'
 
 interface ChatMessage {
   role: 'assistant' | 'user'
@@ -15,6 +14,7 @@ export default function AgentContact() {
     { role: 'assistant', content: t('agent.welcome') },
   ])
   const [input, setInput] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const chatEndRef = useRef<HTMLDivElement>(null)
 
   // Contact form state
@@ -23,6 +23,7 @@ export default function AgentContact() {
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
   const [formSent, setFormSent] = useState(false)
+  const [formError, setFormError] = useState('')
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -33,25 +34,75 @@ export default function AgentContact() {
     setMessages([{ role: 'assistant', content: t('agent.welcome') }])
   }, [lang, t])
 
-  function handleSend(e: React.FormEvent) {
+  async function handleSend(e: React.FormEvent) {
     e.preventDefault()
-    if (!input.trim()) return
+    if (!input.trim() || isLoading) return
 
     const userMsg = input.trim()
     setMessages((prev) => [...prev, { role: 'user', content: userMsg }])
     setInput('')
+    setIsLoading(true)
 
-    // Simulate typing delay
-    setTimeout(() => {
-      const response = getAgentResponse(userMsg, lang)
-      setMessages((prev) => [...prev, { role: 'assistant', content: response }])
-    }, 600)
+    try {
+      const history = messages.map((m) => ({
+        role: m.role,
+        content: m.content,
+      }))
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMsg, history }),
+      })
+
+      const data = await res.json()
+
+      if (data.error) {
+        setMessages((prev) => [
+          ...prev,
+          { role: 'assistant', content: data.error },
+        ])
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          { role: 'assistant', content: data.response },
+        ])
+      }
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: 'assistant',
+          content: lang === 'fr'
+            ? 'Désolé, une erreur est survenue. Veuillez réessayer.'
+            : 'Sorry, an error occurred. Please try again.',
+        },
+      ])
+    } finally {
+      setIsLoading(false)
+    }
   }
 
-  function handleFormSubmit(e: React.FormEvent) {
+  async function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (name && email) {
-      setFormSent(true)
+    if (!name || !email) return
+    setFormError('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message }),
+      })
+
+      if (res.ok) {
+        setFormSent(true)
+      } else {
+        const data = await res.json()
+        setFormError(data.error || 'Error')
+      }
+    } catch {
+      setFormError('Network error')
     }
   }
 
@@ -83,6 +134,13 @@ export default function AgentContact() {
                     </div>
                   </div>
                 ))}
+                {isLoading && (
+                  <div className="flex justify-start">
+                    <div className="max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed bg-gray-100 text-gray-400 rounded-bl-md">
+                      {t('agent.thinking')}
+                    </div>
+                  </div>
+                )}
                 <div ref={chatEndRef} />
               </div>
 
@@ -94,11 +152,13 @@ export default function AgentContact() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder={t('agent.placeholder')}
-                    className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                    disabled={isLoading}
+                    className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm disabled:opacity-50"
                   />
                   <button
                     type="submit"
-                    className="p-2.5 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors"
+                    disabled={isLoading}
+                    className="p-2.5 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors disabled:opacity-50"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -164,6 +224,9 @@ export default function AgentContact() {
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
                       />
                     </div>
+                    {formError && (
+                      <p className="text-sm text-red-600">{formError}</p>
+                    )}
                   </div>
                   <button
                     type="submit"

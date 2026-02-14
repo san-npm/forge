@@ -15,11 +15,27 @@ export default function Results({ eligible, programs, projects, onNext }: Result
   const { lang, t } = useLanguage()
   const [email, setEmail] = useState('')
   const [emailSent, setEmailSent] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
-  function handleEmailSubmit(e: React.FormEvent) {
+  async function handleEmailSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (email) {
-      setEmailSent(true)
+    if (!email || submitting) return
+    setSubmitting(true)
+
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+
+      if (res.ok) {
+        setEmailSent(true)
+      }
+    } catch {
+      // Silently fail — not critical
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -77,8 +93,8 @@ export default function Results({ eligible, programs, projects, onNext }: Result
                 key={program.id}
                 className="p-5 bg-white border-2 border-primary-100 rounded-xl hover:border-primary-300 transition-colors"
               >
-                <h3 className="font-bold text-gray-900 mb-1">{program.name[lang]}</h3>
-                <p className="text-sm text-gray-500 mb-4">{program.description[lang]}</p>
+                <h3 className="font-bold text-gray-900 mb-1">{program.name[lang] || program.name.fr}</h3>
+                <p className="text-sm text-gray-500 mb-4">{program.description[lang] || program.description.fr}</p>
                 <div className="flex items-baseline gap-4">
                   <div>
                     <span className="text-2xl font-bold text-primary-600">
@@ -108,8 +124,8 @@ export default function Results({ eligible, programs, projects, onNext }: Result
                   key={i}
                   className="p-6 bg-white border border-gray-200 rounded-xl"
                 >
-                  <h3 className="font-bold text-gray-900 mb-2">{project.title[lang]}</h3>
-                  <p className="text-sm text-gray-500 mb-5">{project.description[lang]}</p>
+                  <h3 className="font-bold text-gray-900 mb-2">{project.title[lang] || project.title.fr}</h3>
+                  <p className="text-sm text-gray-500 mb-5">{project.description[lang] || project.description.fr}</p>
 
                   <div className="grid grid-cols-3 gap-4">
                     <div className="text-center p-3 bg-gray-50 rounded-lg">
@@ -162,7 +178,7 @@ export default function Results({ eligible, programs, projects, onNext }: Result
           </section>
         )}
 
-        {/* Email gate */}
+        {/* Newsletter subscription */}
         <section className="mb-12 animate-slide-up" style={{ animationDelay: '0.3s' }}>
           <div className="p-8 bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl text-center">
             {!emailSent ? (
@@ -181,7 +197,8 @@ export default function Results({ eligible, programs, projects, onNext }: Result
                   />
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors"
+                    disabled={submitting}
+                    className="px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors disabled:opacity-50"
                   >
                     {t('results.send')}
                   </button>
