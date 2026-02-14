@@ -26,6 +26,9 @@ const translations: Record<string, Record<Language, string>> = {
   'nav.blog': {
     fr: 'Blog', en: 'Blog', lb: 'Blog', de: 'Blog', it: 'Blog', pt: 'Blog',
   },
+  'nav.directory': {
+    fr: 'Agents IA', en: 'AI Agents', lb: 'KI Agenten', de: 'KI-Agenten', it: 'Agenti IA', pt: 'Agentes IA',
+  },
 
   // ─── Landing page ───
   'hero.title': {
@@ -315,29 +318,51 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Parler à un expert', en: 'Talk to an expert', lb: 'Mat engem Expert schwätzen', de: 'Mit einem Experten sprechen', it: 'Parlare con un esperto', pt: 'Falar com um especialista',
   },
 
-  // ─── Agent & Contact ───
-  'agent.title': {
-    fr: 'Agent IA — Posez vos questions', en: 'AI Agent — Ask your questions', lb: 'KI Agent — Stellt Är Froen', de: 'KI-Agent — Stellen Sie Ihre Fragen', it: 'Agente IA — Fate le vostre domande', pt: 'Agente IA — Faça as suas perguntas',
-  },
-  'agent.placeholder': {
-    fr: 'Posez votre question ici...', en: 'Ask your question here...', lb: 'Stellt Är Fro hei...', de: 'Stellen Sie Ihre Frage hier...', it: 'Fate la vostra domanda qui...', pt: 'Faça a sua pergunta aqui...',
-  },
-  'agent.welcome': {
-    fr: "Bonjour ! Je suis l'assistant IA de Forge. Posez-moi vos questions sur les programmes d'aides luxembourgeois, l'éligibilité, les démarches...",
-    en: "Hello! I'm the Forge AI assistant. Ask me about Luxembourg funding programs, eligibility, procedures...",
-    lb: "Moien! Ech sinn de Forge KI-Assistent. Frot mech iwwer lëtzebuerger Hëllefsprogrammer, Eligibilitéit, Demarchen...",
-    de: 'Hallo! Ich bin der Forge KI-Assistent. Fragen Sie mich zu luxemburgischen Förderprogrammen, Förderungsfähigkeit, Verfahren...',
-    it: "Ciao! Sono l'assistente IA di Forge. Chiedetemi dei programmi di finanziamento lussemburghesi, dell'ammissibilità, delle procedure...",
-    pt: 'Olá! Sou o assistente IA da Forge. Pergunte-me sobre programas de apoio luxemburgueses, elegibilidade, procedimentos...',
-  },
-  'agent.thinking': {
-    fr: 'Réflexion en cours...', en: 'Thinking...', lb: 'Denken...', de: 'Denke nach...', it: 'Sto pensando...', pt: 'A pensar...',
-  },
+  // ─── Contact ───
   'contact.title': {
-    fr: 'Être rappelé sous 48h', en: 'Get a callback within 48h', lb: 'Bannent 48h zréckgeruff ginn', de: 'Rückruf innerhalb 48h', it: 'Essere richiamati entro 48h', pt: 'Ser contactado em 48h',
+    fr: 'Être rappelé par un expert', en: 'Get a callback from an expert', lb: 'Vun engem Expert zréckgeruff ginn', de: 'Rückruf von einem Experten', it: 'Essere richiamati da un esperto', pt: 'Ser contactado por um especialista',
+  },
+  'contact.subtitle': {
+    fr: 'Remplissez le formulaire et un expert vous recontactera.', en: 'Fill out the form and an expert will get back to you.', lb: 'Fëllt de Formulaire aus an en Expert mellt sech bei Iech.', de: 'Füllen Sie das Formular aus und ein Experte wird sich bei Ihnen melden.', it: 'Compilate il modulo e un esperto vi ricontatterà.', pt: 'Preencha o formulário e um especialista entrará em contacto.',
   },
   'contact.name': {
     fr: 'Nom complet', en: 'Full name', lb: 'Ganzen Numm', de: 'Vollständiger Name', it: 'Nome completo', pt: 'Nome completo',
+  },
+  'contact.company': {
+    fr: 'Nom de l\'entreprise', en: 'Company name', lb: 'Numm vun der Firma', de: 'Firmenname', it: 'Nome dell\'azienda', pt: 'Nome da empresa',
+  },
+  'contact.role': {
+    fr: 'Poste / Fonction', en: 'Role / Position', lb: 'Post / Funktioun', de: 'Position / Funktion', it: 'Ruolo / Posizione', pt: 'Cargo / Função',
+  },
+  'contact.companySize': {
+    fr: 'Taille de l\'entreprise', en: 'Company size', lb: 'Gréisst vun der Firma', de: 'Unternehmensgröße', it: 'Dimensione dell\'azienda', pt: 'Dimensão da empresa',
+  },
+  'contact.companySize.o1': {
+    fr: '1-10 employés', en: '1-10 employees', lb: '1-10 Mataarbechter', de: '1-10 Mitarbeiter', it: '1-10 dipendenti', pt: '1-10 empregados',
+  },
+  'contact.companySize.o2': {
+    fr: '11-50 employés', en: '11-50 employees', lb: '11-50 Mataarbechter', de: '11-50 Mitarbeiter', it: '11-50 dipendenti', pt: '11-50 empregados',
+  },
+  'contact.companySize.o3': {
+    fr: '51-250 employés', en: '51-250 employees', lb: '51-250 Mataarbechter', de: '51-250 Mitarbeiter', it: '51-250 dipendenti', pt: '51-250 empregados',
+  },
+  'contact.companySize.o4': {
+    fr: '250+ employés', en: '250+ employees', lb: '250+ Mataarbechter', de: '250+ Mitarbeiter', it: '250+ dipendenti', pt: '250+ empregados',
+  },
+  'contact.subject': {
+    fr: 'Sujet', en: 'Subject', lb: 'Sujet', de: 'Betreff', it: 'Oggetto', pt: 'Assunto',
+  },
+  'contact.subject.digital': {
+    fr: 'Digitalisation', en: 'Digitalization', lb: 'Digitaliséierung', de: 'Digitalisierung', it: 'Digitalizzazione', pt: 'Digitalização',
+  },
+  'contact.subject.ai': {
+    fr: 'Intelligence artificielle', en: 'Artificial intelligence', lb: 'Kënschtlech Intelligenz', de: 'Künstliche Intelligenz', it: 'Intelligenza artificiale', pt: 'Inteligência artificial',
+  },
+  'contact.subject.innovation': {
+    fr: 'Innovation', en: 'Innovation', lb: 'Innovatioun', de: 'Innovation', it: 'Innovazione', pt: 'Inovação',
+  },
+  'contact.subject.other': {
+    fr: 'Autre', en: 'Other', lb: 'Anert', de: 'Sonstiges', it: 'Altro', pt: 'Outro',
   },
   'contact.email': {
     fr: 'Email', en: 'Email', lb: 'E-Mail', de: 'E-Mail', it: 'Email', pt: 'Email',
@@ -349,18 +374,21 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Message (optionnel)', en: 'Message (optional)', lb: 'Message (optional)', de: 'Nachricht (optional)', it: 'Messaggio (opzionale)', pt: 'Mensagem (opcional)',
   },
   'contact.submit': {
-    fr: 'Être rappelé sous 48h', en: 'Get a callback within 48h', lb: 'Bannent 48h zréckgeruff ginn', de: 'Rückruf innerhalb 48h', it: 'Essere richiamati entro 48h', pt: 'Ser contactado em 48h',
+    fr: 'Envoyer ma demande', en: 'Send my request', lb: 'Meng Ufro schécken', de: 'Anfrage senden', it: 'Inviare la mia richiesta', pt: 'Enviar o meu pedido',
   },
   'contact.success': {
     fr: 'Demande envoyée !', en: 'Request sent!', lb: 'Ufro geschéckt!', de: 'Anfrage gesendet!', it: 'Richiesta inviata!', pt: 'Pedido enviado!',
   },
   'contact.successDesc': {
-    fr: 'Un expert vous contactera sous 48h.', en: 'An expert will contact you within 48h.', lb: 'En Expert kontaktéiert Iech bannent 48h.', de: 'Ein Experte wird Sie innerhalb von 48h kontaktieren.', it: 'Un esperto vi contatterà entro 48h.', pt: 'Um especialista contactará em 48h.',
+    fr: 'Un expert vous contactera dans les meilleurs délais.', en: 'An expert will contact you as soon as possible.', lb: 'En Expert kontaktéiert Iech esou séier wéi méiglech.', de: 'Ein Experte wird Sie so schnell wie möglich kontaktieren.', it: 'Un esperto vi contatterà il prima possibile.', pt: 'Um especialista entrará em contacto o mais breve possível.',
   },
 
   // ─── Blog ───
   'blog.title': {
     fr: 'Blog — Aides & Innovation au Luxembourg', en: 'Blog — Grants & Innovation in Luxembourg', lb: 'Blog — Hëllefen & Innovatioun zu Lëtzebuerg', de: 'Blog — Förderung & Innovation in Luxemburg', it: 'Blog — Finanziamenti & Innovazione in Lussemburgo', pt: 'Blog — Apoios & Inovação no Luxemburgo',
+  },
+  'blog.subtitle': {
+    fr: 'Actualités, guides et conseils pour financer votre transformation digitale', en: 'News, guides and tips to fund your digital transformation', lb: 'Neuegkeeten, Guiden an Tipps fir Är digital Transformatioun ze finanzéieren', de: 'Nachrichten, Leitfäden und Tipps zur Finanzierung Ihrer digitalen Transformation', it: 'Notizie, guide e consigli per finanziare la tua trasformazione digitale', pt: 'Notícias, guias e dicas para financiar a sua transformação digital',
   },
   'blog.readMore': {
     fr: 'Lire la suite', en: 'Read more', lb: 'Méi liesen', de: 'Weiterlesen', it: 'Leggi di più', pt: 'Ler mais',
@@ -370,6 +398,59 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'blog.backToHome': {
     fr: "Retour à l'accueil", en: 'Back to home', lb: 'Zréck op d\'Haaptsäit', de: 'Zurück zur Startseite', it: 'Torna alla home', pt: 'Voltar ao início',
+  },
+  'blog.empty': {
+    fr: 'Aucun article pour le moment.', en: 'No articles yet.', lb: 'Nach keng Artikelen.', de: 'Noch keine Artikel.', it: 'Nessun articolo per il momento.', pt: 'Ainda não há artigos.',
+  },
+  'blog.readTime': {
+    fr: 'min de lecture', en: 'min read', lb: 'min Liesentzäit', de: 'Min. Lesezeit', it: 'min di lettura', pt: 'min de leitura',
+  },
+
+  // ─── Directory ───
+  'directory.title': {
+    fr: 'Annuaire des Agents IA', en: 'AI Agents Directory', lb: 'KI Agenten Verzeichnis', de: 'KI-Agenten Verzeichnis', it: 'Directory degli Agenti IA', pt: 'Diretório de Agentes IA',
+  },
+  'directory.subtitle': {
+    fr: 'Découvrez les meilleurs outils d\'intelligence artificielle pour votre entreprise au Luxembourg.', en: 'Discover the best artificial intelligence tools for your business in Luxembourg.', lb: 'Entdeckt déi bescht Kënschtlech Intelligenz Tools fir Äert Geschäft zu Lëtzebuerg.', de: 'Entdecken Sie die besten KI-Tools für Ihr Unternehmen in Luxemburg.', it: 'Scopri i migliori strumenti di intelligenza artificiale per la tua azienda in Lussemburgo.', pt: 'Descubra as melhores ferramentas de inteligência artificial para a sua empresa no Luxemburgo.',
+  },
+  'directory.search': {
+    fr: 'Rechercher un outil IA...', en: 'Search for an AI tool...', lb: 'E KI-Tool sichen...', de: 'Ein KI-Tool suchen...', it: 'Cerca uno strumento IA...', pt: 'Procurar uma ferramenta IA...',
+  },
+  'directory.backToHome': {
+    fr: 'Retour à l\'accueil', en: 'Back to home', lb: 'Zréck op d\'Haaptsäit', de: 'Zurück zur Startseite', it: 'Torna alla home', pt: 'Voltar ao início',
+  },
+  'directory.agents': {
+    fr: 'outils trouvés', en: 'tools found', lb: 'Tools fonnt', de: 'Tools gefunden', it: 'strumenti trovati', pt: 'ferramentas encontradas',
+  },
+  'directory.empty': {
+    fr: 'Aucun outil trouvé.', en: 'No tools found.', lb: 'Keen Tool fonnt.', de: 'Keine Tools gefunden.', it: 'Nessuno strumento trovato.', pt: 'Nenhuma ferramenta encontrada.',
+  },
+  'directory.free': {
+    fr: 'Gratuit', en: 'Free', lb: 'Gratis', de: 'Kostenlos', it: 'Gratuito', pt: 'Gratuito',
+  },
+  'directory.paid': {
+    fr: 'Payant', en: 'Paid', lb: 'Bezuelt', de: 'Kostenpflichtig', it: 'A pagamento', pt: 'Pago',
+  },
+  'directory.cat.all': {
+    fr: 'Tout', en: 'All', lb: 'Alles', de: 'Alle', it: 'Tutto', pt: 'Tudo',
+  },
+  'directory.cat.assistant': {
+    fr: 'Assistants', en: 'Assistants', lb: 'Assistenten', de: 'Assistenten', it: 'Assistenti', pt: 'Assistentes',
+  },
+  'directory.cat.content': {
+    fr: 'Contenu', en: 'Content', lb: 'Inhalt', de: 'Inhalt', it: 'Contenuto', pt: 'Conteúdo',
+  },
+  'directory.cat.productivity': {
+    fr: 'Productivité', en: 'Productivity', lb: 'Produktivitéit', de: 'Produktivität', it: 'Produttività', pt: 'Produtividade',
+  },
+  'directory.cat.analytics': {
+    fr: 'Analyse', en: 'Analytics', lb: 'Analyse', de: 'Analyse', it: 'Analisi', pt: 'Análise',
+  },
+  'directory.cat.creative': {
+    fr: 'Création', en: 'Creative', lb: 'Kreativ', de: 'Kreativ', it: 'Creazione', pt: 'Criativo',
+  },
+  'directory.cat.dev': {
+    fr: 'Développement', en: 'Development', lb: 'Entwécklung', de: 'Entwicklung', it: 'Sviluppo', pt: 'Desenvolvimento',
   },
 }
 

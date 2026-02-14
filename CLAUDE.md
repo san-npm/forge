@@ -9,7 +9,6 @@ Forge (`forge-simulator`) is a multilingual (FR/EN/LB/DE/IT/PT) Next.js web appl
 - **Framework:** Next.js 14.2 (App Router)
 - **Language:** TypeScript 5.7 (strict mode)
 - **UI:** React 18, Tailwind CSS 3.4
-- **AI Agent:** Claude API via `@anthropic-ai/sdk`
 - **Blog:** MDX files parsed with `gray-matter`
 - **Build tooling:** PostCSS + Autoprefixer
 
@@ -22,16 +21,16 @@ src/
 │   ├── page.tsx                # Main entry — screen state machine & app orchestration
 │   ├── globals.css             # Tailwind directives + custom animations
 │   └── api/
-│       ├── chat/route.ts       # Claude API chatbot endpoint
 │       ├── contact/route.ts    # Contact form → data/contacts.json
 │       ├── newsletter/route.ts # Newsletter → data/newsletter.json
 │       └── blog/route.ts       # Serves blog posts from content/blog/
 ├── components/
-│   ├── Navbar.tsx              # Fixed nav bar with 6-language dropdown + blog link
+│   ├── Navbar.tsx              # Fixed nav bar with flag-based language selector
 │   ├── LandingPage.tsx         # Hero section, stats, trust badges
 │   ├── Quiz.tsx                # 6-question multi-step quiz
 │   ├── Results.tsx             # Eligible programs, project recs, newsletter subscription
-│   ├── AgentContact.tsx        # Claude-powered chat + contact form (saves to API)
+│   ├── AgentContact.tsx        # Contact form (saves to API)
+│   ├── Directory.tsx           # AI Agents directory with search & categories
 │   └── Blog.tsx                # Blog listing & article reader
 ├── context/
 │   └── LanguageContext.tsx      # React Context for i18n (6 languages, 100+ keys)
@@ -54,27 +53,19 @@ npm run lint     # ESLint via Next.js preset
 
 There is no test suite configured. No CI/CD pipeline exists.
 
-## Environment Variables
-
-Copy `.env.example` to `.env.local` and set:
-
-```
-ANTHROPIC_API_KEY=sk-ant-...   # Required for AI chat agent
-```
-
 ## Architecture
 
 ### Screen Flow
 
-The app is a single-page application with five screens managed by state in `src/app/page.tsx`:
+The app is a single-page application with six screens managed by state in `src/app/page.tsx`:
 
 ```
-Landing → Quiz (6 questions) → Results → Agent Contact
-                                              ↕
-                                            Blog
+Landing → Quiz (6 questions) → Results → Contact
+                                           ↕
+                                    Blog / Directory
 ```
 
-Screen transitions use `useState<'landing' | 'quiz' | 'results' | 'agent' | 'blog'>`. The Navbar provides navigation to Simulator (landing), Blog, and Contact (agent).
+Screen transitions use `useState<'landing' | 'quiz' | 'results' | 'agent' | 'blog' | 'directory'>`. The Navbar provides navigation to Simulator (landing), AI Agents Directory, Blog, and Contact.
 
 ### Internationalization
 
@@ -104,7 +95,6 @@ The quiz collects `QuizAnswers` with these fields:
 
 | Route | Method | Purpose |
 |-------|--------|---------|
-| `/api/chat` | POST | Sends user message + history to Claude API, returns response |
 | `/api/contact` | POST | Saves contact form data to `data/contacts.json` |
 | `/api/newsletter` | POST | Saves email to `data/newsletter.json` (deduplicates) |
 | `/api/blog` | GET | Returns all blog posts parsed from `content/blog/*.mdx` |

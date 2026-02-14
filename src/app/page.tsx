@@ -8,9 +8,10 @@ import Quiz from '@/components/Quiz'
 import Results from '@/components/Results'
 import AgentContact from '@/components/AgentContact'
 import Blog from '@/components/Blog'
+import Directory from '@/components/Directory'
 import { QuizAnswers, computeEligibility, Program, ProjectRecommendation } from '@/lib/eligibility'
 
-type Screen = 'landing' | 'quiz' | 'results' | 'agent' | 'blog'
+type Screen = 'landing' | 'quiz' | 'results' | 'agent' | 'blog' | 'directory'
 
 function SimulatorApp() {
   const [screen, setScreen] = useState<Screen>('landing')
@@ -54,6 +55,7 @@ function SimulatorApp() {
       )}
       {screen === 'agent' && <AgentContact />}
       {screen === 'blog' && <Blog onBack={() => navigateTo('landing')} />}
+      {screen === 'directory' && <Directory onBack={() => navigateTo('landing')} />}
     </>
   )
 }
