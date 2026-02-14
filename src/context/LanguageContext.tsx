@@ -318,24 +318,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Parler à un expert', en: 'Talk to an expert', lb: 'Mat engem Expert schwätzen', de: 'Mit einem Experten sprechen', it: 'Parlare con un esperto', pt: 'Falar com um especialista',
   },
 
-  // ─── Agent & Contact ───
-  'agent.title': {
-    fr: 'Agent IA — Posez vos questions', en: 'AI Agent — Ask your questions', lb: 'KI Agent — Stellt Är Froen', de: 'KI-Agent — Stellen Sie Ihre Fragen', it: 'Agente IA — Fate le vostre domande', pt: 'Agente IA — Faça as suas perguntas',
-  },
-  'agent.placeholder': {
-    fr: 'Posez votre question ici...', en: 'Ask your question here...', lb: 'Stellt Är Fro hei...', de: 'Stellen Sie Ihre Frage hier...', it: 'Fate la vostra domanda qui...', pt: 'Faça a sua pergunta aqui...',
-  },
-  'agent.welcome': {
-    fr: "Bonjour ! Je suis l'assistant IA de Forge. Posez-moi vos questions sur les programmes d'aides luxembourgeois, l'éligibilité, les démarches...",
-    en: "Hello! I'm the Forge AI assistant. Ask me about Luxembourg funding programs, eligibility, procedures...",
-    lb: "Moien! Ech sinn de Forge KI-Assistent. Frot mech iwwer lëtzebuerger Hëllefsprogrammer, Eligibilitéit, Demarchen...",
-    de: 'Hallo! Ich bin der Forge KI-Assistent. Fragen Sie mich zu luxemburgischen Förderprogrammen, Förderungsfähigkeit, Verfahren...',
-    it: "Ciao! Sono l'assistente IA di Forge. Chiedetemi dei programmi di finanziamento lussemburghesi, dell'ammissibilità, delle procedure...",
-    pt: 'Olá! Sou o assistente IA da Forge. Pergunte-me sobre programas de apoio luxemburgueses, elegibilidade, procedimentos...',
-  },
-  'agent.thinking': {
-    fr: 'Réflexion en cours...', en: 'Thinking...', lb: 'Denken...', de: 'Denke nach...', it: 'Sto pensando...', pt: 'A pensar...',
-  },
+  // ─── Contact ───
   'contact.title': {
     fr: 'Être rappelé par un expert', en: 'Get a callback from an expert', lb: 'Vun engem Expert zréckgeruff ginn', de: 'Rückruf von einem Experten', it: 'Essere richiamati da un esperto', pt: 'Ser contactado por um especialista',
   },
