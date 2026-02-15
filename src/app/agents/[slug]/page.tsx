@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation'
 import { getAgentBySlug, CATEGORIES, AGENT_VISUALS } from '@/lib/agents'
 import { useLanguage } from '@/context/LanguageContext'
 import Link from 'next/link'
+import AgentLogo from '@/components/AgentLogo'
 import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
 
@@ -107,13 +108,13 @@ export default function AgentDetailPage() {
   return (
     <>
       <PageNavbar />
-      <div className="min-h-screen pt-20 pb-16">
+      <div className="min-h-screen pt-20 pb-16 bg-gray-50">
         {/* Header */}
-        <div className="bg-gradient-to-br from-primary-50 via-white to-accent-50 pb-10">
+        <div className="bg-gradient-to-br from-primary-600 via-primary-500 to-accent-500 pb-10">
           <div className="max-w-5xl mx-auto px-4 pt-8">
             <Link
               href="/agents"
-              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors mb-8 group"
+              className="inline-flex items-center gap-2 text-sm text-primary-100 hover:text-white transition-colors mb-8 group"
             >
               <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -122,32 +123,31 @@ export default function AgentDetailPage() {
             </Link>
 
             <div className="animate-fade-in">
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 shadow-md"
-                  style={{ backgroundColor: (AGENT_VISUALS[slug]?.color || '#6B7280') + '20', color: AGENT_VISUALS[slug]?.color || '#6B7280' }}
-                >
-                  {AGENT_VISUALS[slug]?.icon || agent.name.charAt(0)}
+              <div className="flex flex-wrap items-center gap-4 mb-4">
+                <AgentLogo slug={slug} name={agent.name} size="lg" className="ring-2 ring-white/30" />
+                <div>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+                    {agent.name}
+                  </h1>
+                  <div className="flex flex-wrap items-center gap-2 mt-2">
+                    {category && (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium backdrop-blur-sm">
+                        {t(category.labelKey)}
+                      </span>
+                    )}
+                    {agent.free ? (
+                      <span className="px-3 py-1 text-sm font-medium bg-green-500/20 text-green-100 rounded-full backdrop-blur-sm">
+                        {t('directory.free')}
+                      </span>
+                    ) : (
+                      <span className="px-3 py-1 text-sm font-medium bg-amber-500/20 text-amber-100 rounded-full backdrop-blur-sm">
+                        {t('directory.paid')}
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
-                  {agent.name}
-                </h1>
-                {category && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium">
-                    {t(category.labelKey)}
-                  </span>
-                )}
-                {agent.free ? (
-                  <span className="px-3 py-1 text-sm font-medium bg-green-50 text-green-700 rounded-full">
-                    {t('directory.free')}
-                  </span>
-                ) : (
-                  <span className="px-3 py-1 text-sm font-medium bg-amber-50 text-amber-700 rounded-full">
-                    {t('directory.paid')}
-                  </span>
-                )}
               </div>
-              <p className="text-lg text-gray-500 max-w-3xl animate-slide-up">
+              <p className="text-lg text-primary-100 max-w-3xl animate-slide-up">
                 {agent.description[lang] || agent.description.fr}
               </p>
             </div>
@@ -155,11 +155,11 @@ export default function AgentDetailPage() {
         </div>
 
         {/* Info Grid */}
-        <div className="max-w-5xl mx-auto px-4 mt-10">
+        <div className="max-w-5xl mx-auto px-4 -mt-6">
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Left column: Long description + tags */}
             <div className="lg:col-span-2 animate-slide-up">
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8">
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-8">
                 <p className="text-gray-600 leading-relaxed whitespace-pre-line">
                   {agent.longDescription[lang] || agent.longDescription.fr}
                 </p>
@@ -167,7 +167,7 @@ export default function AgentDetailPage() {
                   {agent.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-sm bg-primary-50 text-primary-600 rounded-lg font-medium"
+                      className="px-3 py-1 text-sm bg-primary-50 text-primary-700 rounded-lg font-medium"
                     >
                       {tag}
                     </span>
@@ -178,7 +178,7 @@ export default function AgentDetailPage() {
 
             {/* Right column: Info card */}
             <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
                 <div className="space-y-5">
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">
@@ -214,7 +214,7 @@ export default function AgentDetailPage() {
 
         {/* EU Compliance Section */}
         <div className="max-w-5xl mx-auto px-4 mt-10">
-          <div className="bg-white rounded-2xl border-2 border-primary-100 shadow-sm p-6 sm:p-8 animate-slide-up" style={{ animationDelay: '0.15s' }}>
+          <div className="bg-white rounded-2xl border-2 border-primary-200 shadow-sm p-6 sm:p-8 animate-slide-up" style={{ animationDelay: '0.15s' }}>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-primary-50 rounded-xl flex items-center justify-center">
                 <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -228,7 +228,6 @@ export default function AgentDetailPage() {
 
             {/* Compliance indicators grid */}
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
-              {/* GDPR */}
               <div className={`rounded-xl border p-4 ${statusBgMap[gdprStatus.color]} ${statusBorderMap[gdprStatus.color]}`}>
                 <div className="flex items-center gap-2 mb-2">
                   {gdprStatus.icon}
@@ -239,7 +238,6 @@ export default function AgentDetailPage() {
                 </p>
               </div>
 
-              {/* EU AI Act */}
               <div className={`rounded-xl border p-4 ${statusBgMap[euAiActStatus.color]} ${statusBorderMap[euAiActStatus.color]}`}>
                 <div className="flex items-center gap-2 mb-2">
                   {euAiActStatus.icon}
@@ -250,7 +248,6 @@ export default function AgentDetailPage() {
                 </p>
               </div>
 
-              {/* EU Data Residency */}
               <div className={`rounded-xl border p-4 ${statusBgMap[dataResidencyStatus.color]} ${statusBorderMap[dataResidencyStatus.color]}`}>
                 <div className="flex items-center gap-2 mb-2">
                   {dataResidencyStatus.icon}
@@ -261,7 +258,6 @@ export default function AgentDetailPage() {
                 </p>
               </div>
 
-              {/* DPA Available */}
               <div className={`rounded-xl border p-4 ${statusBgMap[dpaStatus.color]} ${statusBorderMap[dpaStatus.color]}`}>
                 <div className="flex items-center gap-2 mb-2">
                   {dpaStatus.icon}
@@ -327,7 +323,7 @@ export default function AgentDetailPage() {
             href={agent.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-primary-600 to-accent-600 text-white rounded-xl text-sm font-semibold hover:from-primary-700 hover:to-accent-700 transition-all shadow-lg shadow-primary-500/25"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-primary-600 to-accent-500 text-white rounded-xl text-sm font-semibold hover:from-primary-700 hover:to-accent-600 transition-all shadow-lg shadow-primary-500/25"
           >
             {t('agent.visitSite')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
