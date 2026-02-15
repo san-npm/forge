@@ -6,11 +6,12 @@ import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
 
 const programs = [
-  { name: 'SME Package Digital', maxGrant: '5 000', coverage: 50 },
-  { name: 'SME Package AI', maxGrant: '17 500', coverage: 70 },
-  { name: 'Fit 4 Digital', maxGrant: '12 000', coverage: 60 },
-  { name: 'Fit 4 AI', maxGrant: '25 000', coverage: 70 },
-  { name: 'Fit 4 Innovation', maxGrant: '15 000', coverage: 50 },
+  { name: 'SME Packages — Digital', maxGrant: '17 500', coverage: 70 },
+  { name: 'SME Packages — IA / AI', maxGrant: '17 500', coverage: 70 },
+  { name: 'SME Packages — Cybersécurité', maxGrant: '17 500', coverage: 70 },
+  { name: 'Fit 4 Digital', maxGrant: '5 000', coverage: 100, note: 'Phase 1' },
+  { name: 'Fit 4 AI', maxGrant: '25 000', coverage: 50 },
+  { name: 'Fit 4 Innovation', maxGrant: '7 500', coverage: 50 },
 ]
 
 export default function AboutPage() {
@@ -98,6 +99,11 @@ export default function AboutPage() {
                       <span className="text-2xl font-bold text-primary-600">
                         {program.maxGrant} &euro;
                       </span>
+                      {'note' in program && (
+                        <span className="ml-1.5 text-xs text-gray-400 font-medium">
+                          ({(program as { note: string }).note})
+                        </span>
+                      )}
                     </div>
                     <div className="px-2.5 py-1 bg-green-50 text-green-700 rounded-lg text-sm font-semibold">
                       {program.coverage}%

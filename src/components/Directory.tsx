@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
-import { AGENTS, CATEGORIES } from '@/lib/agents'
+import { AGENTS, CATEGORIES, AGENT_VISUALS } from '@/lib/agents'
 
 const categoryIcons: Record<string, React.ReactNode> = {
   Grid: (
@@ -138,11 +138,19 @@ export default function Directory({ onBack }: DirectoryProps) {
                   style={{ animationDelay: `${index * 0.03}s` }}
                 >
                   <div className="p-6">
-                    {/* Top row: name + badges */}
+                    {/* Top row: icon + name + badges */}
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-lg font-bold text-gray-900 group-hover:text-primary-700 transition-colors">
-                        {agent.name}
-                      </h3>
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0 shadow-sm"
+                          style={{ backgroundColor: (AGENT_VISUALS[agent.slug]?.color || '#6B7280') + '18', color: AGENT_VISUALS[agent.slug]?.color || '#6B7280' }}
+                        >
+                          {AGENT_VISUALS[agent.slug]?.icon || agent.name.charAt(0)}
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-primary-700 transition-colors">
+                          {agent.name}
+                        </h3>
+                      </div>
                       <div className="flex items-center gap-2">
                         {/* GDPR indicator */}
                         <span title={gdpr === true ? 'GDPR' : gdpr === 'partial' ? 'GDPR (partial)' : 'No GDPR'}>
