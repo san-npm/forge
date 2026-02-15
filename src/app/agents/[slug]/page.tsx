@@ -1,7 +1,7 @@
 'use client'
 
 import { useParams } from 'next/navigation'
-import { getAgentBySlug, CATEGORIES } from '@/lib/agents'
+import { getAgentBySlug, CATEGORIES, AGENT_VISUALS } from '@/lib/agents'
 import { useLanguage } from '@/context/LanguageContext'
 import Link from 'next/link'
 import PageNavbar from '@/components/PageNavbar'
@@ -123,6 +123,12 @@ export default function AgentDetailPage() {
 
             <div className="animate-fade-in">
               <div className="flex flex-wrap items-center gap-3 mb-4">
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 shadow-md"
+                  style={{ backgroundColor: (AGENT_VISUALS[slug]?.color || '#6B7280') + '20', color: AGENT_VISUALS[slug]?.color || '#6B7280' }}
+                >
+                  {AGENT_VISUALS[slug]?.icon || agent.name.charAt(0)}
+                </div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
                   {agent.name}
                 </h1>
