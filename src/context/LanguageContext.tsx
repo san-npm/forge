@@ -452,6 +452,261 @@ const translations: Record<string, Record<Language, string>> = {
   'directory.cat.dev': {
     fr: 'Développement', en: 'Development', lb: 'Entwécklung', de: 'Entwicklung', it: 'Sviluppo', pt: 'Desenvolvimento',
   },
+
+  // ─── Footer ───
+  'footer.description': {
+    fr: 'Simulateur d\'aides luxembourgeoises pour la transformation digitale et l\'innovation IA des PME.',
+    en: 'Luxembourg grants simulator for SME digital transformation and AI innovation.',
+    lb: 'Lëtzebuerger Hëllefe-Simulator fir digital Transformatioun an KI-Innovatioun vu KMU.',
+    de: 'Luxemburger Fördersimulator für digitale Transformation und KI-Innovation von KMU.',
+    it: 'Simulatore di sovvenzioni lussemburghesi per la trasformazione digitale e l\'innovazione IA delle PMI.',
+    pt: 'Simulador de apoios luxemburgueses para a transformação digital e inovação IA das PME.',
+  },
+  'footer.nav': {
+    fr: 'Navigation', en: 'Navigation', lb: 'Navigatioun', de: 'Navigation', it: 'Navigazione', pt: 'Navegação',
+  },
+  'footer.simulator': {
+    fr: 'Simulateur', en: 'Simulator', lb: 'Simulator', de: 'Simulator', it: 'Simulatore', pt: 'Simulador',
+  },
+  'footer.agents': {
+    fr: 'Agents IA', en: 'AI Agents', lb: 'KI Agenten', de: 'KI-Agenten', it: 'Agenti IA', pt: 'Agentes IA',
+  },
+  'footer.about': {
+    fr: 'À propos', en: 'About', lb: 'Iwwer eis', de: 'Über uns', it: 'Chi siamo', pt: 'Sobre nós',
+  },
+  'footer.pricing': {
+    fr: 'Tarifs', en: 'Pricing', lb: 'Präisser', de: 'Preise', it: 'Prezzi', pt: 'Preços',
+  },
+  'footer.legal': {
+    fr: 'Légal', en: 'Legal', lb: 'Rechtleches', de: 'Rechtliches', it: 'Legale', pt: 'Legal',
+  },
+  'footer.privacy': {
+    fr: 'Confidentialité', en: 'Privacy', lb: 'Dateschutz', de: 'Datenschutz', it: 'Privacy', pt: 'Privacidade',
+  },
+  'footer.terms': {
+    fr: 'Conditions', en: 'Terms', lb: 'Konditiounen', de: 'Nutzungsbedingungen', it: 'Termini', pt: 'Termos',
+  },
+  'footer.contact': {
+    fr: 'Contact', en: 'Contact', lb: 'Kontakt', de: 'Kontakt', it: 'Contatto', pt: 'Contacto',
+  },
+  'footer.rights': {
+    fr: '© 2025 Forge. Tous droits réservés.', en: '© 2025 Forge. All rights reserved.', lb: '© 2025 Forge. All Rechter reservéiert.', de: '© 2025 Forge. Alle Rechte vorbehalten.', it: '© 2025 Forge. Tutti i diritti riservati.', pt: '© 2025 Forge. Todos os direitos reservados.',
+  },
+
+  // ─── PageNavbar ───
+  'nav.about': {
+    fr: 'À propos', en: 'About', lb: 'Iwwer eis', de: 'Über uns', it: 'Chi siamo', pt: 'Sobre',
+  },
+  'nav.pricing': {
+    fr: 'Tarifs', en: 'Pricing', lb: 'Präisser', de: 'Preise', it: 'Prezzi', pt: 'Preços',
+  },
+
+  // ─── Agent Detail Page ───
+  'agent.backToDirectory': {
+    fr: 'Retour à l\'annuaire', en: 'Back to directory', lb: 'Zréck zum Verzeichnis', de: 'Zurück zum Verzeichnis', it: 'Torna alla directory', pt: 'Voltar ao diretório',
+  },
+  'agent.visitSite': {
+    fr: 'Visiter le site', en: 'Visit website', lb: 'Websäit besichen', de: 'Website besuchen', it: 'Visita il sito', pt: 'Visitar o site',
+  },
+  'agent.vendor': {
+    fr: 'Éditeur', en: 'Vendor', lb: 'Ubidder', de: 'Anbieter', it: 'Fornitore', pt: 'Fornecedor',
+  },
+  'agent.founded': {
+    fr: 'Fondé en', en: 'Founded', lb: 'Gegrënnt', de: 'Gegründet', it: 'Fondato', pt: 'Fundado em',
+  },
+  'agent.headquarters': {
+    fr: 'Siège social', en: 'Headquarters', lb: 'Haaptsëtz', de: 'Hauptsitz', it: 'Sede', pt: 'Sede',
+  },
+  'agent.pricing': {
+    fr: 'Tarifs', en: 'Pricing', lb: 'Präisser', de: 'Preise', it: 'Prezzi', pt: 'Preços',
+  },
+  'agent.euCompliance': {
+    fr: 'Conformité UE', en: 'EU Compliance', lb: 'EU-Konformitéit', de: 'EU-Konformität', it: 'Conformità UE', pt: 'Conformidade UE',
+  },
+  'agent.gdpr': {
+    fr: 'RGPD', en: 'GDPR', lb: 'RGPD', de: 'DSGVO', it: 'GDPR', pt: 'RGPD',
+  },
+  'agent.euAiAct': {
+    fr: 'EU AI Act', en: 'EU AI Act', lb: 'EU AI Act', de: 'EU AI Act', it: 'EU AI Act', pt: 'EU AI Act',
+  },
+  'agent.dataResidency': {
+    fr: 'Résidence de données UE', en: 'EU Data Residency', lb: 'EU-Datenresidenz', de: 'EU-Datenresidenz', it: 'Residenza dati UE', pt: 'Residência de dados UE',
+  },
+  'agent.dpa': {
+    fr: 'DPA disponible', en: 'DPA Available', lb: 'DPA verfügbar', de: 'AVV verfügbar', it: 'DPA disponibile', pt: 'DPA disponível',
+  },
+  'agent.certifications': {
+    fr: 'Certifications', en: 'Certifications', lb: 'Zertifizéierungen', de: 'Zertifizierungen', it: 'Certificazioni', pt: 'Certificações',
+  },
+  'agent.dataLocation': {
+    fr: 'Localisation des données', en: 'Data Location', lb: 'Datenstanduert', de: 'Datenstandort', it: 'Localizzazione dati', pt: 'Localização dos dados',
+  },
+  'agent.complianceNote': {
+    fr: 'Note de conformité', en: 'Compliance Note', lb: 'Konformitéitsnotiz', de: 'Konformitätshinweis', it: 'Nota di conformità', pt: 'Nota de conformidade',
+  },
+  'agent.yes': {
+    fr: 'Oui', en: 'Yes', lb: 'Jo', de: 'Ja', it: 'Sì', pt: 'Sim',
+  },
+  'agent.no': {
+    fr: 'Non', en: 'No', lb: 'Nee', de: 'Nein', it: 'No', pt: 'Não',
+  },
+  'agent.partial': {
+    fr: 'Partiel', en: 'Partial', lb: 'Deelweis', de: 'Teilweise', it: 'Parziale', pt: 'Parcial',
+  },
+  'agent.noCertifications': {
+    fr: 'Aucune certification connue', en: 'No known certifications', lb: 'Keng bekannt Zertifizéierungen', de: 'Keine bekannten Zertifizierungen', it: 'Nessuna certificazione nota', pt: 'Nenhuma certificação conhecida',
+  },
+
+  // ─── About Page ───
+  'about.title': {
+    fr: 'À propos de Forge', en: 'About Forge', lb: 'Iwwer Forge', de: 'Über Forge', it: 'Chi è Forge', pt: 'Sobre o Forge',
+  },
+  'about.mission.title': {
+    fr: 'Notre mission', en: 'Our Mission', lb: 'Eis Missioun', de: 'Unsere Mission', it: 'La nostra missione', pt: 'A nossa missão',
+  },
+  'about.mission.text': {
+    fr: 'Forge aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 2 minutes les programmes de subventions auxquels vous êtes éligible.',
+    en: 'Forge helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 2 minutes the grant programs you are eligible for.',
+    lb: 'Forge hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 2 Minutten déi Subventioune fir déi Dir eligibel sidd.',
+    de: 'Forge hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 2 Minuten die Förderprogramme, für die Sie berechtigt sind.',
+    it: 'Forge aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 2 minuti i programmi di sovvenzione per i quali siete ammissibili.',
+    pt: 'O Forge ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 2 minutos os programas de subsídios aos quais é elegível.',
+  },
+  'about.why.title': {
+    fr: 'Pourquoi Forge ?', en: 'Why Forge?', lb: 'Firwat Forge?', de: 'Warum Forge?', it: 'Perché Forge?', pt: 'Porquê Forge?',
+  },
+  'about.why.text': {
+    fr: 'Le Luxembourg offre des programmes de financement parmi les plus généreux d\'Europe pour la digitalisation des PME, mais beaucoup d\'entreprises ne connaissent pas ces aides ou trouvent les démarches complexes. Forge simplifie ce processus.',
+    en: 'Luxembourg offers some of Europe\'s most generous funding programs for SME digitalization, but many companies are unaware of these grants or find the process complex. Forge simplifies this process.',
+    lb: 'Lëtzebuerg bitt ee vun de generéisten Förderprogrammer an Europa fir d\'Digitaliséierung vu KMU, awer vill Firmen kennen dës Hëllefe net oder fannen de Prozess komplex. Forge vereinfacht dëse Prozess.',
+    de: 'Luxemburg bietet einige der großzügigsten Förderprogramme Europas für die Digitalisierung von KMU, aber viele Unternehmen kennen diese Förderungen nicht oder finden den Prozess komplex. Forge vereinfacht diesen Prozess.',
+    it: 'Il Lussemburgo offre alcuni dei programmi di finanziamento più generosi d\'Europa per la digitalizzazione delle PMI, ma molte aziende non conoscono questi aiuti o trovano il processo complesso. Forge semplifica questo processo.',
+    pt: 'O Luxemburgo oferece alguns dos programas de financiamento mais generosos da Europa para a digitalização das PME, mas muitas empresas desconhecem estes apoios ou consideram o processo complexo. O Forge simplifica este processo.',
+  },
+  'about.programs.title': {
+    fr: '5 programmes référencés', en: '5 referenced programs', lb: '5 referenzéiert Programmer', de: '5 referenzierte Programme', it: '5 programmi referenziati', pt: '5 programas referenciados',
+  },
+  'about.programs.text': {
+    fr: 'Nous analysons votre éligibilité pour les 5 principaux programmes luxembourgeois : SME Package Digital, SME Package IA, Fit 4 Digital, Fit 4 AI et Fit 4 Innovation. Jusqu\'à 25 000 € de subvention et 70 % de couverture.',
+    en: 'We analyze your eligibility for the 5 main Luxembourg programs: SME Package Digital, SME Package AI, Fit 4 Digital, Fit 4 AI and Fit 4 Innovation. Up to €25,000 in grants and 70% coverage.',
+    lb: 'Mir analyséieren Är Eligibilitéit fir déi 5 Haaptprogrammer: SME Package Digital, SME Package IA, Fit 4 Digital, Fit 4 AI a Fit 4 Innovation. Bis zu 25.000 € Subventioun an 70 % Deckung.',
+    de: 'Wir analysieren Ihre Berechtigung für die 5 Hauptprogramme: SME Package Digital, SME Package AI, Fit 4 Digital, Fit 4 AI und Fit 4 Innovation. Bis zu 25.000 € Förderung und 70 % Abdeckung.',
+    it: 'Analizziamo la vostra ammissibilità per i 5 principali programmi: SME Package Digital, SME Package IA, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Fino a 25.000 € di sovvenzione e 70 % di copertura.',
+    pt: 'Analisamos a sua elegibilidade para os 5 principais programas: SME Package Digital, SME Package IA, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Até 25.000 € de subsídio e 70 % de cobertura.',
+  },
+  'about.cta': {
+    fr: 'Simuler mes aides', en: 'Simulate my funding', lb: 'Meng Hëllefen simuléieren', de: 'Meine Förderung simulieren', it: 'Simula i miei finanziamenti', pt: 'Simular os meus apoios',
+  },
+
+  // ─── Pricing Page ───
+  'pricing.title': {
+    fr: 'Tarifs', en: 'Pricing', lb: 'Präisser', de: 'Preise', it: 'Prezzi', pt: 'Preços',
+  },
+  'pricing.subtitle': {
+    fr: 'Le simulateur est gratuit. Pour aller plus loin, nous proposons un accompagnement personnalisé.',
+    en: 'The simulator is free. To go further, we offer personalized support.',
+    lb: 'De Simulator ass gratis. Fir weider ze goen, bidde mir personaliséiert Begleedung.',
+    de: 'Der Simulator ist kostenlos. Für weitergehende Unterstützung bieten wir individuelle Begleitung.',
+    it: 'Il simulatore è gratuito. Per andare oltre, offriamo supporto personalizzato.',
+    pt: 'O simulador é gratuito. Para ir mais longe, oferecemos acompanhamento personalizado.',
+  },
+  'pricing.free.title': {
+    fr: 'Simulateur', en: 'Simulator', lb: 'Simulator', de: 'Simulator', it: 'Simulatore', pt: 'Simulador',
+  },
+  'pricing.free.price': {
+    fr: 'Gratuit', en: 'Free', lb: 'Gratis', de: 'Kostenlos', it: 'Gratuito', pt: 'Gratuito',
+  },
+  'pricing.free.f1': {
+    fr: 'Simulation d\'éligibilité en 2 min', en: 'Eligibility simulation in 2 min', lb: 'Eligibilitéitssimulatioun an 2 Min', de: 'Förderfähigkeitssimulation in 2 Min', it: 'Simulazione ammissibilità in 2 min', pt: 'Simulação de elegibilidade em 2 min',
+  },
+  'pricing.free.f2': {
+    fr: '5 programmes analysés', en: '5 programs analyzed', lb: '5 Programmer analyséiert', de: '5 Programme analysiert', it: '5 programmi analizzati', pt: '5 programas analisados',
+  },
+  'pricing.free.f3': {
+    fr: 'Recommandations de projets', en: 'Project recommendations', lb: 'Projetsempfehlungen', de: 'Projektempfehlungen', it: 'Raccomandazioni di progetti', pt: 'Recomendações de projetos',
+  },
+  'pricing.free.f4': {
+    fr: 'Estimation des coûts et aides', en: 'Cost and grant estimates', lb: 'Käschten- a Hëllefeschätzungen', de: 'Kosten- und Förderschätzungen', it: 'Stima costi e sovvenzioni', pt: 'Estimativa de custos e apoios',
+  },
+  'pricing.starter.title': {
+    fr: 'Accompagnement', en: 'Support', lb: 'Begleedung', de: 'Begleitung', it: 'Accompagnamento', pt: 'Acompanhamento',
+  },
+  'pricing.starter.price': {
+    fr: '490 €', en: '€490', lb: '490 €', de: '490 €', it: '490 €', pt: '490 €',
+  },
+  'pricing.starter.f1': {
+    fr: 'Diagnostic digital complet', en: 'Complete digital assessment', lb: 'Komplett digital Diagnose', de: 'Vollständige digitale Diagnose', it: 'Diagnosi digitale completa', pt: 'Diagnóstico digital completo',
+  },
+  'pricing.starter.f2': {
+    fr: 'Montage du dossier de subvention', en: 'Grant application support', lb: 'Subventiounsdossier-Montage', de: 'Förderantrag-Erstellung', it: 'Preparazione domanda sovvenzione', pt: 'Montagem do processo de subsídio',
+  },
+  'pricing.starter.f3': {
+    fr: 'Suivi avec Luxinnovation', en: 'Follow-up with Luxinnovation', lb: 'Suivi mat Luxinnovation', de: 'Begleitung bei Luxinnovation', it: 'Seguito con Luxinnovation', pt: 'Seguimento com a Luxinnovation',
+  },
+  'pricing.starter.f4': {
+    fr: 'Rapport détaillé PDF', en: 'Detailed PDF report', lb: 'Detailléierte PDF-Rapport', de: 'Detaillierter PDF-Bericht', it: 'Rapporto dettagliato PDF', pt: 'Relatório detalhado PDF',
+  },
+  'pricing.pro.title': {
+    fr: 'Implémentation', en: 'Implementation', lb: 'Implementatioun', de: 'Implementierung', it: 'Implementazione', pt: 'Implementação',
+  },
+  'pricing.pro.price': {
+    fr: 'Sur devis', en: 'Custom quote', lb: 'Op Ufro', de: 'Auf Anfrage', it: 'Su richiesta', pt: 'Sob consulta',
+  },
+  'pricing.pro.f1': {
+    fr: 'Tout de l\'accompagnement', en: 'Everything in Support', lb: 'Alles vun der Begleedung', de: 'Alles aus Begleitung', it: 'Tutto dell\'accompagnamento', pt: 'Tudo do acompanhamento',
+  },
+  'pricing.pro.f2': {
+    fr: 'Implémentation technique complète', en: 'Full technical implementation', lb: 'Komplett technesch Implementatioun', de: 'Vollständige technische Implementierung', it: 'Implementazione tecnica completa', pt: 'Implementação técnica completa',
+  },
+  'pricing.pro.f3': {
+    fr: 'Sélection et déploiement d\'outils IA', en: 'AI tool selection and deployment', lb: 'KI-Tool Auswiel an Deployment', de: 'KI-Tool-Auswahl und -Bereitstellung', it: 'Selezione e deployment strumenti IA', pt: 'Seleção e implementação de ferramentas IA',
+  },
+  'pricing.pro.f4': {
+    fr: 'Formation de votre équipe', en: 'Team training', lb: 'Formatioun vun Ärem Team', de: 'Schulung Ihres Teams', it: 'Formazione del team', pt: 'Formação da equipa',
+  },
+  'pricing.cta.free': {
+    fr: 'Commencer gratuitement', en: 'Start for free', lb: 'Gratis ufänken', de: 'Kostenlos starten', it: 'Inizia gratis', pt: 'Começar gratuitamente',
+  },
+  'pricing.cta.contact': {
+    fr: 'Nous contacter', en: 'Contact us', lb: 'Kontaktéiert eis', de: 'Kontaktieren Sie uns', it: 'Contattaci', pt: 'Contacte-nos',
+  },
+  'pricing.recommended': {
+    fr: 'Recommandé', en: 'Recommended', lb: 'Empfohlen', de: 'Empfohlen', it: 'Consigliato', pt: 'Recomendado',
+  },
+  'pricing.perProject': {
+    fr: 'par projet', en: 'per project', lb: 'pro Projet', de: 'pro Projekt', it: 'per progetto', pt: 'por projeto',
+  },
+  'pricing.agents.title': {
+    fr: 'Tarifs des outils IA', en: 'AI Tools Pricing', lb: 'KI-Tools Präisser', de: 'KI-Tools Preise', it: 'Prezzi strumenti IA', pt: 'Preços ferramentas IA',
+  },
+  'pricing.agents.subtitle': {
+    fr: 'Comparez les prix des principaux outils IA pour votre entreprise.', en: 'Compare prices of the main AI tools for your business.', lb: 'Vergläicht d\'Präisser vun den Haapt-KI-Tools fir Äert Geschäft.', de: 'Vergleichen Sie die Preise der wichtigsten KI-Tools für Ihr Unternehmen.', it: 'Confronta i prezzi dei principali strumenti IA per la tua azienda.', pt: 'Compare os preços das principais ferramentas IA para a sua empresa.',
+  },
+
+  // ─── Privacy & Terms ───
+  'privacy.title': {
+    fr: 'Politique de confidentialité', en: 'Privacy Policy', lb: 'Dateschutzpolitik', de: 'Datenschutzrichtlinie', it: 'Politica sulla privacy', pt: 'Política de privacidade',
+  },
+  'privacy.lastUpdated': {
+    fr: 'Dernière mise à jour', en: 'Last updated', lb: 'Lescht Aktualiséierung', de: 'Zuletzt aktualisiert', it: 'Ultimo aggiornamento', pt: 'Última atualização',
+  },
+  'terms.title': {
+    fr: 'Conditions d\'utilisation', en: 'Terms of Service', lb: 'Notzungsbedingungen', de: 'Nutzungsbedingungen', it: 'Termini di servizio', pt: 'Termos de serviço',
+  },
+  'terms.lastUpdated': {
+    fr: 'Dernière mise à jour', en: 'Last updated', lb: 'Lescht Aktualiséierung', de: 'Zuletzt aktualisiert', it: 'Ultimo aggiornamento', pt: 'Última atualização',
+  },
+
+  // ─── Report / PDF ───
+  'results.downloadPdf': {
+    fr: 'Télécharger le rapport PDF', en: 'Download PDF report', lb: 'PDF-Rapport eroflueden', de: 'PDF-Bericht herunterladen', it: 'Scarica rapporto PDF', pt: 'Descarregar relatório PDF',
+  },
+  'report.title': {
+    fr: 'Rapport d\'éligibilité — Forge', en: 'Eligibility Report — Forge', lb: 'Eligibilitéitsrapport — Forge', de: 'Förderfähigkeitsbericht — Forge', it: 'Rapporto di ammissibilità — Forge', pt: 'Relatório de elegibilidade — Forge',
+  },
+  'report.generatedOn': {
+    fr: 'Généré le', en: 'Generated on', lb: 'Generéiert den', de: 'Erstellt am', it: 'Generato il', pt: 'Gerado em',
+  },
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
