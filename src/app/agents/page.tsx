@@ -1,8 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useLanguage } from '@/context/LanguageContext'
 import { AGENTS, CATEGORIES } from '@/lib/agents'
+import PageNavbar from '@/components/PageNavbar'
+import Footer from '@/components/Footer'
 
 const categoryIcons: Record<string, React.ReactNode> = {
   Grid: (
@@ -42,18 +45,45 @@ const categoryIcons: Record<string, React.ReactNode> = {
   ),
 }
 
-interface DirectoryProps {
-  onBack: () => void
+function GdprShield({ status }: { status: boolean | 'partial' }) {
+  if (status === true) {
+    return (
+      <span title="GDPR Compliant">
+        <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zm3.707 5.763a1 1 0 00-1.414-1.414L9 9.586 7.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+        </svg>
+      </span>
+    )
+  }
+
+  if (status === 'partial') {
+    return (
+      <span title="Partial GDPR Compliance">
+        <svg className="w-4 h-4 text-amber-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm-1-3a1 1 0 01-1-1V7a1 1 0 112 0v3a1 1 0 01-1 1z" clipRule="evenodd" />
+        </svg>
+      </span>
+    )
+  }
+
+  return (
+    <span title="Not GDPR Compliant">
+      <svg className="w-4 h-4 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM13.707 8.293a1 1 0 010 1.414L11.414 12l2.293 2.293a1 1 0 01-1.414 1.414L10 13.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 12 6.293 9.707a1 1 0 011.414-1.414L10 10.586l2.293-2.293a1 1 0 011.414 0z" clipRule="evenodd" />
+      </svg>
+    </span>
+  )
 }
 
-export default function Directory({ onBack }: DirectoryProps) {
+export default function AgentsPage() {
   const { lang, t } = useLanguage()
   const [activeCategory, setActiveCategory] = useState('all')
   const [search, setSearch] = useState('')
 
   const filtered = AGENTS.filter((agent) => {
     const matchesCategory = activeCategory === 'all' || agent.category === activeCategory
-    const matchesSearch = search === '' ||
+    const matchesSearch =
+      search === '' ||
       agent.name.toLowerCase().includes(search.toLowerCase()) ||
       agent.description[lang].toLowerCase().includes(search.toLowerCase()) ||
       agent.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()))
@@ -61,20 +91,12 @@ export default function Directory({ onBack }: DirectoryProps) {
   })
 
   return (
-    <div className="min-h-screen pt-20 pb-16">
-      {/* Header */}
-      <div className="bg-gradient-to-br from-primary-50 via-white to-accent-50 pb-8">
-        <div className="max-w-6xl mx-auto px-4 pt-8">
-          <button
-            onClick={onBack}
-            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors mb-8 group"
-          >
-            <svg className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            {t('directory.backToHome')}
-          </button>
+    <div className="min-h-screen flex flex-col">
+      <PageNavbar />
 
+      {/* Header */}
+      <div className="bg-gradient-to-br from-primary-50 via-white to-accent-50 pt-24 pb-8">
+        <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 animate-fade-in">
             {t('directory.title')}
           </h1>
@@ -98,7 +120,8 @@ export default function Directory({ onBack }: DirectoryProps) {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 mt-6">
+      {/* Main content */}
+      <div className="flex-1 max-w-6xl mx-auto px-4 w-full mt-6 pb-16">
         {/* Category filter */}
         <div className="flex flex-wrap gap-2 mb-8">
           {CATEGORIES.map((cat) => (
@@ -129,27 +152,21 @@ export default function Directory({ onBack }: DirectoryProps) {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((agent, index) => {
               const cat = CATEGORIES.find((c) => c.id === agent.category)
-              const gdpr = agent.euCompliance.gdprCompliant
               return (
-                <a
+                <Link
                   key={agent.slug}
                   href={`/agents/${agent.slug}`}
                   className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary-200 transition-all overflow-hidden animate-slide-up"
                   style={{ animationDelay: `${index * 0.03}s` }}
                 >
                   <div className="p-6">
-                    {/* Top row: name + badges */}
+                    {/* Top row: name + free/paid badge + GDPR shield */}
                     <div className="flex items-start justify-between mb-3">
                       <h3 className="text-lg font-bold text-gray-900 group-hover:text-primary-700 transition-colors">
                         {agent.name}
                       </h3>
-                      <div className="flex items-center gap-2">
-                        {/* GDPR indicator */}
-                        <span title={gdpr === true ? 'GDPR' : gdpr === 'partial' ? 'GDPR (partial)' : 'No GDPR'}>
-                          <svg className={`w-4 h-4 ${gdpr === true ? 'text-green-500' : gdpr === 'partial' ? 'text-amber-500' : 'text-red-400'}`} fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM10 18c-3.866-1.4-6.766-5.086-7-9.598A9.96 9.96 0 0110 4.06a9.96 9.96 0 017 4.342c-.234 4.512-3.134 8.199-7 9.598z" clipRule="evenodd" />
-                          </svg>
-                        </span>
+                      <div className="flex items-center gap-1.5 flex-shrink-0 ml-2">
+                        <GdprShield status={agent.euCompliance.gdprCompliant} />
                         {agent.free ? (
                           <span className="px-2 py-0.5 text-xs font-medium bg-green-50 text-green-700 rounded-full">
                             {t('directory.free')}
@@ -192,12 +209,14 @@ export default function Directory({ onBack }: DirectoryProps) {
                       </svg>
                     </div>
                   </div>
-                </a>
+                </Link>
               )
             })}
           </div>
         )}
       </div>
+
+      <Footer />
     </div>
   )
 }
