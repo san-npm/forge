@@ -40,7 +40,7 @@ export default function PageNavbar() {
             <Link href="/agents" className="hover:text-navy-900 transition-colors">
               {t('nav.directory')}
             </Link>
-            <Link href="/agents#contact" className="hover:text-navy-900 transition-colors">
+            <Link href="/contact" className="hover:text-navy-900 transition-colors">
               {t('nav.contact')}
             </Link>
           </div>
@@ -116,7 +116,7 @@ export default function PageNavbar() {
               {t('nav.directory')}
             </Link>
             <Link
-              href="/agents#contact"
+              href="/contact"
               onClick={() => setMenuOpen(false)}
               className="block w-full text-left px-3 py-2.5 text-sm text-navy-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
             >
