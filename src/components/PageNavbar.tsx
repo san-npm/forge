@@ -46,11 +46,11 @@ export default function PageNavbar() {
             <Link href="/pricing" className="hover:text-primary-600 transition-colors">
               {t('nav.pricing')}
             </Link>
-            <Link href="/privacy" className="hover:text-primary-600 transition-colors">
-              {t('footer.privacy')}
+            <Link href="/blog" className="hover:text-primary-600 transition-colors">
+              {t('nav.blog')}
             </Link>
-            <Link href="/terms" className="hover:text-primary-600 transition-colors">
-              {t('footer.terms')}
+            <Link href="/agents#contact" className="hover:text-primary-600 transition-colors">
+              {t('nav.contact')}
             </Link>
           </div>
 
@@ -138,20 +138,19 @@ export default function PageNavbar() {
             >
               {t('nav.pricing')}
             </Link>
-            <div className="border-t border-gray-100 my-1" />
             <Link
-              href="/privacy"
+              href="/blog"
               onClick={() => setMenuOpen(false)}
-              className="block w-full text-left px-3 py-2.5 text-sm text-gray-500 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
+              className="block w-full text-left px-3 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
             >
-              {t('footer.privacy')}
+              {t('nav.blog')}
             </Link>
             <Link
-              href="/terms"
+              href="/agents#contact"
               onClick={() => setMenuOpen(false)}
-              className="block w-full text-left px-3 py-2.5 text-sm text-gray-500 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
+              className="block w-full text-left px-3 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
             >
-              {t('footer.terms')}
+              {t('nav.contact')}
             </Link>
           </div>
         </div>
