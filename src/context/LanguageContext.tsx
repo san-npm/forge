@@ -63,7 +63,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: "jusqu'à de subvention", en: 'up to in grants', lb: 'bis zu u Subventiounen', de: 'bis zu an Zuschüssen', it: 'fino a in sovvenzioni', pt: 'até em subsídios',
   },
   'hero.stat3.value': {
-    fr: '5', en: '5', lb: '5', de: '5', it: '5', pt: '5',
+    fr: '6', en: '6', lb: '6', de: '6', it: '6', pt: '6',
   },
   'hero.stat3.label': {
     fr: 'programmes disponibles', en: 'programs available', lb: 'Programmer disponibel', de: 'Programme verfügbar', it: 'programmi disponibili', pt: 'programas disponíveis',
@@ -243,6 +243,72 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'q6.o3': {
     fr: 'Oui, régulièrement', en: 'Yes, regularly', lb: 'Jo, reegelméisseg', de: 'Ja, regelmäßig', it: 'Sì, regolarmente', pt: 'Sim, regularmente',
+  },
+
+  // ─── Question 7 — Annual revenue ───
+  'q7.title': {
+    fr: 'Quel est le chiffre d\'affaires annuel de votre entreprise ?',
+    en: 'What is your company\'s annual revenue?',
+    lb: 'Wéi héich ass den Joresëmsaz vun Ärem Unternehmen?',
+    de: 'Wie hoch ist der Jahresumsatz Ihres Unternehmens?',
+    it: 'Qual è il fatturato annuo della vostra azienda?',
+    pt: 'Qual é a faturação anual da sua empresa?',
+  },
+  'q7.o1': {
+    fr: 'Moins de 100 000 €', en: 'Under €100,000', lb: 'Manner wéi 100.000 €', de: 'Unter 100.000 €', it: 'Meno di 100.000 €', pt: 'Menos de 100.000 €',
+  },
+  'q7.o2': {
+    fr: '100 000 € – 500 000 €', en: '€100,000 – €500,000', lb: '100.000 € – 500.000 €', de: '100.000 € – 500.000 €', it: '100.000 € – 500.000 €', pt: '100.000 € – 500.000 €',
+  },
+  'q7.o3': {
+    fr: '500 000 € – 2 000 000 €', en: '€500,000 – €2,000,000', lb: '500.000 € – 2.000.000 €', de: '500.000 € – 2.000.000 €', it: '500.000 € – 2.000.000 €', pt: '500.000 € – 2.000.000 €',
+  },
+  'q7.o4': {
+    fr: 'Plus de 2 000 000 €', en: 'Over €2,000,000', lb: 'Méi wéi 2.000.000 €', de: 'Über 2.000.000 €', it: 'Più di 2.000.000 €', pt: 'Mais de 2.000.000 €',
+  },
+
+  // ─── Question 8 — Project budget ───
+  'q8.title': {
+    fr: 'Quel budget envisagez-vous pour votre projet digital / IA ?',
+    en: 'What budget are you considering for your digital / AI project?',
+    lb: 'Wéi vill Budget plangt Dir fir Äert digitaalt / KI Projet?',
+    de: 'Welches Budget planen Sie für Ihr Digital- / KI-Projekt?',
+    it: 'Quale budget prevedete per il vostro progetto digitale / IA?',
+    pt: 'Que orçamento prevê para o seu projeto digital / IA?',
+  },
+  'q8.o1': {
+    fr: 'Moins de 5 000 €', en: 'Under €5,000', lb: 'Manner wéi 5.000 €', de: 'Unter 5.000 €', it: 'Meno di 5.000 €', pt: 'Menos de 5.000 €',
+  },
+  'q8.o2': {
+    fr: '5 000 € – 15 000 €', en: '€5,000 – €15,000', lb: '5.000 € – 15.000 €', de: '5.000 € – 15.000 €', it: '5.000 € – 15.000 €', pt: '5.000 € – 15.000 €',
+  },
+  'q8.o3': {
+    fr: '15 000 € – 50 000 €', en: '€15,000 – €50,000', lb: '15.000 € – 50.000 €', de: '15.000 € – 50.000 €', it: '15.000 € – 50.000 €', pt: '15.000 € – 50.000 €',
+  },
+  'q8.o4': {
+    fr: 'Plus de 50 000 €', en: 'Over €50,000', lb: 'Méi wéi 50.000 €', de: 'Über 50.000 €', it: 'Più di 50.000 €', pt: 'Mais de 50.000 €',
+  },
+
+  // ─── Question 9 — Previous subsidies ───
+  'q9.title': {
+    fr: 'Avez-vous déjà bénéficié d\'aides publiques luxembourgeoises ?',
+    en: 'Have you already received Luxembourg public subsidies?',
+    lb: 'Hutt Dir schonn lëtzebuerger ëffentlech Hëllefe kritt?',
+    de: 'Haben Sie bereits luxemburgische öffentliche Förderungen erhalten?',
+    it: 'Avete già beneficiato di sovvenzioni pubbliche lussemburghesi?',
+    pt: 'Já beneficiou de apoios públicos luxemburgueses?',
+  },
+  'q9.o1': {
+    fr: 'Jamais', en: 'Never', lb: 'Ni', de: 'Nie', it: 'Mai', pt: 'Nunca',
+  },
+  'q9.o2': {
+    fr: 'Oui, une fois', en: 'Yes, once', lb: 'Jo, eemol', de: 'Ja, einmal', it: 'Sì, una volta', pt: 'Sim, uma vez',
+  },
+  'q9.o3': {
+    fr: 'Oui, plusieurs fois', en: 'Yes, multiple times', lb: 'Jo, méi Kéieren', de: 'Ja, mehrmals', it: 'Sì, più volte', pt: 'Sim, várias vezes',
+  },
+  'q9.o4': {
+    fr: 'Je ne sais pas', en: 'I don\'t know', lb: 'Ech weess et net', de: 'Ich weiß es nicht', it: 'Non lo so', pt: 'Não sei',
   },
 
   // ─── Results ───
@@ -584,15 +650,15 @@ const translations: Record<string, Record<Language, string>> = {
     pt: 'O Luxemburgo oferece alguns dos programas de financiamento mais generosos da Europa para a digitalização das PME, mas muitas empresas desconhecem estes apoios ou consideram o processo complexo. O Forge simplifica este processo.',
   },
   'about.programs.title': {
-    fr: '5 programmes référencés', en: '5 referenced programs', lb: '5 referenzéiert Programmer', de: '5 referenzierte Programme', it: '5 programmi referenziati', pt: '5 programas referenciados',
+    fr: '6 programmes référencés', en: '6 referenced programs', lb: '6 referenzéiert Programmer', de: '6 referenzierte Programme', it: '6 programmi referenziati', pt: '6 programas referenciados',
   },
   'about.programs.text': {
-    fr: 'Nous analysons votre éligibilité pour les 5 principaux programmes luxembourgeois : SME Package Digital, SME Package IA, Fit 4 Digital, Fit 4 AI et Fit 4 Innovation. Jusqu\'à 25 000 € de subvention et 70 % de couverture.',
-    en: 'We analyze your eligibility for the 5 main Luxembourg programs: SME Package Digital, SME Package AI, Fit 4 Digital, Fit 4 AI and Fit 4 Innovation. Up to €25,000 in grants and 70% coverage.',
-    lb: 'Mir analyséieren Är Eligibilitéit fir déi 5 Haaptprogrammer: SME Package Digital, SME Package IA, Fit 4 Digital, Fit 4 AI a Fit 4 Innovation. Bis zu 25.000 € Subventioun an 70 % Deckung.',
-    de: 'Wir analysieren Ihre Berechtigung für die 5 Hauptprogramme: SME Package Digital, SME Package AI, Fit 4 Digital, Fit 4 AI und Fit 4 Innovation. Bis zu 25.000 € Förderung und 70 % Abdeckung.',
-    it: 'Analizziamo la vostra ammissibilità per i 5 principali programmi: SME Package Digital, SME Package IA, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Fino a 25.000 € di sovvenzione e 70 % di copertura.',
-    pt: 'Analisamos a sua elegibilidade para os 5 principais programas: SME Package Digital, SME Package IA, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Até 25.000 € de subsídio e 70 % de cobertura.',
+    fr: 'Nous analysons votre éligibilité pour les 6 principaux programmes luxembourgeois : SME Package Digital, SME Package IA, SME Package Cybersécurité, Fit 4 Digital, Fit 4 AI et Fit 4 Innovation. Jusqu\'à 25 000 € de subvention et 70 % de couverture.',
+    en: 'We analyze your eligibility for the 6 main Luxembourg programs: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI and Fit 4 Innovation. Up to €25,000 in grants and 70% coverage.',
+    lb: 'Mir analyséieren Är Eligibilitéit fir déi 6 Haaptprogrammer: SME Package Digital, SME Package IA, SME Package Cybersécurité, Fit 4 Digital, Fit 4 AI a Fit 4 Innovation. Bis zu 25.000 € Subventioun an 70 % Deckung.',
+    de: 'Wir analysieren Ihre Berechtigung für die 6 Hauptprogramme: SME Package Digital, SME Package AI, SME Package Cybersicherheit, Fit 4 Digital, Fit 4 AI und Fit 4 Innovation. Bis zu 25.000 € Förderung und 70 % Abdeckung.',
+    it: 'Analizziamo la vostra ammissibilità per i 6 principali programmi: SME Package Digital, SME Package IA, SME Package Cybersicurezza, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Fino a 25.000 € di sovvenzione e 70 % di copertura.',
+    pt: 'Analisamos a sua elegibilidade para os 6 principais programas: SME Package Digital, SME Package IA, SME Package Cibersegurança, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Até 25.000 € de subsídio e 70 % de cobertura.',
   },
   'about.cta': {
     fr: 'Simuler mes aides', en: 'Simulate my funding', lb: 'Meng Hëllefen simuléieren', de: 'Meine Förderung simulieren', it: 'Simula i miei finanziamenti', pt: 'Simular os meus apoios',
@@ -620,7 +686,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Simulation d\'éligibilité en 2 min', en: 'Eligibility simulation in 2 min', lb: 'Eligibilitéitssimulatioun an 2 Min', de: 'Förderfähigkeitssimulation in 2 Min', it: 'Simulazione ammissibilità in 2 min', pt: 'Simulação de elegibilidade em 2 min',
   },
   'pricing.free.f2': {
-    fr: '5 programmes analysés', en: '5 programs analyzed', lb: '5 Programmer analyséiert', de: '5 Programme analysiert', it: '5 programmi analizzati', pt: '5 programas analisados',
+    fr: '6 programmes analysés', en: '6 programs analyzed', lb: '6 Programmer analyséiert', de: '6 Programme analysiert', it: '6 programmi analizzati', pt: '6 programas analisados',
   },
   'pricing.free.f3': {
     fr: 'Recommandations de projets', en: 'Project recommendations', lb: 'Projetsempfehlungen', de: 'Projektempfehlungen', it: 'Raccomandazioni di progetti', pt: 'Recomendações de projetos',
@@ -632,7 +698,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Accompagnement', en: 'Support', lb: 'Begleedung', de: 'Begleitung', it: 'Accompagnamento', pt: 'Acompanhamento',
   },
   'pricing.starter.price': {
-    fr: '490 €', en: '€490', lb: '490 €', de: '490 €', it: '490 €', pt: '490 €',
+    fr: 'À partir de 490 €', en: 'From €490', lb: 'Vun 490 € un', de: 'Ab 490 €', it: 'Da 490 €', pt: 'A partir de 490 €',
   },
   'pricing.starter.f1': {
     fr: 'Diagnostic digital complet', en: 'Complete digital assessment', lb: 'Komplett digital Diagnose', de: 'Vollständige digitale Diagnose', it: 'Diagnosi digitale completa', pt: 'Diagnóstico digital completo',
@@ -645,6 +711,14 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'pricing.starter.f4': {
     fr: 'Rapport détaillé PDF', en: 'Detailed PDF report', lb: 'Detailléierte PDF-Rapport', de: 'Detaillierter PDF-Bericht', it: 'Rapporto dettagliato PDF', pt: 'Relatório detalhado PDF',
+  },
+  'pricing.starter.f5': {
+    fr: 'Tarif basé sur les honoraires de conseil réglementés au Luxembourg',
+    en: 'Rate based on regulated consulting fees in Luxembourg',
+    lb: 'Tarif baséiert op reguléierte Berodungshonorarer zu Lëtzebuerg',
+    de: 'Tarif basierend auf regulierten Beraterhonoraren in Luxemburg',
+    it: 'Tariffa basata sulle tariffe di consulenza regolamentate in Lussemburgo',
+    pt: 'Tarifa baseada em honorários de consultoria regulamentados no Luxemburgo',
   },
   'pricing.pro.title': {
     fr: 'Implémentation', en: 'Implementation', lb: 'Implementatioun', de: 'Implementierung', it: 'Implementazione', pt: 'Implementação',
