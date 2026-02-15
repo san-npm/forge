@@ -666,15 +666,26 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── Pricing Page ───
   'pricing.title': {
-    fr: 'Tarifs', en: 'Pricing', lb: 'Präisser', de: 'Preise', it: 'Prezzi', pt: 'Preços',
+    fr: 'Nos services & tarifs', en: 'Our services & pricing', lb: 'Eis Servicer & Präisser', de: 'Unsere Services & Preise', it: 'I nostri servizi e prezzi', pt: 'Os nossos serviços e preços',
   },
   'pricing.subtitle': {
-    fr: 'Le simulateur est gratuit. Pour aller plus loin, nous proposons un accompagnement personnalisé.',
-    en: 'The simulator is free. To go further, we offer personalized support.',
-    lb: 'De Simulator ass gratis. Fir weider ze goen, bidde mir personaliséiert Begleedung.',
-    de: 'Der Simulator ist kostenlos. Für weitergehende Unterstützung bieten wir individuelle Begleitung.',
-    it: 'Il simulatore è gratuito. Per andare oltre, offriamo supporto personalizzato.',
-    pt: 'O simulador é gratuito. Para ir mais longe, oferecemos acompanhamento personalizado.',
+    fr: 'Grâce à l\'IA, nous livrons plus vite et moins cher. Le simulateur est gratuit, nos services commencent à partir de 190 €/mois.',
+    en: 'Thanks to AI, we deliver faster and cheaper. The simulator is free, our services start from €190/month.',
+    lb: 'Dank KI liwwere mir méi séier a méi bëlleg. De Simulator ass gratis, eis Servicer starten ab 190 €/Mount.',
+    de: 'Dank KI liefern wir schneller und günstiger. Der Simulator ist kostenlos, unsere Services starten ab 190 €/Monat.',
+    it: 'Grazie all\'IA, consegniamo più velocemente e a prezzi più bassi. Il simulatore è gratuito, i nostri servizi partono da 190 €/mese.',
+    pt: 'Graças à IA, entregamos mais rápido e mais barato. O simulador é gratuito, os nossos serviços começam a partir de 190 €/mês.',
+  },
+  'pricing.advantage.title': {
+    fr: 'L\'IA nous permet de baisser nos prix', en: 'AI allows us to lower our prices', lb: 'KI erlaabt eis eis Präisser ze senken', de: 'KI ermöglicht uns günstigere Preise', it: 'L\'IA ci permette di abbassare i prezzi', pt: 'A IA permite-nos baixar os preços',
+  },
+  'pricing.advantage.text': {
+    fr: 'Nous utilisons l\'intelligence artificielle dans toutes nos prestations : développement assisté par IA, tests automatisés, maintenance prédictive. Résultat : des projets livrés 2 à 3× plus vite, et des économies que nous partageons avec nos clients.',
+    en: 'We use artificial intelligence in all our services: AI-assisted development, automated testing, predictive maintenance. Result: projects delivered 2-3× faster, and savings we share with our clients.',
+    lb: 'Mir benotze Kënschtlech Intelligenz an all eise Leeschtungen: KI-ënnerstëtzt Entwécklung, automatiséiert Tester, prädiktiv Maintenance. Resultat: Projete 2-3× méi séier geliwwert, a Spuerungen déi mir mat eise Cliente deelen.',
+    de: 'Wir setzen KI in allen Leistungen ein: KI-gestützte Entwicklung, automatisierte Tests, prädiktive Wartung. Ergebnis: Projekte 2-3× schneller geliefert, und Einsparungen, die wir mit unseren Kunden teilen.',
+    it: 'Utilizziamo l\'IA in tutti i nostri servizi: sviluppo assistito da IA, test automatizzati, manutenzione predittiva. Risultato: progetti consegnati 2-3× più veloci, e risparmi che condividiamo con i clienti.',
+    pt: 'Utilizamos IA em todos os nossos serviços: desenvolvimento assistido por IA, testes automatizados, manutenção preditiva. Resultado: projetos entregues 2-3× mais rápido, e poupanças que partilhamos com os clientes.',
   },
   'pricing.free.title': {
     fr: 'Simulateur', en: 'Simulator', lb: 'Simulator', de: 'Simulator', it: 'Simulatore', pt: 'Simulador',
@@ -694,49 +705,115 @@ const translations: Record<string, Record<Language, string>> = {
   'pricing.free.f4': {
     fr: 'Estimation des coûts et aides', en: 'Cost and grant estimates', lb: 'Käschten- a Hëllefeschätzungen', de: 'Kosten- und Förderschätzungen', it: 'Stima costi e sovvenzioni', pt: 'Estimativa de custos e apoios',
   },
-  'pricing.starter.title': {
-    fr: 'Accompagnement', en: 'Support', lb: 'Begleedung', de: 'Begleitung', it: 'Accompagnamento', pt: 'Acompanhamento',
+  'pricing.svc.dev.title': {
+    fr: 'Développement Web', en: 'Web Development', lb: 'Web-Entwécklung', de: 'Web-Entwicklung', it: 'Sviluppo Web', pt: 'Desenvolvimento Web',
   },
-  'pricing.starter.price': {
+  'pricing.svc.dev.price': {
+    fr: 'À partir de 1 990 €', en: 'From €1,990', lb: 'Vun 1.990 € un', de: 'Ab 1.990 €', it: 'Da 1.990 €', pt: 'A partir de 1.990 €',
+  },
+  'pricing.svc.dev.desc': {
+    fr: 'Sites web, e-commerce, applications — développés avec l\'IA pour un résultat rapide et professionnel.',
+    en: 'Websites, e-commerce, apps — built with AI for fast, professional results.',
+    lb: 'Websäiten, E-Commerce, Applikatiounen — mat KI entwéckelt fir séier a professionell Resultater.',
+    de: 'Websites, E-Commerce, Apps — mit KI entwickelt für schnelle, professionelle Ergebnisse.',
+    it: 'Siti web, e-commerce, applicazioni — sviluppati con IA per risultati rapidi e professionali.',
+    pt: 'Websites, e-commerce, aplicações — desenvolvidos com IA para resultados rápidos e profissionais.',
+  },
+  'pricing.svc.dev.f1': {
+    fr: 'Sites vitrines & e-commerce', en: 'Showcase & e-commerce sites', lb: 'Vitrine- & E-Commerce-Säiten', de: 'Showcase- & E-Commerce-Seiten', it: 'Siti vetrina & e-commerce', pt: 'Sites vitrine & e-commerce',
+  },
+  'pricing.svc.dev.f2': {
+    fr: 'Applications web sur mesure', en: 'Custom web applications', lb: 'Maßgeschneidert Web-Applikatiounen', de: 'Maßgeschneiderte Web-Anwendungen', it: 'Applicazioni web su misura', pt: 'Aplicações web à medida',
+  },
+  'pricing.svc.dev.f3': {
+    fr: 'Design responsive & moderne', en: 'Responsive & modern design', lb: 'Responsive & modern Design', de: 'Responsives & modernes Design', it: 'Design responsive & moderno', pt: 'Design responsive e moderno',
+  },
+  'pricing.svc.dev.f4': {
+    fr: 'Livraison 2× plus rapide grâce à l\'IA', en: '2× faster delivery thanks to AI', lb: '2× méi séier Liwwerung dank KI', de: '2× schnellere Lieferung dank KI', it: 'Consegna 2× più veloce grazie all\'IA', pt: 'Entrega 2× mais rápida graças à IA',
+  },
+  'pricing.svc.dev.f5': {
+    fr: 'Éligible aux subventions SME Package', en: 'Eligible for SME Package grants', lb: 'Eligibel fir SME Package Subventiounen', de: 'Förderfähig für SME Package', it: 'Ammissibile per sovvenzioni SME Package', pt: 'Elegível para subsídios SME Package',
+  },
+  'pricing.svc.ai.title': {
+    fr: 'Intégration IA', en: 'AI Integration', lb: 'KI-Integratioun', de: 'KI-Integration', it: 'Integrazione IA', pt: 'Integração IA',
+  },
+  'pricing.svc.ai.price': {
+    fr: 'À partir de 990 €', en: 'From €990', lb: 'Vun 990 € un', de: 'Ab 990 €', it: 'Da 990 €', pt: 'A partir de 990 €',
+  },
+  'pricing.svc.ai.desc': {
+    fr: 'Chatbots, automatisation, IA sur mesure — intégrez l\'intelligence artificielle dans votre activité.',
+    en: 'Chatbots, automation, custom AI — integrate artificial intelligence into your business.',
+    lb: 'Chatbots, Automatiséierung, personaliséiert KI — integréiert Kënschtlech Intelligenz an Är Aktivitéit.',
+    de: 'Chatbots, Automatisierung, maßgeschneiderte KI — integrieren Sie KI in Ihr Geschäft.',
+    it: 'Chatbot, automazione, IA personalizzata — integra l\'intelligenza artificiale nella tua attività.',
+    pt: 'Chatbots, automação, IA personalizada — integre a inteligência artificial no seu negócio.',
+  },
+  'pricing.svc.ai.f1': {
+    fr: 'Chatbots & assistants virtuels', en: 'Chatbots & virtual assistants', lb: 'Chatbots & virtuell Assistenten', de: 'Chatbots & virtuelle Assistenten', it: 'Chatbot & assistenti virtuali', pt: 'Chatbots e assistentes virtuais',
+  },
+  'pricing.svc.ai.f2': {
+    fr: 'Automatisation de processus', en: 'Process automation', lb: 'Prozess-Automatiséierung', de: 'Prozessautomatisierung', it: 'Automazione dei processi', pt: 'Automação de processos',
+  },
+  'pricing.svc.ai.f3': {
+    fr: 'Analyse de données & reporting', en: 'Data analysis & reporting', lb: 'Datenanalyse & Reporting', de: 'Datenanalyse & Reporting', it: 'Analisi dati & reporting', pt: 'Análise de dados e relatórios',
+  },
+  'pricing.svc.ai.f4': {
+    fr: 'Formation de votre équipe', en: 'Team training', lb: 'Formatioun vun Ärem Team', de: 'Schulung Ihres Teams', it: 'Formazione del team', pt: 'Formação da equipa',
+  },
+  'pricing.svc.ai.f5': {
+    fr: 'Éligible aux aides Fit 4 AI', en: 'Eligible for Fit 4 AI grants', lb: 'Eligibel fir Fit 4 AI Hëllefen', de: 'Förderfähig für Fit 4 AI', it: 'Ammissibile per aiuti Fit 4 AI', pt: 'Elegível para apoios Fit 4 AI',
+  },
+  'pricing.svc.maintenance.title': {
+    fr: 'Maintenance', en: 'Maintenance', lb: 'Maintenance', de: 'Wartung', it: 'Manutenzione', pt: 'Manutenção',
+  },
+  'pricing.svc.maintenance.price': {
+    fr: 'À partir de 190 €/mois', en: 'From €190/month', lb: 'Vun 190 €/Mount un', de: 'Ab 190 €/Monat', it: 'Da 190 €/mese', pt: 'A partir de 190 €/mês',
+  },
+  'pricing.svc.maintenance.desc': {
+    fr: 'Maintenance proactive, mises à jour de sécurité, monitoring — votre site toujours au top.',
+    en: 'Proactive maintenance, security updates, monitoring — your site always performing.',
+    lb: 'Proaktiv Maintenance, Sécherheets-Updates, Monitoring — Är Säit ëmmer um Topp.',
+    de: 'Proaktive Wartung, Sicherheitsupdates, Monitoring — Ihre Website stets auf dem neuesten Stand.',
+    it: 'Manutenzione proattiva, aggiornamenti di sicurezza, monitoraggio — il vostro sito sempre al top.',
+    pt: 'Manutenção proativa, atualizações de segurança, monitorização — o seu site sempre no topo.',
+  },
+  'pricing.svc.maintenance.f1': {
+    fr: 'Monitoring 24/7 & alertes', en: '24/7 monitoring & alerts', lb: '24/7 Monitoring & Alerten', de: '24/7 Monitoring & Warnungen', it: 'Monitoraggio 24/7 & avvisi', pt: 'Monitorização 24/7 e alertas',
+  },
+  'pricing.svc.maintenance.f2': {
+    fr: 'Mises à jour de sécurité', en: 'Security updates', lb: 'Sécherheets-Updates', de: 'Sicherheitsupdates', it: 'Aggiornamenti di sicurezza', pt: 'Atualizações de segurança',
+  },
+  'pricing.svc.maintenance.f3': {
+    fr: 'Sauvegardes automatiques', en: 'Automatic backups', lb: 'Automatesch Backupen', de: 'Automatische Backups', it: 'Backup automatici', pt: 'Backups automáticos',
+  },
+  'pricing.svc.maintenance.f4': {
+    fr: 'Support réactif sous 24h', en: 'Responsive support within 24h', lb: 'Reaktive Support bannen 24h', de: 'Reaktiver Support innerhalb 24h', it: 'Supporto reattivo entro 24h', pt: 'Suporte reativo em 24h',
+  },
+  'pricing.svc.consulting.title': {
+    fr: 'Conseil Subventions', en: 'Grant Consulting', lb: 'Subventiouns-Berodung', de: 'Förderberatung', it: 'Consulenza Sovvenzioni', pt: 'Consultoria Subsídios',
+  },
+  'pricing.svc.consulting.price': {
     fr: 'À partir de 490 €', en: 'From €490', lb: 'Vun 490 € un', de: 'Ab 490 €', it: 'Da 490 €', pt: 'A partir de 490 €',
   },
-  'pricing.starter.f1': {
-    fr: 'Diagnostic digital complet', en: 'Complete digital assessment', lb: 'Komplett digital Diagnose', de: 'Vollständige digitale Diagnose', it: 'Diagnosi digitale completa', pt: 'Diagnóstico digital completo',
+  'pricing.svc.consulting.desc': {
+    fr: 'Montage de dossier, suivi avec Luxinnovation — maximisez vos chances d\'obtenir vos aides.',
+    en: 'Grant application support, Luxinnovation follow-up — maximize your chances of getting funded.',
+    lb: 'Dossier-Montage, Suivi mat Luxinnovation — maximiséiert Är Chancen op Subventiounen.',
+    de: 'Antragserstellung, Begleitung bei Luxinnovation — maximieren Sie Ihre Förderchancen.',
+    it: 'Preparazione domande, follow-up con Luxinnovation — massimizzate le vostre possibilità.',
+    pt: 'Montagem de candidatura, seguimento Luxinnovation — maximize as suas hipóteses.',
   },
-  'pricing.starter.f2': {
-    fr: 'Montage du dossier de subvention', en: 'Grant application support', lb: 'Subventiounsdossier-Montage', de: 'Förderantrag-Erstellung', it: 'Preparazione domanda sovvenzione', pt: 'Montagem do processo de subsídio',
+  'pricing.svc.consulting.f1': {
+    fr: 'Diagnostic d\'éligibilité approfondi', en: 'In-depth eligibility assessment', lb: 'Déifgräifend Eligibilitéitsdiagnose', de: 'Tiefgehende Förderfähigkeitsanalyse', it: 'Diagnosi approfondita di ammissibilità', pt: 'Diagnóstico aprofundado de elegibilidade',
   },
-  'pricing.starter.f3': {
-    fr: 'Suivi avec Luxinnovation', en: 'Follow-up with Luxinnovation', lb: 'Suivi mat Luxinnovation', de: 'Begleitung bei Luxinnovation', it: 'Seguito con Luxinnovation', pt: 'Seguimento com a Luxinnovation',
+  'pricing.svc.consulting.f2': {
+    fr: 'Montage complet du dossier', en: 'Complete application preparation', lb: 'Komplett Dossier-Montage', de: 'Vollständige Antragserstellung', it: 'Preparazione completa del fascicolo', pt: 'Montagem completa do processo',
   },
-  'pricing.starter.f4': {
-    fr: 'Rapport détaillé PDF', en: 'Detailed PDF report', lb: 'Detailléierte PDF-Rapport', de: 'Detaillierter PDF-Bericht', it: 'Rapporto dettagliato PDF', pt: 'Relatório detalhado PDF',
+  'pricing.svc.consulting.f3': {
+    fr: 'Suivi jusqu\'à obtention de l\'aide', en: 'Follow-up until grant is obtained', lb: 'Suivi bis d\'Hëllef kritt ass', de: 'Begleitung bis zur Förderzusage', it: 'Seguito fino all\'ottenimento dell\'aiuto', pt: 'Seguimento até à obtenção do apoio',
   },
-  'pricing.starter.f5': {
-    fr: 'Tarif basé sur les honoraires de conseil réglementés au Luxembourg',
-    en: 'Rate based on regulated consulting fees in Luxembourg',
-    lb: 'Tarif baséiert op reguléierte Berodungshonorarer zu Lëtzebuerg',
-    de: 'Tarif basierend auf regulierten Beraterhonoraren in Luxemburg',
-    it: 'Tariffa basata sulle tariffe di consulenza regolamentate in Lussemburgo',
-    pt: 'Tarifa baseada em honorários de consultoria regulamentados no Luxemburgo',
-  },
-  'pricing.pro.title': {
-    fr: 'Implémentation', en: 'Implementation', lb: 'Implementatioun', de: 'Implementierung', it: 'Implementazione', pt: 'Implementação',
-  },
-  'pricing.pro.price': {
-    fr: 'Sur devis', en: 'Custom quote', lb: 'Op Ufro', de: 'Auf Anfrage', it: 'Su richiesta', pt: 'Sob consulta',
-  },
-  'pricing.pro.f1': {
-    fr: 'Tout de l\'accompagnement', en: 'Everything in Support', lb: 'Alles vun der Begleedung', de: 'Alles aus Begleitung', it: 'Tutto dell\'accompagnamento', pt: 'Tudo do acompanhamento',
-  },
-  'pricing.pro.f2': {
-    fr: 'Implémentation technique complète', en: 'Full technical implementation', lb: 'Komplett technesch Implementatioun', de: 'Vollständige technische Implementierung', it: 'Implementazione tecnica completa', pt: 'Implementação técnica completa',
-  },
-  'pricing.pro.f3': {
-    fr: 'Sélection et déploiement d\'outils IA', en: 'AI tool selection and deployment', lb: 'KI-Tool Auswiel an Deployment', de: 'KI-Tool-Auswahl und -Bereitstellung', it: 'Selezione e deployment strumenti IA', pt: 'Seleção e implementação de ferramentas IA',
-  },
-  'pricing.pro.f4': {
-    fr: 'Formation de votre équipe', en: 'Team training', lb: 'Formatioun vun Ärem Team', de: 'Schulung Ihres Teams', it: 'Formazione del team', pt: 'Formação da equipa',
+  'pricing.svc.consulting.f4': {
+    fr: 'Rapport détaillé PDF inclus', en: 'Detailed PDF report included', lb: 'Detailléierte PDF-Rapport abegraff', de: 'Detaillierter PDF-Bericht inklusive', it: 'Rapporto dettagliato PDF incluso', pt: 'Relatório detalhado PDF incluído',
   },
   'pricing.cta.free': {
     fr: 'Commencer gratuitement', en: 'Start for free', lb: 'Gratis ufänken', de: 'Kostenlos starten', it: 'Inizia gratis', pt: 'Começar gratuitamente',
@@ -745,10 +822,13 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Nous contacter', en: 'Contact us', lb: 'Kontaktéiert eis', de: 'Kontaktieren Sie uns', it: 'Contattaci', pt: 'Contacte-nos',
   },
   'pricing.recommended': {
-    fr: 'Recommandé', en: 'Recommended', lb: 'Empfohlen', de: 'Empfohlen', it: 'Consigliato', pt: 'Recomendado',
+    fr: 'Populaire', en: 'Popular', lb: 'Beléift', de: 'Beliebt', it: 'Popolare', pt: 'Popular',
   },
   'pricing.perProject': {
     fr: 'par projet', en: 'per project', lb: 'pro Projet', de: 'pro Projekt', it: 'per progetto', pt: 'por projeto',
+  },
+  'pricing.perMonth': {
+    fr: '/mois', en: '/month', lb: '/Mount', de: '/Monat', it: '/mese', pt: '/mês',
   },
   'pricing.agents.title': {
     fr: 'Tarifs des outils IA', en: 'AI Tools Pricing', lb: 'KI-Tools Präisser', de: 'KI-Tools Preise', it: 'Prezzi strumenti IA', pt: 'Preços ferramentas IA',
