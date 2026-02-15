@@ -5,9 +5,6 @@ export interface QuizAnswers {
   digitalMaturity: string
   biggestProblem: string
   aiUsage: string
-  annualRevenue: string
-  projectBudget: string
-  previousSubsidies: string
 }
 
 export interface Program {
