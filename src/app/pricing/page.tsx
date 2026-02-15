@@ -285,7 +285,7 @@ export default function PricingPage() {
                       <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full ${
                         agent.free ? 'bg-green-50 text-green-700' : 'bg-amber-50 text-amber-700'
                       }`}>
-                        {agent.free ? t('directory.free') : t('directory.paid')}
+                        {agent.free ? t('directory.freemium') : t('directory.paid')}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600 max-w-xs">
@@ -313,7 +313,7 @@ export default function PricingPage() {
                   <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full ${
                     agent.free ? 'bg-green-50 text-green-700' : 'bg-amber-50 text-amber-700'
                   }`}>
-                    {agent.free ? t('directory.free') : t('directory.paid')}
+                    {agent.free ? t('directory.freemium') : t('directory.paid')}
                   </span>
                 </div>
                 <p className="text-sm text-gray-500 leading-relaxed">
