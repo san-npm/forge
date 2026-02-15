@@ -25,7 +25,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           {/* Hero */}
           <div className="text-center mb-16 animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent mb-4">
+            <h1 className="text-4xl sm:text-5xl font-bold text-navy-900 mb-4">
               {t('about.title')}
             </h1>
           </div>
@@ -118,7 +118,7 @@ export default function AboutPage() {
           <div className="text-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 to-accent-500 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-navy-900 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-navy-800 hover:shadow-xl transition-all transform hover:-translate-y-0.5"
             >
               {t('about.cta')}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

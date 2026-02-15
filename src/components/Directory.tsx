@@ -64,7 +64,7 @@ export default function Directory({ onBack }: DirectoryProps) {
   return (
     <div className="min-h-screen pt-20 pb-16 bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-br from-primary-600 via-primary-500 to-accent-500 pb-12">
+      <div className="bg-navy-900 pb-12">
         <div className="max-w-6xl mx-auto px-4 pt-8">
           <button
             onClick={onBack}
