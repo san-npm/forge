@@ -85,17 +85,17 @@ export default function PricingPage() {
         {/* Hero */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
           <div className="text-center mb-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 animate-slide-up">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 mb-4 animate-slide-up">
               {t('pricing.title')}
             </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-slide-up">
+            <p className="text-lg text-navy-500 max-w-3xl mx-auto animate-slide-up">
               {t('pricing.subtitle')}
             </p>
           </div>
 
           {/* AI Advantage banner */}
           <div className="max-w-3xl mx-auto mb-16 animate-slide-up">
-            <div className="relative rounded-2xl bg-gradient-to-br from-primary-600 to-accent-500 p-6 sm:p-8 text-white overflow-hidden">
+            <div className="relative rounded-2xl bg-navy-900 p-6 sm:p-8 text-white overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
               <div className="relative">
@@ -107,7 +107,7 @@ export default function PricingPage() {
                   </div>
                   <h2 className="text-lg sm:text-xl font-bold">{t('pricing.advantage.title')}</h2>
                 </div>
-                <p className="text-primary-100 leading-relaxed text-sm sm:text-base">
+                <p className="text-navy-300 leading-relaxed text-sm sm:text-base">
                   {t('pricing.advantage.text')}
                 </p>
               </div>
@@ -223,7 +223,7 @@ export default function PricingPage() {
                   href="/"
                   className={`block text-center py-3 px-6 rounded-xl font-medium text-sm transition-all duration-200 ${
                     svc.highlighted
-                      ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-700 hover:to-primary-800 shadow-md hover:shadow-lg'
+                      ? 'bg-navy-900 text-white hover:bg-navy-800 shadow-md hover:shadow-lg'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >

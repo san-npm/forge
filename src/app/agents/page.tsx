@@ -90,12 +90,12 @@ export default function AgentsPage() {
       <PageNavbar />
 
       {/* Header */}
-      <div className="bg-gradient-to-br from-primary-600 via-primary-500 to-accent-500 pt-24 pb-12">
+      <div className="bg-navy-900 pt-24 pb-12">
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 animate-fade-in">
             {t('directory.title')}
           </h1>
-          <p className="text-lg text-primary-100 max-w-3xl mb-8 animate-fade-in">
+          <p className="text-lg text-navy-300 max-w-3xl mb-8 animate-fade-in">
             {t('directory.subtitle')}
           </p>
 
@@ -109,7 +109,7 @@ export default function AgentsPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={t('directory.search')}
-              className="w-full pl-10 pr-4 py-3 rounded-xl border-0 bg-white/95 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/50 text-sm shadow-lg"
+              className="w-full pl-10 pr-4 py-3 rounded-xl border-0 bg-white/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary-400/50 text-sm text-white placeholder-navy-400"
             />
           </div>
         </div>

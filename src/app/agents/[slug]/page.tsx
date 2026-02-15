@@ -110,7 +110,7 @@ export default function AgentDetailPage() {
       <PageNavbar />
       <div className="min-h-screen pt-20 pb-16 bg-gray-50">
         {/* Header */}
-        <div className="bg-gradient-to-br from-primary-600 via-primary-500 to-accent-500 pb-10">
+        <div className="bg-navy-900 pb-10">
           <div className="max-w-5xl mx-auto px-4 pt-8">
             <Link
               href="/agents"
@@ -323,7 +323,7 @@ export default function AgentDetailPage() {
             href={agent.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-primary-600 to-accent-500 text-white rounded-xl text-sm font-semibold hover:from-primary-700 hover:to-accent-600 transition-all shadow-lg shadow-primary-500/25"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-navy-900 text-white rounded-full text-sm font-semibold hover:bg-navy-800 transition-all shadow-lg shadow-navy-500/25"
           >
             {t('agent.visitSite')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
