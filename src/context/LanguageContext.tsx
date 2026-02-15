@@ -81,6 +81,16 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
   },
 
+  'hero.card.programs': {
+    fr: 'programmes', en: 'programs', lb: 'Programmer', de: 'Programme', it: 'programmi', pt: 'programas',
+  },
+  'hero.card.total': {
+    fr: 'Total estimé', en: 'Estimated total', lb: 'Geschaten Total', de: 'Geschätzter Gesamtbetrag', it: 'Totale stimato', pt: 'Total estimado',
+  },
+  'hero.card.coverage': {
+    fr: 'Couverture max.', en: 'Max. coverage', lb: 'Max. Deckung', de: 'Max. Abdeckung', it: 'Copertura max.', pt: 'Cobertura máx.',
+  },
+
   // ─── How it works ───
   'howItWorks.title': {
     fr: 'Comment ça marche ?', en: 'How does it work?', lb: 'Wéi funktionéiert et?', de: 'Wie funktioniert es?', it: 'Come funziona?', pt: 'Como funciona?',
