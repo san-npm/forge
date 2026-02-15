@@ -146,7 +146,7 @@ export default function Blog({ onBack }: BlogProps) {
     return (
       <div className="min-h-screen pt-20 pb-16">
         {/* Article header with gradient background */}
-        <div className="bg-gradient-to-br from-primary-50 via-white to-accent-50 pb-12">
+        <div className="bg-gray-50 pb-12">
           <div className="max-w-3xl mx-auto px-4 pt-8">
             <button
               onClick={() => setSelectedPost(null)}
@@ -203,7 +203,7 @@ export default function Blog({ onBack }: BlogProps) {
   return (
     <div className="min-h-screen pt-20 pb-16">
       {/* Blog header */}
-      <div className="bg-gradient-to-br from-primary-50 via-white to-accent-50 pb-16">
+      <div className="bg-gray-50 pb-16">
         <div className="max-w-5xl mx-auto px-4 pt-8">
           <button
             onClick={onBack}
@@ -244,7 +244,7 @@ export default function Blog({ onBack }: BlogProps) {
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   {/* Colored top bar */}
-                  <div className="h-1 bg-gradient-to-r from-primary-500 to-accent-500" />
+                  <div className="h-1 bg-primary-500" />
 
                   <div className="p-6">
                     <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">

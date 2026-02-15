@@ -246,7 +246,7 @@ forge-simulator.lu
 
         {/* Newsletter subscription */}
         <section className="mb-12 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-          <div className="p-8 bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl text-center">
+          <div className="p-8 bg-primary-50 rounded-2xl text-center">
             {!emailSent ? (
               <>
                 <h3 className="text-lg font-bold text-gray-900 mb-4">
@@ -289,7 +289,7 @@ forge-simulator.lu
           <p className="text-sm text-gray-400 mb-3">{t('results.nextStep')}</p>
           <button
             onClick={onNext}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 to-accent-500 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-navy-900 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
           >
             {t('results.talkExpert')}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

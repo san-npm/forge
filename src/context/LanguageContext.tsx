@@ -71,6 +71,94 @@ const translations: Record<string, Record<Language, string>> = {
   'hero.trust': {
     fr: 'Programmes référencés', en: 'Referenced programs', lb: 'Referenzéiert Programmer', de: 'Referenzierte Programme', it: 'Programmi di riferimento', pt: 'Programas referenciados',
   },
+  'hero.cta2': {
+    fr: 'Voir les programmes', en: 'See programs', lb: 'Programmer gesinn', de: 'Programme ansehen', it: 'Vedi i programmi', pt: 'Ver os programas',
+  },
+  'hero.badge': {
+    fr: 'Simulateur gratuit', en: 'Free simulator', lb: 'Gratis Simulator', de: 'Kostenloser Simulator', it: 'Simulatore gratuito', pt: 'Simulador gratuito',
+  },
+  'hero.partners': {
+    fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
+  },
+
+  // ─── Features section ───
+  'features.title': {
+    fr: 'Tout ce qu\'il vous faut pour trouver vos aides', en: 'Everything you need to find your grants', lb: 'Alles wat Dir braucht fir Är Hëllefen ze fannen', de: 'Alles was Sie brauchen, um Ihre Förderungen zu finden', it: 'Tutto ciò di cui hai bisogno per trovare i tuoi finanziamenti', pt: 'Tudo o que precisa para encontrar os seus apoios',
+  },
+  'features.subtitle': {
+    fr: 'Notre plateforme analyse votre profil et vous recommande les meilleurs programmes de financement luxembourgeois.', en: 'Our platform analyzes your profile and recommends the best Luxembourg funding programs.', lb: 'Eis Plattform analyséiert Äre Profil an empfiehlt Iech déi bescht Lëtzebuerger Finanzéierungsprogrammer.', de: 'Unsere Plattform analysiert Ihr Profil und empfiehlt die besten luxemburgischen Förderprogramme.', it: 'La nostra piattaforma analizza il tuo profilo e ti consiglia i migliori programmi di finanziamento lussemburghesi.', pt: 'A nossa plataforma analisa o seu perfil e recomenda os melhores programas de financiamento luxemburgueses.',
+  },
+  'features.1.title': {
+    fr: 'Simulation d\'éligibilité', en: 'Eligibility simulation', lb: 'Eligibilitéitssimulatioun', de: 'Förderfähigkeitssimulation', it: 'Simulazione di ammissibilità', pt: 'Simulação de elegibilidade',
+  },
+  'features.1.desc': {
+    fr: 'Répondez à 6 questions et obtenez vos résultats personnalisés en 2 minutes.', en: 'Answer 6 questions and get your personalized results in 2 minutes.', lb: 'Beäntwert 6 Froen a kritt Är personaliséiert Resultater an 2 Minutten.', de: 'Beantworten Sie 6 Fragen und erhalten Sie Ihre personalisierten Ergebnisse in 2 Minuten.', it: 'Rispondi a 6 domande e ottieni i tuoi risultati personalizzati in 2 minuti.', pt: 'Responda a 6 perguntas e obtenha os seus resultados personalizados em 2 minutos.',
+  },
+  'features.2.title': {
+    fr: '6 programmes d\'aides', en: '6 grant programs', lb: '6 Hëllefsprogrammer', de: '6 Förderprogramme', it: '6 programmi di sovvenzione', pt: '6 programas de apoio',
+  },
+  'features.2.desc': {
+    fr: 'Nous analysons SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation et plus encore.', en: 'We analyze SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation and more.', lb: 'Mir analyséieren SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation a méi.', de: 'Wir analysieren SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation und mehr.', it: 'Analizziamo SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation e altro.', pt: 'Analisamos SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation e mais.',
+  },
+  'features.3.title': {
+    fr: 'Recommandations de projets', en: 'Project recommendations', lb: 'Projetempfehlungen', de: 'Projektempfehlungen', it: 'Raccomandazioni di progetti', pt: 'Recomendações de projetos',
+  },
+  'features.3.desc': {
+    fr: 'Obtenez des idées concrètes de projets avec estimations de coûts et montants d\'aides.', en: 'Get concrete project ideas with cost estimates and grant amounts.', lb: 'Kritt konkret Projetideeën mat Käschteschätzungen an Hëllefsbetréi.', de: 'Erhalten Sie konkrete Projektideen mit Kostenschätzungen und Förderbeträgen.', it: 'Ottieni idee concrete di progetto con stime dei costi e importi delle sovvenzioni.', pt: 'Obtenha ideias concretas de projetos com estimativas de custos e montantes de apoio.',
+  },
+  'features.4.title': {
+    fr: 'Répertoire d\'agents IA', en: 'AI agents directory', lb: 'KI-Agenten Verzeechnes', de: 'KI-Agenten-Verzeichnis', it: 'Directory degli agenti IA', pt: 'Diretório de agentes IA',
+  },
+  'features.4.desc': {
+    fr: 'Parcourez plus de 15 outils IA avec infos conformité RGPD et tarifs.', en: 'Browse 15+ AI tools with GDPR compliance info and pricing.', lb: 'Entdeckt méi wéi 15 KI-Tools mat DSGVO-Konformitéitsinfoen a Präisser.', de: 'Durchsuchen Sie über 15 KI-Tools mit DSGVO-Konformitätsinfos und Preisen.', it: 'Sfoglia oltre 15 strumenti IA con informazioni sulla conformità GDPR e prezzi.', pt: 'Explore mais de 15 ferramentas de IA com informações de conformidade RGPD e preços.',
+  },
+  'features.5.title': {
+    fr: 'Accompagnement expert', en: 'Expert support', lb: 'Expert Begleedung', de: 'Expertenbegleitung', it: 'Supporto esperto', pt: 'Acompanhamento especializado',
+  },
+  'features.5.desc': {
+    fr: 'Connectez-vous avec des spécialistes pour vos demandes d\'aides et projets digitaux.', en: 'Connect with specialists for grant applications and digital projects.', lb: 'Verbannt Iech mat Spezialisten fir Är Hëllefsufroe a digital Projeten.', de: 'Verbinden Sie sich mit Spezialisten für Förderanträge und digitale Projekte.', it: 'Connettiti con specialisti per domande di sovvenzione e progetti digitali.', pt: 'Conecte-se com especialistas para candidaturas a apoios e projetos digitais.',
+  },
+  'features.6.title': {
+    fr: '100% confidentiel', en: '100% confidential', lb: '100% vertraulech', de: '100% vertraulich', it: '100% confidenziale', pt: '100% confidencial',
+  },
+  'features.6.desc': {
+    fr: 'Vos données restent privées. Pas de compte requis, pas de spam.', en: 'Your data stays private. No account required, no spam.', lb: 'Är Daten bleiwe privat. Kee Konto néideg, kee Spam.', de: 'Ihre Daten bleiben privat. Kein Konto erforderlich, kein Spam.', it: 'I tuoi dati restano privati. Nessun account richiesto, nessuno spam.', pt: 'Os seus dados permanecem privados. Sem conta necessária, sem spam.',
+  },
+
+  // ─── FAQ section ───
+  'faq.title': {
+    fr: 'Questions fréquemment posées', en: 'Frequently asked questions', lb: 'Dacks gestallte Froen', de: 'Häufig gestellte Fragen', it: 'Domande frequenti', pt: 'Perguntas frequentes',
+  },
+  'faq.1.q': {
+    fr: 'Le simulateur est-il vraiment gratuit ?', en: 'Is the simulator really free?', lb: 'Ass de Simulator wierklech gratis?', de: 'Ist der Simulator wirklich kostenlos?', it: 'Il simulatore è davvero gratuito?', pt: 'O simulador é realmente gratuito?',
+  },
+  'faq.1.a': {
+    fr: 'Oui, le simulateur est 100% gratuit et sans engagement. Vous répondez à 6 questions et obtenez vos résultats instantanément.', en: 'Yes, the simulator is 100% free with no commitment. You answer 6 questions and get your results instantly.', lb: 'Jo, de Simulator ass 100% gratis an ouni Engagement. Dir beäntwert 6 Froen a kritt Är Resultater direkt.', de: 'Ja, der Simulator ist 100% kostenlos und unverbindlich. Sie beantworten 6 Fragen und erhalten Ihre Ergebnisse sofort.', it: 'Sì, il simulatore è 100% gratuito e senza impegno. Rispondi a 6 domande e ottieni i tuoi risultati istantaneamente.', pt: 'Sim, o simulador é 100% gratuito e sem compromisso. Responde a 6 perguntas e obtém os seus resultados instantaneamente.',
+  },
+  'faq.2.q': {
+    fr: 'Quels programmes sont analysés ?', en: 'What programs are analyzed?', lb: 'Wéi eng Programmer ginn analyséiert?', de: 'Welche Programme werden analysiert?', it: 'Quali programmi vengono analizzati?', pt: 'Que programas são analisados?',
+  },
+  'faq.2.a': {
+    fr: 'Nous analysons 6 programmes luxembourgeois : SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI et Fit 4 Innovation.', en: 'We analyze 6 Luxembourg programs: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI and Fit 4 Innovation.', lb: 'Mir analyséieren 6 Lëtzebuerger Programmer: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI a Fit 4 Innovation.', de: 'Wir analysieren 6 luxemburgische Programme: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI und Fit 4 Innovation.', it: 'Analizziamo 6 programmi lussemburghesi: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation.', pt: 'Analisamos 6 programas luxemburgueses: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation.',
+  },
+  'faq.3.q': {
+    fr: 'Qui peut bénéficier de ces aides ?', en: 'Who can benefit from these grants?', lb: 'Wien kann vun dësen Hëllefen profitéieren?', de: 'Wer kann von diesen Förderungen profitieren?', it: 'Chi può beneficiare di queste sovvenzioni?', pt: 'Quem pode beneficiar destes apoios?',
+  },
+  'faq.3.a': {
+    fr: 'Toute PME établie au Luxembourg avec une autorisation d\'établissement. La plupart des secteurs sont éligibles, y compris HORECA, commerce, artisanat, services et industrie.', en: 'Any SME established in Luxembourg with a business permit. Most sectors are eligible including HORECA, retail, crafts, services and manufacturing.', lb: 'All KMU déi zu Lëtzebuerg etabléiert sinn mat enger Geschäftsgenehmegung. Déi meescht Secteuren sinn eligible, inklusiv HORECA, Handel, Handwierk, Servicer an Industrie.', de: 'Jedes KMU mit Sitz in Luxemburg und einer Geschäftsgenehmigung. Die meisten Branchen sind förderfähig, einschließlich HORECA, Einzelhandel, Handwerk, Dienstleistungen und Industrie.', it: 'Qualsiasi PMI stabilita in Lussemburgo con un permesso commerciale. La maggior parte dei settori è ammissibile, inclusi HORECA, commercio, artigianato, servizi e manifattura.', pt: 'Qualquer PME estabelecida no Luxemburgo com uma autorização de estabelecimento. A maioria dos setores é elegível, incluindo HORECA, comércio, artesanato, serviços e indústria.',
+  },
+  'faq.4.q': {
+    fr: 'Combien puis-je obtenir ?', en: 'How much can I get?', lb: 'Wéi vill kann ech kréien?', de: 'Wie viel kann ich bekommen?', it: 'Quanto posso ottenere?', pt: 'Quanto posso obter?',
+  },
+  'faq.4.a': {
+    fr: 'Selon votre profil, vous pouvez recevoir jusqu\'à 25 000 € d\'aides avec jusqu\'à 70% de vos coûts de projet couverts.', en: 'Depending on your profile, you can receive up to €25,000 in grants with up to 70% of your project costs covered.', lb: 'Ofhängeg vun Ärem Profil kënnt Dir bis zu 25.000 € u Hëllefen kréien mat bis zu 70% vun Äre Projetkäschten gedeckt.', de: 'Je nach Profil können Sie bis zu 25.000 € an Förderungen erhalten, wobei bis zu 70% Ihrer Projektkosten gedeckt werden.', it: 'A seconda del tuo profilo, puoi ricevere fino a 25.000 € in sovvenzioni con fino al 70% dei costi del tuo progetto coperti.', pt: 'Dependendo do seu perfil, pode receber até 25.000 € em apoios com até 70% dos custos do seu projeto cobertos.',
+  },
+  'faq.5.q': {
+    fr: 'Combien de temps prend le processus ?', en: 'How long does the process take?', lb: 'Wéi laang dauert de Prozess?', de: 'Wie lange dauert der Prozess?', it: 'Quanto tempo richiede il processo?', pt: 'Quanto tempo demora o processo?',
+  },
+  'faq.5.a': {
+    fr: 'La simulation prend 2 minutes. Si vous êtes éligible, le processus de demande d\'aide prend généralement 4 à 8 semaines selon le programme.', en: 'The simulation takes 2 minutes. If you\'re eligible, the grant application process typically takes 4-8 weeks depending on the program.', lb: 'D\'Simulatioun dauert 2 Minutten. Wann Dir eligible sidd, dauert de Hëllefsuprozess normalerweis 4-8 Wochen ofhängeg vum Programm.', de: 'Die Simulation dauert 2 Minuten. Wenn Sie förderfähig sind, dauert der Antragsprocess in der Regel 4-8 Wochen je nach Programm.', it: 'La simulazione richiede 2 minuti. Se sei ammissibile, il processo di domanda di sovvenzione richiede in genere 4-8 settimane a seconda del programma.', pt: 'A simulação demora 2 minutos. Se for elegível, o processo de candidatura ao apoio demora normalmente 4 a 8 semanas dependendo do programa.',
+  },
 
   // ─── Quiz chrome ───
   'quiz.progress': {
