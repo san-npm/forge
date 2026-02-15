@@ -26,7 +26,7 @@ export default function PageNavbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary-600 to-accent-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary-600 to-accent-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">F</span>
             </div>
             <span className="font-bold text-lg text-gray-900">Forge</span>
@@ -45,6 +45,12 @@ export default function PageNavbar() {
             </Link>
             <Link href="/pricing" className="hover:text-primary-600 transition-colors">
               {t('nav.pricing')}
+            </Link>
+            <Link href="/privacy" className="hover:text-primary-600 transition-colors">
+              {t('footer.privacy')}
+            </Link>
+            <Link href="/terms" className="hover:text-primary-600 transition-colors">
+              {t('footer.terms')}
             </Link>
           </div>
 
@@ -131,6 +137,21 @@ export default function PageNavbar() {
               className="block w-full text-left px-3 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
             >
               {t('nav.pricing')}
+            </Link>
+            <div className="border-t border-gray-100 my-1" />
+            <Link
+              href="/privacy"
+              onClick={() => setMenuOpen(false)}
+              className="block w-full text-left px-3 py-2.5 text-sm text-gray-500 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
+            >
+              {t('footer.privacy')}
+            </Link>
+            <Link
+              href="/terms"
+              onClick={() => setMenuOpen(false)}
+              className="block w-full text-left px-3 py-2.5 text-sm text-gray-500 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
+            >
+              {t('footer.terms')}
             </Link>
           </div>
         </div>

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useLanguage } from '@/context/LanguageContext'
 import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
+import AgentLogo from '@/components/AgentLogo'
 import { AGENTS, AGENT_VISUALS } from '@/lib/agents'
 
 export default function PricingPage() {
@@ -65,7 +66,7 @@ export default function PricingPage() {
               >
                 {plan.highlighted && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="inline-block bg-gradient-to-r from-primary-600 to-accent-600 text-white text-xs font-semibold px-4 py-1 rounded-full">
+                    <span className="inline-block bg-gradient-to-r from-primary-600 to-accent-500 text-white text-xs font-semibold px-4 py-1 rounded-full">
                       {t('pricing.recommended')}
                     </span>
                   </div>
@@ -111,7 +112,7 @@ export default function PricingPage() {
                   href={plan.ctaHref}
                   className={`block text-center py-3 px-6 rounded-xl font-medium text-sm transition-all duration-200 ${
                     plan.highlighted
-                      ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 shadow-md hover:shadow-lg'
+                      ? 'bg-gradient-to-r from-primary-600 to-accent-500 text-white hover:from-primary-700 hover:to-accent-600 shadow-md hover:shadow-lg'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -161,14 +162,9 @@ export default function PricingPage() {
                     <td className="px-6 py-4">
                       <Link
                         href={`/agents/${agent.slug}`}
-                        className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 hover:text-primary-800 hover:underline"
+                        className="inline-flex items-center gap-3 text-sm font-medium text-primary-700 hover:text-primary-800 hover:underline"
                       >
-                        <span
-                          className="w-7 h-7 rounded-lg flex items-center justify-center text-xs flex-shrink-0"
-                          style={{ backgroundColor: (AGENT_VISUALS[agent.slug]?.color || '#6B7280') + '18', color: AGENT_VISUALS[agent.slug]?.color || '#6B7280' }}
-                        >
-                          {AGENT_VISUALS[agent.slug]?.icon || agent.name.charAt(0)}
-                        </span>
+                        <AgentLogo slug={agent.slug} name={agent.name} size="sm" />
                         {agent.name}
                       </Link>
                     </td>
@@ -203,12 +199,15 @@ export default function PricingPage() {
               <Link
                 key={agent.slug}
                 href={`/agents/${agent.slug}`}
-                className="block rounded-2xl border border-gray-200 p-5 shadow-sm hover:shadow-md hover:border-primary-300 transition-all duration-200"
+                className="block rounded-2xl border border-gray-200 p-5 shadow-sm hover:shadow-md hover:border-primary-300 transition-all duration-200 bg-white"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-base font-semibold text-gray-900">
-                    {agent.name}
-                  </h3>
+                  <div className="flex items-center gap-3">
+                    <AgentLogo slug={agent.slug} name={agent.name} size="sm" />
+                    <h3 className="text-base font-semibold text-gray-900">
+                      {agent.name}
+                    </h3>
+                  </div>
                   <span
                     className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full ${
                       agent.free
