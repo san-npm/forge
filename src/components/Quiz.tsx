@@ -84,6 +84,36 @@ const questions: Question[] = [
       { labelKey: 'q6.o3', value: 'regularly' },
     ],
   },
+  {
+    titleKey: 'q7.title',
+    answerKey: 'annualRevenue',
+    options: [
+      { labelKey: 'q7.o1', value: 'under-100k' },
+      { labelKey: 'q7.o2', value: '100k-500k' },
+      { labelKey: 'q7.o3', value: '500k-2m' },
+      { labelKey: 'q7.o4', value: 'over-2m' },
+    ],
+  },
+  {
+    titleKey: 'q8.title',
+    answerKey: 'projectBudget',
+    options: [
+      { labelKey: 'q8.o1', value: 'under-5k' },
+      { labelKey: 'q8.o2', value: '5k-15k' },
+      { labelKey: 'q8.o3', value: '15k-50k' },
+      { labelKey: 'q8.o4', value: 'over-50k' },
+    ],
+  },
+  {
+    titleKey: 'q9.title',
+    answerKey: 'previousSubsidies',
+    options: [
+      { labelKey: 'q9.o1', value: 'never' },
+      { labelKey: 'q9.o2', value: 'once' },
+      { labelKey: 'q9.o3', value: 'multiple' },
+      { labelKey: 'q9.o4', value: 'dont-know' },
+    ],
+  },
 ]
 
 export default function Quiz({ onComplete, onBack }: QuizProps) {

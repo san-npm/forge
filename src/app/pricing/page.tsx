@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useLanguage } from '@/context/LanguageContext'
 import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
-import { AGENTS } from '@/lib/agents'
+import { AGENTS, AGENT_VISUALS } from '@/lib/agents'
 
 export default function PricingPage() {
   const { t, lang } = useLanguage()
@@ -22,7 +22,7 @@ export default function PricingPage() {
       titleKey: 'pricing.starter.title',
       priceKey: 'pricing.starter.price',
       priceSuffix: 'pricing.perProject',
-      features: ['pricing.starter.f1', 'pricing.starter.f2', 'pricing.starter.f3', 'pricing.starter.f4'],
+      features: ['pricing.starter.f1', 'pricing.starter.f2', 'pricing.starter.f3', 'pricing.starter.f4', 'pricing.starter.f5'],
       ctaKey: 'pricing.cta.contact',
       ctaHref: '/',
       highlighted: true,
@@ -161,8 +161,14 @@ export default function PricingPage() {
                     <td className="px-6 py-4">
                       <Link
                         href={`/agents/${agent.slug}`}
-                        className="text-sm font-medium text-primary-700 hover:text-primary-800 hover:underline"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 hover:text-primary-800 hover:underline"
                       >
+                        <span
+                          className="w-7 h-7 rounded-lg flex items-center justify-center text-xs flex-shrink-0"
+                          style={{ backgroundColor: (AGENT_VISUALS[agent.slug]?.color || '#6B7280') + '18', color: AGENT_VISUALS[agent.slug]?.color || '#6B7280' }}
+                        >
+                          {AGENT_VISUALS[agent.slug]?.icon || agent.name.charAt(0)}
+                        </span>
                         {agent.name}
                       </Link>
                     </td>
