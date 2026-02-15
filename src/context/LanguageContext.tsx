@@ -40,12 +40,12 @@ const translations: Record<string, Record<Language, string>> = {
     pt: 'Descubra quanto o Luxemburgo financia a sua transformação digital e IA',
   },
   'hero.subtitle': {
-    fr: 'Simulez vos aides en 2 minutes. Gratuit, confidentiel, sans engagement.',
-    en: 'Simulate your funding in 2 minutes. Free, confidential, no commitment.',
-    lb: 'Simuléiert Är Hëllefen an 2 Minutten. Gratis, vertraulech, ouni Engagement.',
-    de: 'Simulieren Sie Ihre Förderung in 2 Minuten. Kostenlos, vertraulich, unverbindlich.',
-    it: 'Simula i tuoi finanziamenti in 2 minuti. Gratuito, confidenziale, senza impegno.',
-    pt: 'Simule os seus apoios em 2 minutos. Gratuito, confidencial, sem compromisso.',
+    fr: 'Simulez vos aides en 10 secondes. Gratuit, confidentiel, sans engagement.',
+    en: 'Simulate your funding in 10 seconds. Free, confidential, no commitment.',
+    lb: 'Simuléiert Är Hëllefen an 10 Sekonnen. Gratis, vertraulech, ouni Engagement.',
+    de: 'Simulieren Sie Ihre Förderung in 10 Sekunden. Kostenlos, vertraulich, unverbindlich.',
+    it: 'Simula i tuoi finanziamenti in 10 secondi. Gratuito, confidenziale, senza impegno.',
+    pt: 'Simule os seus apoios em 10 segundos. Gratuito, confidencial, sem compromisso.',
   },
   'hero.cta': {
     fr: 'Estimer mes aides', en: 'Estimate my funding', lb: 'Meng Hëllefen schätzen', de: 'Meine Förderung schätzen', it: 'Stima i miei finanziamenti', pt: 'Estimar os meus apoios',
@@ -92,7 +92,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Simulation d\'éligibilité', en: 'Eligibility simulation', lb: 'Eligibilitéitssimulatioun', de: 'Förderfähigkeitssimulation', it: 'Simulazione di ammissibilità', pt: 'Simulação de elegibilidade',
   },
   'features.1.desc': {
-    fr: 'Répondez à 6 questions et obtenez vos résultats personnalisés en 2 minutes.', en: 'Answer 6 questions and get your personalized results in 2 minutes.', lb: 'Beäntwert 6 Froen a kritt Är personaliséiert Resultater an 2 Minutten.', de: 'Beantworten Sie 6 Fragen und erhalten Sie Ihre personalisierten Ergebnisse in 2 Minuten.', it: 'Rispondi a 6 domande e ottieni i tuoi risultati personalizzati in 2 minuti.', pt: 'Responda a 6 perguntas e obtenha os seus resultados personalizados em 2 minutos.',
+    fr: 'Répondez à 6 questions et obtenez vos résultats personnalisés en 10 secondes.', en: 'Answer 6 questions and get your personalized results in 10 seconds.', lb: 'Beäntwert 6 Froen a kritt Är personaliséiert Resultater an 10 Sekonnen.', de: 'Beantworten Sie 6 Fragen und erhalten Sie Ihre personalisierten Ergebnisse in 10 Sekunden.', it: 'Rispondi a 6 domande e ottieni i tuoi risultati personalizzati in 10 secondi.', pt: 'Responda a 6 perguntas e obtenha os seus resultados personalizados em 10 segundos.',
   },
   'features.2.title': {
     fr: '6 programmes d\'aides', en: '6 grant programs', lb: '6 Hëllefsprogrammer', de: '6 Förderprogramme', it: '6 programmi di sovvenzione', pt: '6 programas de apoio',
@@ -157,7 +157,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Combien de temps prend le processus ?', en: 'How long does the process take?', lb: 'Wéi laang dauert de Prozess?', de: 'Wie lange dauert der Prozess?', it: 'Quanto tempo richiede il processo?', pt: 'Quanto tempo demora o processo?',
   },
   'faq.5.a': {
-    fr: 'La simulation prend 2 minutes. Si vous êtes éligible, le processus de demande d\'aide prend généralement 4 à 8 semaines selon le programme.', en: 'The simulation takes 2 minutes. If you\'re eligible, the grant application process typically takes 4-8 weeks depending on the program.', lb: 'D\'Simulatioun dauert 2 Minutten. Wann Dir eligible sidd, dauert de Hëllefsuprozess normalerweis 4-8 Wochen ofhängeg vum Programm.', de: 'Die Simulation dauert 2 Minuten. Wenn Sie förderfähig sind, dauert der Antragsprocess in der Regel 4-8 Wochen je nach Programm.', it: 'La simulazione richiede 2 minuti. Se sei ammissibile, il processo di domanda di sovvenzione richiede in genere 4-8 settimane a seconda del programma.', pt: 'A simulação demora 2 minutos. Se for elegível, o processo de candidatura ao apoio demora normalmente 4 a 8 semanas dependendo do programa.',
+    fr: 'La simulation prend 10 secondes. Si vous êtes éligible, le processus de demande d\'aide prend généralement 4 à 8 semaines selon le programme.', en: 'The simulation takes 10 seconds. If you\'re eligible, the grant application process typically takes 4-8 weeks depending on the program.', lb: 'D\'Simulatioun dauert 10 Sekonnen. Wann Dir eligible sidd, dauert de Hëllefsuprozess normalerweis 4-8 Wochen ofhängeg vum Programm.', de: 'Die Simulation dauert 10 Sekunden. Wenn Sie förderfähig sind, dauert der Antragsprocess in der Regel 4-8 Wochen je nach Programm.', it: 'La simulazione richiede 10 secondi. Se sei ammissibile, il processo di domanda di sovvenzione richiede in genere 4-8 settimane a seconda del programma.', pt: 'A simulação demora 10 segundos. Se for elegível, o processo de candidatura ao apoio demora normalmente 4 a 8 semanas dependendo do programa.',
   },
 
   // ─── Quiz chrome ───
@@ -582,6 +582,9 @@ const translations: Record<string, Record<Language, string>> = {
   'directory.free': {
     fr: 'Gratuit', en: 'Free', lb: 'Gratis', de: 'Kostenlos', it: 'Gratuito', pt: 'Gratuito',
   },
+  'directory.freemium': {
+    fr: 'Freemium', en: 'Freemium', lb: 'Freemium', de: 'Freemium', it: 'Freemium', pt: 'Freemium',
+  },
   'directory.paid': {
     fr: 'Payant', en: 'Paid', lb: 'Bezuelt', de: 'Kostenpflichtig', it: 'A pagamento', pt: 'Pago',
   },
@@ -719,12 +722,12 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Notre mission', en: 'Our Mission', lb: 'Eis Missioun', de: 'Unsere Mission', it: 'La nostra missione', pt: 'A nossa missão',
   },
   'about.mission.text': {
-    fr: 'Forge aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 2 minutes les programmes de subventions auxquels vous êtes éligible.',
-    en: 'Forge helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 2 minutes the grant programs you are eligible for.',
-    lb: 'Forge hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 2 Minutten déi Subventioune fir déi Dir eligibel sidd.',
-    de: 'Forge hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 2 Minuten die Förderprogramme, für die Sie berechtigt sind.',
-    it: 'Forge aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 2 minuti i programmi di sovvenzione per i quali siete ammissibili.',
-    pt: 'O Forge ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 2 minutos os programas de subsídios aos quais é elegível.',
+    fr: 'Forge aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 10 secondes les programmes de subventions auxquels vous êtes éligible.',
+    en: 'Forge helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 10 seconds the grant programs you are eligible for.',
+    lb: 'Forge hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 10 Sekonnen déi Subventioune fir déi Dir eligibel sidd.',
+    de: 'Forge hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 10 Sekunden die Förderprogramme, für die Sie berechtigt sind.',
+    it: 'Forge aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 10 secondi i programmi di sovvenzione per i quali siete ammissibili.',
+    pt: 'O Forge ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 10 segundos os programas de subsídios aos quais é elegível.',
   },
   'about.why.title': {
     fr: 'Pourquoi Forge ?', en: 'Why Forge?', lb: 'Firwat Forge?', de: 'Warum Forge?', it: 'Perché Forge?', pt: 'Porquê Forge?',
@@ -782,7 +785,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Gratuit', en: 'Free', lb: 'Gratis', de: 'Kostenlos', it: 'Gratuito', pt: 'Gratuito',
   },
   'pricing.free.f1': {
-    fr: 'Simulation d\'éligibilité en 2 min', en: 'Eligibility simulation in 2 min', lb: 'Eligibilitéitssimulatioun an 2 Min', de: 'Förderfähigkeitssimulation in 2 Min', it: 'Simulazione ammissibilità in 2 min', pt: 'Simulação de elegibilidade em 2 min',
+    fr: 'Simulation d\'éligibilité en 10 sec', en: 'Eligibility simulation in 10 sec', lb: 'Eligibilitéitssimulatioun an 10 Sek', de: 'Förderfähigkeitssimulation in 10 Sek', it: 'Simulazione ammissibilità in 10 sec', pt: 'Simulação de elegibilidade em 10 seg',
   },
   'pricing.free.f2': {
     fr: '6 programmes analysés', en: '6 programs analyzed', lb: '6 Programmer analyséiert', de: '6 Programme analysiert', it: '6 programmi analizzati', pt: '6 programas analisados',
@@ -797,7 +800,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Développement Web', en: 'Web Development', lb: 'Web-Entwécklung', de: 'Web-Entwicklung', it: 'Sviluppo Web', pt: 'Desenvolvimento Web',
   },
   'pricing.svc.dev.price': {
-    fr: 'À partir de 1 990 €', en: 'From €1,990', lb: 'Vun 1.990 € un', de: 'Ab 1.990 €', it: 'Da 1.990 €', pt: 'A partir de 1.990 €',
+    fr: 'À partir de 990 €', en: 'From €990', lb: 'Vun 990 € un', de: 'Ab 990 €', it: 'Da 990 €', pt: 'A partir de 990 €',
   },
   'pricing.svc.dev.desc': {
     fr: 'Sites web, e-commerce, applications — développés avec l\'IA pour un résultat rapide et professionnel.',
@@ -826,7 +829,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Intégration IA', en: 'AI Integration', lb: 'KI-Integratioun', de: 'KI-Integration', it: 'Integrazione IA', pt: 'Integração IA',
   },
   'pricing.svc.ai.price': {
-    fr: 'À partir de 990 €', en: 'From €990', lb: 'Vun 990 € un', de: 'Ab 990 €', it: 'Da 990 €', pt: 'A partir de 990 €',
+    fr: 'À partir de 490 €', en: 'From €490', lb: 'Vun 490 € un', de: 'Ab 490 €', it: 'Da 490 €', pt: 'A partir de 490 €',
   },
   'pricing.svc.ai.desc': {
     fr: 'Chatbots, automatisation, IA sur mesure — intégrez l\'intelligence artificielle dans votre activité.',
@@ -855,7 +858,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Maintenance', en: 'Maintenance', lb: 'Maintenance', de: 'Wartung', it: 'Manutenzione', pt: 'Manutenção',
   },
   'pricing.svc.maintenance.price': {
-    fr: 'À partir de 190 €/mois', en: 'From €190/month', lb: 'Vun 190 €/Mount un', de: 'Ab 190 €/Monat', it: 'Da 190 €/mese', pt: 'A partir de 190 €/mês',
+    fr: 'À partir de 90 €/mois', en: 'From €90/month', lb: 'Vun 90 €/Mount un', de: 'Ab 90 €/Monat', it: 'Da 90 €/mese', pt: 'A partir de 90 €/mês',
   },
   'pricing.svc.maintenance.desc': {
     fr: 'Maintenance proactive, mises à jour de sécurité, monitoring — votre site toujours au top.',
@@ -881,7 +884,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Conseil Subventions', en: 'Grant Consulting', lb: 'Subventiouns-Berodung', de: 'Förderberatung', it: 'Consulenza Sovvenzioni', pt: 'Consultoria Subsídios',
   },
   'pricing.svc.consulting.price': {
-    fr: 'À partir de 490 €', en: 'From €490', lb: 'Vun 490 € un', de: 'Ab 490 €', it: 'Da 490 €', pt: 'A partir de 490 €',
+    fr: 'À partir de 290 €', en: 'From €290', lb: 'Vun 290 € un', de: 'Ab 290 €', it: 'Da 290 €', pt: 'A partir de 290 €',
   },
   'pricing.svc.consulting.desc': {
     fr: 'Montage de dossier, suivi avec Luxinnovation — maximisez vos chances d\'obtenir vos aides.',

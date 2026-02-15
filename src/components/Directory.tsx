@@ -160,7 +160,7 @@ export default function Directory({ onBack }: DirectoryProps) {
                     <div className="flex flex-wrap items-center gap-1.5 mb-3">
                       {agent.free ? (
                         <span className="px-2.5 py-0.5 text-xs font-semibold bg-green-50 text-green-700 rounded-full border border-green-200">
-                          {t('directory.free')}
+                          {t('directory.freemium')}
                         </span>
                       ) : (
                         <span className="px-2.5 py-0.5 text-xs font-semibold bg-amber-50 text-amber-700 rounded-full border border-amber-200">

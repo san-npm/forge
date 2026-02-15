@@ -137,7 +137,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                   </svg>
                 </button>
                 <Link
-                  href="/about"
+                  href="/agents"
                   className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-navy-200 text-navy-700 font-semibold rounded-full hover:border-navy-300 hover:bg-navy-50 transition-all"
                 >
                   {t('hero.cta2')}
@@ -163,16 +163,16 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center justify-between p-3 bg-primary-50 rounded-xl">
-                      <span className="text-sm font-medium text-navy-700">SME Package Digital</span>
+                      <span className="text-sm font-medium text-navy-700">SME Packages</span>
                       <span className="text-sm font-bold text-primary-600">17 500 &euro;</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-primary-50 rounded-xl">
+                      <span className="text-sm font-medium text-navy-700">Fit 4 Digital</span>
+                      <span className="text-sm font-bold text-primary-600">5 000 &euro;</span>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-primary-50 rounded-xl">
                       <span className="text-sm font-medium text-navy-700">Fit 4 AI</span>
                       <span className="text-sm font-bold text-primary-600">25 000 &euro;</span>
-                    </div>
-                    <div className="flex items-center justify-between p-3 bg-primary-50 rounded-xl">
-                      <span className="text-sm font-medium text-navy-700">Fit 4 Innovation</span>
-                      <span className="text-sm font-bold text-primary-600">7 500 &euro;</span>
                     </div>
                   </div>
                 </div>
