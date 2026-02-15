@@ -1,16 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import Navbar from '@/components/Navbar'
+import PageNavbar from '@/components/PageNavbar'
+import Footer from '@/components/Footer'
 import LandingPage from '@/components/LandingPage'
 import Quiz from '@/components/Quiz'
 import Results from '@/components/Results'
 import AgentContact from '@/components/AgentContact'
-import Blog from '@/components/Blog'
-import Directory from '@/components/Directory'
 import { QuizAnswers, computeEligibility, Program, ProjectRecommendation } from '@/lib/eligibility'
 
-type Screen = 'landing' | 'quiz' | 'results' | 'agent' | 'blog' | 'directory'
+type Screen = 'landing' | 'quiz' | 'results' | 'agent'
 
 export default function Home() {
   const [screen, setScreen] = useState<Screen>('landing')
@@ -33,28 +32,29 @@ export default function Home() {
   }
 
   return (
-    <>
-      <Navbar onNavigate={(s) => navigateTo(s as Screen)} />
-      {screen === 'landing' && (
-        <LandingPage onStart={() => navigateTo('quiz')} />
-      )}
-      {screen === 'quiz' && (
-        <Quiz
-          onComplete={handleQuizComplete}
-          onBack={() => navigateTo('landing')}
-        />
-      )}
-      {screen === 'results' && results && (
-        <Results
-          eligible={results.eligible}
-          programs={results.programs}
-          projects={results.projects}
-          onNext={() => navigateTo('agent')}
-        />
-      )}
-      {screen === 'agent' && <AgentContact />}
-      {screen === 'blog' && <Blog onBack={() => navigateTo('landing')} />}
-      {screen === 'directory' && <Directory onBack={() => navigateTo('landing')} />}
-    </>
+    <div className="min-h-screen flex flex-col">
+      <PageNavbar />
+      <div className="flex-1">
+        {screen === 'landing' && (
+          <LandingPage onStart={() => navigateTo('quiz')} />
+        )}
+        {screen === 'quiz' && (
+          <Quiz
+            onComplete={handleQuizComplete}
+            onBack={() => navigateTo('landing')}
+          />
+        )}
+        {screen === 'results' && results && (
+          <Results
+            eligible={results.eligible}
+            programs={results.programs}
+            projects={results.projects}
+            onNext={() => navigateTo('agent')}
+          />
+        )}
+        {screen === 'agent' && <AgentContact />}
+      </div>
+      <Footer />
+    </div>
   )
 }
