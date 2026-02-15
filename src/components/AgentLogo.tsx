@@ -17,25 +17,32 @@ const sizeConfig = {
 }
 
 export default function AgentLogo({ slug, name, size = 'md', className = '' }: AgentLogoProps) {
-  const [imgError, setImgError] = useState(false)
+  const [imgError, setImgError] = useState(0)
   const visual = AGENT_VISUALS[slug]
   const color = visual?.color || '#6B7280'
   const domain = visual?.domain
   const config = sizeConfig[size]
 
-  if (domain && !imgError) {
+  const sources = domain
+    ? [
+        `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
+        `https://logo.clearbit.com/${domain}`,
+      ]
+    : []
+
+  if (domain && imgError < sources.length) {
     return (
       <div
         className={`${config.container} flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden bg-white border border-gray-100 ${className}`}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`https://logo.clearbit.com/${domain}`}
+          src={sources[imgError]}
           alt={name}
           width={config.img}
           height={config.img}
           className="object-contain"
-          onError={() => setImgError(true)}
+          onError={() => setImgError((prev) => prev + 1)}
         />
       </div>
     )
