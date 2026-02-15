@@ -43,6 +43,55 @@ export default function Results({ eligible, programs, projects, onNext }: Result
   const totalCostWith = projects.reduce((sum, p) => sum + p.youPay, 0)
   const totalSavings = totalCostWithout - totalCostWith
 
+  function handleDownloadPdf() {
+    const date = new Date().toLocaleDateString(lang === 'fr' ? 'fr-FR' : lang === 'de' ? 'de-DE' : 'en-GB', {
+      year: 'numeric', month: 'long', day: 'numeric',
+    })
+
+    const programLines = programs.map(
+      (p) => `  - ${p.name[lang] || p.name.fr}: ${p.maxGrant.toLocaleString()} € (${p.coveragePercent}% ${t('results.coverage')})`
+    ).join('\n')
+
+    const projectLines = projects.map(
+      (p) => `  - ${p.title[lang] || p.title.fr}\n    ${t('results.estimatedCost')}: ${p.estimatedCost.toLocaleString()} € | ${t('results.withGrant')}: -${p.grantCoverage.toLocaleString()} € | ${t('results.youPay')}: ${p.youPay.toLocaleString()} €`
+    ).join('\n\n')
+
+    const content = `${t('report.title')}
+${'='.repeat(40)}
+${t('report.generatedOn')}: ${date}
+
+${'─'.repeat(40)}
+${t('results.eligible')}
+${'─'.repeat(40)}
+${programLines}
+
+${'─'.repeat(40)}
+${t('results.projects')}
+${'─'.repeat(40)}
+${projectLines}
+
+${'─'.repeat(40)}
+${t('results.comparison')}
+${'─'.repeat(40)}
+  ${t('results.without')}: ${totalCostWithout.toLocaleString()} €
+  ${t('results.with')}: ${totalCostWith.toLocaleString()} €
+  ${t('results.savings')}: ${totalSavings.toLocaleString()} €
+
+${'─'.repeat(40)}
+forge-simulator.lu
+`
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `forge-rapport-eligibilite.txt`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
   if (!eligible) {
     return (
       <div className="min-h-screen flex items-center justify-center px-4 pt-20">
@@ -174,6 +223,23 @@ export default function Results({ eligible, programs, projects, onNext }: Result
                   {t('results.savings')} : {totalSavings.toLocaleString()} €
                 </span>
               </div>
+            </div>
+          </section>
+        )}
+
+        {/* Download Report */}
+        {projects.length > 0 && (
+          <section className="mb-12 animate-slide-up" style={{ animationDelay: '0.25s' }}>
+            <div className="text-center">
+              <button
+                onClick={handleDownloadPdf}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-primary-200 text-primary-700 font-semibold rounded-xl hover:bg-primary-50 hover:border-primary-300 transition-all"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                {t('results.downloadPdf')}
+              </button>
             </div>
           </section>
         )}

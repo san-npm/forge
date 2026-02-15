@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { LanguageProvider } from '@/context/LanguageContext'
 import Navbar from '@/components/Navbar'
 import LandingPage from '@/components/LandingPage'
 import Quiz from '@/components/Quiz'
@@ -13,7 +12,7 @@ import { QuizAnswers, computeEligibility, Program, ProjectRecommendation } from 
 
 type Screen = 'landing' | 'quiz' | 'results' | 'agent' | 'blog' | 'directory'
 
-function SimulatorApp() {
+export default function Home() {
   const [screen, setScreen] = useState<Screen>('landing')
   const [results, setResults] = useState<{
     eligible: boolean
@@ -57,13 +56,5 @@ function SimulatorApp() {
       {screen === 'blog' && <Blog onBack={() => navigateTo('landing')} />}
       {screen === 'directory' && <Directory onBack={() => navigateTo('landing')} />}
     </>
-  )
-}
-
-export default function Home() {
-  return (
-    <LanguageProvider>
-      <SimulatorApp />
-    </LanguageProvider>
   )
 }
