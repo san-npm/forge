@@ -32,20 +32,20 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── Landing page ───
   'hero.title': {
-    fr: 'Découvrez combien le Luxembourg finance votre transformation digitale & IA',
-    en: 'Discover how much Luxembourg will fund your digital & AI transformation',
-    lb: 'Entdeckt wéi vill Lëtzebuerg fir Är digital & KI Transformatioun bezilt',
-    de: 'Entdecken Sie, wie viel Luxemburg für Ihre digitale & KI-Transformation zahlt',
-    it: 'Scopri quanto il Lussemburgo finanzia la tua trasformazione digitale e IA',
-    pt: 'Descubra quanto o Luxemburgo financia a sua transformação digital e IA',
+    fr: 'Jusqu\'à 25 000 € d\'aides pour digitaliser votre PME au Luxembourg',
+    en: 'Up to €25,000 in grants to digitalize your SME in Luxembourg',
+    lb: 'Bis zu 25.000 € Hëllefen fir Är KMU zu Lëtzebuerg ze digitaliséieren',
+    de: 'Bis zu 25.000 € Förderung für die Digitalisierung Ihres KMU in Luxemburg',
+    it: 'Fino a 25.000 € di sovvenzioni per digitalizzare la vostra PMI in Lussemburgo',
+    pt: 'Até 25.000 € em apoios para digitalizar a sua PME no Luxemburgo',
   },
   'hero.subtitle': {
-    fr: 'Simulez vos aides en 10 secondes. Gratuit, confidentiel, sans engagement.',
-    en: 'Simulate your funding in 10 seconds. Free, confidential, no commitment.',
-    lb: 'Simuléiert Är Hëllefen an 10 Sekonnen. Gratis, vertraulech, ouni Engagement.',
-    de: 'Simulieren Sie Ihre Förderung in 10 Sekunden. Kostenlos, vertraulich, unverbindlich.',
-    it: 'Simula i tuoi finanziamenti in 10 secondi. Gratuito, confidenziale, senza impegno.',
-    pt: 'Simule os seus apoios em 10 segundos. Gratuito, confidencial, sem compromisso.',
+    fr: '6 questions, 10 secondes, et vous savez exactement à quelles aides vous avez droit. Gratuit et confidentiel.',
+    en: '6 questions, 10 seconds, and you know exactly which grants you qualify for. Free and confidential.',
+    lb: '6 Froen, 10 Sekonnen, an Dir wësst genee op wéi eng Hëllefen Dir Urecht hutt. Gratis a vertraulech.',
+    de: '6 Fragen, 10 Sekunden, und Sie wissen genau, welche Förderungen Ihnen zustehen. Kostenlos und vertraulich.',
+    it: '6 domande, 10 secondi, e saprete esattamente a quali sovvenzioni avete diritto. Gratuito e confidenziale.',
+    pt: '6 perguntas, 10 segundos, e sabe exatamente a que apoios tem direito. Gratuito e confidencial.',
   },
   'hero.cta': {
     fr: 'Estimer mes aides', en: 'Estimate my funding', lb: 'Meng Hëllefen schätzen', de: 'Meine Förderung schätzen', it: 'Stima i miei finanziamenti', pt: 'Estimar os meus apoios',
@@ -72,13 +72,50 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Programmes référencés', en: 'Referenced programs', lb: 'Referenzéiert Programmer', de: 'Referenzierte Programme', it: 'Programmi di riferimento', pt: 'Programas referenciados',
   },
   'hero.cta2': {
-    fr: 'Voir les programmes', en: 'See programs', lb: 'Programmer gesinn', de: 'Programme ansehen', it: 'Vedi i programmi', pt: 'Ver os programas',
+    fr: 'Parler à un expert', en: 'Talk to an expert', lb: 'Mat engem Expert schwätzen', de: 'Mit einem Experten sprechen', it: 'Parlare con un esperto', pt: 'Falar com um especialista',
   },
   'hero.badge': {
     fr: 'Simulateur gratuit', en: 'Free simulator', lb: 'Gratis Simulator', de: 'Kostenloser Simulator', it: 'Simulatore gratuito', pt: 'Simulador gratuito',
   },
   'hero.partners': {
     fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
+  },
+
+  // ─── How it works ───
+  'howItWorks.title': {
+    fr: 'Comment ça marche ?', en: 'How does it work?', lb: 'Wéi funktionéiert et?', de: 'Wie funktioniert es?', it: 'Come funziona?', pt: 'Como funciona?',
+  },
+  'howItWorks.subtitle': {
+    fr: 'Trois étapes simples pour découvrir vos aides luxembourgeoises.', en: 'Three simple steps to discover your Luxembourg grants.', lb: 'Dräi einfach Schrëtt fir Är Lëtzebuerger Hëllefen z\'entdecken.', de: 'Drei einfache Schritte, um Ihre luxemburgischen Förderungen zu entdecken.', it: 'Tre semplici passaggi per scoprire le vostre sovvenzioni lussemburghesi.', pt: 'Três passos simples para descobrir os seus apoios luxemburgueses.',
+  },
+  'howItWorks.step1.title': {
+    fr: 'Répondez au quiz', en: 'Take the quiz', lb: 'Beäntwert de Quiz', de: 'Machen Sie das Quiz', it: 'Rispondete al quiz', pt: 'Responda ao quiz',
+  },
+  'howItWorks.step1.desc': {
+    fr: '6 questions sur votre entreprise, votre secteur et vos besoins digitaux.', en: '6 questions about your company, sector and digital needs.', lb: '6 Froen iwwer Äert Unternehmen, Äre Secteur an Är digital Bedierfnisser.', de: '6 Fragen zu Ihrem Unternehmen, Ihrer Branche und Ihren digitalen Bedürfnissen.', it: '6 domande sulla vostra azienda, settore ed esigenze digitali.', pt: '6 perguntas sobre a sua empresa, setor e necessidades digitais.',
+  },
+  'howItWorks.step2.title': {
+    fr: 'Obtenez vos résultats', en: 'Get your results', lb: 'Kritt Är Resultater', de: 'Erhalten Sie Ihre Ergebnisse', it: 'Ottenete i risultati', pt: 'Obtenha os seus resultados',
+  },
+  'howItWorks.step2.desc': {
+    fr: 'Découvrez les programmes éligibles avec les montants estimés et projets recommandés.', en: 'Discover eligible programs with estimated amounts and recommended projects.', lb: 'Entdeckt déi eligibel Programmer mat geschate Betréi a recommandéierte Projeten.', de: 'Entdecken Sie förderfähige Programme mit geschätzten Beträgen und empfohlenen Projekten.', it: 'Scoprite i programmi ammissibili con importi stimati e progetti consigliati.', pt: 'Descubra os programas elegíveis com montantes estimados e projetos recomendados.',
+  },
+  'howItWorks.step3.title': {
+    fr: 'Contactez un expert', en: 'Contact an expert', lb: 'Kontaktéiert en Expert', de: 'Kontaktieren Sie einen Experten', it: 'Contattate un esperto', pt: 'Contacte um especialista',
+  },
+  'howItWorks.step3.desc': {
+    fr: 'Un spécialiste vous accompagne gratuitement dans vos démarches d\'aides.', en: 'A specialist will guide you through the grant application process for free.', lb: 'E Spezialist begleet Iech gratis an Äre Hëllefsdemarchen.', de: 'Ein Spezialist begleitet Sie kostenlos durch den Antragsprocess.', it: 'Uno specialista vi guida gratuitamente nel processo di richiesta.', pt: 'Um especialista acompanha-o gratuitamente no processo de candidatura.',
+  },
+
+  // ─── CTA section ───
+  'cta.title': {
+    fr: 'Prêt à financer votre transformation digitale ?', en: 'Ready to fund your digital transformation?', lb: 'Prett fir Är digital Transformatioun ze finanzéieren?', de: 'Bereit, Ihre digitale Transformation zu finanzieren?', it: 'Pronti a finanziare la vostra trasformazione digitale?', pt: 'Pronto para financiar a sua transformação digital?',
+  },
+  'cta.subtitle': {
+    fr: 'Simulez vos aides en 10 secondes ou contactez directement un expert pour vous accompagner.', en: 'Simulate your grants in 10 seconds or contact an expert directly for guidance.', lb: 'Simuléiert Är Hëllefen an 10 Sekonnen oder kontaktéiert direkt en Expert fir Begleedung.', de: 'Simulieren Sie Ihre Förderungen in 10 Sekunden oder kontaktieren Sie direkt einen Experten.', it: 'Simulate le vostre sovvenzioni in 10 secondi o contattate direttamente un esperto.', pt: 'Simule os seus apoios em 10 segundos ou contacte diretamente um especialista.',
+  },
+  'cta.contact': {
+    fr: 'Contacter un expert', en: 'Contact an expert', lb: 'En Expert kontaktéieren', de: 'Experten kontaktieren', it: 'Contattare un esperto', pt: 'Contactar um especialista',
   },
 
   // ─── Features section ───
@@ -535,6 +572,107 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'contact.successDesc': {
     fr: 'Un expert vous contactera dans les meilleurs délais.', en: 'An expert will contact you as soon as possible.', lb: 'En Expert kontaktéiert Iech esou séier wéi méiglech.', de: 'Ein Experte wird Sie so schnell wie möglich kontaktieren.', it: 'Un esperto vi contatterà il prima possibile.', pt: 'Um especialista entrará em contacto o mais breve possível.',
+  },
+
+  // ─── Contact Page (standalone) ───
+  'contactPage.title': {
+    fr: 'Parlons de votre projet', en: 'Let\'s talk about your project', lb: 'Schwätze mir iwwer Äre Projet', de: 'Sprechen wir über Ihr Projekt', it: 'Parliamo del vostro progetto', pt: 'Vamos falar do seu projeto',
+  },
+  'contactPage.subtitle': {
+    fr: 'Remplissez le formulaire ci-dessous et un expert vous recontactera pour discuter de vos besoins et des aides disponibles.', en: 'Fill out the form below and an expert will get back to you to discuss your needs and available grants.', lb: 'Fëllt de Formulaire hei ënnendrënner aus an en Expert mellt sech bei Iech fir Är Bedierfnisser an déi disponibel Hëllefen ze beschwätzen.', de: 'Füllen Sie das Formular aus und ein Experte wird sich bei Ihnen melden, um Ihre Bedürfnisse und verfügbare Förderungen zu besprechen.', it: 'Compilate il modulo qui sotto e un esperto vi ricontatterà per discutere le vostre esigenze e le sovvenzioni disponibili.', pt: 'Preencha o formulário abaixo e um especialista entrará em contacto para discutir as suas necessidades e os apoios disponíveis.',
+  },
+  'contactPage.info.expert.title': {
+    fr: 'Accompagnement gratuit', en: 'Free guidance', lb: 'Gratis Begleedung', de: 'Kostenlose Begleitung', it: 'Accompagnamento gratuito', pt: 'Acompanhamento gratuito',
+  },
+  'contactPage.info.expert.desc': {
+    fr: 'Un expert analyse votre éligibilité et vous guide dans vos démarches d\'aides luxembourgeoises.', en: 'An expert analyzes your eligibility and guides you through the Luxembourg grant application process.', lb: 'En Expert analyséiert Är Eligibilitéit a begleet Iech an Äre Lëtzebuerger Hëllefsdemarchen.', de: 'Ein Experte analysiert Ihre Förderfähigkeit und begleitet Sie durch den luxemburgischen Antragsprocess.', it: 'Un esperto analizza la vostra ammissibilità e vi guida nelle procedure di sovvenzione lussemburghesi.', pt: 'Um especialista analisa a sua elegibilidade e guia-o no processo de candidatura luxemburguês.',
+  },
+  'contactPage.info.response.title': {
+    fr: 'Réponse sous 24h', en: 'Response within 24h', lb: 'Äntwert bannent 24 Stonnen', de: 'Antwort innerhalb von 24 Std.', it: 'Risposta entro 24 ore', pt: 'Resposta em 24h',
+  },
+  'contactPage.info.response.desc': {
+    fr: 'Notre équipe s\'engage à vous recontacter dans les 24 heures ouvrées suivant votre demande.', en: 'Our team commits to getting back to you within 24 business hours of your request.', lb: 'Eist Team mellt sech bannent 24 Aarbechtsstonnen no Ärer Ufro bei Iech.', de: 'Unser Team meldet sich innerhalb von 24 Geschäftsstunden nach Ihrer Anfrage bei Ihnen.', it: 'Il nostro team si impegna a ricontattarvi entro 24 ore lavorative dalla richiesta.', pt: 'A nossa equipa compromete-se a contactá-lo nas 24 horas úteis seguintes ao seu pedido.',
+  },
+  'contactPage.info.confidential.title': {
+    fr: 'Données protégées', en: 'Data protected', lb: 'Daten geschützt', de: 'Daten geschützt', it: 'Dati protetti', pt: 'Dados protegidos',
+  },
+  'contactPage.info.confidential.desc': {
+    fr: 'Vos informations restent strictement confidentielles et ne sont jamais partagées avec des tiers.', en: 'Your information remains strictly confidential and is never shared with third parties.', lb: 'Är Informatiounen bleiwen strikt vertraulech an ginn ni mat Drëtten gedeelt.', de: 'Ihre Informationen bleiben streng vertraulich und werden niemals an Dritte weitergegeben.', it: 'Le vostre informazioni restano strettamente confidenziali e non vengono mai condivise con terzi.', pt: 'As suas informações permanecem estritamente confidenciais e nunca são partilhadas com terceiros.',
+  },
+  'contactPage.section.personal': {
+    fr: 'Informations personnelles', en: 'Personal information', lb: 'Perséinlech Informatiounen', de: 'Persönliche Informationen', it: 'Informazioni personali', pt: 'Informações pessoais',
+  },
+  'contactPage.section.company': {
+    fr: 'Votre entreprise', en: 'Your company', lb: 'Äert Unternehmen', de: 'Ihr Unternehmen', it: 'La vostra azienda', pt: 'A sua empresa',
+  },
+  'contactPage.section.request': {
+    fr: 'Votre demande', en: 'Your request', lb: 'Är Ufro', de: 'Ihre Anfrage', it: 'La vostra richiesta', pt: 'O seu pedido',
+  },
+  'contactPage.section.contact': {
+    fr: 'Vos coordonnées', en: 'Your contact details', lb: 'Är Kontaktdaten', de: 'Ihre Kontaktdaten', it: 'I vostri contatti', pt: 'Os seus contactos',
+  },
+  'contactPage.sector': {
+    fr: 'Secteur d\'activité', en: 'Industry sector', lb: 'Aktivitéitssecteur', de: 'Branche', it: 'Settore di attività', pt: 'Setor de atividade',
+  },
+  'contactPage.sector.horeca': {
+    fr: 'HORECA (hôtellerie, restauration)', en: 'HORECA (hospitality, food service)', lb: 'HORECA (Hotellerie, Restauratioun)', de: 'HORECA (Gastronomie, Hotelgewerbe)', it: 'HORECA (ospitalità, ristorazione)', pt: 'HORECA (hotelaria, restauração)',
+  },
+  'contactPage.sector.retail': {
+    fr: 'Commerce de détail', en: 'Retail', lb: 'Detailhandel', de: 'Einzelhandel', it: 'Commercio al dettaglio', pt: 'Comércio a retalho',
+  },
+  'contactPage.sector.crafts': {
+    fr: 'Artisanat', en: 'Crafts & trades', lb: 'Handwierk', de: 'Handwerk', it: 'Artigianato', pt: 'Artesanato',
+  },
+  'contactPage.sector.services': {
+    fr: 'Services professionnels', en: 'Professional services', lb: 'Professionell Servicer', de: 'Dienstleistungen', it: 'Servizi professionali', pt: 'Serviços profissionais',
+  },
+  'contactPage.sector.manufacturing': {
+    fr: 'Production / Industrie', en: 'Manufacturing / Industry', lb: 'Produktioun / Industrie', de: 'Produktion / Industrie', it: 'Produzione / Industria', pt: 'Produção / Indústria',
+  },
+  'contactPage.sector.other': {
+    fr: 'Autre', en: 'Other', lb: 'Anert', de: 'Sonstiges', it: 'Altro', pt: 'Outro',
+  },
+  'contactPage.subject.eligibility': {
+    fr: 'Vérifier mon éligibilité', en: 'Check my eligibility', lb: 'Meng Eligibilitéit préiwen', de: 'Meine Förderfähigkeit prüfen', it: 'Verificare la mia ammissibilità', pt: 'Verificar a minha elegibilidade',
+  },
+  'contactPage.subject.partnership': {
+    fr: 'Partenariat', en: 'Partnership', lb: 'Partnerschaft', de: 'Partnerschaft', it: 'Partnership', pt: 'Parceria',
+  },
+  'contactPage.preferredContact': {
+    fr: 'Moyen de contact préféré', en: 'Preferred contact method', lb: 'Bevorzuegt Kontaktmethod', de: 'Bevorzugte Kontaktmethode', it: 'Metodo di contatto preferito', pt: 'Método de contacto preferido',
+  },
+  'contactPage.preferred.email': {
+    fr: 'Email', en: 'Email', lb: 'E-Mail', de: 'E-Mail', it: 'Email', pt: 'Email',
+  },
+  'contactPage.preferred.phone': {
+    fr: 'Téléphone', en: 'Phone', lb: 'Telefon', de: 'Telefon', it: 'Telefono', pt: 'Telefone',
+  },
+  'contactPage.preferred.either': {
+    fr: 'Peu importe', en: 'No preference', lb: 'Egal', de: 'Egal', it: 'Indifferente', pt: 'Sem preferência',
+  },
+  'contactPage.placeholder.name': {
+    fr: 'Jean Dupont', en: 'John Smith', lb: 'Jean Dupont', de: 'Max Mustermann', it: 'Mario Rossi', pt: 'João Silva',
+  },
+  'contactPage.placeholder.role': {
+    fr: 'ex : Gérant, Directeur...', en: 'e.g. Manager, Director...', lb: 'z.B. Gérant, Direkter...', de: 'z.B. Geschäftsführer, Direktor...', it: 'es. Direttore, Manager...', pt: 'ex: Gerente, Diretor...',
+  },
+  'contactPage.placeholder.company': {
+    fr: 'Nom de votre entreprise', en: 'Your company name', lb: 'Numm vun Ärer Firma', de: 'Name Ihres Unternehmens', it: 'Nome della vostra azienda', pt: 'Nome da sua empresa',
+  },
+  'contactPage.placeholder.email': {
+    fr: 'jean@entreprise.lu', en: 'john@company.lu', lb: 'jean@firma.lu', de: 'max@firma.lu', it: 'mario@azienda.lu', pt: 'joao@empresa.lu',
+  },
+  'contactPage.placeholder.phone': {
+    fr: '+352 621 123 456', en: '+352 621 123 456', lb: '+352 621 123 456', de: '+352 621 123 456', it: '+352 621 123 456', pt: '+352 621 123 456',
+  },
+  'contactPage.placeholder.message': {
+    fr: 'Décrivez votre projet ou vos questions sur les aides disponibles...', en: 'Describe your project or questions about available grants...', lb: 'Beschreiwt Äre Projet oder Är Froen iwwer déi disponibel Hëllefen...', de: 'Beschreiben Sie Ihr Projekt oder Ihre Fragen zu verfügbaren Förderungen...', it: 'Descrivete il vostro progetto o le domande sulle sovvenzioni disponibili...', pt: 'Descreva o seu projeto ou as suas questões sobre os apoios disponíveis...',
+  },
+  'contactPage.privacy': {
+    fr: 'Vos données sont protégées et utilisées uniquement pour traiter votre demande.', en: 'Your data is protected and used only to process your request.', lb: 'Är Daten si geschützt a ginn nëmme benotzt fir Är Ufro ze behandelen.', de: 'Ihre Daten sind geschützt und werden nur zur Bearbeitung Ihrer Anfrage verwendet.', it: 'I vostri dati sono protetti e utilizzati solo per elaborare la vostra richiesta.', pt: 'Os seus dados são protegidos e utilizados apenas para processar o seu pedido.',
+  },
+  'contactPage.backToHome': {
+    fr: 'Retour à l\'accueil', en: 'Back to home', lb: 'Zréck op d\'Haaptsäit', de: 'Zurück zur Startseite', it: 'Torna alla home', pt: 'Voltar ao início',
   },
 
   // ─── Blog ───
