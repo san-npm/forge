@@ -69,7 +69,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/agents#contact" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
+                <Link href="/contact" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
                   {t('footer.contact')}
                 </Link>
               </li>

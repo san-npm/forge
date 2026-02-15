@@ -137,7 +137,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                   </svg>
                 </button>
                 <Link
-                  href="/agents"
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-navy-200 text-navy-700 font-semibold rounded-full hover:border-navy-300 hover:bg-navy-50 transition-all"
                 >
                   {t('hero.cta2')}
@@ -251,6 +251,39 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
+      {/* How it works */}
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">
+              {t('howItWorks.title')}
+            </h2>
+            <p className="text-lg text-navy-500 max-w-2xl mx-auto">
+              {t('howItWorks.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((step) => (
+              <div key={step} className="relative text-center animate-slide-up" style={{ animationDelay: `${(step - 1) * 0.1}s` }}>
+                <div className="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                  <span className="text-2xl font-bold text-primary-600">{step}</span>
+                </div>
+                <h3 className="text-lg font-bold text-navy-900 mb-2">{t(`howItWorks.step${step}.title`)}</h3>
+                <p className="text-navy-500 text-sm leading-relaxed">{t(`howItWorks.step${step}.desc`)}</p>
+                {step < 3 && (
+                  <div className="hidden md:block absolute top-7 -right-4 w-8">
+                    <svg className="w-full text-navy-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
@@ -263,17 +296,17 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((f, i) => (
               <div
                 key={f.titleKey}
-                className="bg-white rounded-2xl p-7 border border-gray-200 hover:border-primary-200 hover:shadow-lg transition-all duration-300 animate-slide-up"
+                className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-primary-200 hover:shadow-lg transition-all duration-300 animate-slide-up group"
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
-                <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 mb-5">
+                <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 mb-4 group-hover:bg-primary-100 transition-colors">
                   {f.icon}
                 </div>
-                <h3 className="text-lg font-bold text-navy-900 mb-2">{t(f.titleKey)}</h3>
+                <h3 className="text-base font-bold text-navy-900 mb-2">{t(f.titleKey)}</h3>
                 <p className="text-navy-500 leading-relaxed text-sm">{t(f.descKey)}</p>
               </div>
             ))}
@@ -304,20 +337,28 @@ export default function LandingPage({ onStart }: LandingPageProps) {
       <section className="py-20 bg-navy-900">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            {t('hero.title')}
+            {t('cta.title')}
           </h2>
           <p className="text-lg text-navy-300 mb-8 max-w-xl mx-auto">
-            {t('hero.subtitle')}
+            {t('cta.subtitle')}
           </p>
-          <button
-            onClick={onStart}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 text-white text-lg font-semibold rounded-full hover:bg-primary-400 transition-all shadow-lg shadow-primary-500/25 hover:shadow-xl hover:-translate-y-0.5"
-          >
-            {t('hero.cta')}
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </button>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button
+              onClick={onStart}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 text-white text-lg font-semibold rounded-full hover:bg-primary-400 transition-all shadow-lg shadow-primary-500/25 hover:shadow-xl hover:-translate-y-0.5"
+            >
+              {t('hero.cta')}
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/20 text-white text-lg font-semibold rounded-full hover:bg-white/10 transition-all"
+            >
+              {t('cta.contact')}
+            </Link>
+          </div>
         </div>
       </section>
     </div>
