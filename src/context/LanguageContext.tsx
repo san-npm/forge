@@ -968,7 +968,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Développement Web', en: 'Web Development', lb: 'Web-Entwécklung', de: 'Web-Entwicklung', it: 'Sviluppo Web', pt: 'Desenvolvimento Web',
   },
   'pricing.svc.dev.price': {
-    fr: 'À partir de 990 €', en: 'From €990', lb: 'Vun 990 € un', de: 'Ab 990 €', it: 'Da 990 €', pt: 'A partir de 990 €',
+    fr: 'À partir de 999 €', en: 'From €999', lb: 'Vun 999 € un', de: 'Ab 999 €', it: 'Da 999 €', pt: 'A partir de 999 €',
   },
   'pricing.svc.dev.desc': {
     fr: 'Sites web, e-commerce, applications — développés avec l\'IA pour un résultat rapide et professionnel.',
