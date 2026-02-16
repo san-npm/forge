@@ -968,7 +968,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Développement Web', en: 'Web Development', lb: 'Web-Entwécklung', de: 'Web-Entwicklung', it: 'Sviluppo Web', pt: 'Desenvolvimento Web',
   },
   'pricing.svc.dev.price': {
-    fr: 'À partir de 999 €', en: 'From €999', lb: 'Vun 999 € un', de: 'Ab 999 €', it: 'Da 999 €', pt: 'A partir de 999 €',
+    fr: 'À partir de 900 €', en: 'From €900', lb: 'Vun 900 € un', de: 'Ab 900 €', it: 'Da 900 €', pt: 'A partir de 900 €',
   },
   'pricing.svc.dev.desc': {
     fr: 'Sites web, e-commerce, applications — développés avec l\'IA pour un résultat rapide et professionnel.',
@@ -988,7 +988,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Design responsive & moderne', en: 'Responsive & modern design', lb: 'Responsive & modern Design', de: 'Responsives & modernes Design', it: 'Design responsive & moderno', pt: 'Design responsive e moderno',
   },
   'pricing.svc.dev.f4': {
-    fr: 'Livraison 2× plus rapide grâce à l\'IA', en: '2× faster delivery thanks to AI', lb: '2× méi séier Liwwerung dank KI', de: '2× schnellere Lieferung dank KI', it: 'Consegna 2× più veloce grazie all\'IA', pt: 'Entrega 2× mais rápida graças à IA',
+    fr: 'Livraison en 48h max grâce à l\'IA', en: 'Up to 48h delivery thanks to AI', lb: 'Bis zu 48h Liwwerung dank KI', de: 'Lieferung in bis zu 48h dank KI', it: 'Consegna in max 48h grazie all\'IA', pt: 'Entrega em até 48h graças à IA',
   },
   'pricing.svc.dev.f5': {
     fr: 'Éligible aux subventions SME Package', en: 'Eligible for SME Package grants', lb: 'Eligibel fir SME Package Subventiounen', de: 'Förderfähig für SME Package', it: 'Ammissibile per sovvenzioni SME Package', pt: 'Elegível para subsídios SME Package',
@@ -997,18 +997,18 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Intégration IA', en: 'AI Integration', lb: 'KI-Integratioun', de: 'KI-Integration', it: 'Integrazione IA', pt: 'Integração IA',
   },
   'pricing.svc.ai.price': {
-    fr: 'À partir de 490 €', en: 'From €490', lb: 'Vun 490 € un', de: 'Ab 490 €', it: 'Da 490 €', pt: 'A partir de 490 €',
+    fr: 'À partir de 900 €', en: 'From €900', lb: 'Vun 900 € un', de: 'Ab 900 €', it: 'Da 900 €', pt: 'A partir de 900 €',
   },
   'pricing.svc.ai.desc': {
-    fr: 'Chatbots, automatisation, IA sur mesure — intégrez l\'intelligence artificielle dans votre activité.',
-    en: 'Chatbots, automation, custom AI — integrate artificial intelligence into your business.',
-    lb: 'Chatbots, Automatiséierung, personaliséiert KI — integréiert Kënschtlech Intelligenz an Är Aktivitéit.',
-    de: 'Chatbots, Automatisierung, maßgeschneiderte KI — integrieren Sie KI in Ihr Geschäft.',
-    it: 'Chatbot, automazione, IA personalizzata — integra l\'intelligenza artificiale nella tua attività.',
-    pt: 'Chatbots, automação, IA personalizada — integre a inteligência artificial no seu negócio.',
+    fr: 'Agents IA, automatisation, solutions sur mesure — intégrez l\'intelligence artificielle dans votre activité.',
+    en: 'AI agents, automation, custom solutions — integrate artificial intelligence into your business.',
+    lb: 'KI-Agenten, Automatiséierung, personaliséiert Léisungen — integréiert Kënschtlech Intelligenz an Är Aktivitéit.',
+    de: 'KI-Agenten, Automatisierung, maßgeschneiderte Lösungen — integrieren Sie KI in Ihr Geschäft.',
+    it: 'Agenti IA, automazione, soluzioni personalizzate — integra l\'intelligenza artificiale nella tua attività.',
+    pt: 'Agentes IA, automação, soluções personalizadas — integre a inteligência artificial no seu negócio.',
   },
   'pricing.svc.ai.f1': {
-    fr: 'Chatbots & assistants virtuels', en: 'Chatbots & virtual assistants', lb: 'Chatbots & virtuell Assistenten', de: 'Chatbots & virtuelle Assistenten', it: 'Chatbot & assistenti virtuali', pt: 'Chatbots e assistentes virtuais',
+    fr: 'Agents IA autonomes', en: 'Autonomous AI agents', lb: 'Autonom KI-Agenten', de: 'Autonome KI-Agenten', it: 'Agenti IA autonomi', pt: 'Agentes IA autónomos',
   },
   'pricing.svc.ai.f2': {
     fr: 'Automatisation de processus', en: 'Process automation', lb: 'Prozess-Automatiséierung', de: 'Prozessautomatisierung', it: 'Automazione dei processi', pt: 'Automação de processos',
@@ -1020,7 +1020,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Formation de votre équipe', en: 'Team training', lb: 'Formatioun vun Ärem Team', de: 'Schulung Ihres Teams', it: 'Formazione del team', pt: 'Formação da equipa',
   },
   'pricing.svc.ai.f5': {
-    fr: 'Éligible aux aides Fit 4 AI', en: 'Eligible for Fit 4 AI grants', lb: 'Eligibel fir Fit 4 AI Hëllefen', de: 'Förderfähig für Fit 4 AI', it: 'Ammissibile per aiuti Fit 4 AI', pt: 'Elegível para apoios Fit 4 AI',
+    fr: 'Éligible aux subventions SME Package', en: 'Eligible for SME Package grants', lb: 'Eligibel fir SME Package Subventiounen', de: 'Förderfähig für SME Package', it: 'Ammissibile per sovvenzioni SME Package', pt: 'Elegível para subsídios SME Package',
   },
   'pricing.svc.maintenance.title': {
     fr: 'Maintenance', en: 'Maintenance', lb: 'Maintenance', de: 'Wartung', it: 'Manutenzione', pt: 'Manutenção',
@@ -1046,7 +1046,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Sauvegardes automatiques', en: 'Automatic backups', lb: 'Automatesch Backupen', de: 'Automatische Backups', it: 'Backup automatici', pt: 'Backups automáticos',
   },
   'pricing.svc.maintenance.f4': {
-    fr: 'Support réactif sous 24h', en: 'Responsive support within 24h', lb: 'Reaktive Support bannen 24h', de: 'Reaktiver Support innerhalb 24h', it: 'Supporto reattivo entro 24h', pt: 'Suporte reativo em 24h',
+    fr: 'Support réactif instantané', en: 'Instant responsive support', lb: 'Sofortege reaktive Support', de: 'Sofortiger reaktiver Support', it: 'Supporto reattivo istantaneo', pt: 'Suporte reativo instantâneo',
   },
   'pricing.svc.consulting.title': {
     fr: 'Conseil Subventions', en: 'Grant Consulting', lb: 'Subventiouns-Berodung', de: 'Förderberatung', it: 'Consulenza Sovvenzioni', pt: 'Consultoria Subsídios',
@@ -1119,6 +1119,89 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'report.generatedOn': {
     fr: 'Généré le', en: 'Generated on', lb: 'Generéiert den', de: 'Erstellt am', it: 'Generato il', pt: 'Gerado em',
+  },
+  'report.clientInfo': {
+    fr: 'Informations du demandeur', en: 'Applicant information', lb: 'Informatiounen vum Untrëttler', de: 'Antragsteller-Informationen', it: 'Informazioni del richiedente', pt: 'Informações do requerente',
+  },
+  'report.name': {
+    fr: 'Nom', en: 'Name', lb: 'Numm', de: 'Name', it: 'Nome', pt: 'Nome',
+  },
+  'report.company': {
+    fr: 'Entreprise', en: 'Company', lb: 'Firma', de: 'Unternehmen', it: 'Azienda', pt: 'Empresa',
+  },
+  'report.rcs': {
+    fr: 'N° RCS', en: 'RCS No.', lb: 'RCS Nr.', de: 'RCS-Nr.', it: 'N° RCS', pt: 'N.º RCS',
+  },
+  'report.email': {
+    fr: 'Email', en: 'Email', lb: 'Email', de: 'E-Mail', it: 'Email', pt: 'Email',
+  },
+  'report.services.title': {
+    fr: 'Comment nous pouvons vous accompagner', en: 'How we can help you', lb: 'Wéi mir Iech begleede kënnen', de: 'Wie wir Sie begleiten können', it: 'Come possiamo accompagnarvi', pt: 'Como podemos ajudá-lo',
+  },
+  'report.services.dev.title': {
+    fr: 'Développement Web & Digital (à partir de 900 €)', en: 'Web & Digital Development (from €900)', lb: 'Web & Digital Entwécklung (vun 900 €)', de: 'Web- & Digitalentwicklung (ab 900 €)', it: 'Sviluppo Web & Digitale (da 900 €)', pt: 'Desenvolvimento Web & Digital (a partir de 900 €)',
+  },
+  'report.services.dev.desc': {
+    fr: 'Sites web, e-commerce, applications sur mesure. Livraison en 48h max grâce à nos outils IA. Éligible aux subventions SME Package Digital (70 % pris en charge, max 17 500 €).',
+    en: 'Websites, e-commerce, custom applications. Delivery in up to 48h thanks to our AI tools. Eligible for SME Package Digital grants (70% covered, max €17,500).',
+    lb: 'Websäiten, E-Commerce, personaliséiert Applikatiounen. Liwwerung an max 48h dank eisen KI-Tools. Eligibel fir SME Package Digital Subventiounen (70 % iwwerholl, max 17.500 €).',
+    de: 'Websites, E-Commerce, maßgeschneiderte Anwendungen. Lieferung in max 48h dank unserer KI-Tools. Förderfähig für SME Package Digital (70 % abgedeckt, max 17.500 €).',
+    it: 'Siti web, e-commerce, applicazioni su misura. Consegna in max 48h grazie ai nostri strumenti IA. Ammissibile per sovvenzioni SME Package Digital (70 % coperto, max 17.500 €).',
+    pt: 'Websites, e-commerce, aplicações à medida. Entrega em até 48h graças às nossas ferramentas IA. Elegível para subsídios SME Package Digital (70 % coberto, máx. 17.500 €).',
+  },
+  'report.services.ai.title': {
+    fr: 'Intégration IA & Agents Autonomes (à partir de 900 €)', en: 'AI Integration & Autonomous Agents (from €900)', lb: 'KI-Integratioun & Autonom Agenten (vun 900 €)', de: 'KI-Integration & Autonome Agenten (ab 900 €)', it: 'Integrazione IA & Agenti Autonomi (da 900 €)', pt: 'Integração IA & Agentes Autónomos (a partir de 900 €)',
+  },
+  'report.services.ai.desc': {
+    fr: 'Agents IA autonomes, automatisation de processus, analyse de données. Éligible aux subventions SME Package IA (70 % pris en charge, max 17 500 €) et Fit 4 AI (50 %, max 25 000 €).',
+    en: 'Autonomous AI agents, process automation, data analysis. Eligible for SME Package AI grants (70% covered, max €17,500) and Fit 4 AI (50%, max €25,000).',
+    lb: 'Autonom KI-Agenten, Prozess-Automatiséierung, Datenanalyse. Eligibel fir SME Package IA (70 % iwwerholl, max 17.500 €) an Fit 4 AI (50 %, max 25.000 €).',
+    de: 'Autonome KI-Agenten, Prozessautomatisierung, Datenanalyse. Förderfähig für SME Package KI (70 % abgedeckt, max 17.500 €) und Fit 4 AI (50 %, max 25.000 €).',
+    it: 'Agenti IA autonomi, automazione dei processi, analisi dati. Ammissibile per SME Package IA (70 % coperto, max 17.500 €) e Fit 4 AI (50 %, max 25.000 €).',
+    pt: 'Agentes IA autónomos, automação de processos, análise de dados. Elegível para SME Package IA (70 % coberto, máx. 17.500 €) e Fit 4 AI (50 %, máx. 25.000 €).',
+  },
+  'report.services.grants.title': {
+    fr: 'Conseil Subventions & Montage de Dossier (à partir de 290 €)', en: 'Grant Consulting & Application Support (from €290)', lb: 'Subventiouns-Berodung & Dossier-Montage (vun 290 €)', de: 'Förderberatung & Antragserstellung (ab 290 €)', it: 'Consulenza Sovvenzioni & Preparazione Domande (da 290 €)', pt: 'Consultoria Subsídios & Montagem de Candidatura (a partir de 290 €)',
+  },
+  'report.services.grants.desc': {
+    fr: 'Diagnostic approfondi, montage complet de votre dossier de demande de subvention, suivi avec Luxinnovation et le Ministère de l\'Économie jusqu\'à obtention de l\'aide.',
+    en: 'In-depth assessment, complete grant application preparation, follow-up with Luxinnovation and the Ministry of the Economy until the grant is obtained.',
+    lb: 'Déifgräifend Diagnose, komplett Montage vun Ärem Subventiouns-Dossier, Suivi mat Luxinnovation an dem Wirtschaftsministère bis d\'Hëllef accordéiert ass.',
+    de: 'Tiefgehende Analyse, vollständige Antragserstellung, Begleitung bei Luxinnovation und dem Wirtschaftsministerium bis zur Förderzusage.',
+    it: 'Diagnosi approfondita, preparazione completa della domanda di sovvenzione, seguito con Luxinnovation e il Ministero dell\'Economia fino all\'ottenimento dell\'aiuto.',
+    pt: 'Diagnóstico aprofundado, montagem completa da candidatura de subsídio, seguimento com Luxinnovation e o Ministério da Economia até à obtenção do apoio.',
+  },
+  'report.nextSteps.title': {
+    fr: 'Prochaines étapes', en: 'Next steps', lb: 'Nächst Schrëtt', de: 'Nächste Schritte', it: 'Prossimi passi', pt: 'Próximos passos',
+  },
+  'report.nextSteps.step1': {
+    fr: 'Prenez rendez-vous avec un expert Forge pour valider votre éligibilité et affiner vos projets.', en: 'Schedule a meeting with a Forge expert to validate your eligibility and refine your projects.', lb: 'Maacht en Rendez-vous mat engem Forge-Expert fir Är Eligibilitéit ze validéieren an Är Projeten ze verfeineren.', de: 'Vereinbaren Sie einen Termin mit einem Forge-Experten, um Ihre Förderfähigkeit zu bestätigen und Ihre Projekte zu verfeinern.', it: 'Fissate un appuntamento con un esperto Forge per validare la vostra ammissibilità e perfezionare i progetti.', pt: 'Marque uma reunião com um especialista Forge para validar a sua elegibilidade e refinar os seus projetos.',
+  },
+  'report.nextSteps.step2': {
+    fr: 'Nous montons votre dossier de demande de subvention et assurons le suivi avec les organismes.', en: 'We prepare your grant application and handle the follow-up with the relevant organizations.', lb: 'Mir montéieren Äre Subventiouns-Dossier a suiven mat den Organismen.', de: 'Wir bereiten Ihren Förderantrag vor und begleiten Sie bei den zuständigen Stellen.', it: 'Prepariamo la vostra domanda di sovvenzione e seguiamo le pratiche con gli organismi competenti.', pt: 'Preparamos a sua candidatura ao subsídio e asseguramos o acompanhamento junto dos organismos.',
+  },
+  'report.nextSteps.step3': {
+    fr: 'Une fois la subvention obtenue, nous réalisons votre projet digital ou IA dans les délais convenus.', en: 'Once the grant is obtained, we deliver your digital or AI project within the agreed timeline.', lb: 'Wann d\'Subventioun accordéiert ass, realiséiere mir Äre digitalen oder KI-Projet bannent den ofgemaachten Delaien.', de: 'Sobald die Förderung bewilligt ist, realisieren wir Ihr Digital- oder KI-Projekt im vereinbarten Zeitrahmen.', it: 'Una volta ottenuta la sovvenzione, realizziamo il vostro progetto digitale o IA nei tempi concordati.', pt: 'Uma vez obtido o subsídio, realizamos o seu projeto digital ou IA nos prazos acordados.',
+  },
+  'report.contact.cta': {
+    fr: 'Contactez-nous pour démarrer votre projet', en: 'Contact us to start your project', lb: 'Kontaktéiert eis fir Äre Projet ze starten', de: 'Kontaktieren Sie uns, um Ihr Projekt zu starten', it: 'Contattateci per avviare il vostro progetto', pt: 'Contacte-nos para iniciar o seu projeto',
+  },
+  'report.disclaimer': {
+    fr: 'Ce rapport est généré automatiquement à titre indicatif. Les montants et taux de couverture sont basés sur les programmes officiels du Grand-Duché de Luxembourg en vigueur à la date de génération. L\'éligibilité effective doit être confirmée auprès des organismes compétents. COMMIT MEDIA SARL · RCS B276192.',
+    en: 'This report is automatically generated for informational purposes. Amounts and coverage rates are based on official Grand Duchy of Luxembourg programs in effect at the date of generation. Actual eligibility must be confirmed with the relevant authorities. COMMIT MEDIA SARL · RCS B276192.',
+    lb: 'Dëse Rapport gëtt automatesch generéiert als Informatioun. D\'Beträg a Couverture-Raten baséieren op den offizielle Programmer vum Groussherzogtum Lëtzebuerg zum Datum vun der Generéierung. Déi effektiv Eligibilitéit muss bei den zoustännegen Organismen confirméiert ginn. COMMIT MEDIA SARL · RCS B276192.',
+    de: 'Dieser Bericht wird automatisch zu Informationszwecken erstellt. Beträge und Deckungsraten basieren auf den offiziellen Programmen des Großherzogtums Luxemburg zum Erstellungsdatum. Die tatsächliche Förderfähigkeit muss bei den zuständigen Stellen bestätigt werden. COMMIT MEDIA SARL · RCS B276192.',
+    it: 'Questo rapporto è generato automaticamente a titolo informativo. Gli importi e le percentuali di copertura si basano sui programmi ufficiali del Granducato di Lussemburgo in vigore alla data di generazione. L\'ammissibilità effettiva deve essere confermata presso gli organismi competenti. COMMIT MEDIA SARL · RCS B276192.',
+    pt: 'Este relatório é gerado automaticamente a título informativo. Os montantes e taxas de cobertura baseiam-se nos programas oficiais do Grão-Ducado do Luxemburgo em vigor à data de geração. A elegibilidade efetiva deve ser confirmada junto dos organismos competentes. COMMIT MEDIA SARL · RCS B276192.',
+  },
+  'report.form.title': {
+    fr: 'Vos informations pour le rapport', en: 'Your information for the report', lb: 'Är Informatiounen fir de Rapport', de: 'Ihre Informationen für den Bericht', it: 'Le vostre informazioni per il rapporto', pt: 'As suas informações para o relatório',
+  },
+  'report.form.generate': {
+    fr: 'Générer le rapport PDF', en: 'Generate PDF report', lb: 'PDF-Rapport generéieren', de: 'PDF-Bericht erstellen', it: 'Genera rapporto PDF', pt: 'Gerar relatório PDF',
+  },
+  'report.form.cancel': {
+    fr: 'Annuler', en: 'Cancel', lb: 'Ofbriechen', de: 'Abbrechen', it: 'Annulla', pt: 'Cancelar',
   },
 }
 
