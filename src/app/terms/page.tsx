@@ -6,12 +6,12 @@ import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
 
 const lastUpdatedDate: Record<string, string> = {
-  fr: '15 f\u00e9vrier 2025',
-  en: 'February 15, 2025',
-  lb: '15. Februar 2025',
-  de: '15. Februar 2025',
-  it: '15 febbraio 2025',
-  pt: '15 de fevereiro de 2025',
+  fr: '16 f\u00e9vrier 2026',
+  en: 'February 16, 2026',
+  lb: '16. Februar 2026',
+  de: '16. Februar 2026',
+  it: '16 febbraio 2026',
+  pt: '16 de fevereiro de 2026',
 }
 
 const sections: { title: Record<string, string>; content: Record<string, string> }[] = [
@@ -25,12 +25,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '1. Service Description',
     },
     content: {
-      fr: 'Forge est une plateforme en ligne gratuite qui propose :\n\n\u2022 Un simulateur d\u2019\u00e9ligibilit\u00e9 aux subventions : identifiez en 2 minutes les programmes de financement luxembourgeois pour la transformation digitale et l\u2019innovation IA auxquels votre PME pourrait \u00eatre \u00e9ligible.\n\u2022 Un annuaire d\u2019agents IA : d\u00e9couvrez les meilleurs outils d\u2019intelligence artificielle pour votre entreprise, avec des informations sur la conformit\u00e9 RGPD et les tarifs.\n\u2022 Un blog : actualit\u00e9s, guides et conseils sur les aides luxembourgeoises et l\u2019innovation digitale.',
-      en: 'Forge is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in 2 minutes which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
-      lb: 'Forge is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in 2 minutes which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
-      de: 'Forge is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in 2 minutes which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
-      it: 'Forge is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in 2 minutes which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
-      pt: 'Forge is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in 2 minutes which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
+      fr: 'Forge (openletz.ai) est un service \u00e9dit\u00e9 par COMMIT MEDIA SARL (RCS B276192), soci\u00e9t\u00e9 de droit luxembourgeois. Il s\u2019agit d\u2019une plateforme en ligne gratuite qui propose :\n\n\u2022 Un simulateur d\u2019\u00e9ligibilit\u00e9 aux subventions : identifiez en quelques secondes les programmes de financement luxembourgeois pour la transformation digitale et l\u2019innovation IA auxquels votre PME pourrait \u00eatre \u00e9ligible.\n\u2022 Un annuaire d\u2019agents IA : d\u00e9couvrez les meilleurs outils d\u2019intelligence artificielle pour votre entreprise, avec des informations sur la conformit\u00e9 RGPD et les tarifs.\n\u2022 Un blog : actualit\u00e9s, guides et conseils sur les aides luxembourgeoises et l\u2019innovation digitale.',
+      en: 'Forge (openletz.ai) is a service published by COMMIT MEDIA SARL (RCS B276192), a company incorporated under Luxembourg law. It is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in seconds which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
+      lb: 'Forge (openletz.ai) is a service published by COMMIT MEDIA SARL (RCS B276192), a company incorporated under Luxembourg law. It is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in seconds which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
+      de: 'Forge (openletz.ai) is a service published by COMMIT MEDIA SARL (RCS B276192), a company incorporated under Luxembourg law. It is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in seconds which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
+      it: 'Forge (openletz.ai) is a service published by COMMIT MEDIA SARL (RCS B276192), a company incorporated under Luxembourg law. It is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in seconds which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
+      pt: 'Forge (openletz.ai) is a service published by COMMIT MEDIA SARL (RCS B276192), a company incorporated under Luxembourg law. It is a free online platform that offers:\n\n\u2022 A grant eligibility simulator: identify in seconds which Luxembourg funding programs for digital transformation and AI innovation your SME may be eligible for.\n\u2022 An AI agents directory: discover the best artificial intelligence tools for your business, with information on GDPR compliance and pricing.\n\u2022 A blog: news, guides, and tips about Luxembourg grants and digital innovation.',
     },
   },
   {
@@ -43,12 +43,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '2. No Guarantee',
     },
     content: {
-      fr: 'Les r\u00e9sultats de la simulation sont fournis \u00e0 titre indicatif uniquement. Ils ne constituent ni un engagement, ni une garantie d\u2019\u00e9ligibilit\u00e9 effective \u00e0 un programme de subvention. L\u2019\u00e9ligibilit\u00e9 r\u00e9elle doit \u00eatre confirm\u00e9e directement aupr\u00e8s de Luxinnovation ou des autorit\u00e9s comp\u00e9tentes. Les montants affich\u00e9s sont des estimations et peuvent varier en fonction de votre situation sp\u00e9cifique.',
-      en: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with Luxinnovation or the relevant authorities. The amounts displayed are estimates and may vary depending on your specific situation.',
-      lb: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with Luxinnovation or the relevant authorities. The amounts displayed are estimates and may vary depending on your specific situation.',
-      de: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with Luxinnovation or the relevant authorities. The amounts displayed are estimates and may vary depending on your specific situation.',
-      it: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with Luxinnovation or the relevant authorities. The amounts displayed are estimates and may vary depending on your specific situation.',
-      pt: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with Luxinnovation or the relevant authorities. The amounts displayed are estimates and may vary depending on your specific situation.',
+      fr: 'Les r\u00e9sultats de la simulation sont fournis \u00e0 titre indicatif uniquement. Ils ne constituent ni un engagement, ni une garantie d\u2019\u00e9ligibilit\u00e9 effective \u00e0 un programme de subvention. L\u2019\u00e9ligibilit\u00e9 r\u00e9elle doit \u00eatre confirm\u00e9e directement aupr\u00e8s des organismes comp\u00e9tents (Luxinnovation, Minist\u00e8re de l\u2019\u00c9conomie, etc.). Les montants affich\u00e9s sont des estimations et peuvent varier en fonction de votre situation sp\u00e9cifique.',
+      en: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with the relevant authorities (Luxinnovation, Ministry of the Economy, etc.). The amounts displayed are estimates and may vary depending on your specific situation.',
+      lb: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with the relevant authorities (Luxinnovation, Ministry of the Economy, etc.). The amounts displayed are estimates and may vary depending on your specific situation.',
+      de: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with the relevant authorities (Luxinnovation, Ministry of the Economy, etc.). The amounts displayed are estimates and may vary depending on your specific situation.',
+      it: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with the relevant authorities (Luxinnovation, Ministry of the Economy, etc.). The amounts displayed are estimates and may vary depending on your specific situation.',
+      pt: 'Simulation results are provided for informational purposes only. They do not constitute a commitment or guarantee of actual eligibility for any grant program. Actual eligibility must be confirmed directly with the relevant authorities (Luxinnovation, Ministry of the Economy, etc.). The amounts displayed are estimates and may vary depending on your specific situation.',
     },
   },
   {
@@ -61,12 +61,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '3. Intellectual Property',
     },
     content: {
-      fr: 'L\u2019ensemble du contenu publi\u00e9 sur Forge (textes, graphismes, logos, algorithmes, code source et design) est la propri\u00e9t\u00e9 de Forge et est prot\u00e9g\u00e9 par les lois applicables en mati\u00e8re de propri\u00e9t\u00e9 intellectuelle. Les informations relatives aux agents IA pr\u00e9sent\u00e9es dans l\u2019annuaire sont issues de donn\u00e9es publiques et sont fournies \u00e0 titre informatif.',
-      en: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of Forge and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
-      lb: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of Forge and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
-      de: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of Forge and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
-      it: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of Forge and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
-      pt: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of Forge and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
+      fr: 'L\u2019ensemble du contenu publi\u00e9 sur Forge (textes, graphismes, logos, algorithmes, code source et design) est la propri\u00e9t\u00e9 de COMMIT MEDIA SARL et est prot\u00e9g\u00e9 par les lois applicables en mati\u00e8re de propri\u00e9t\u00e9 intellectuelle. Les informations relatives aux agents IA pr\u00e9sent\u00e9es dans l\u2019annuaire sont issues de donn\u00e9es publiques et sont fournies \u00e0 titre informatif.',
+      en: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of COMMIT MEDIA SARL and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
+      lb: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of COMMIT MEDIA SARL and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
+      de: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of COMMIT MEDIA SARL and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
+      it: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of COMMIT MEDIA SARL and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
+      pt: 'All content published on Forge (text, graphics, logos, algorithms, source code, and design) is the property of COMMIT MEDIA SARL and is protected by applicable intellectual property laws. Information about AI agents presented in the directory is sourced from public data and is provided for informational purposes.',
     },
   },
   {
@@ -151,12 +151,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '8. Contact',
     },
     content: {
-      fr: 'Pour toute question relative aux pr\u00e9sentes conditions d\u2019utilisation, vous pouvez nous contacter \u00e0 l\u2019adresse : contact@forge.lu',
-      en: 'For any questions regarding these terms of service, you may contact us at: contact@forge.lu',
-      lb: 'For any questions regarding these terms of service, you may contact us at: contact@forge.lu',
-      de: 'For any questions regarding these terms of service, you may contact us at: contact@forge.lu',
-      it: 'For any questions regarding these terms of service, you may contact us at: contact@forge.lu',
-      pt: 'For any questions regarding these terms of service, you may contact us at: contact@forge.lu',
+      fr: 'Pour toute question relative aux pr\u00e9sentes conditions d\u2019utilisation, vous pouvez nous contacter \u00e0 l\u2019adresse : contact@openletz.ai',
+      en: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.ai',
+      lb: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.ai',
+      de: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.ai',
+      it: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.ai',
+      pt: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.ai',
     },
   },
 ]

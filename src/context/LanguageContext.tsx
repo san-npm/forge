@@ -63,10 +63,10 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'gratuit et confidentiel', en: 'free and confidential', lb: 'gratis a vertraulech', de: 'kostenlos und vertraulich', it: 'gratuito e confidenziale', pt: 'gratuito e confidencial',
   },
   'hero.stat3.value': {
-    fr: '+500', en: '+500', lb: '+500', de: '+500', it: '+500', pt: '+500',
+    fr: '6', en: '6', lb: '6', de: '6', it: '6', pt: '6',
   },
   'hero.stat3.label': {
-    fr: 'simulations réalisées', en: 'simulations completed', lb: 'Simulatiounen duerchgefouert', de: 'durchgeführte Simulationen', it: 'simulazioni completate', pt: 'simulações realizadas',
+    fr: 'programmes analysés', en: 'programs analyzed', lb: 'Programmer analyséiert', de: 'analysierte Programme', it: 'programmi analizzati', pt: 'programas analisados',
   },
   'hero.trust': {
     fr: 'Programmes référencés', en: 'Referenced programs', lb: 'Referenzéiert Programmer', de: 'Referenzierte Programme', it: 'Programmi di riferimento', pt: 'Programas referenciados',
@@ -79,6 +79,14 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'hero.partners': {
     fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
+  },
+  'hero.luxembourgBanner': {
+    fr: 'Simulation basée sur les programmes officiels du Grand-Duché de Luxembourg',
+    en: 'Simulation based on official Grand Duchy of Luxembourg programs',
+    lb: 'Simulatioun baséiert op den offiziellen Programmer vum Groussherzogtum Lëtzebuerg',
+    de: 'Simulation basierend auf offiziellen Programmen des Großherzogtums Luxemburg',
+    it: 'Simulazione basata sui programmi ufficiali del Granducato di Lussemburgo',
+    pt: 'Simulação baseada nos programas oficiais do Grão-Ducado do Luxemburgo',
   },
 
   'hero.card.label': {

@@ -190,31 +190,14 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Partner logos */}
-      <section className="py-10 border-t border-gray-100 bg-gray-50/50">
+      {/* Luxembourg trust banner */}
+      <section className="py-8 border-t border-gray-100 bg-gray-50/50">
         <div className="max-w-5xl mx-auto px-4">
-          <p className="text-center text-xs text-navy-400 uppercase tracking-widest font-medium mb-6">
-            {t('hero.partners')}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14">
-            <div className="flex items-center gap-2.5 text-navy-300 hover:text-navy-500 transition-colors">
-              <div className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
-                <span className="text-[10px] font-bold text-navy-400">LX</span>
-              </div>
-              <span className="text-sm font-medium">Luxinnovation</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-navy-300 hover:text-navy-500 transition-colors">
-              <div className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
-                <span className="text-[10px] font-bold text-navy-400">ME</span>
-              </div>
-              <span className="text-sm font-medium">Minist&egrave;re de l&apos;&Eacute;conomie</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-navy-300 hover:text-navy-500 transition-colors">
-              <div className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
-                <span className="text-[10px] font-bold text-navy-400">DL</span>
-              </div>
-              <span className="text-sm font-medium">Digital Luxembourg</span>
-            </div>
+          <div className="flex items-center justify-center gap-3">
+            <span className="text-2xl" role="img" aria-label="Luxembourg">🇱🇺</span>
+            <p className="text-sm text-navy-400 font-medium">
+              {t('hero.luxembourgBanner')}
+            </p>
           </div>
         </div>
       </section>
