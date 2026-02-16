@@ -157,7 +157,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                   <p className="text-5xl font-bold text-white mb-1">25 000 &euro;</p>
                   <p className="text-navy-400 text-sm mb-8">{t('hero.card.perProgram')}</p>
 
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-primary-500/15 rounded-lg flex items-center justify-center flex-shrink-0">
                         <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -183,16 +183,6 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                       <span className="text-white/90 text-sm">{t('hero.card.fact3')}</span>
                     </div>
                   </div>
-
-                  <button
-                    onClick={onStart}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-500 text-white font-semibold rounded-xl hover:bg-primary-400 transition-all"
-                  >
-                    {t('hero.cta')}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </button>
                 </div>
               </div>
             </div>

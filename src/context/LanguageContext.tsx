@@ -32,41 +32,41 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── Landing page ───
   'hero.title': {
-    fr: 'Jusqu\'à 25 000 € d\'aides pour digitaliser votre PME au Luxembourg',
-    en: 'Up to €25,000 in grants to digitalize your SME in Luxembourg',
-    lb: 'Bis zu 25.000 € Hëllefen fir Är KMU zu Lëtzebuerg ze digitaliséieren',
-    de: 'Bis zu 25.000 € Förderung für die Digitalisierung Ihres KMU in Luxemburg',
-    it: 'Fino a 25.000 € di sovvenzioni per digitalizzare la vostra PMI in Lussemburgo',
-    pt: 'Até 25.000 € em apoios para digitalizar a sua PME no Luxemburgo',
+    fr: 'Digitalisez votre PME grâce aux aides luxembourgeoises',
+    en: 'Digitalize your SME with Luxembourg grants',
+    lb: 'Digitaliséiert Är KMU mat Lëtzebuerger Hëllefen',
+    de: 'Digitalisieren Sie Ihr KMU mit Luxemburger Förderungen',
+    it: 'Digitalizzate la vostra PMI con le sovvenzioni lussemburghesi',
+    pt: 'Digitalize a sua PME com os apoios luxemburgueses',
   },
   'hero.subtitle': {
-    fr: '6 questions, 10 secondes, et vous savez exactement à quelles aides vous avez droit. Gratuit et confidentiel.',
-    en: '6 questions, 10 seconds, and you know exactly which grants you qualify for. Free and confidential.',
-    lb: '6 Froen, 10 Sekonnen, an Dir wësst genee op wéi eng Hëllefen Dir Urecht hutt. Gratis a vertraulech.',
-    de: '6 Fragen, 10 Sekunden, und Sie wissen genau, welche Förderungen Ihnen zustehen. Kostenlos und vertraulich.',
-    it: '6 domande, 10 secondi, e saprete esattamente a quali sovvenzioni avete diritto. Gratuito e confidenziale.',
-    pt: '6 perguntas, 10 segundos, e sabe exatamente a que apoios tem direito. Gratuito e confidencial.',
+    fr: 'Identifiez les subventions auxquelles votre entreprise est éligible et obtenez une estimation personnalisée de vos financements.',
+    en: 'Identify which grants your business qualifies for and get a personalized estimate of your funding.',
+    lb: 'Identifizéiert d\'Subventiounen op déi Äert Betrib Urecht huet a kritt eng personaliséiert Schätzung vun Ärer Finanzéierung.',
+    de: 'Ermitteln Sie, für welche Zuschüsse Ihr Unternehmen berechtigt ist, und erhalten Sie eine individuelle Förderungsschätzung.',
+    it: 'Identificate le sovvenzioni a cui la vostra azienda ha diritto e ottenete una stima personalizzata dei vostri finanziamenti.',
+    pt: 'Identifique os subsídios aos quais a sua empresa é elegível e obtenha uma estimativa personalizada do seu financiamento.',
   },
   'hero.cta': {
     fr: 'Estimer mes aides', en: 'Estimate my funding', lb: 'Meng Hëllefen schätzen', de: 'Meine Förderung schätzen', it: 'Stima i miei finanziamenti', pt: 'Estimar os meus apoios',
   },
   'hero.stat1.value': {
-    fr: '70%', en: '70%', lb: '70%', de: '70%', it: '70%', pt: '70%',
+    fr: '10 sec', en: '10 sec', lb: '10 Sek', de: '10 Sek', it: '10 sec', pt: '10 seg',
   },
   'hero.stat1.label': {
-    fr: 'remboursé en moyenne', en: 'reimbursed on average', lb: 'am Duerchschnëtt rembourséiert', de: 'durchschnittlich erstattet', it: 'rimborsato in media', pt: 'reembolsado em média',
+    fr: 'pour obtenir vos résultats', en: 'to get your results', lb: 'fir Är Resultater ze kréien', de: 'für Ihre Ergebnisse', it: 'per ottenere i risultati', pt: 'para obter os resultados',
   },
   'hero.stat2.value': {
-    fr: '25 000 €', en: '€25,000', lb: '25.000 €', de: '25.000 €', it: '25.000 €', pt: '25.000 €',
+    fr: '100%', en: '100%', lb: '100%', de: '100%', it: '100%', pt: '100%',
   },
   'hero.stat2.label': {
-    fr: "jusqu'à de subvention", en: 'up to in grants', lb: 'bis zu u Subventiounen', de: 'bis zu an Zuschüssen', it: 'fino a in sovvenzioni', pt: 'até em subsídios',
+    fr: 'gratuit et confidentiel', en: 'free and confidential', lb: 'gratis a vertraulech', de: 'kostenlos und vertraulich', it: 'gratuito e confidenziale', pt: 'gratuito e confidencial',
   },
   'hero.stat3.value': {
-    fr: '6', en: '6', lb: '6', de: '6', it: '6', pt: '6',
+    fr: '+500', en: '+500', lb: '+500', de: '+500', it: '+500', pt: '+500',
   },
   'hero.stat3.label': {
-    fr: 'programmes disponibles', en: 'programs available', lb: 'Programmer disponibel', de: 'Programme verfügbar', it: 'programmi disponibili', pt: 'programas disponíveis',
+    fr: 'simulations réalisées', en: 'simulations completed', lb: 'Simulatiounen duerchgefouert', de: 'durchgeführte Simulationen', it: 'simulazioni completate', pt: 'simulações realizadas',
   },
   'hero.trust': {
     fr: 'Programmes référencés', en: 'Referenced programs', lb: 'Referenzéiert Programmer', de: 'Referenzierte Programme', it: 'Programmi di riferimento', pt: 'Programas referenciados',
