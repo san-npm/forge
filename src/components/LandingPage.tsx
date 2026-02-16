@@ -145,66 +145,54 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               </div>
             </div>
 
-            {/* Right: programs overview */}
+            {/* Right: value proposition card */}
             <div className="hidden lg:block animate-slide-up">
-              <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                {/* Header */}
-                <div className="bg-gradient-to-r from-navy-900 to-navy-800 px-6 py-5">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-navy-300 mb-1">{t('hero.card.header')}</p>
-                      <p className="text-2xl font-bold text-white">{t('hero.card.upTo')}</p>
-                    </div>
-                    <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center">
-                      <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative bg-gradient-to-br from-navy-900 to-navy-800 rounded-3xl p-8 shadow-2xl overflow-hidden">
+                {/* Decorative circle */}
+                <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary-500/10 rounded-full" />
+                <div className="absolute -bottom-12 -left-12 w-36 h-36 bg-primary-500/5 rounded-full" />
 
-                <div className="p-5">
-                  {/* SME Packages group */}
-                  <p className="text-[11px] font-semibold text-navy-400 uppercase tracking-wider mb-2">SME Packages</p>
-                  <div className="space-y-1.5 mb-4">
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">Digital</span>
-                      <span className="text-sm font-semibold text-navy-900">17 500 &euro;</span>
-                    </div>
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">IA / AI</span>
-                      <span className="text-sm font-semibold text-navy-900">17 500 &euro;</span>
-                    </div>
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">{t('hero.card.cyber')}</span>
-                      <span className="text-sm font-semibold text-navy-900">17 500 &euro;</span>
-                    </div>
-                  </div>
+                <div className="relative">
+                  <p className="text-primary-400 text-sm font-medium mb-2">{t('hero.card.label')}</p>
+                  <p className="text-5xl font-bold text-white mb-1">25 000 &euro;</p>
+                  <p className="text-navy-400 text-sm mb-8">{t('hero.card.perProgram')}</p>
 
-                  {/* Fit 4 group */}
-                  <p className="text-[11px] font-semibold text-navy-400 uppercase tracking-wider mb-2">Fit 4</p>
-                  <div className="space-y-1.5 mb-5">
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">Digital</span>
-                      <span className="text-sm font-semibold text-navy-900">5 000 &euro;</span>
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-primary-500/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                      </div>
+                      <span className="text-white/90 text-sm">{t('hero.card.fact1')}</span>
                     </div>
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">AI</span>
-                      <span className="text-sm font-semibold text-navy-900">25 000 &euro;</span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-primary-500/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V7m0 10v1" />
+                        </svg>
+                      </div>
+                      <span className="text-white/90 text-sm">{t('hero.card.fact2')}</span>
                     </div>
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">Innovation</span>
-                      <span className="text-sm font-semibold text-navy-900">7 500 &euro;</span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-primary-500/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <span className="text-white/90 text-sm">{t('hero.card.fact3')}</span>
                     </div>
                   </div>
 
-                  {/* Coverage info */}
-                  <div className="flex items-center gap-3 p-3 bg-green-50 rounded-xl border border-green-100">
-                    <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <button
+                    onClick={onStart}
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-500 text-white font-semibold rounded-xl hover:bg-primary-400 transition-all"
+                  >
+                    {t('hero.cta')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                    <p className="text-sm text-green-800">{t('hero.card.coverageRange')}</p>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>

@@ -81,17 +81,20 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
   },
 
-  'hero.card.header': {
-    fr: '6 programmes disponibles', en: '6 programs available', lb: '6 Programmer disponibel', de: '6 Programme verfügbar', it: '6 programmi disponibili', pt: '6 programas disponíveis',
+  'hero.card.label': {
+    fr: 'Aides luxembourgeoises', en: 'Luxembourg grants', lb: 'Lëtzebuerger Hëllefen', de: 'Luxemburger Förderungen', it: 'Sovvenzioni lussemburghesi', pt: 'Apoios luxemburgueses',
   },
-  'hero.card.upTo': {
-    fr: 'Jusqu\'à 25 000 € / programme', en: 'Up to €25,000 / program', lb: 'Bis zu 25.000 € / Programm', de: 'Bis zu 25.000 € / Programm', it: 'Fino a 25.000 € / programma', pt: 'Até 25.000 € / programa',
+  'hero.card.perProgram': {
+    fr: 'max. par programme', en: 'max. per program', lb: 'max. pro Programm', de: 'max. pro Programm', it: 'max. per programma', pt: 'máx. por programa',
   },
-  'hero.card.cyber': {
-    fr: 'Cybersécurité', en: 'Cybersecurity', lb: 'Cybersécherheet', de: 'Cybersicherheit', it: 'Cybersicurezza', pt: 'Cibersegurança',
+  'hero.card.fact1': {
+    fr: '6 programmes — Digital, IA, Cybersécurité, Innovation', en: '6 programs — Digital, AI, Cybersecurity, Innovation', lb: '6 Programmer — Digital, KI, Cybersécherheet, Innovatioun', de: '6 Programme — Digital, KI, Cybersicherheit, Innovation', it: '6 programmi — Digitale, IA, Cybersicurezza, Innovazione', pt: '6 programas — Digital, IA, Cibersegurança, Inovação',
   },
-  'hero.card.coverageRange': {
-    fr: 'Couverture de 50 % à 100 % selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Copertura dal 50 % al 100 % a seconda del programma', pt: 'Cobertura de 50 % a 100 % dependendo do programa',
+  'hero.card.fact2': {
+    fr: '50 % à 100 % de couverture selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Dal 50 % al 100 % di copertura secondo il programma', pt: '50 % a 100 % de cobertura conforme o programa',
+  },
+  'hero.card.fact3': {
+    fr: 'Résultat en 2 minutes — gratuit et confidentiel', en: 'Results in 2 minutes — free and confidential', lb: 'Resultat an 2 Minutten — gratis a vertraulech', de: 'Ergebnis in 2 Minuten — kostenlos und vertraulich', it: 'Risultato in 2 minuti — gratuito e confidenziale', pt: 'Resultado em 2 minutos — gratuito e confidencial',
   },
 
   // ─── How it works ───
