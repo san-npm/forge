@@ -5,12 +5,12 @@ import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
 
 const lastUpdatedDate: Record<string, string> = {
-  fr: '15 f\u00e9vrier 2025',
-  en: 'February 15, 2025',
-  lb: '15. Februar 2025',
-  de: '15. Februar 2025',
-  it: '15 febbraio 2025',
-  pt: '15 de fevereiro de 2025',
+  fr: '16 f\u00e9vrier 2026',
+  en: 'February 16, 2026',
+  lb: '16. Februar 2026',
+  de: '16. Februar 2026',
+  it: '16 febbraio 2026',
+  pt: '16 de fevereiro de 2026',
 }
 
 const sections: { title: Record<string, string>; content: Record<string, string> }[] = [
@@ -96,12 +96,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '5. Your Rights (GDPR Art. 13-22)',
     },
     content: {
-      fr: 'Conform\u00e9ment au R\u00e8glement G\u00e9n\u00e9ral sur la Protection des Donn\u00e9es (RGPD), vous disposez des droits suivants :\n\n\u2022 Droit d\u2019acc\u00e8s : vous pouvez demander une copie de vos donn\u00e9es personnelles d\u00e9tenues par Forge.\n\u2022 Droit de rectification : vous pouvez demander la correction de donn\u00e9es inexactes ou incompl\u00e8tes.\n\u2022 Droit \u00e0 l\u2019effacement : vous pouvez demander la suppression de vos donn\u00e9es personnelles.\n\u2022 Droit \u00e0 la portabilit\u00e9 : vous pouvez demander \u00e0 recevoir vos donn\u00e9es dans un format structur\u00e9 et lisible par machine.\n\nPour exercer ces droits, contactez-nous \u00e0 : privacy@forge.lu',
-      en: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@forge.lu',
-      lb: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@forge.lu',
-      de: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@forge.lu',
-      it: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@forge.lu',
-      pt: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@forge.lu',
+      fr: 'Conform\u00e9ment au R\u00e8glement G\u00e9n\u00e9ral sur la Protection des Donn\u00e9es (RGPD), vous disposez des droits suivants :\n\n\u2022 Droit d\u2019acc\u00e8s : vous pouvez demander une copie de vos donn\u00e9es personnelles d\u00e9tenues par Forge.\n\u2022 Droit de rectification : vous pouvez demander la correction de donn\u00e9es inexactes ou incompl\u00e8tes.\n\u2022 Droit \u00e0 l\u2019effacement : vous pouvez demander la suppression de vos donn\u00e9es personnelles.\n\u2022 Droit \u00e0 la portabilit\u00e9 : vous pouvez demander \u00e0 recevoir vos donn\u00e9es dans un format structur\u00e9 et lisible par machine.\n\nPour exercer ces droits, contactez-nous \u00e0 : privacy@openletz.ai',
+      en: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@openletz.ai',
+      lb: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@openletz.ai',
+      de: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@openletz.ai',
+      it: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@openletz.ai',
+      pt: 'In accordance with the General Data Protection Regulation (GDPR), you have the following rights:\n\n\u2022 Right of access: you may request a copy of the personal data Forge holds about you.\n\u2022 Right to rectification: you may request the correction of inaccurate or incomplete data.\n\u2022 Right to erasure: you may request the deletion of your personal data.\n\u2022 Right to data portability: you may request to receive your data in a structured, machine-readable format.\n\nTo exercise these rights, contact us at: privacy@openletz.ai',
     },
   },
   {
@@ -114,12 +114,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '6. Data Controller',
     },
     content: {
-      fr: 'Le responsable du traitement des donn\u00e9es est Forge, bas\u00e9 au Luxembourg. Pour toute question relative \u00e0 la protection de vos donn\u00e9es personnelles, vous pouvez nous contacter \u00e0 l\u2019adresse : privacy@forge.lu',
-      en: 'The data controller is Forge, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@forge.lu',
-      lb: 'The data controller is Forge, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@forge.lu',
-      de: 'The data controller is Forge, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@forge.lu',
-      it: 'The data controller is Forge, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@forge.lu',
-      pt: 'The data controller is Forge, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@forge.lu',
+      fr: 'Le responsable du traitement des donn\u00e9es est COMMIT MEDIA SARL (RCS B276192), bas\u00e9e au Luxembourg, \u00e9ditrice du service Forge (openletz.ai). Pour toute question relative \u00e0 la protection de vos donn\u00e9es personnelles, vous pouvez nous contacter \u00e0 l\u2019adresse : privacy@openletz.ai',
+      en: 'The data controller is COMMIT MEDIA SARL (RCS B276192), based in Luxembourg, publisher of the Forge service (openletz.ai). For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.ai',
+      lb: 'The data controller is COMMIT MEDIA SARL (RCS B276192), based in Luxembourg, publisher of the Forge service (openletz.ai). For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.ai',
+      de: 'The data controller is COMMIT MEDIA SARL (RCS B276192), based in Luxembourg, publisher of the Forge service (openletz.ai). For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.ai',
+      it: 'The data controller is COMMIT MEDIA SARL (RCS B276192), based in Luxembourg, publisher of the Forge service (openletz.ai). For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.ai',
+      pt: 'The data controller is COMMIT MEDIA SARL (RCS B276192), based in Luxembourg, publisher of the Forge service (openletz.ai). For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.ai',
     },
   },
   {
