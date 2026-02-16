@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 
 const programs = [
   { name: 'SME Packages — Digital', maxGrant: '17 500', coverage: 70 },
-  { name: 'SME Packages — IA / AI', maxGrant: '17 500', coverage: 70 },
+  { name: 'SME Packages — AI', maxGrant: '17 500', coverage: 70 },
   { name: 'SME Packages — Cybersécurité', maxGrant: '17 500', coverage: 70 },
   { name: 'Fit 4 Digital', maxGrant: '5 000', coverage: 100, note: 'Phase 1' },
   { name: 'Fit 4 AI', maxGrant: '25 000', coverage: 50 },
