@@ -145,87 +145,65 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               </div>
             </div>
 
-            {/* Right: simulator preview */}
+            {/* Right: programs overview */}
             <div className="hidden lg:block animate-slide-up">
               <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                {/* Mock window bar */}
-                <div className="bg-navy-900 px-5 py-3 flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                  </div>
-                  <div className="flex-1 ml-3">
-                    <div className="bg-navy-800 rounded-md px-3 py-1 max-w-[200px]">
-                      <span className="text-[11px] text-navy-400">forge-simulator.lu</span>
+                {/* Header */}
+                <div className="bg-gradient-to-r from-navy-900 to-navy-800 px-6 py-5">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-navy-300 mb-1">{t('hero.card.header')}</p>
+                      <p className="text-2xl font-bold text-white">{t('hero.card.upTo')}</p>
+                    </div>
+                    <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center">
+                      <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
                   </div>
                 </div>
 
-                {/* Card content */}
-                <div className="p-6">
-                  {/* Header row */}
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 bg-primary-100 rounded-lg flex items-center justify-center">
-                        <svg className="w-4.5 h-4.5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-navy-900">{t('results.eligible')}</p>
-                        <p className="text-xs text-navy-400">Forge Simulator</p>
-                      </div>
+                <div className="p-5">
+                  {/* SME Packages group */}
+                  <p className="text-[11px] font-semibold text-navy-400 uppercase tracking-wider mb-2">SME Packages</p>
+                  <div className="space-y-1.5 mb-4">
+                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
+                      <span className="text-sm text-navy-700">Digital</span>
+                      <span className="text-sm font-semibold text-navy-900">17 500 &euro;</span>
                     </div>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-green-50 text-green-700 rounded-full text-xs font-semibold border border-green-200">
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      3 {t('hero.card.programs')}
-                    </span>
-                  </div>
-
-                  {/* Programs list */}
-                  <div className="space-y-2.5 mb-5">
-                    <div className="flex items-center justify-between p-3 bg-primary-50 rounded-xl">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 bg-primary-100 rounded-lg flex items-center justify-center">
-                          <span className="text-xs font-bold text-primary-600">AI</span>
-                        </div>
-                        <span className="text-sm font-medium text-navy-700">SME Package AI</span>
-                      </div>
-                      <span className="text-sm font-bold text-primary-600">17 500 &euro;</span>
+                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
+                      <span className="text-sm text-navy-700">IA / AI</span>
+                      <span className="text-sm font-semibold text-navy-900">17 500 &euro;</span>
                     </div>
-                    <div className="flex items-center justify-between p-3 bg-primary-50 rounded-xl">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 bg-primary-100 rounded-lg flex items-center justify-center">
-                          <span className="text-xs font-bold text-primary-600">F4</span>
-                        </div>
-                        <span className="text-sm font-medium text-navy-700">Fit 4 Digital</span>
-                      </div>
-                      <span className="text-sm font-bold text-primary-600">12 000 &euro;</span>
-                    </div>
-                    <div className="flex items-center justify-between p-3 bg-primary-50 rounded-xl">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 bg-primary-100 rounded-lg flex items-center justify-center">
-                          <span className="text-xs font-bold text-primary-600">4I</span>
-                        </div>
-                        <span className="text-sm font-medium text-navy-700">Fit 4 Innovation</span>
-                      </div>
-                      <span className="text-sm font-bold text-primary-600">15 000 &euro;</span>
+                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
+                      <span className="text-sm text-navy-700">{t('hero.card.cyber')}</span>
+                      <span className="text-sm font-semibold text-navy-900">17 500 &euro;</span>
                     </div>
                   </div>
 
-                  {/* Summary bar */}
-                  <div className="bg-navy-900 rounded-xl p-4 flex items-center justify-between">
-                    <div>
-                      <p className="text-xs text-navy-400 mb-0.5">{t('hero.card.total')}</p>
-                      <p className="text-xl font-bold text-white">44 500 &euro;</p>
+                  {/* Fit 4 group */}
+                  <p className="text-[11px] font-semibold text-navy-400 uppercase tracking-wider mb-2">Fit 4</p>
+                  <div className="space-y-1.5 mb-5">
+                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
+                      <span className="text-sm text-navy-700">Digital</span>
+                      <span className="text-sm font-semibold text-navy-900">5 000 &euro;</span>
                     </div>
-                    <div className="text-right">
-                      <p className="text-xs text-navy-400 mb-0.5">{t('hero.card.coverage')}</p>
-                      <p className="text-xl font-bold text-primary-400">70%</p>
+                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
+                      <span className="text-sm text-navy-700">AI</span>
+                      <span className="text-sm font-semibold text-navy-900">25 000 &euro;</span>
                     </div>
+                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
+                      <span className="text-sm text-navy-700">Innovation</span>
+                      <span className="text-sm font-semibold text-navy-900">7 500 &euro;</span>
+                    </div>
+                  </div>
+
+                  {/* Coverage info */}
+                  <div className="flex items-center gap-3 p-3 bg-green-50 rounded-xl border border-green-100">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-sm text-green-800">{t('hero.card.coverageRange')}</p>
                   </div>
                 </div>
               </div>

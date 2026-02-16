@@ -81,14 +81,17 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
   },
 
-  'hero.card.programs': {
-    fr: 'programmes', en: 'programs', lb: 'Programmer', de: 'Programme', it: 'programmi', pt: 'programas',
+  'hero.card.header': {
+    fr: '6 programmes disponibles', en: '6 programs available', lb: '6 Programmer disponibel', de: '6 Programme verfügbar', it: '6 programmi disponibili', pt: '6 programas disponíveis',
   },
-  'hero.card.total': {
-    fr: 'Total estimé', en: 'Estimated total', lb: 'Geschaten Total', de: 'Geschätzter Gesamtbetrag', it: 'Totale stimato', pt: 'Total estimado',
+  'hero.card.upTo': {
+    fr: 'Jusqu\'à 25 000 € / programme', en: 'Up to €25,000 / program', lb: 'Bis zu 25.000 € / Programm', de: 'Bis zu 25.000 € / Programm', it: 'Fino a 25.000 € / programma', pt: 'Até 25.000 € / programa',
   },
-  'hero.card.coverage': {
-    fr: 'Couverture max.', en: 'Max. coverage', lb: 'Max. Deckung', de: 'Max. Abdeckung', it: 'Copertura max.', pt: 'Cobertura máx.',
+  'hero.card.cyber': {
+    fr: 'Cybersécurité', en: 'Cybersecurity', lb: 'Cybersécherheet', de: 'Cybersicherheit', it: 'Cybersicurezza', pt: 'Cibersegurança',
+  },
+  'hero.card.coverageRange': {
+    fr: 'Couverture de 50 % à 100 % selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Copertura dal 50 % al 100 % a seconda del programma', pt: 'Cobertura de 50 % a 100 % dependendo do programa',
   },
 
   // ─── How it works ───
