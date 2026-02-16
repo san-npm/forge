@@ -10,6 +10,7 @@ export default function ContactPage() {
 
   const [name, setName] = useState('')
   const [company, setCompany] = useState('')
+  const [rcs, setRcs] = useState('')
   const [role, setRole] = useState('')
   const [companySize, setCompanySize] = useState('')
   const [sector, setSector] = useState('')
@@ -33,6 +34,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           name,
           company,
+          rcs,
           role,
           companySize,
           sector,
@@ -172,6 +174,20 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          {t('contact.rcs')}
+                        </label>
+                        <input
+                          type="text"
+                          value={rcs}
+                          onChange={(e) => setRcs(e.target.value)}
+                          placeholder={t('contactPage.placeholder.rcs')}
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
                           {t('contact.companySize')}
                         </label>
                         <select
@@ -186,16 +202,15 @@ export default function ContactPage() {
                           <option value="250+">{t('contact.companySize.o4')}</option>
                         </select>
                       </div>
-                    </div>
-                    <div className="mt-4">
-                      <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                        {t('contactPage.sector')}
-                      </label>
-                      <select
-                        value={sector}
-                        onChange={(e) => setSector(e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm bg-white"
-                      >
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          {t('contactPage.sector')}
+                        </label>
+                        <select
+                          value={sector}
+                          onChange={(e) => setSector(e.target.value)}
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm bg-white"
+                        >
                         <option value="">—</option>
                         <option value="horeca">{t('contactPage.sector.horeca')}</option>
                         <option value="retail">{t('contactPage.sector.retail')}</option>
@@ -203,7 +218,8 @@ export default function ContactPage() {
                         <option value="services">{t('contactPage.sector.services')}</option>
                         <option value="manufacturing">{t('contactPage.sector.manufacturing')}</option>
                         <option value="other">{t('contactPage.sector.other')}</option>
-                      </select>
+                        </select>
+                      </div>
                     </div>
                   </div>
 

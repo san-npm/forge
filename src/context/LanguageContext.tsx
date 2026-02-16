@@ -94,7 +94,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: '50 % à 100 % de couverture selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Dal 50 % al 100 % di copertura secondo il programma', pt: '50 % a 100 % de cobertura conforme o programa',
   },
   'hero.card.fact3': {
-    fr: 'Résultat en 2 minutes — gratuit et confidentiel', en: 'Results in 2 minutes — free and confidential', lb: 'Resultat an 2 Minutten — gratis a vertraulech', de: 'Ergebnis in 2 Minuten — kostenlos und vertraulich', it: 'Risultato in 2 minuti — gratuito e confidenziale', pt: 'Resultado em 2 minutos — gratuito e confidencial',
+    fr: 'Résultat en 10 secondes — gratuit et confidentiel', en: 'Results in 10 seconds — free and confidential', lb: 'Resultat an 10 Sekonnen — gratis a vertraulech', de: 'Ergebnis in 10 Sekunden — kostenlos und vertraulich', it: 'Risultato in 10 secondi — gratuito e confidenziale', pt: 'Resultado em 10 segundos — gratuito e confidencial',
   },
 
   // ─── How it works ───
@@ -125,7 +125,7 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── CTA section ───
   'cta.title': {
-    fr: 'Prêt à financer votre transformation digitale ?', en: 'Ready to fund your digital transformation?', lb: 'Prett fir Är digital Transformatioun ze finanzéieren?', de: 'Bereit, Ihre digitale Transformation zu finanzieren?', it: 'Pronti a finanziare la vostra trasformazione digitale?', pt: 'Pronto para financiar a sua transformação digital?',
+    fr: 'Prêt à financer votre transformation digitale\u00A0?', en: 'Ready to fund your digital transformation?', lb: 'Prett fir Är digital Transformatioun ze finanzéieren?', de: 'Bereit, Ihre digitale Transformation zu finanzieren?', it: 'Pronti a finanziare la vostra trasformazione digitale?', pt: 'Pronto para financiar a sua transformação digital?',
   },
   'cta.subtitle': {
     fr: 'Simulez vos aides en 10 secondes ou contactez directement un expert pour vous accompagner.', en: 'Simulate your grants in 10 seconds or contact an expert directly for guidance.', lb: 'Simuléiert Är Hëllefen an 10 Sekonnen oder kontaktéiert direkt en Expert fir Begleedung.', de: 'Simulieren Sie Ihre Förderungen in 10 Sekunden oder kontaktieren Sie direkt einen Experten.', it: 'Simulate le vostre sovvenzioni in 10 secondi o contattate direttamente un esperto.', pt: 'Simule os seus apoios em 10 segundos ou contacte diretamente um especialista.',
@@ -538,6 +538,9 @@ const translations: Record<string, Record<Language, string>> = {
   'contact.company': {
     fr: 'Nom de l\'entreprise', en: 'Company name', lb: 'Numm vun der Firma', de: 'Firmenname', it: 'Nome dell\'azienda', pt: 'Nome da empresa',
   },
+  'contact.rcs': {
+    fr: 'Numéro RCS', en: 'RCS number', lb: 'RCS Nummer', de: 'RCS-Nummer', it: 'Numero RCS', pt: 'Número RCS',
+  },
   'contact.role': {
     fr: 'Poste / Fonction', en: 'Role / Position', lb: 'Post / Funktioun', de: 'Position / Funktion', it: 'Ruolo / Posizione', pt: 'Cargo / Função',
   },
@@ -675,6 +678,9 @@ const translations: Record<string, Record<Language, string>> = {
   'contactPage.placeholder.company': {
     fr: 'Nom de votre entreprise', en: 'Your company name', lb: 'Numm vun Ärer Firma', de: 'Name Ihres Unternehmens', it: 'Nome della vostra azienda', pt: 'Nome da sua empresa',
   },
+  'contactPage.placeholder.rcs': {
+    fr: 'ex : B276192', en: 'e.g. B276192', lb: 'z.B. B276192', de: 'z.B. B276192', it: 'es. B276192', pt: 'ex: B276192',
+  },
   'contactPage.placeholder.email': {
     fr: 'jean@entreprise.lu', en: 'john@company.lu', lb: 'jean@firma.lu', de: 'max@firma.lu', it: 'mario@azienda.lu', pt: 'joao@empresa.lu',
   },
@@ -801,7 +807,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Contact', en: 'Contact', lb: 'Kontakt', de: 'Kontakt', it: 'Contatto', pt: 'Contacto',
   },
   'footer.rights': {
-    fr: '© 2025 Forge. Tous droits réservés.', en: '© 2025 Forge. All rights reserved.', lb: '© 2025 Forge. All Rechter reservéiert.', de: '© 2025 Forge. Alle Rechte vorbehalten.', it: '© 2025 Forge. Tutti i diritti riservati.', pt: '© 2025 Forge. Todos os direitos reservados.',
+    fr: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. Tous droits réservés.', en: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. All rights reserved.', lb: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. All Rechter reservéiert.', de: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. Alle Rechte vorbehalten.', it: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. Tutti i diritti riservati.', pt: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. Todos os direitos reservados.',
   },
 
   // ─── PageNavbar ───
