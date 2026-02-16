@@ -222,6 +222,23 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
+      {/* AI Advantage */}
+      <section className="py-14 bg-gradient-to-r from-primary-50 to-accent-50 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sm:p-10 flex flex-col sm:flex-row items-start gap-6">
+            <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-navy-900 mb-2">{t('pricing.advantage.title')}</h3>
+              <p className="text-navy-500 leading-relaxed">{t('pricing.advantage.text')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How it works */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4">
