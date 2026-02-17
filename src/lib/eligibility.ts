@@ -28,14 +28,20 @@ export interface ProjectRecommendation {
 
 export function computeEligibility(answers: QuizAnswers): {
   eligible: boolean
+  grandeRegion: boolean
   programs: Program[]
   projects: ProjectRecommendation[]
 } {
+  // Grande Région: not eligible for LU grants but gets special discount
+  if (answers.luxembourgStatus === 'grande-region') {
+    return { eligible: false, grandeRegion: true, programs: [], projects: [] }
+  }
+
   // Base eligibility: must be established in Luxembourg (with or without permit)
   const isBasicallyEligible = answers.luxembourgStatus !== 'no'
 
   if (!isBasicallyEligible) {
-    return { eligible: false, programs: [], projects: [] }
+    return { eligible: false, grandeRegion: false, programs: [], projects: [] }
   }
 
   const programs: Program[] = []
@@ -319,5 +325,5 @@ export function computeEligibility(answers: QuizAnswers): {
     })
   }
 
-  return { eligible: true, programs, projects }
+  return { eligible: true, grandeRegion: false, programs, projects }
 }

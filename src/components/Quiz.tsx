@@ -51,7 +51,8 @@ const questions: Question[] = [
     options: [
       { labelKey: 'q3.o1', value: 'yes-both' },
       { labelKey: 'q3.o2', value: 'yes-no-permit' },
-      { labelKey: 'q3.o3', value: 'no' },
+      { labelKey: 'q3.o3', value: 'grande-region' },
+      { labelKey: 'q3.o4', value: 'no' },
     ],
   },
   {
