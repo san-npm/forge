@@ -561,12 +561,12 @@ const translations: Record<string, Record<Language, string>> = {
     pt: "Embora os apoios públicos luxemburgueses não estejam disponíveis para empresas fora do Luxemburgo, oferecemos um desconto exclusivo às empresas da Grande Região (Lorena, Valónia, Renânia-Palatinado, Sarre) para apoiar a sua transformação digital e IA.",
   },
   'results.grandeRegion.discount': {
-    fr: '-20% sur tous nos services',
-    en: '-20% on all our services',
-    lb: '-20% op all eis Servicer',
-    de: '-20% auf alle unsere Dienstleistungen',
-    it: '-20% su tutti i nostri servizi',
-    pt: '-20% em todos os nossos serviços',
+    fr: '-25% sur tous nos services',
+    en: '-25% on all our services',
+    lb: '-25% op all eis Servicer',
+    de: '-25% auf alle unsere Dienstleistungen',
+    it: '-25% su tutti i nostri servizi',
+    pt: '-25% em todos os nossos serviços',
   },
   'results.grandeRegion.services': {
     fr: 'Nos services incluent',
