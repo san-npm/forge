@@ -81,12 +81,12 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
   },
   'hero.luxembourgBanner': {
-    fr: 'Simulation basée sur les programmes officiels du Grand-Duché de Luxembourg',
-    en: 'Simulation based on official Grand Duchy of Luxembourg programs',
-    lb: 'Simulatioun baséiert op den offiziellen Programmer vum Groussherzogtum Lëtzebuerg',
-    de: 'Simulation basierend auf offiziellen Programmen des Großherzogtums Luxemburg',
-    it: 'Simulazione basata sui programmi ufficiali del Granducato di Lussemburgo',
-    pt: 'Simulação baseada nos programas oficiais do Grão-Ducado do Luxemburgo',
+    fr: 'Programmes référencés par la House of Entrepreneurship',
+    en: 'Programs referenced by the House of Entrepreneurship',
+    lb: 'Programmer referenzéiert vun der House of Entrepreneurship',
+    de: 'Programme referenziert von der House of Entrepreneurship',
+    it: 'Programmi referenziati dalla House of Entrepreneurship',
+    pt: 'Programas referenciados pela House of Entrepreneurship',
   },
 
   'hero.card.label': {
@@ -815,7 +815,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Contact', en: 'Contact', lb: 'Kontakt', de: 'Kontakt', it: 'Contatto', pt: 'Contacto',
   },
   'footer.rights': {
-    fr: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. Tous droits réservés.', en: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. All rights reserved.', lb: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. All Rechter reservéiert.', de: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. Alle Rechte vorbehalten.', it: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. Tutti i diritti riservati.', pt: '© 2026 Forge — COMMIT MEDIA SARL · RCS B276192. Todos os direitos reservados.',
+    fr: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. Tous droits réservés.', en: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. All rights reserved.', lb: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. All Rechter reservéiert.', de: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. Alle Rechte vorbehalten.', it: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. Tutti i diritti riservati.', pt: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. Todos os direitos reservados.',
   },
 
   // ─── PageNavbar ───
@@ -884,29 +884,29 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── About Page ───
   'about.title': {
-    fr: 'À propos de Forge', en: 'About Forge', lb: 'Iwwer Forge', de: 'Über Forge', it: 'Chi è Forge', pt: 'Sobre o Forge',
+    fr: 'À propos de OpenLetz', en: 'About OpenLetz', lb: 'Iwwer OpenLetz', de: 'Über OpenLetz', it: 'Chi è OpenLetz', pt: 'Sobre o OpenLetz',
   },
   'about.mission.title': {
     fr: 'Notre mission', en: 'Our Mission', lb: 'Eis Missioun', de: 'Unsere Mission', it: 'La nostra missione', pt: 'A nossa missão',
   },
   'about.mission.text': {
-    fr: 'Forge aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 10 secondes les programmes de subventions auxquels vous êtes éligible.',
-    en: 'Forge helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 10 seconds the grant programs you are eligible for.',
-    lb: 'Forge hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 10 Sekonnen déi Subventioune fir déi Dir eligibel sidd.',
-    de: 'Forge hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 10 Sekunden die Förderprogramme, für die Sie berechtigt sind.',
-    it: 'Forge aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 10 secondi i programmi di sovvenzione per i quali siete ammissibili.',
-    pt: 'O Forge ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 10 segundos os programas de subsídios aos quais é elegível.',
+    fr: 'OpenLetz aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 10 secondes les programmes de subventions auxquels vous êtes éligible.',
+    en: 'OpenLetz helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 10 seconds the grant programs you are eligible for.',
+    lb: 'OpenLetz hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 10 Sekonnen déi Subventioune fir déi Dir eligibel sidd.',
+    de: 'OpenLetz hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 10 Sekunden die Förderprogramme, für die Sie berechtigt sind.',
+    it: 'OpenLetz aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 10 secondi i programmi di sovvenzione per i quali siete ammissibili.',
+    pt: 'O OpenLetz ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 10 segundos os programas de subsídios aos quais é elegível.',
   },
   'about.why.title': {
-    fr: 'Pourquoi Forge ?', en: 'Why Forge?', lb: 'Firwat Forge?', de: 'Warum Forge?', it: 'Perché Forge?', pt: 'Porquê Forge?',
+    fr: 'Pourquoi OpenLetz ?', en: 'Why OpenLetz?', lb: 'Firwat OpenLetz?', de: 'Warum OpenLetz?', it: 'Perché OpenLetz?', pt: 'Porquê OpenLetz?',
   },
   'about.why.text': {
-    fr: 'Le Luxembourg offre des programmes de financement parmi les plus généreux d\'Europe pour la digitalisation des PME, mais beaucoup d\'entreprises ne connaissent pas ces aides ou trouvent les démarches complexes. Forge simplifie ce processus.',
-    en: 'Luxembourg offers some of Europe\'s most generous funding programs for SME digitalization, but many companies are unaware of these grants or find the process complex. Forge simplifies this process.',
-    lb: 'Lëtzebuerg bitt ee vun de generéisten Förderprogrammer an Europa fir d\'Digitaliséierung vu KMU, awer vill Firmen kennen dës Hëllefe net oder fannen de Prozess komplex. Forge vereinfacht dëse Prozess.',
-    de: 'Luxemburg bietet einige der großzügigsten Förderprogramme Europas für die Digitalisierung von KMU, aber viele Unternehmen kennen diese Förderungen nicht oder finden den Prozess komplex. Forge vereinfacht diesen Prozess.',
-    it: 'Il Lussemburgo offre alcuni dei programmi di finanziamento più generosi d\'Europa per la digitalizzazione delle PMI, ma molte aziende non conoscono questi aiuti o trovano il processo complesso. Forge semplifica questo processo.',
-    pt: 'O Luxemburgo oferece alguns dos programas de financiamento mais generosos da Europa para a digitalização das PME, mas muitas empresas desconhecem estes apoios ou consideram o processo complexo. O Forge simplifica este processo.',
+    fr: 'Le Luxembourg offre des programmes de financement parmi les plus généreux d\'Europe pour la digitalisation des PME, mais beaucoup d\'entreprises ne connaissent pas ces aides ou trouvent les démarches complexes. OpenLetz simplifie ce processus.',
+    en: 'Luxembourg offers some of Europe\'s most generous funding programs for SME digitalization, but many companies are unaware of these grants or find the process complex. OpenLetz simplifies this process.',
+    lb: 'Lëtzebuerg bitt ee vun de generéisten Förderprogrammer an Europa fir d\'Digitaliséierung vu KMU, awer vill Firmen kennen dës Hëllefe net oder fannen de Prozess komplex. OpenLetz vereinfacht dëse Prozess.',
+    de: 'Luxemburg bietet einige der großzügigsten Förderprogramme Europas für die Digitalisierung von KMU, aber viele Unternehmen kennen diese Förderungen nicht oder finden den Prozess komplex. OpenLetz vereinfacht diesen Prozess.',
+    it: 'Il Lussemburgo offre alcuni dei programmi di finanziamento più generosi d\'Europa per la digitalizzazione delle PMI, ma molte aziende non conoscono questi aiuti o trovano il processo complesso. OpenLetz semplifica questo processo.',
+    pt: 'O Luxemburgo oferece alguns dos programas de financiamento mais generosos da Europa para a digitalização das PME, mas muitas empresas desconhecem estes apoios ou consideram o processo complexo. O OpenLetz simplifica este processo.',
   },
   'about.programs.title': {
     fr: '6 programmes référencés', en: '6 referenced programs', lb: '6 referenzéiert Programmer', de: '6 referenzierte Programme', it: '6 programmi referenziati', pt: '6 programas referenciados',
@@ -1115,7 +1115,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Télécharger le rapport PDF', en: 'Download PDF report', lb: 'PDF-Rapport eroflueden', de: 'PDF-Bericht herunterladen', it: 'Scarica rapporto PDF', pt: 'Descarregar relatório PDF',
   },
   'report.title': {
-    fr: 'Rapport d\'éligibilité — Forge', en: 'Eligibility Report — Forge', lb: 'Eligibilitéitsrapport — Forge', de: 'Förderfähigkeitsbericht — Forge', it: 'Rapporto di ammissibilità — Forge', pt: 'Relatório de elegibilidade — Forge',
+    fr: 'Rapport d\'éligibilité — OpenLetz', en: 'Eligibility Report — OpenLetz', lb: 'Eligibilitéitsrapport — OpenLetz', de: 'Förderfähigkeitsbericht — OpenLetz', it: 'Rapporto di ammissibilità — OpenLetz', pt: 'Relatório de elegibilidade — OpenLetz',
   },
   'report.generatedOn': {
     fr: 'Généré le', en: 'Generated on', lb: 'Generéiert den', de: 'Erstellt am', it: 'Generato il', pt: 'Gerado em',
@@ -1175,7 +1175,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Prochaines étapes', en: 'Next steps', lb: 'Nächst Schrëtt', de: 'Nächste Schritte', it: 'Prossimi passi', pt: 'Próximos passos',
   },
   'report.nextSteps.step1': {
-    fr: 'Prenez rendez-vous avec un expert Forge pour valider votre éligibilité et affiner vos projets.', en: 'Schedule a meeting with a Forge expert to validate your eligibility and refine your projects.', lb: 'Maacht en Rendez-vous mat engem Forge-Expert fir Är Eligibilitéit ze validéieren an Är Projeten ze verfeineren.', de: 'Vereinbaren Sie einen Termin mit einem Forge-Experten, um Ihre Förderfähigkeit zu bestätigen und Ihre Projekte zu verfeinern.', it: 'Fissate un appuntamento con un esperto Forge per validare la vostra ammissibilità e perfezionare i progetti.', pt: 'Marque uma reunião com um especialista Forge para validar a sua elegibilidade e refinar os seus projetos.',
+    fr: 'Prenez rendez-vous avec un expert OpenLetz pour valider votre éligibilité et affiner vos projets.', en: 'Schedule a meeting with a OpenLetz expert to validate your eligibility and refine your projects.', lb: 'Maacht en Rendez-vous mat engem OpenLetz-Expert fir Är Eligibilitéit ze validéieren an Är Projeten ze verfeineren.', de: 'Vereinbaren Sie einen Termin mit einem OpenLetz-Experten, um Ihre Förderfähigkeit zu bestätigen und Ihre Projekte zu verfeinern.', it: 'Fissate un appuntamento con un esperto OpenLetz per validare la vostra ammissibilità e perfezionare i progetti.', pt: 'Marque uma reunião com um especialista OpenLetz para validar a sua elegibilidade e refinar os seus projetos.',
   },
   'report.nextSteps.step2': {
     fr: 'Nous montons votre dossier de demande de subvention et assurons le suivi avec les organismes.', en: 'We prepare your grant application and handle the follow-up with the relevant organizations.', lb: 'Mir montéieren Äre Subventiouns-Dossier a suiven mat den Organismen.', de: 'Wir bereiten Ihren Förderantrag vor und begleiten Sie bei den zuständigen Stellen.', it: 'Prepariamo la vostra domanda di sovvenzione e seguiamo le pratiche con gli organismi competenti.', pt: 'Preparamos a sua candidatura ao subsídio e asseguramos o acompanhamento junto dos organismos.',

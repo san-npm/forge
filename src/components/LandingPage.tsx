@@ -223,18 +223,20 @@ export default function LandingPage({ onStart }: LandingPageProps) {
       </section>
 
       {/* AI Advantage */}
-      <section className="py-14 bg-gradient-to-r from-primary-50 to-accent-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sm:p-10 flex flex-col sm:flex-row items-start gap-6">
-            <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <section className="py-16 bg-navy-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-500 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-500 rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-4xl mx-auto px-4 relative">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-primary-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <div>
-              <h3 className="text-xl font-bold text-navy-900 mb-2">{t('pricing.advantage.title')}</h3>
-              <p className="text-navy-500 leading-relaxed">{t('pricing.advantage.text')}</p>
-            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t('pricing.advantage.title')}</h3>
+            <p className="text-lg text-white/70 leading-relaxed max-w-2xl mx-auto">{t('pricing.advantage.text')}</p>
           </div>
         </div>
       </section>

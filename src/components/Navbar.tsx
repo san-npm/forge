@@ -37,10 +37,8 @@ export default function Navbar({ onNavigate }: NavbarProps) {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => handleNav('landing')}
           >
-            <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">F</span>
-            </div>
-            <span className="font-bold text-lg text-gray-900">Forge</span>
+            <img src="/openletz.svg" alt="OpenLetz" className="w-8 h-8" />
+            <span className="font-bold text-lg text-gray-900">OpenLetz</span>
           </div>
 
           {/* Desktop nav */}
