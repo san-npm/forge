@@ -108,7 +108,7 @@ export default function Results({ eligible, grandeRegion, programs, projects, on
           {/* Discount badge */}
           <div className="mb-8 animate-slide-up" style={{ animationDelay: '0.1s' }}>
             <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-center text-white">
-              <div className="text-5xl font-bold mb-2">-20%</div>
+              <div className="text-5xl font-bold mb-2">-25%</div>
               <div className="text-lg font-medium opacity-90">
                 {t('results.grandeRegion.discount')}
               </div>
