@@ -78,7 +78,7 @@ export function generateReport(data: ReportData): void {
   doc.setTextColor(...COLORS.white)
   doc.setFontSize(22)
   doc.setFont('helvetica', 'bold')
-  doc.text('Forge', margin, 18)
+  doc.text('OpenLetz', margin, 18)
 
   doc.setFontSize(10)
   doc.setFont('helvetica', 'normal')
@@ -341,5 +341,5 @@ export function generateReport(data: ReportData): void {
   }
 
   // ─── Save ───
-  doc.save(`forge-rapport-eligibilite-${clientCompany || 'rapport'}.pdf`)
+  doc.save(`openletz-rapport-eligibilite-${clientCompany || 'rapport'}.pdf`)
 }
