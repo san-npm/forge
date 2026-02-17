@@ -190,6 +190,14 @@ gtag('config', 'G-2Z75PD960S');`}
         />
       </head>
       <body className="antialiased">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NR4V9KLL"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <Providers>{children}</Providers>
       </body>
     </html>
