@@ -59,19 +59,19 @@ export const metadata: Metadata = {
       'Découvrez en 2 minutes les aides publiques luxembourgeoises pour votre transformation digitale et IA. Tarifs préférentiels Grande Région.',
     images: [
       {
-        url: `${siteUrl}/openletz.svg`,
-        width: 69,
-        height: 69,
-        alt: 'OpenLetz Logo',
+        url: `${siteUrl}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: 'OpenLetz — Simulateur aides digitalisation & IA Luxembourg',
       },
     ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'OpenLetz — Luxembourg Grants Simulator',
     description:
       'Find out in 2 minutes which Luxembourg digitalization & AI grants your SME can get. Free, 6 languages. Greater Region discount available.',
-    images: [`${siteUrl}/openletz.svg`],
+    images: [`${siteUrl}/opengraph-image`],
   },
   other: {
     'geo.region': 'LU',
