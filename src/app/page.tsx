@@ -15,6 +15,7 @@ export default function Home() {
   const [screen, setScreen] = useState<Screen>('landing')
   const [results, setResults] = useState<{
     eligible: boolean
+    grandeRegion: boolean
     programs: Program[]
     projects: ProjectRecommendation[]
   } | null>(null)
@@ -47,6 +48,7 @@ export default function Home() {
         {screen === 'results' && results && (
           <Results
             eligible={results.eligible}
+            grandeRegion={results.grandeRegion}
             programs={results.programs}
             projects={results.projects}
             onNext={() => navigateTo('agent')}

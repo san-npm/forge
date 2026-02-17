@@ -6,12 +6,13 @@ import { Program, ProjectRecommendation } from '@/lib/eligibility'
 
 interface ResultsProps {
   eligible: boolean
+  grandeRegion: boolean
   programs: Program[]
   projects: ProjectRecommendation[]
   onNext: () => void
 }
 
-export default function Results({ eligible, programs, projects, onNext }: ResultsProps) {
+export default function Results({ eligible, grandeRegion, programs, projects, onNext }: ResultsProps) {
   const { lang, t } = useLanguage()
   const [email, setEmail] = useState('')
   const [emailSent, setEmailSent] = useState(false)
@@ -69,6 +70,88 @@ export default function Results({ eligible, programs, projects, onNext }: Result
     } finally {
       setGenerating(false)
     }
+  }
+
+  if (grandeRegion) {
+    const services = [
+      t('results.grandeRegion.service1'),
+      t('results.grandeRegion.service2'),
+      t('results.grandeRegion.service3'),
+      t('results.grandeRegion.service4'),
+    ]
+
+    return (
+      <div className="min-h-screen pt-20 pb-12 px-4">
+        <div className="max-w-3xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-10 animate-fade-in">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+              {t('results.grandeRegion.title')}
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              {t('results.grandeRegion.subtitle')}
+            </p>
+          </div>
+
+          {/* Explanation */}
+          <div className="mb-8 p-6 bg-blue-50 border border-blue-200 rounded-2xl animate-slide-up">
+            <p className="text-gray-700 leading-relaxed">
+              {t('results.grandeRegion.description')}
+            </p>
+          </div>
+
+          {/* Discount badge */}
+          <div className="mb-8 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-center text-white">
+              <div className="text-5xl font-bold mb-2">-20%</div>
+              <div className="text-lg font-medium opacity-90">
+                {t('results.grandeRegion.discount')}
+              </div>
+            </div>
+          </div>
+
+          {/* Services list */}
+          <div className="mb-10 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">
+              {t('results.grandeRegion.services')}
+            </h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {services.map((service, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-xl"
+                >
+                  <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="font-medium text-gray-800">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
+            <button
+              onClick={onNext}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-navy-900 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+            >
+              {t('results.grandeRegion.cta')}
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   if (!eligible) {
