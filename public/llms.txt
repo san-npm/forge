@@ -1,0 +1,35 @@
+# OpenLetz — Simulateur d'Aides Luxembourg
+
+> OpenLetz aide les PME luxembourgeoises à identifier les subventions publiques pour leur transformation digitale et l'adoption de l'IA. Simulateur gratuit, résultats en 10 secondes.
+
+## Programmes d'aides analysés
+
+- **SME Package Digital** : jusqu'à 17 500 €, 70 % de couverture
+- **SME Package IA** : jusqu'à 17 500 €, 70 % de couverture
+- **SME Package Cybersécurité** : jusqu'à 17 500 €, 70 % de couverture
+- **Fit 4 Digital** : jusqu'à 5 000 € (Phase 1), 100 % de couverture
+- **Fit 4 AI** : jusqu'à 25 000 €, 50 % de couverture
+- **Fit 4 Innovation** : jusqu'à 7 500 €, 50 % de couverture
+
+## Services
+
+- Simulateur d'éligibilité gratuit (6 questions, 10 secondes)
+- Répertoire de 32 outils IA avec conformité RGPD et EU AI Act
+- Développement web (sites, e-commerce, applications) à partir de 900 €
+- Intégration IA (agents, automatisation, analyse) à partir de 900 €
+- Maintenance proactive à partir de 90 €/mois
+- Conseil subventions (montage de dossier) à partir de 290 €
+
+## Pages
+
+- Simulateur : https://www.openletz.com/
+- Répertoire IA : https://www.openletz.com/agents
+- Tarifs : https://www.openletz.com/pricing
+- Blog : https://www.openletz.com/blog
+- À propos : https://www.openletz.com/about
+- Contact : https://www.openletz.com/contact
+
+## Entité
+
+COMMIT MEDIA SARL · RCS B276192 · Luxembourg
+Contact : bob@openletz.com · +352 661 968 051
