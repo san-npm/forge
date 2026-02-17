@@ -162,6 +162,16 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2Z75PD960S"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2Z75PD960S');`}
+        </Script>
+        <Script
           id="json-ld-org"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
