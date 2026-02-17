@@ -76,7 +76,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: { icon: '/favicon.ico' },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
   verification: {
     // google: 'YOUR_GOOGLE_VERIFICATION_CODE',
   },
