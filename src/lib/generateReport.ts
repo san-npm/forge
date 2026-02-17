@@ -48,7 +48,7 @@ export function generateReport(data: ReportData): void {
   function addFooter() {
     doc.setFontSize(8)
     doc.setTextColor(...COLORS.gray)
-    doc.text('COMMIT MEDIA SARL · RCS B276192 · openletz.ai', pageWidth / 2, 290, { align: 'center' })
+    doc.text('COMMIT MEDIA SARL · RCS B276192 · openletz.com', pageWidth / 2, 290, { align: 'center' })
   }
 
   function drawLine() {
@@ -75,14 +75,41 @@ export function generateReport(data: ReportData): void {
   doc.setFillColor(...COLORS.navy)
   doc.rect(0, 0, pageWidth, 45, 'F')
 
+  // Logo — draw OpenLetz icon (scaled SVG paths, 8mm square)
+  const logoX = margin
+  const logoY = 8
+  const logoScale = 8 / 69 // 69px viewBox → 8mm
+  doc.setFillColor(...COLORS.white)
+  // Simplified logo: 8 triangular petals as small filled shapes
+  const logoPaths = [
+    [20.85, 0.6, 26.85, 6.3, 30.3, 14.4, 34.35, 23.1, 41.25, 0.75],
+    [0.45, 20.55, 8.7, 20.25, 13.95, 39.45, 24.75, 26.55, 25.8, 26.55, 14.7, 6],
+    [0.45, 49.05, 6, 43.05, 13.95, 39.45, 22.5, 35.25, 0, 28.8],
+    [20.85, 68.85, 20.4, 60.6, 26.4, 44.4, 26.4, 43.35, 6, 54.9],
+    [49.35, 68.25, 43.2, 62.85, 39.45, 54.9, 35.1, 46.35, 29.1, 69],
+    [68.85, 47.4, 60.6, 48, 52.35, 45.15, 44.25, 42.3, 43.2, 42.3, 55.2, 62.4],
+    [67.5, 19.05, 62.25, 25.35, 54.45, 29.25, 46.8, 33, 46.2, 33.75, 69, 39.15],
+    [46.35, 0, 47.1, 8.25, 44.4, 16.65, 41.7, 24.75, 41.85, 25.8, 61.65, 13.35],
+  ]
+  logoPaths.forEach(pts => {
+    if (pts.length >= 6) {
+      doc.triangle(
+        logoX + pts[0] * logoScale, logoY + pts[1] * logoScale,
+        logoX + pts[2] * logoScale, logoY + pts[3] * logoScale,
+        logoX + pts[4] * logoScale, logoY + pts[5] * logoScale,
+        'F'
+      )
+    }
+  })
+
   doc.setTextColor(...COLORS.white)
   doc.setFontSize(22)
   doc.setFont('helvetica', 'bold')
-  doc.text('OpenLetz', margin, 18)
+  doc.text('OpenLetz', margin + 10, 18)
 
   doc.setFontSize(10)
   doc.setFont('helvetica', 'normal')
-  doc.text('openletz.ai', margin, 25)
+  doc.text('openletz.com', margin + 10, 25)
 
   doc.setFontSize(16)
   doc.setFont('helvetica', 'bold')
@@ -322,7 +349,7 @@ export function generateReport(data: ReportData): void {
   doc.text(t('report.contact.cta'), pageWidth / 2, y + 4, { align: 'center' })
   doc.setFontSize(9)
   doc.setFont('helvetica', 'normal')
-  doc.text('contact@openletz.ai · openletz.ai', pageWidth / 2, y + 11, { align: 'center' })
+  doc.text('bob@openletz.com · openletz.com', pageWidth / 2, y + 11, { align: 'center' })
 
   // ─── Disclaimer ───
   y += 24

@@ -28,9 +28,9 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
+                <a href="/" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
                   {t('footer.simulator')}
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/agents" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
