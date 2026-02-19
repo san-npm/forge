@@ -27,12 +27,12 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json()
-  const { slug, title, excerpt, content, date } = body
+  const { slug, title, excerpt, content, date, metaDescription, keywords, image, author } = body
 
   // Validate required fields
   if (!slug || !title || !content) {
     return NextResponse.json(
-      { error: 'slug, title, and content are required. title and excerpt should be Record<lang, string>.' },
+      { error: 'slug, title, and content are required. title and excerpt should be Record<lang, string>. Optional SEO fields: metaDescription (Record<lang, string>), keywords (string[]), image (string URL), author (string).' },
       { status: 400 }
     )
   }
@@ -46,11 +46,27 @@ export async function POST(req: NextRequest) {
   if (excerpt) {
     frontmatter.excerpt = excerpt
   }
+  if (metaDescription) {
+    frontmatter.metaDescription = metaDescription
+  }
+  if (keywords && Array.isArray(keywords)) {
+    frontmatter.keywords = keywords
+  }
+  if (image) {
+    frontmatter.image = image
+  }
+  if (author) {
+    frontmatter.author = author
+  }
 
   // Serialize YAML-like frontmatter
   function serializeValue(val: unknown, indent: number): string {
     if (typeof val === 'string') return `"${val.replace(/"/g, '\\"')}"`
     if (typeof val === 'number' || typeof val === 'boolean') return String(val)
+    if (Array.isArray(val)) {
+      const pad = '  '.repeat(indent)
+      return '\n' + val.map((item) => `${pad}- ${serializeValue(item, indent + 1)}`).join('\n')
+    }
     if (typeof val === 'object' && val !== null) {
       const pad = '  '.repeat(indent)
       return '\n' + Object.entries(val as Record<string, unknown>)
