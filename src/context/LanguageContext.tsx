@@ -690,10 +690,10 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── Blog ───
   'blog.title': {
-    fr: 'Blog — Aides & Innovation au Luxembourg', en: 'Blog — Grants & Innovation in Luxembourg', lb: 'Blog — Hëllefen & Innovatioun zu Lëtzebuerg', de: 'Blog — Förderung & Innovation in Luxemburg', it: 'Blog — Finanziamenti & Innovazione in Lussemburgo', pt: 'Blog — Apoios & Inovação no Luxemburgo',
+    fr: 'Le Digital au Luxembourg', en: 'Digital in Luxembourg', lb: 'Digital zu Lëtzebuerg', de: 'Digital in Luxemburg', it: 'Il Digitale in Lussemburgo', pt: 'O Digital no Luxemburgo',
   },
   'blog.subtitle': {
-    fr: 'Actualités, guides et conseils pour financer votre transformation digitale', en: 'News, guides and tips to fund your digital transformation', lb: 'Neuegkeeten, Guiden an Tipps fir Är digital Transformatioun ze finanzéieren', de: 'Nachrichten, Leitfäden und Tipps zur Finanzierung Ihrer digitalen Transformation', it: 'Notizie, guide e consigli per finanziare la tua trasformazione digitale', pt: 'Notícias, guias e dicas para financiar a sua transformação digital',
+    fr: 'Subventions, IA et stratégies concrètes pour les PME qui veulent passer à l\'action', en: 'Grants, AI and practical strategies for SMEs ready to take action', lb: 'Subventiounen, KI a praktesch Strategien fir KMUen déi wëllen handelen', de: 'Förderungen, KI und praktische Strategien für KMU, die handeln wollen', it: 'Finanziamenti, IA e strategie concrete per le PMI pronte ad agire', pt: 'Subsídios, IA e estratégias práticas para PMEs prontas para agir',
   },
   'blog.readMore': {
     fr: 'Lire la suite', en: 'Read more', lb: 'Méi liesen', de: 'Weiterlesen', it: 'Leggi di più', pt: 'Ler mais',
