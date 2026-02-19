@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { AGENTS } from '@/lib/agents'
+import { getAllPosts } from '@/lib/blog'
 
 const SITE_URL = 'https://www.openletz.com'
 
@@ -24,5 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...agentPages]
+  const blogPosts: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: post.date,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...agentPages, ...blogPosts]
 }

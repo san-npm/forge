@@ -3,14 +3,22 @@ import type { Metadata } from 'next'
 const SITE_URL = 'https://www.openletz.com'
 
 export const metadata: Metadata = {
-  title: 'Blog — Aides Digitalisation, IA & Subventions Luxembourg',
+  title: 'Le Digital au Luxembourg — Blog OpenLetz',
   description:
-    'Guides, actualités et conseils sur les aides luxembourgeoises pour PME : SME Package, Fit 4 Digital, Fit 4 AI, Luxinnovation. Restez informé sur la transformation digitale au Luxembourg.',
+    'Subventions, IA et stratégies concrètes pour les PME luxembourgeoises. Guides pratiques sur SME Package, Fit 4 Digital, Fit 4 AI et Luxinnovation.',
   alternates: { canonical: `${SITE_URL}/blog` },
   openGraph: {
-    title: 'Blog OpenLetz — Aides & Digitalisation Luxembourg',
-    description: 'Guides et actualités sur les subventions digitales pour PME au Luxembourg.',
+    title: 'Le Digital au Luxembourg — Blog OpenLetz',
+    description: 'Subventions, IA et stratégies concrètes pour les PME qui veulent passer à l\'action.',
     url: `${SITE_URL}/blog`,
+    type: 'website',
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: 'Blog OpenLetz — Le Digital au Luxembourg' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Le Digital au Luxembourg — Blog OpenLetz',
+    description: 'Subventions, IA et stratégies concrètes pour les PME luxembourgeoises.',
+    images: [`${SITE_URL}/og-image.png`],
   },
 }
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabase } from '@/lib/supabase'
+import { sendNotification } from '@/lib/notifications'
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
@@ -30,6 +31,12 @@ export async function POST(req: NextRequest) {
     console.error('Supabase insert error (newsletter):', error)
     return NextResponse.json({ error: 'Failed to subscribe' }, { status: 500 })
   }
+
+  sendNotification({
+    type: 'new_subscriber',
+    email,
+    timestamp: new Date().toISOString(),
+  })
 
   return NextResponse.json({ success: true })
 }

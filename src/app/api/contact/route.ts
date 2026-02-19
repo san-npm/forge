@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabase } from '@/lib/supabase'
+import { sendNotification } from '@/lib/notifications'
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
@@ -28,6 +29,15 @@ export async function POST(req: NextRequest) {
     console.error('Supabase insert error (contacts):', error)
     return NextResponse.json({ error: 'Failed to save contact' }, { status: 500 })
   }
+
+  sendNotification({
+    type: 'new_contact',
+    email,
+    name,
+    phone,
+    message,
+    timestamp: new Date().toISOString(),
+  })
 
   return NextResponse.json({ success: true })
 }
