@@ -40,6 +40,9 @@ export default function PageNavbar() {
             <Link href="/agents" className="hover:text-navy-900 transition-colors">
               {t('nav.directory')}
             </Link>
+            <Link href="/blog" className="hover:text-navy-900 transition-colors">
+              {t('nav.blog')}
+            </Link>
             <Link href="/contact" className="hover:text-navy-900 transition-colors">
               {t('nav.contact')}
             </Link>
@@ -114,6 +117,13 @@ export default function PageNavbar() {
               className="block w-full text-left px-3 py-2.5 text-sm text-navy-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
             >
               {t('nav.directory')}
+            </Link>
+            <Link
+              href="/blog"
+              onClick={() => setMenuOpen(false)}
+              className="block w-full text-left px-3 py-2.5 text-sm text-navy-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
+            >
+              {t('nav.blog')}
             </Link>
             <Link
               href="/contact"

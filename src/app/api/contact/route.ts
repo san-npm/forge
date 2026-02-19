@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { promises as fs } from 'fs'
 import path from 'path'
+import { sendNotification } from '@/lib/notifications'
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'contacts.json')
 
@@ -42,6 +43,15 @@ export async function POST(req: NextRequest) {
 
   await fs.mkdir(path.dirname(DATA_FILE), { recursive: true })
   await fs.writeFile(DATA_FILE, JSON.stringify(contacts, null, 2))
+
+  sendNotification({
+    type: 'new_contact',
+    email,
+    name,
+    phone,
+    message,
+    timestamp: entry.submittedAt,
+  })
 
   return NextResponse.json({ success: true })
 }
