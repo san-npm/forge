@@ -37,7 +37,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => handleNav('landing')}
           >
-            <img src="/openletz.svg" alt="OpenLetz" className="w-7 h-7" />
+            <img src="/openletz.svg" alt="OpenLetz" className="w-8 h-8" />
             <span className="font-bold text-lg text-gray-900">OpenLetz</span>
           </div>
 

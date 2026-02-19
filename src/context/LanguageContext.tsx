@@ -32,41 +32,41 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── Landing page ───
   'hero.title': {
-    fr: 'Jusqu\'à 25 000 € d\'aides pour digitaliser votre PME au Luxembourg',
-    en: 'Up to €25,000 in grants to digitalize your SME in Luxembourg',
-    lb: 'Bis zu 25.000 € Hëllefen fir Är KMU zu Lëtzebuerg ze digitaliséieren',
-    de: 'Bis zu 25.000 € Förderung für die Digitalisierung Ihres KMU in Luxemburg',
-    it: 'Fino a 25.000 € di sovvenzioni per digitalizzare la vostra PMI in Lussemburgo',
-    pt: 'Até 25.000 € em apoios para digitalizar a sua PME no Luxemburgo',
+    fr: 'Digitalisez votre PME grâce aux aides luxembourgeoises',
+    en: 'Digitalize your SME with Luxembourg grants',
+    lb: 'Digitaliséiert Är KMU mat Lëtzebuerger Hëllefen',
+    de: 'Digitalisieren Sie Ihr KMU mit Luxemburger Förderungen',
+    it: 'Digitalizzate la vostra PMI con le sovvenzioni lussemburghesi',
+    pt: 'Digitalize a sua PME com os apoios luxemburgueses',
   },
   'hero.subtitle': {
-    fr: '6 questions, 10 secondes, et vous savez exactement à quelles aides vous avez droit. Gratuit et confidentiel.',
-    en: '6 questions, 10 seconds, and you know exactly which grants you qualify for. Free and confidential.',
-    lb: '6 Froen, 10 Sekonnen, an Dir wësst genee op wéi eng Hëllefen Dir Urecht hutt. Gratis a vertraulech.',
-    de: '6 Fragen, 10 Sekunden, und Sie wissen genau, welche Förderungen Ihnen zustehen. Kostenlos und vertraulich.',
-    it: '6 domande, 10 secondi, e saprete esattamente a quali sovvenzioni avete diritto. Gratuito e confidenziale.',
-    pt: '6 perguntas, 10 segundos, e sabe exatamente a que apoios tem direito. Gratuito e confidencial.',
+    fr: 'Identifiez les subventions auxquelles votre entreprise est éligible et obtenez une estimation personnalisée de vos financements.',
+    en: 'Identify which grants your business qualifies for and get a personalized estimate of your funding.',
+    lb: 'Identifizéiert d\'Subventiounen op déi Äert Betrib Urecht huet a kritt eng personaliséiert Schätzung vun Ärer Finanzéierung.',
+    de: 'Ermitteln Sie, für welche Zuschüsse Ihr Unternehmen berechtigt ist, und erhalten Sie eine individuelle Förderungsschätzung.',
+    it: 'Identificate le sovvenzioni a cui la vostra azienda ha diritto e ottenete una stima personalizzata dei vostri finanziamenti.',
+    pt: 'Identifique os subsídios aos quais a sua empresa é elegível e obtenha uma estimativa personalizada do seu financiamento.',
   },
   'hero.cta': {
     fr: 'Estimer mes aides', en: 'Estimate my funding', lb: 'Meng Hëllefen schätzen', de: 'Meine Förderung schätzen', it: 'Stima i miei finanziamenti', pt: 'Estimar os meus apoios',
   },
   'hero.stat1.value': {
-    fr: '70%', en: '70%', lb: '70%', de: '70%', it: '70%', pt: '70%',
+    fr: '10 sec', en: '10 sec', lb: '10 Sek', de: '10 Sek', it: '10 sec', pt: '10 seg',
   },
   'hero.stat1.label': {
-    fr: 'remboursé en moyenne', en: 'reimbursed on average', lb: 'am Duerchschnëtt rembourséiert', de: 'durchschnittlich erstattet', it: 'rimborsato in media', pt: 'reembolsado em média',
+    fr: 'pour obtenir vos résultats', en: 'to get your results', lb: 'fir Är Resultater ze kréien', de: 'für Ihre Ergebnisse', it: 'per ottenere i risultati', pt: 'para obter os resultados',
   },
   'hero.stat2.value': {
-    fr: '25 000 €', en: '€25,000', lb: '25.000 €', de: '25.000 €', it: '25.000 €', pt: '25.000 €',
+    fr: '100%', en: '100%', lb: '100%', de: '100%', it: '100%', pt: '100%',
   },
   'hero.stat2.label': {
-    fr: "jusqu'à de subvention", en: 'up to in grants', lb: 'bis zu u Subventiounen', de: 'bis zu an Zuschüssen', it: 'fino a in sovvenzioni', pt: 'até em subsídios',
+    fr: 'gratuit et confidentiel', en: 'free and confidential', lb: 'gratis a vertraulech', de: 'kostenlos und vertraulich', it: 'gratuito e confidenziale', pt: 'gratuito e confidencial',
   },
   'hero.stat3.value': {
     fr: '6', en: '6', lb: '6', de: '6', it: '6', pt: '6',
   },
   'hero.stat3.label': {
-    fr: 'programmes disponibles', en: 'programs available', lb: 'Programmer disponibel', de: 'Programme verfügbar', it: 'programmi disponibili', pt: 'programas disponíveis',
+    fr: 'programmes analysés', en: 'programs analyzed', lb: 'Programmer analyséiert', de: 'analysierte Programme', it: 'programmi analizzati', pt: 'programas analisados',
   },
   'hero.trust': {
     fr: 'Programmes référencés', en: 'Referenced programs', lb: 'Referenzéiert Programmer', de: 'Referenzierte Programme', it: 'Programmi di riferimento', pt: 'Programas referenciados',
@@ -80,18 +80,29 @@ const translations: Record<string, Record<Language, string>> = {
   'hero.partners': {
     fr: 'Basé sur les programmes publics de', en: 'Based on public programs from', lb: 'Baséiert op ëffentleche Programmer vun', de: 'Basierend auf öffentlichen Programmen von', it: 'Basato sui programmi pubblici di', pt: 'Baseado nos programas públicos de',
   },
+  'hero.luxembourgBanner': {
+    fr: 'Programmes référencés par la House of Entrepreneurship',
+    en: 'Programs referenced by the House of Entrepreneurship',
+    lb: 'Programmer referenzéiert vun der House of Entrepreneurship',
+    de: 'Programme referenziert von der House of Entrepreneurship',
+    it: 'Programmi referenziati dalla House of Entrepreneurship',
+    pt: 'Programas referenciados pela House of Entrepreneurship',
+  },
 
-  'hero.card.header': {
-    fr: '6 programmes disponibles', en: '6 programs available', lb: '6 Programmer disponibel', de: '6 Programme verfügbar', it: '6 programmi disponibili', pt: '6 programas disponíveis',
+  'hero.card.label': {
+    fr: 'Aides luxembourgeoises', en: 'Luxembourg grants', lb: 'Lëtzebuerger Hëllefen', de: 'Luxemburger Förderungen', it: 'Sovvenzioni lussemburghesi', pt: 'Apoios luxemburgueses',
   },
-  'hero.card.upTo': {
-    fr: 'Jusqu\'à 25 000 € / programme', en: 'Up to €25,000 / program', lb: 'Bis zu 25.000 € / Programm', de: 'Bis zu 25.000 € / Programm', it: 'Fino a 25.000 € / programma', pt: 'Até 25.000 € / programa',
+  'hero.card.perProgram': {
+    fr: 'max. par programme', en: 'max. per program', lb: 'max. pro Programm', de: 'max. pro Programm', it: 'max. per programma', pt: 'máx. por programa',
   },
-  'hero.card.cyber': {
-    fr: 'Cybersécurité', en: 'Cybersecurity', lb: 'Cybersécherheet', de: 'Cybersicherheit', it: 'Cybersicurezza', pt: 'Cibersegurança',
+  'hero.card.fact1': {
+    fr: '6 programmes — Digital, IA, Cybersécurité, Innovation', en: '6 programs — Digital, AI, Cybersecurity, Innovation', lb: '6 Programmer — Digital, KI, Cybersécherheet, Innovatioun', de: '6 Programme — Digital, KI, Cybersicherheit, Innovation', it: '6 programmi — Digitale, IA, Cybersicurezza, Innovazione', pt: '6 programas — Digital, IA, Cibersegurança, Inovação',
   },
-  'hero.card.coverageRange': {
-    fr: 'Couverture de 50 % à 100 % selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Copertura dal 50 % al 100 % a seconda del programma', pt: 'Cobertura de 50 % a 100 % dependendo do programa',
+  'hero.card.fact2': {
+    fr: '50 % à 100 % de couverture selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Dal 50 % al 100 % di copertura secondo il programma', pt: '50 % a 100 % de cobertura conforme o programa',
+  },
+  'hero.card.fact3': {
+    fr: 'Résultat en 10 secondes — gratuit et confidentiel', en: 'Results in 10 seconds — free and confidential', lb: 'Resultat an 10 Sekonnen — gratis a vertraulech', de: 'Ergebnis in 10 Sekunden — kostenlos und vertraulich', it: 'Risultato in 10 secondi — gratuito e confidenziale', pt: 'Resultado em 10 segundos — gratuito e confidencial',
   },
 
   // ─── How it works ───
@@ -122,7 +133,7 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── CTA section ───
   'cta.title': {
-    fr: 'Prêt à financer votre transformation digitale ?', en: 'Ready to fund your digital transformation?', lb: 'Prett fir Är digital Transformatioun ze finanzéieren?', de: 'Bereit, Ihre digitale Transformation zu finanzieren?', it: 'Pronti a finanziare la vostra trasformazione digitale?', pt: 'Pronto para financiar a sua transformação digital?',
+    fr: 'Prêt à financer votre transformation digitale\u00A0?', en: 'Ready to fund your digital transformation?', lb: 'Prett fir Är digital Transformatioun ze finanzéieren?', de: 'Bereit, Ihre digitale Transformation zu finanzieren?', it: 'Pronti a finanziare la vostra trasformazione digitale?', pt: 'Pronto para financiar a sua transformação digital?',
   },
   'cta.subtitle': {
     fr: 'Simulez vos aides en 10 secondes ou contactez directement un expert pour vous accompagner.', en: 'Simulate your grants in 10 seconds or contact an expert directly for guidance.', lb: 'Simuléiert Är Hëllefen an 10 Sekonnen oder kontaktéiert direkt en Expert fir Begleedung.', de: 'Simulieren Sie Ihre Förderungen in 10 Sekunden oder kontaktieren Sie direkt einen Experten.', it: 'Simulate le vostre sovvenzioni in 10 secondi o contattate direttamente un esperto.', pt: 'Simule os seus apoios em 10 segundos ou contacte diretamente um especialista.',
@@ -309,6 +320,14 @@ const translations: Record<string, Record<Language, string>> = {
     pt: 'No Luxemburgo, mas sem autorização / não tenho a certeza',
   },
   'q3.o3': {
+    fr: 'Non, mais dans la Grande Région',
+    en: 'No, but in the Greater Region',
+    lb: 'Nee, awer an der Groussregioun',
+    de: 'Nein, aber in der Großregion',
+    it: 'No, ma nella Grande Regione',
+    pt: 'Não, mas na Grande Região',
+  },
+  'q3.o4': {
     fr: 'Non, pas au Luxembourg',
     en: 'No, not in Luxembourg',
     lb: 'Nee, net zu Lëtzebuerg',
@@ -515,6 +534,89 @@ const translations: Record<string, Record<Language, string>> = {
   'results.contactAnyway': {
     fr: 'Contactez-nous quand même', en: 'Contact us anyway', lb: 'Kontaktéiert eis trotzdem', de: 'Kontaktieren Sie uns trotzdem', it: 'Contattateci comunque', pt: 'Contacte-nos na mesma',
   },
+
+  // ─── Grande Région special offer ───
+  'results.grandeRegion.title': {
+    fr: 'Offre spéciale Grande Région',
+    en: 'Greater Region Special Offer',
+    lb: 'Spezialoffert Groussregioun',
+    de: 'Sonderangebot Großregion',
+    it: 'Offerta speciale Grande Regione',
+    pt: 'Oferta especial Grande Região',
+  },
+  'results.grandeRegion.subtitle': {
+    fr: 'Votre entreprise est basée dans la Grande Région — vous bénéficiez de tarifs préférentiels !',
+    en: 'Your company is based in the Greater Region — you benefit from preferential rates!',
+    lb: 'Äert Unternehmen ass an der Groussregioun baséiert — Dir profitéiert vu Virzosspräisser!',
+    de: 'Ihr Unternehmen hat seinen Sitz in der Großregion — Sie profitieren von Vorzugskonditionen!',
+    it: 'La vostra azienda ha sede nella Grande Regione — beneficiate di tariffe agevolate!',
+    pt: 'A sua empresa está sediada na Grande Região — beneficia de tarifas preferenciais!',
+  },
+  'results.grandeRegion.description': {
+    fr: "Bien que les aides publiques luxembourgeoises ne soient pas accessibles aux entreprises hors Luxembourg, nous proposons une remise exclusive aux entreprises de la Grande Région (Lorraine, Wallonie, Rhénanie-Palatinat, Sarre) pour les accompagner dans leur transformation digitale et IA.",
+    en: "While Luxembourg public grants are not available to companies outside Luxembourg, we offer an exclusive discount to Greater Region companies (Lorraine, Wallonia, Rhineland-Palatinate, Saarland) to support their digital and AI transformation.",
+    lb: "Obwuel lëtzebuerger ëffentlech Hëllefen net fir Firmen ausserhalb vu Lëtzebuerg verfügbar sinn, bidden mir e exklusiven Remise fir Firmen aus der Groussregioun (Lorraine, Wallonie, Rheinland-Pfalz, Saarland) fir hir digital an KI Transformatioun ze ënnerstëtzen.",
+    de: "Obwohl luxemburgische öffentliche Förderungen nicht für Unternehmen außerhalb Luxemburgs verfügbar sind, bieten wir einen exklusiven Rabatt für Unternehmen der Großregion (Lothringen, Wallonien, Rheinland-Pfalz, Saarland) an, um ihre digitale und KI-Transformation zu unterstützen.",
+    it: "Sebbene i finanziamenti pubblici lussemburghesi non siano accessibili alle aziende fuori dal Lussemburgo, offriamo uno sconto esclusivo alle aziende della Grande Regione (Lorena, Vallonia, Renania-Palatinato, Saarland) per accompagnarle nella trasformazione digitale e IA.",
+    pt: "Embora os apoios públicos luxemburgueses não estejam disponíveis para empresas fora do Luxemburgo, oferecemos um desconto exclusivo às empresas da Grande Região (Lorena, Valónia, Renânia-Palatinado, Sarre) para apoiar a sua transformação digital e IA.",
+  },
+  'results.grandeRegion.discount': {
+    fr: '-25% sur tous nos services',
+    en: '-25% on all our services',
+    lb: '-25% op all eis Servicer',
+    de: '-25% auf alle unsere Dienstleistungen',
+    it: '-25% su tutti i nostri servizi',
+    pt: '-25% em todos os nossos serviços',
+  },
+  'results.grandeRegion.services': {
+    fr: 'Nos services incluent',
+    en: 'Our services include',
+    lb: 'Eis Servicer enthalen',
+    de: 'Unsere Dienstleistungen umfassen',
+    it: 'I nostri servizi includono',
+    pt: 'Os nossos serviços incluem',
+  },
+  'results.grandeRegion.service1': {
+    fr: 'Stratégie de transformation digitale',
+    en: 'Digital transformation strategy',
+    lb: 'Digital Transformatiounsstrategie',
+    de: 'Digitale Transformationsstrategie',
+    it: 'Strategia di trasformazione digitale',
+    pt: 'Estratégia de transformação digital',
+  },
+  'results.grandeRegion.service2': {
+    fr: "Intégration d'outils IA sur mesure",
+    en: 'Custom AI tool integration',
+    lb: 'Personaliséiert KI-Tool Integratioun',
+    de: 'Maßgeschneiderte KI-Tool-Integration',
+    it: "Integrazione di strumenti IA su misura",
+    pt: 'Integração de ferramentas IA personalizadas',
+  },
+  'results.grandeRegion.service3': {
+    fr: 'Création de sites web et e-commerce',
+    en: 'Website and e-commerce creation',
+    lb: 'Websäit an E-Commerce Kreatioun',
+    de: 'Website- und E-Commerce-Erstellung',
+    it: 'Creazione di siti web ed e-commerce',
+    pt: 'Criação de websites e e-commerce',
+  },
+  'results.grandeRegion.service4': {
+    fr: 'Automatisation des processus métier',
+    en: 'Business process automation',
+    lb: 'Geschäftsprozess Automatiséierung',
+    de: 'Geschäftsprozessautomatisierung',
+    it: 'Automazione dei processi aziendali',
+    pt: 'Automatização de processos de negócio',
+  },
+  'results.grandeRegion.cta': {
+    fr: 'Profiter de l\'offre Grande Région',
+    en: 'Claim the Greater Region offer',
+    lb: 'Groussregioun Offert notzen',
+    de: 'Großregion-Angebot nutzen',
+    it: 'Approfittare dell\'offerta Grande Regione',
+    pt: 'Aproveitar a oferta Grande Região',
+  },
+
   'results.nextStep': {
     fr: 'Prochaine étape', en: 'Next step', lb: 'Nächste Schrëtt', de: 'Nächster Schritt', it: 'Prossimo passo', pt: 'Próximo passo',
   },
@@ -534,6 +636,9 @@ const translations: Record<string, Record<Language, string>> = {
   },
   'contact.company': {
     fr: 'Nom de l\'entreprise', en: 'Company name', lb: 'Numm vun der Firma', de: 'Firmenname', it: 'Nome dell\'azienda', pt: 'Nome da empresa',
+  },
+  'contact.rcs': {
+    fr: 'Numéro RCS', en: 'RCS number', lb: 'RCS Nummer', de: 'RCS-Nummer', it: 'Numero RCS', pt: 'Número RCS',
   },
   'contact.role': {
     fr: 'Poste / Fonction', en: 'Role / Position', lb: 'Post / Funktioun', de: 'Position / Funktion', it: 'Ruolo / Posizione', pt: 'Cargo / Função',
@@ -672,6 +777,9 @@ const translations: Record<string, Record<Language, string>> = {
   'contactPage.placeholder.company': {
     fr: 'Nom de votre entreprise', en: 'Your company name', lb: 'Numm vun Ärer Firma', de: 'Name Ihres Unternehmens', it: 'Nome della vostra azienda', pt: 'Nome da sua empresa',
   },
+  'contactPage.placeholder.rcs': {
+    fr: 'ex : B276192', en: 'e.g. B276192', lb: 'z.B. B276192', de: 'z.B. B276192', it: 'es. B276192', pt: 'ex: B276192',
+  },
   'contactPage.placeholder.email': {
     fr: 'jean@entreprise.lu', en: 'john@company.lu', lb: 'jean@firma.lu', de: 'max@firma.lu', it: 'mario@azienda.lu', pt: 'joao@empresa.lu',
   },
@@ -801,7 +909,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Contact', en: 'Contact', lb: 'Kontakt', de: 'Kontakt', it: 'Contatto', pt: 'Contacto',
   },
   'footer.rights': {
-    fr: '© 2025 Forge. Tous droits réservés.', en: '© 2025 Forge. All rights reserved.', lb: '© 2025 Forge. All Rechter reservéiert.', de: '© 2025 Forge. Alle Rechte vorbehalten.', it: '© 2025 Forge. Tutti i diritti riservati.', pt: '© 2025 Forge. Todos os direitos reservados.',
+    fr: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. Tous droits réservés.', en: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. All rights reserved.', lb: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. All Rechter reservéiert.', de: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. Alle Rechte vorbehalten.', it: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. Tutti i diritti riservati.', pt: '© 2026 OpenLetz — COMMIT MEDIA SARL · RCS B276192. Todos os direitos reservados.',
   },
 
   // ─── PageNavbar ───
@@ -870,29 +978,29 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── About Page ───
   'about.title': {
-    fr: 'À propos de Forge', en: 'About Forge', lb: 'Iwwer Forge', de: 'Über Forge', it: 'Chi è Forge', pt: 'Sobre o Forge',
+    fr: 'À propos de OpenLetz', en: 'About OpenLetz', lb: 'Iwwer OpenLetz', de: 'Über OpenLetz', it: 'Chi è OpenLetz', pt: 'Sobre o OpenLetz',
   },
   'about.mission.title': {
     fr: 'Notre mission', en: 'Our Mission', lb: 'Eis Missioun', de: 'Unsere Mission', it: 'La nostra missione', pt: 'A nossa missão',
   },
   'about.mission.text': {
-    fr: 'Forge aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 10 secondes les programmes de subventions auxquels vous êtes éligible.',
-    en: 'Forge helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 10 seconds the grant programs you are eligible for.',
-    lb: 'Forge hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 10 Sekonnen déi Subventioune fir déi Dir eligibel sidd.',
-    de: 'Forge hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 10 Sekunden die Förderprogramme, für die Sie berechtigt sind.',
-    it: 'Forge aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 10 secondi i programmi di sovvenzione per i quali siete ammissibili.',
-    pt: 'O Forge ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 10 segundos os programas de subsídios aos quais é elegível.',
+    fr: 'OpenLetz aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 10 secondes les programmes de subventions auxquels vous êtes éligible.',
+    en: 'OpenLetz helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 10 seconds the grant programs you are eligible for.',
+    lb: 'OpenLetz hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 10 Sekonnen déi Subventioune fir déi Dir eligibel sidd.',
+    de: 'OpenLetz hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 10 Sekunden die Förderprogramme, für die Sie berechtigt sind.',
+    it: 'OpenLetz aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 10 secondi i programmi di sovvenzione per i quali siete ammissibili.',
+    pt: 'O OpenLetz ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 10 segundos os programas de subsídios aos quais é elegível.',
   },
   'about.why.title': {
-    fr: 'Pourquoi Forge ?', en: 'Why Forge?', lb: 'Firwat Forge?', de: 'Warum Forge?', it: 'Perché Forge?', pt: 'Porquê Forge?',
+    fr: 'Pourquoi OpenLetz ?', en: 'Why OpenLetz?', lb: 'Firwat OpenLetz?', de: 'Warum OpenLetz?', it: 'Perché OpenLetz?', pt: 'Porquê OpenLetz?',
   },
   'about.why.text': {
-    fr: 'Le Luxembourg offre des programmes de financement parmi les plus généreux d\'Europe pour la digitalisation des PME, mais beaucoup d\'entreprises ne connaissent pas ces aides ou trouvent les démarches complexes. Forge simplifie ce processus.',
-    en: 'Luxembourg offers some of Europe\'s most generous funding programs for SME digitalization, but many companies are unaware of these grants or find the process complex. Forge simplifies this process.',
-    lb: 'Lëtzebuerg bitt ee vun de generéisten Förderprogrammer an Europa fir d\'Digitaliséierung vu KMU, awer vill Firmen kennen dës Hëllefe net oder fannen de Prozess komplex. Forge vereinfacht dëse Prozess.',
-    de: 'Luxemburg bietet einige der großzügigsten Förderprogramme Europas für die Digitalisierung von KMU, aber viele Unternehmen kennen diese Förderungen nicht oder finden den Prozess komplex. Forge vereinfacht diesen Prozess.',
-    it: 'Il Lussemburgo offre alcuni dei programmi di finanziamento più generosi d\'Europa per la digitalizzazione delle PMI, ma molte aziende non conoscono questi aiuti o trovano il processo complesso. Forge semplifica questo processo.',
-    pt: 'O Luxemburgo oferece alguns dos programas de financiamento mais generosos da Europa para a digitalização das PME, mas muitas empresas desconhecem estes apoios ou consideram o processo complexo. O Forge simplifica este processo.',
+    fr: 'Le Luxembourg offre des programmes de financement parmi les plus généreux d\'Europe pour la digitalisation des PME, mais beaucoup d\'entreprises ne connaissent pas ces aides ou trouvent les démarches complexes. OpenLetz simplifie ce processus.',
+    en: 'Luxembourg offers some of Europe\'s most generous funding programs for SME digitalization, but many companies are unaware of these grants or find the process complex. OpenLetz simplifies this process.',
+    lb: 'Lëtzebuerg bitt ee vun de generéisten Förderprogrammer an Europa fir d\'Digitaliséierung vu KMU, awer vill Firmen kennen dës Hëllefe net oder fannen de Prozess komplex. OpenLetz vereinfacht dëse Prozess.',
+    de: 'Luxemburg bietet einige der großzügigsten Förderprogramme Europas für die Digitalisierung von KMU, aber viele Unternehmen kennen diese Förderungen nicht oder finden den Prozess komplex. OpenLetz vereinfacht diesen Prozess.',
+    it: 'Il Lussemburgo offre alcuni dei programmi di finanziamento più generosi d\'Europa per la digitalizzazione delle PMI, ma molte aziende non conoscono questi aiuti o trovano il processo complesso. OpenLetz semplifica questo processo.',
+    pt: 'O Luxemburgo oferece alguns dos programas de financiamento mais generosos da Europa para a digitalização das PME, mas muitas empresas desconhecem estes apoios ou consideram o processo complexo. O OpenLetz simplifica este processo.',
   },
   'about.programs.title': {
     fr: '6 programmes référencés', en: '6 referenced programs', lb: '6 referenzéiert Programmer', de: '6 referenzierte Programme', it: '6 programmi referenziati', pt: '6 programas referenciados',
@@ -954,7 +1062,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Développement Web', en: 'Web Development', lb: 'Web-Entwécklung', de: 'Web-Entwicklung', it: 'Sviluppo Web', pt: 'Desenvolvimento Web',
   },
   'pricing.svc.dev.price': {
-    fr: 'À partir de 990 €', en: 'From €990', lb: 'Vun 990 € un', de: 'Ab 990 €', it: 'Da 990 €', pt: 'A partir de 990 €',
+    fr: 'À partir de 900 €', en: 'From €900', lb: 'Vun 900 € un', de: 'Ab 900 €', it: 'Da 900 €', pt: 'A partir de 900 €',
   },
   'pricing.svc.dev.desc': {
     fr: 'Sites web, e-commerce, applications — développés avec l\'IA pour un résultat rapide et professionnel.',
@@ -974,7 +1082,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Design responsive & moderne', en: 'Responsive & modern design', lb: 'Responsive & modern Design', de: 'Responsives & modernes Design', it: 'Design responsive & moderno', pt: 'Design responsive e moderno',
   },
   'pricing.svc.dev.f4': {
-    fr: 'Livraison 2× plus rapide grâce à l\'IA', en: '2× faster delivery thanks to AI', lb: '2× méi séier Liwwerung dank KI', de: '2× schnellere Lieferung dank KI', it: 'Consegna 2× più veloce grazie all\'IA', pt: 'Entrega 2× mais rápida graças à IA',
+    fr: 'Livraison en 48h max grâce à l\'IA', en: 'Up to 48h delivery thanks to AI', lb: 'Bis zu 48h Liwwerung dank KI', de: 'Lieferung in bis zu 48h dank KI', it: 'Consegna in max 48h grazie all\'IA', pt: 'Entrega em até 48h graças à IA',
   },
   'pricing.svc.dev.f5': {
     fr: 'Éligible aux subventions SME Package', en: 'Eligible for SME Package grants', lb: 'Eligibel fir SME Package Subventiounen', de: 'Förderfähig für SME Package', it: 'Ammissibile per sovvenzioni SME Package', pt: 'Elegível para subsídios SME Package',
@@ -983,18 +1091,18 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Intégration IA', en: 'AI Integration', lb: 'KI-Integratioun', de: 'KI-Integration', it: 'Integrazione IA', pt: 'Integração IA',
   },
   'pricing.svc.ai.price': {
-    fr: 'À partir de 490 €', en: 'From €490', lb: 'Vun 490 € un', de: 'Ab 490 €', it: 'Da 490 €', pt: 'A partir de 490 €',
+    fr: 'À partir de 900 €', en: 'From €900', lb: 'Vun 900 € un', de: 'Ab 900 €', it: 'Da 900 €', pt: 'A partir de 900 €',
   },
   'pricing.svc.ai.desc': {
-    fr: 'Chatbots, automatisation, IA sur mesure — intégrez l\'intelligence artificielle dans votre activité.',
-    en: 'Chatbots, automation, custom AI — integrate artificial intelligence into your business.',
-    lb: 'Chatbots, Automatiséierung, personaliséiert KI — integréiert Kënschtlech Intelligenz an Är Aktivitéit.',
-    de: 'Chatbots, Automatisierung, maßgeschneiderte KI — integrieren Sie KI in Ihr Geschäft.',
-    it: 'Chatbot, automazione, IA personalizzata — integra l\'intelligenza artificiale nella tua attività.',
-    pt: 'Chatbots, automação, IA personalizada — integre a inteligência artificial no seu negócio.',
+    fr: 'Agents IA, automatisation, solutions sur mesure — intégrez l\'intelligence artificielle dans votre activité.',
+    en: 'AI agents, automation, custom solutions — integrate artificial intelligence into your business.',
+    lb: 'KI-Agenten, Automatiséierung, personaliséiert Léisungen — integréiert Kënschtlech Intelligenz an Är Aktivitéit.',
+    de: 'KI-Agenten, Automatisierung, maßgeschneiderte Lösungen — integrieren Sie KI in Ihr Geschäft.',
+    it: 'Agenti IA, automazione, soluzioni personalizzate — integra l\'intelligenza artificiale nella tua attività.',
+    pt: 'Agentes IA, automação, soluções personalizadas — integre a inteligência artificial no seu negócio.',
   },
   'pricing.svc.ai.f1': {
-    fr: 'Chatbots & assistants virtuels', en: 'Chatbots & virtual assistants', lb: 'Chatbots & virtuell Assistenten', de: 'Chatbots & virtuelle Assistenten', it: 'Chatbot & assistenti virtuali', pt: 'Chatbots e assistentes virtuais',
+    fr: 'Agents IA autonomes', en: 'Autonomous AI agents', lb: 'Autonom KI-Agenten', de: 'Autonome KI-Agenten', it: 'Agenti IA autonomi', pt: 'Agentes IA autónomos',
   },
   'pricing.svc.ai.f2': {
     fr: 'Automatisation de processus', en: 'Process automation', lb: 'Prozess-Automatiséierung', de: 'Prozessautomatisierung', it: 'Automazione dei processi', pt: 'Automação de processos',
@@ -1006,7 +1114,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Formation de votre équipe', en: 'Team training', lb: 'Formatioun vun Ärem Team', de: 'Schulung Ihres Teams', it: 'Formazione del team', pt: 'Formação da equipa',
   },
   'pricing.svc.ai.f5': {
-    fr: 'Éligible aux aides Fit 4 AI', en: 'Eligible for Fit 4 AI grants', lb: 'Eligibel fir Fit 4 AI Hëllefen', de: 'Förderfähig für Fit 4 AI', it: 'Ammissibile per aiuti Fit 4 AI', pt: 'Elegível para apoios Fit 4 AI',
+    fr: 'Éligible aux subventions SME Package', en: 'Eligible for SME Package grants', lb: 'Eligibel fir SME Package Subventiounen', de: 'Förderfähig für SME Package', it: 'Ammissibile per sovvenzioni SME Package', pt: 'Elegível para subsídios SME Package',
   },
   'pricing.svc.maintenance.title': {
     fr: 'Maintenance', en: 'Maintenance', lb: 'Maintenance', de: 'Wartung', it: 'Manutenzione', pt: 'Manutenção',
@@ -1032,7 +1140,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Sauvegardes automatiques', en: 'Automatic backups', lb: 'Automatesch Backupen', de: 'Automatische Backups', it: 'Backup automatici', pt: 'Backups automáticos',
   },
   'pricing.svc.maintenance.f4': {
-    fr: 'Support réactif sous 24h', en: 'Responsive support within 24h', lb: 'Reaktive Support bannen 24h', de: 'Reaktiver Support innerhalb 24h', it: 'Supporto reattivo entro 24h', pt: 'Suporte reativo em 24h',
+    fr: 'Support réactif instantané', en: 'Instant responsive support', lb: 'Sofortege reaktive Support', de: 'Sofortiger reaktiver Support', it: 'Supporto reattivo istantaneo', pt: 'Suporte reativo instantâneo',
   },
   'pricing.svc.consulting.title': {
     fr: 'Conseil Subventions', en: 'Grant Consulting', lb: 'Subventiouns-Berodung', de: 'Förderberatung', it: 'Consulenza Sovvenzioni', pt: 'Consultoria Subsídios',
@@ -1101,10 +1209,93 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Télécharger le rapport PDF', en: 'Download PDF report', lb: 'PDF-Rapport eroflueden', de: 'PDF-Bericht herunterladen', it: 'Scarica rapporto PDF', pt: 'Descarregar relatório PDF',
   },
   'report.title': {
-    fr: 'Rapport d\'éligibilité — Forge', en: 'Eligibility Report — Forge', lb: 'Eligibilitéitsrapport — Forge', de: 'Förderfähigkeitsbericht — Forge', it: 'Rapporto di ammissibilità — Forge', pt: 'Relatório de elegibilidade — Forge',
+    fr: 'Rapport d\'éligibilité — OpenLetz', en: 'Eligibility Report — OpenLetz', lb: 'Eligibilitéitsrapport — OpenLetz', de: 'Förderfähigkeitsbericht — OpenLetz', it: 'Rapporto di ammissibilità — OpenLetz', pt: 'Relatório de elegibilidade — OpenLetz',
   },
   'report.generatedOn': {
     fr: 'Généré le', en: 'Generated on', lb: 'Generéiert den', de: 'Erstellt am', it: 'Generato il', pt: 'Gerado em',
+  },
+  'report.clientInfo': {
+    fr: 'Informations du demandeur', en: 'Applicant information', lb: 'Informatiounen vum Untrëttler', de: 'Antragsteller-Informationen', it: 'Informazioni del richiedente', pt: 'Informações do requerente',
+  },
+  'report.name': {
+    fr: 'Nom', en: 'Name', lb: 'Numm', de: 'Name', it: 'Nome', pt: 'Nome',
+  },
+  'report.company': {
+    fr: 'Entreprise', en: 'Company', lb: 'Firma', de: 'Unternehmen', it: 'Azienda', pt: 'Empresa',
+  },
+  'report.rcs': {
+    fr: 'N° RCS', en: 'RCS No.', lb: 'RCS Nr.', de: 'RCS-Nr.', it: 'N° RCS', pt: 'N.º RCS',
+  },
+  'report.email': {
+    fr: 'Email', en: 'Email', lb: 'Email', de: 'E-Mail', it: 'Email', pt: 'Email',
+  },
+  'report.services.title': {
+    fr: 'Comment nous pouvons vous accompagner', en: 'How we can help you', lb: 'Wéi mir Iech begleede kënnen', de: 'Wie wir Sie begleiten können', it: 'Come possiamo accompagnarvi', pt: 'Como podemos ajudá-lo',
+  },
+  'report.services.dev.title': {
+    fr: 'Développement Web & Digital (à partir de 900 €)', en: 'Web & Digital Development (from €900)', lb: 'Web & Digital Entwécklung (vun 900 €)', de: 'Web- & Digitalentwicklung (ab 900 €)', it: 'Sviluppo Web & Digitale (da 900 €)', pt: 'Desenvolvimento Web & Digital (a partir de 900 €)',
+  },
+  'report.services.dev.desc': {
+    fr: 'Sites web, e-commerce, applications sur mesure. Livraison en 48h max grâce à nos outils IA. Éligible aux subventions SME Package Digital (70 % pris en charge, max 17 500 €).',
+    en: 'Websites, e-commerce, custom applications. Delivery in up to 48h thanks to our AI tools. Eligible for SME Package Digital grants (70% covered, max €17,500).',
+    lb: 'Websäiten, E-Commerce, personaliséiert Applikatiounen. Liwwerung an max 48h dank eisen KI-Tools. Eligibel fir SME Package Digital Subventiounen (70 % iwwerholl, max 17.500 €).',
+    de: 'Websites, E-Commerce, maßgeschneiderte Anwendungen. Lieferung in max 48h dank unserer KI-Tools. Förderfähig für SME Package Digital (70 % abgedeckt, max 17.500 €).',
+    it: 'Siti web, e-commerce, applicazioni su misura. Consegna in max 48h grazie ai nostri strumenti IA. Ammissibile per sovvenzioni SME Package Digital (70 % coperto, max 17.500 €).',
+    pt: 'Websites, e-commerce, aplicações à medida. Entrega em até 48h graças às nossas ferramentas IA. Elegível para subsídios SME Package Digital (70 % coberto, máx. 17.500 €).',
+  },
+  'report.services.ai.title': {
+    fr: 'Intégration IA & Agents Autonomes (à partir de 900 €)', en: 'AI Integration & Autonomous Agents (from €900)', lb: 'KI-Integratioun & Autonom Agenten (vun 900 €)', de: 'KI-Integration & Autonome Agenten (ab 900 €)', it: 'Integrazione IA & Agenti Autonomi (da 900 €)', pt: 'Integração IA & Agentes Autónomos (a partir de 900 €)',
+  },
+  'report.services.ai.desc': {
+    fr: 'Agents IA autonomes, automatisation de processus, analyse de données. Éligible aux subventions SME Package IA (70 % pris en charge, max 17 500 €) et Fit 4 AI (50 %, max 25 000 €).',
+    en: 'Autonomous AI agents, process automation, data analysis. Eligible for SME Package AI grants (70% covered, max €17,500) and Fit 4 AI (50%, max €25,000).',
+    lb: 'Autonom KI-Agenten, Prozess-Automatiséierung, Datenanalyse. Eligibel fir SME Package IA (70 % iwwerholl, max 17.500 €) an Fit 4 AI (50 %, max 25.000 €).',
+    de: 'Autonome KI-Agenten, Prozessautomatisierung, Datenanalyse. Förderfähig für SME Package KI (70 % abgedeckt, max 17.500 €) und Fit 4 AI (50 %, max 25.000 €).',
+    it: 'Agenti IA autonomi, automazione dei processi, analisi dati. Ammissibile per SME Package IA (70 % coperto, max 17.500 €) e Fit 4 AI (50 %, max 25.000 €).',
+    pt: 'Agentes IA autónomos, automação de processos, análise de dados. Elegível para SME Package IA (70 % coberto, máx. 17.500 €) e Fit 4 AI (50 %, máx. 25.000 €).',
+  },
+  'report.services.grants.title': {
+    fr: 'Conseil Subventions & Montage de Dossier (à partir de 290 €)', en: 'Grant Consulting & Application Support (from €290)', lb: 'Subventiouns-Berodung & Dossier-Montage (vun 290 €)', de: 'Förderberatung & Antragserstellung (ab 290 €)', it: 'Consulenza Sovvenzioni & Preparazione Domande (da 290 €)', pt: 'Consultoria Subsídios & Montagem de Candidatura (a partir de 290 €)',
+  },
+  'report.services.grants.desc': {
+    fr: 'Diagnostic approfondi, montage complet de votre dossier de demande de subvention, suivi avec Luxinnovation et le Ministère de l\'Économie jusqu\'à obtention de l\'aide.',
+    en: 'In-depth assessment, complete grant application preparation, follow-up with Luxinnovation and the Ministry of the Economy until the grant is obtained.',
+    lb: 'Déifgräifend Diagnose, komplett Montage vun Ärem Subventiouns-Dossier, Suivi mat Luxinnovation an dem Wirtschaftsministère bis d\'Hëllef accordéiert ass.',
+    de: 'Tiefgehende Analyse, vollständige Antragserstellung, Begleitung bei Luxinnovation und dem Wirtschaftsministerium bis zur Förderzusage.',
+    it: 'Diagnosi approfondita, preparazione completa della domanda di sovvenzione, seguito con Luxinnovation e il Ministero dell\'Economia fino all\'ottenimento dell\'aiuto.',
+    pt: 'Diagnóstico aprofundado, montagem completa da candidatura de subsídio, seguimento com Luxinnovation e o Ministério da Economia até à obtenção do apoio.',
+  },
+  'report.nextSteps.title': {
+    fr: 'Prochaines étapes', en: 'Next steps', lb: 'Nächst Schrëtt', de: 'Nächste Schritte', it: 'Prossimi passi', pt: 'Próximos passos',
+  },
+  'report.nextSteps.step1': {
+    fr: 'Prenez rendez-vous avec un expert OpenLetz pour valider votre éligibilité et affiner vos projets.', en: 'Schedule a meeting with a OpenLetz expert to validate your eligibility and refine your projects.', lb: 'Maacht en Rendez-vous mat engem OpenLetz-Expert fir Är Eligibilitéit ze validéieren an Är Projeten ze verfeineren.', de: 'Vereinbaren Sie einen Termin mit einem OpenLetz-Experten, um Ihre Förderfähigkeit zu bestätigen und Ihre Projekte zu verfeinern.', it: 'Fissate un appuntamento con un esperto OpenLetz per validare la vostra ammissibilità e perfezionare i progetti.', pt: 'Marque uma reunião com um especialista OpenLetz para validar a sua elegibilidade e refinar os seus projetos.',
+  },
+  'report.nextSteps.step2': {
+    fr: 'Nous montons votre dossier de demande de subvention et assurons le suivi avec les organismes.', en: 'We prepare your grant application and handle the follow-up with the relevant organizations.', lb: 'Mir montéieren Äre Subventiouns-Dossier a suiven mat den Organismen.', de: 'Wir bereiten Ihren Förderantrag vor und begleiten Sie bei den zuständigen Stellen.', it: 'Prepariamo la vostra domanda di sovvenzione e seguiamo le pratiche con gli organismi competenti.', pt: 'Preparamos a sua candidatura ao subsídio e asseguramos o acompanhamento junto dos organismos.',
+  },
+  'report.nextSteps.step3': {
+    fr: 'Une fois la subvention obtenue, nous réalisons votre projet digital ou IA dans les délais convenus.', en: 'Once the grant is obtained, we deliver your digital or AI project within the agreed timeline.', lb: 'Wann d\'Subventioun accordéiert ass, realiséiere mir Äre digitalen oder KI-Projet bannent den ofgemaachten Delaien.', de: 'Sobald die Förderung bewilligt ist, realisieren wir Ihr Digital- oder KI-Projekt im vereinbarten Zeitrahmen.', it: 'Una volta ottenuta la sovvenzione, realizziamo il vostro progetto digitale o IA nei tempi concordati.', pt: 'Uma vez obtido o subsídio, realizamos o seu projeto digital ou IA nos prazos acordados.',
+  },
+  'report.contact.cta': {
+    fr: 'Contactez-nous pour démarrer votre projet', en: 'Contact us to start your project', lb: 'Kontaktéiert eis fir Äre Projet ze starten', de: 'Kontaktieren Sie uns, um Ihr Projekt zu starten', it: 'Contattateci per avviare il vostro progetto', pt: 'Contacte-nos para iniciar o seu projeto',
+  },
+  'report.disclaimer': {
+    fr: 'Ce rapport est généré automatiquement à titre indicatif. Les montants et taux de couverture sont basés sur les programmes officiels du Grand-Duché de Luxembourg en vigueur à la date de génération. L\'éligibilité effective doit être confirmée auprès des organismes compétents. COMMIT MEDIA SARL · RCS B276192.',
+    en: 'This report is automatically generated for informational purposes. Amounts and coverage rates are based on official Grand Duchy of Luxembourg programs in effect at the date of generation. Actual eligibility must be confirmed with the relevant authorities. COMMIT MEDIA SARL · RCS B276192.',
+    lb: 'Dëse Rapport gëtt automatesch generéiert als Informatioun. D\'Beträg a Couverture-Raten baséieren op den offizielle Programmer vum Groussherzogtum Lëtzebuerg zum Datum vun der Generéierung. Déi effektiv Eligibilitéit muss bei den zoustännegen Organismen confirméiert ginn. COMMIT MEDIA SARL · RCS B276192.',
+    de: 'Dieser Bericht wird automatisch zu Informationszwecken erstellt. Beträge und Deckungsraten basieren auf den offiziellen Programmen des Großherzogtums Luxemburg zum Erstellungsdatum. Die tatsächliche Förderfähigkeit muss bei den zuständigen Stellen bestätigt werden. COMMIT MEDIA SARL · RCS B276192.',
+    it: 'Questo rapporto è generato automaticamente a titolo informativo. Gli importi e le percentuali di copertura si basano sui programmi ufficiali del Granducato di Lussemburgo in vigore alla data di generazione. L\'ammissibilità effettiva deve essere confermata presso gli organismi competenti. COMMIT MEDIA SARL · RCS B276192.',
+    pt: 'Este relatório é gerado automaticamente a título informativo. Os montantes e taxas de cobertura baseiam-se nos programas oficiais do Grão-Ducado do Luxemburgo em vigor à data de geração. A elegibilidade efetiva deve ser confirmada junto dos organismos competentes. COMMIT MEDIA SARL · RCS B276192.',
+  },
+  'report.form.title': {
+    fr: 'Vos informations pour le rapport', en: 'Your information for the report', lb: 'Är Informatiounen fir de Rapport', de: 'Ihre Informationen für den Bericht', it: 'Le vostre informazioni per il rapporto', pt: 'As suas informações para o relatório',
+  },
+  'report.form.generate': {
+    fr: 'Générer le rapport PDF', en: 'Generate PDF report', lb: 'PDF-Rapport generéieren', de: 'PDF-Bericht erstellen', it: 'Genera rapporto PDF', pt: 'Gerar relatório PDF',
+  },
+  'report.form.cancel': {
+    fr: 'Annuler', en: 'Cancel', lb: 'Ofbriechen', de: 'Abbrechen', it: 'Annulla', pt: 'Cancelar',
   },
 }
 

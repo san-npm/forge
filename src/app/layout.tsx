@@ -33,7 +33,13 @@ export const metadata: Metadata = {
     'grants Luxembourg SME',
     'digitalization grants',
     'Grande Région',
+    'Großregion',
     'aides publiques Luxembourg',
+    'AI funding Luxembourg',
+    'Lorraine',
+    'Wallonie',
+    'Saarland',
+    'Rheinland-Pfalz',
   ],
   authors: [{ name: 'OpenLetz', url: SITE_URL }],
   creator: 'OpenLetz — COMMIT MEDIA SARL',
@@ -41,6 +47,14 @@ export const metadata: Metadata = {
   formatDetection: { telephone: true, email: true },
   alternates: {
     canonical: SITE_URL,
+    languages: {
+      'fr': SITE_URL,
+      'en': `${SITE_URL}?lang=en`,
+      'de': `${SITE_URL}?lang=de`,
+      'lb': `${SITE_URL}?lang=lb`,
+      'it': `${SITE_URL}?lang=it`,
+      'pt': `${SITE_URL}?lang=pt`,
+    },
   },
   openGraph: {
     title: 'OpenLetz — Simulateur Aides Digitalisation & IA Luxembourg',
@@ -49,6 +63,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: 'OpenLetz',
     locale: 'fr_LU',
+    alternateLocale: ['en_GB', 'de_DE', 'lb_LU', 'it_IT', 'pt_PT'],
     type: 'website',
     images: [
       {
@@ -84,8 +99,11 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
-  verification: {
-    // google: 'YOUR_GOOGLE_VERIFICATION_CODE',
+  other: {
+    'geo.region': 'LU',
+    'geo.placename': 'Luxembourg',
+    'geo.position': '49.6117;6.1300',
+    'ICBM': '49.6117, 6.1300',
   },
 }
 
@@ -96,7 +114,7 @@ const organizationJsonLd = {
   name: 'OpenLetz',
   legalName: 'COMMIT MEDIA SARL',
   url: SITE_URL,
-  logo: `${SITE_URL}/openletz-logo.png`,
+  logo: `${SITE_URL}/openletz.svg`,
   description:
     'Simulateur gratuit d\'aides luxembourgeoises pour la transformation digitale et l\'innovation IA des PME.',
   email: 'bob@openletz.com',
@@ -106,9 +124,23 @@ const organizationJsonLd = {
     addressLocality: 'Luxembourg',
     addressCountry: 'LU',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 49.6117,
+    longitude: 6.13,
+  },
   areaServed: [
     { '@type': 'Country', name: 'Luxembourg' },
-    { '@type': 'AdministrativeArea', name: 'Grande Région' },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Grande Région / Greater Region',
+      containsPlace: [
+        { '@type': 'AdministrativeArea', name: 'Lorraine, France' },
+        { '@type': 'AdministrativeArea', name: 'Wallonie, Belgique' },
+        { '@type': 'AdministrativeArea', name: 'Saarland, Deutschland' },
+        { '@type': 'AdministrativeArea', name: 'Rheinland-Pfalz, Deutschland' },
+      ],
+    },
   ],
   sameAs: [],
   knowsAbout: [
@@ -120,7 +152,24 @@ const organizationJsonLd = {
     'Luxinnovation',
     'digitalisation PME',
     'intelligence artificielle',
+    'Grande Région cross-border business',
   ],
+  serviceType: [
+    'Digital Transformation Consulting',
+    'AI Integration',
+    'Grant Simulation',
+    'Website & E-commerce Development',
+    'Business Process Automation',
+  ],
+  availableLanguage: [
+    { '@type': 'Language', name: 'French', alternateName: 'fr' },
+    { '@type': 'Language', name: 'English', alternateName: 'en' },
+    { '@type': 'Language', name: 'German', alternateName: 'de' },
+    { '@type': 'Language', name: 'Luxembourgish', alternateName: 'lb' },
+    { '@type': 'Language', name: 'Italian', alternateName: 'it' },
+    { '@type': 'Language', name: 'Portuguese', alternateName: 'pt' },
+  ],
+  priceRange: '€€',
 }
 
 const webAppJsonLd = {
@@ -143,14 +192,6 @@ const webAppJsonLd = {
     '@id': `${SITE_URL}/#organization`,
   },
   inLanguage: ['fr', 'en', 'de', 'lb', 'it', 'pt'],
-  availableLanguage: [
-    { '@type': 'Language', name: 'French', alternateName: 'fr' },
-    { '@type': 'Language', name: 'English', alternateName: 'en' },
-    { '@type': 'Language', name: 'German', alternateName: 'de' },
-    { '@type': 'Language', name: 'Luxembourgish', alternateName: 'lb' },
-    { '@type': 'Language', name: 'Italian', alternateName: 'it' },
-    { '@type': 'Language', name: 'Portuguese', alternateName: 'pt' },
-  ],
 }
 
 export default function RootLayout({

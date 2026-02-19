@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 
 const programs = [
   { name: 'SME Packages — Digital', maxGrant: '17 500', coverage: 70 },
-  { name: 'SME Packages — IA / AI', maxGrant: '17 500', coverage: 70 },
+  { name: 'SME Packages — AI', maxGrant: '17 500', coverage: 70 },
   { name: 'SME Packages — Cybersécurité', maxGrant: '17 500', coverage: 70 },
   { name: 'Fit 4 Digital', maxGrant: '5 000', coverage: 100, note: 'Phase 1' },
   { name: 'Fit 4 AI', maxGrant: '25 000', coverage: 50 },
@@ -49,7 +49,7 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Why Forge */}
+          {/* Why OpenLetz */}
           <section className="mb-12 animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-start gap-5">
               <div className="flex-shrink-0 w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center">

@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <img src="/openletz.svg" alt="OpenLetz" className="w-7 h-7 invert" />
+              <img src="/openletz.svg" alt="OpenLetz" className="w-8 h-8 invert" />
               <span className="font-bold text-lg">OpenLetz</span>
             </div>
             <p className="text-sm text-navy-400 leading-relaxed max-w-xs">
@@ -28,9 +28,9 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
+                <a href="/" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
                   {t('footer.simulator')}
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/agents" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">

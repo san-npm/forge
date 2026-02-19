@@ -220,7 +220,7 @@ export default function PricingPage() {
 
                 {/* CTA */}
                 <Link
-                  href="/"
+                  href="/contact"
                   className={`block text-center py-3 px-6 rounded-xl font-medium text-sm transition-all duration-200 ${
                     svc.highlighted
                       ? 'bg-navy-900 text-white hover:bg-navy-800 shadow-md hover:shadow-lg'

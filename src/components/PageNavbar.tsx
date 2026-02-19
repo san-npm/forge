@@ -26,15 +26,15 @@ export default function PageNavbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2.5">
-            <img src="/openletz.svg" alt="OpenLetz" className="w-7 h-7" />
+            <img src="/openletz.svg" alt="OpenLetz" className="w-8 h-8" />
             <span className="font-bold text-lg text-navy-900">OpenLetz</span>
           </Link>
 
           {/* Desktop nav */}
           <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-navy-500">
-            <Link href="/" className="hover:text-navy-900 transition-colors">
+            <a href="/" className="hover:text-navy-900 transition-colors">
               {t('nav.simulator')}
-            </Link>
+            </a>
             <Link href="/agents" className="hover:text-navy-900 transition-colors">
               {t('nav.directory')}
             </Link>
@@ -102,13 +102,13 @@ export default function PageNavbar() {
       {menuOpen && (
         <div className="sm:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md">
           <div className="px-4 py-3 space-y-1">
-            <Link
+            <a
               href="/"
               onClick={() => setMenuOpen(false)}
               className="block w-full text-left px-3 py-2.5 text-sm text-navy-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition-colors"
             >
               {t('nav.simulator')}
-            </Link>
+            </a>
             <Link
               href="/agents"
               onClick={() => setMenuOpen(false)}

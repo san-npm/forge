@@ -6,16 +6,20 @@ import { Program, ProjectRecommendation } from '@/lib/eligibility'
 
 interface ResultsProps {
   eligible: boolean
+  grandeRegion: boolean
   programs: Program[]
   projects: ProjectRecommendation[]
   onNext: () => void
 }
 
-export default function Results({ eligible, programs, projects, onNext }: ResultsProps) {
+export default function Results({ eligible, grandeRegion, programs, projects, onNext }: ResultsProps) {
   const { lang, t } = useLanguage()
   const [email, setEmail] = useState('')
   const [emailSent, setEmailSent] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [showPdfForm, setShowPdfForm] = useState(false)
+  const [pdfForm, setPdfForm] = useState({ name: '', company: '', rcs: '', email: '' })
+  const [generating, setGenerating] = useState(false)
 
   async function handleEmailSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -43,53 +47,111 @@ export default function Results({ eligible, programs, projects, onNext }: Result
   const totalCostWith = projects.reduce((sum, p) => sum + p.youPay, 0)
   const totalSavings = totalCostWithout - totalCostWith
 
-  function handleDownloadPdf() {
-    const date = new Date().toLocaleDateString(lang === 'fr' ? 'fr-FR' : lang === 'de' ? 'de-DE' : 'en-GB', {
-      year: 'numeric', month: 'long', day: 'numeric',
-    })
+  async function handleGeneratePdf(e: React.FormEvent) {
+    e.preventDefault()
+    if (generating) return
+    setGenerating(true)
 
-    const programLines = programs.map(
-      (p) => `  - ${p.name[lang] || p.name.fr}: ${p.maxGrant.toLocaleString()} € (${p.coveragePercent}% ${t('results.coverage')})`
-    ).join('\n')
+    try {
+      const { generateReport } = await import('@/lib/generateReport')
+      generateReport({
+        clientName: pdfForm.name,
+        clientCompany: pdfForm.company,
+        clientRcs: pdfForm.rcs,
+        clientEmail: pdfForm.email,
+        programs,
+        projects,
+        lang,
+        t,
+      })
+      setShowPdfForm(false)
+    } catch {
+      // Fallback: silently fail
+    } finally {
+      setGenerating(false)
+    }
+  }
 
-    const projectLines = projects.map(
-      (p) => `  - ${p.title[lang] || p.title.fr}\n    ${t('results.estimatedCost')}: ${p.estimatedCost.toLocaleString()} € | ${t('results.withGrant')}: -${p.grantCoverage.toLocaleString()} € | ${t('results.youPay')}: ${p.youPay.toLocaleString()} €`
-    ).join('\n\n')
+  if (grandeRegion) {
+    const services = [
+      t('results.grandeRegion.service1'),
+      t('results.grandeRegion.service2'),
+      t('results.grandeRegion.service3'),
+      t('results.grandeRegion.service4'),
+    ]
 
-    const content = `${t('report.title')}
-${'='.repeat(40)}
-${t('report.generatedOn')}: ${date}
+    return (
+      <div className="min-h-screen pt-20 pb-12 px-4">
+        <div className="max-w-3xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-10 animate-fade-in">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+              {t('results.grandeRegion.title')}
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              {t('results.grandeRegion.subtitle')}
+            </p>
+          </div>
 
-${'─'.repeat(40)}
-${t('results.eligible')}
-${'─'.repeat(40)}
-${programLines}
+          {/* Explanation */}
+          <div className="mb-8 p-6 bg-blue-50 border border-blue-200 rounded-2xl animate-slide-up">
+            <p className="text-gray-700 leading-relaxed">
+              {t('results.grandeRegion.description')}
+            </p>
+          </div>
 
-${'─'.repeat(40)}
-${t('results.projects')}
-${'─'.repeat(40)}
-${projectLines}
+          {/* Discount badge */}
+          <div className="mb-8 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-center text-white">
+              <div className="text-5xl font-bold mb-2">-25%</div>
+              <div className="text-lg font-medium opacity-90">
+                {t('results.grandeRegion.discount')}
+              </div>
+            </div>
+          </div>
 
-${'─'.repeat(40)}
-${t('results.comparison')}
-${'─'.repeat(40)}
-  ${t('results.without')}: ${totalCostWithout.toLocaleString()} €
-  ${t('results.with')}: ${totalCostWith.toLocaleString()} €
-  ${t('results.savings')}: ${totalSavings.toLocaleString()} €
+          {/* Services list */}
+          <div className="mb-10 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">
+              {t('results.grandeRegion.services')}
+            </h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {services.map((service, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-xl"
+                >
+                  <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="font-medium text-gray-800">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-${'─'.repeat(40)}
-openletz.com
-`
-
-    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `openletz-rapport-eligibilite.txt`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
+          {/* CTA */}
+          <div className="text-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
+            <button
+              onClick={onNext}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-navy-900 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+            >
+              {t('results.grandeRegion.cta')}
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   if (!eligible) {
@@ -232,7 +294,7 @@ openletz.com
           <section className="mb-12 animate-slide-up" style={{ animationDelay: '0.25s' }}>
             <div className="text-center">
               <button
-                onClick={handleDownloadPdf}
+                onClick={() => setShowPdfForm(true)}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-primary-200 text-primary-700 font-semibold rounded-xl hover:bg-primary-50 hover:border-primary-300 transition-all"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -242,6 +304,80 @@ openletz.com
               </button>
             </div>
           </section>
+        )}
+
+        {/* PDF Form Modal */}
+        {showPdfForm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/50 backdrop-blur-sm">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 animate-fade-in">
+              <h3 className="text-lg font-bold text-gray-900 mb-1">
+                {t('report.form.title')}
+              </h3>
+              <p className="text-sm text-gray-500 mb-6">
+                {t('report.disclaimer').slice(0, 120)}...
+              </p>
+              <form onSubmit={handleGeneratePdf} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">{t('report.name')} *</label>
+                  <input
+                    type="text"
+                    required
+                    value={pdfForm.name}
+                    onChange={(e) => setPdfForm({ ...pdfForm, name: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">{t('report.company')}</label>
+                  <input
+                    type="text"
+                    value={pdfForm.company}
+                    onChange={(e) => setPdfForm({ ...pdfForm, company: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">{t('report.rcs')}</label>
+                  <input
+                    type="text"
+                    value={pdfForm.rcs}
+                    onChange={(e) => setPdfForm({ ...pdfForm, rcs: e.target.value })}
+                    placeholder="ex: B276192"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">{t('report.email')} *</label>
+                  <input
+                    type="email"
+                    required
+                    value={pdfForm.email}
+                    onChange={(e) => setPdfForm({ ...pdfForm, email: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                  />
+                </div>
+                <div className="flex gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowPdfForm(false)}
+                    className="flex-1 px-4 py-2.5 border border-gray-200 text-gray-600 font-medium rounded-xl hover:bg-gray-50 transition-colors text-sm"
+                  >
+                    {t('report.form.cancel')}
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={generating}
+                    className="flex-1 px-4 py-2.5 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors disabled:opacity-50 text-sm inline-flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    {generating ? '...' : t('report.form.generate')}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         )}
 
         {/* Newsletter subscription */}

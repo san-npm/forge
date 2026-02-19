@@ -1,48 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
+import { getSupabase } from '@/lib/supabase'
 import { sendNotification } from '@/lib/notifications'
-
-const DATA_FILE = path.join(process.cwd(), 'data', 'contacts.json')
-
-interface ContactEntry {
-  name: string
-  email: string
-  phone?: string
-  message?: string
-  submittedAt: string
-}
-
-async function readContacts(): Promise<ContactEntry[]> {
-  try {
-    const data = await fs.readFile(DATA_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch {
-    return []
-  }
-}
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
-  const { name, email, phone, message } = body
+  const { name, email, company, rcs, role, companySize, sector, subject, phone, message, preferredContact } = body
 
   if (!name || !email) {
     return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })
   }
 
-  const entry: ContactEntry = {
+  const supabase = getSupabase()
+  const { error } = await supabase.from('contacts').insert({
     name,
     email,
-    phone: phone || undefined,
-    message: message || undefined,
-    submittedAt: new Date().toISOString(),
+    company: company || null,
+    rcs: rcs || null,
+    role: role || null,
+    company_size: companySize || null,
+    sector: sector || null,
+    subject: subject || null,
+    phone: phone || null,
+    message: message || null,
+    preferred_contact: preferredContact || null,
+  })
+
+  if (error) {
+    console.error('Supabase insert error (contacts):', error)
+    return NextResponse.json({ error: 'Failed to save contact' }, { status: 500 })
   }
-
-  const contacts = await readContacts()
-  contacts.push(entry)
-
-  await fs.mkdir(path.dirname(DATA_FILE), { recursive: true })
-  await fs.writeFile(DATA_FILE, JSON.stringify(contacts, null, 2))
 
   sendNotification({
     type: 'new_contact',
@@ -50,7 +36,7 @@ export async function POST(req: NextRequest) {
     name,
     phone,
     message,
-    timestamp: entry.submittedAt,
+    timestamp: new Date().toISOString(),
   })
 
   return NextResponse.json({ success: true })

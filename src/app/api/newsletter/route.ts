@@ -1,23 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
+import { getSupabase } from '@/lib/supabase'
 import { sendNotification } from '@/lib/notifications'
-
-const DATA_FILE = path.join(process.cwd(), 'data', 'newsletter.json')
-
-interface NewsletterEntry {
-  email: string
-  subscribedAt: string
-}
-
-async function readSubscribers(): Promise<NewsletterEntry[]> {
-  try {
-    const data = await fs.readFile(DATA_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch {
-    return []
-  }
-}
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
@@ -27,20 +10,27 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Email is required' }, { status: 400 })
   }
 
-  const subscribers = await readSubscribers()
+  const supabase = getSupabase()
 
-  // Prevent duplicate subscriptions
-  if (subscribers.some((s) => s.email === email)) {
+  // Check if already subscribed
+  const { data: existing } = await supabase
+    .from('newsletter_subscribers')
+    .select('email')
+    .eq('email', email)
+    .maybeSingle()
+
+  if (existing) {
     return NextResponse.json({ success: true, alreadySubscribed: true })
   }
 
-  subscribers.push({
+  const { error } = await supabase.from('newsletter_subscribers').insert({
     email,
-    subscribedAt: new Date().toISOString(),
   })
 
-  await fs.mkdir(path.dirname(DATA_FILE), { recursive: true })
-  await fs.writeFile(DATA_FILE, JSON.stringify(subscribers, null, 2))
+  if (error) {
+    console.error('Supabase insert error (newsletter):', error)
+    return NextResponse.json({ error: 'Failed to subscribe' }, { status: 500 })
+  }
 
   sendNotification({
     type: 'new_subscriber',
