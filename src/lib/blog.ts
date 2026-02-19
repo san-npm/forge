@@ -10,9 +10,14 @@ export interface BlogPost {
   excerpt: Record<string, string>
   date: string
   content: string
+  metaDescription?: Record<string, string>
+  keywords?: string[]
+  image?: string
+  author?: string
 }
 
 export function getAllPosts(): BlogPost[] {
+  if (!fs.existsSync(BLOG_DIR)) return []
   const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith('.mdx'))
 
   const posts = files.map((filename) => {
@@ -25,6 +30,10 @@ export function getAllPosts(): BlogPost[] {
       excerpt: data.excerpt as Record<string, string>,
       date: data.date as string,
       content,
+      metaDescription: data.metaDescription as Record<string, string> | undefined,
+      keywords: data.keywords as string[] | undefined,
+      image: data.image as string | undefined,
+      author: data.author as string | undefined,
     }
   })
 
