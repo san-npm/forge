@@ -78,7 +78,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Simulateur gratuit', en: 'Free simulator', lb: 'Gratis Simulator', de: 'Kostenloser Simulator', it: 'Simulatore gratuito', pt: 'Simulador gratuito',
   },
   'hero.partners': {
-    fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
+    fr: 'Aides publiques luxembourgeoises', en: 'Luxembourg public grants', lb: 'Lëtzebuerger ëffentlech Hëllefen', de: 'Luxemburger öffentliche Förderungen', it: 'Sovvenzioni pubbliche lussemburghesi', pt: 'Apoios públicos luxemburgueses',
   },
 
   'hero.card.header': {
