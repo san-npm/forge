@@ -49,7 +49,7 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Why Forge */}
+          {/* Why OpenLetz */}
           <section className="mb-12 animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-start gap-5">
               <div className="flex-shrink-0 w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center">
