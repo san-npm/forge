@@ -145,65 +145,37 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               </div>
             </div>
 
-            {/* Right: programs overview */}
+            {/* Right: funding card */}
             <div className="hidden lg:block animate-slide-up">
-              <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                {/* Header */}
-                <div className="bg-gradient-to-r from-navy-900 to-navy-800 px-6 py-5">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-navy-300 mb-1">{t('hero.card.header')}</p>
-                      <p className="text-2xl font-bold text-white">{t('hero.card.upTo')}</p>
-                    </div>
-                    <div className="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center">
-                      <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <div className="bg-gradient-to-br from-navy-900 to-navy-800 rounded-2xl shadow-2xl overflow-hidden p-8">
+                <p className="text-sm font-semibold text-green-400 mb-4">{t('hero.card.header')}</p>
+                <p className="text-5xl font-bold text-white mb-1">25 000 &euro;</p>
+                <p className="text-navy-400 mb-8">{t('hero.card.upTo')}</p>
+
+                <div className="space-y-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-primary-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                       </svg>
                     </div>
+                    <p className="text-sm text-navy-300 leading-relaxed">{t('hero.card.bullet1')}</p>
                   </div>
-                </div>
-
-                <div className="p-5">
-                  {/* SME Packages group */}
-                  <p className="text-[11px] font-semibold text-navy-400 uppercase tracking-wider mb-2">SME Packages</p>
-                  <div className="space-y-1.5 mb-4">
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">Digital</span>
-                      <span className="text-sm font-semibold text-navy-900">17 500 &euro;</span>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">IA / AI</span>
-                      <span className="text-sm font-semibold text-navy-900">17 500 &euro;</span>
-                    </div>
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">{t('hero.card.cyber')}</span>
-                      <span className="text-sm font-semibold text-navy-900">17 500 &euro;</span>
-                    </div>
+                    <p className="text-sm text-navy-300 leading-relaxed">{t('hero.card.bullet2')}</p>
                   </div>
-
-                  {/* Fit 4 group */}
-                  <p className="text-[11px] font-semibold text-navy-400 uppercase tracking-wider mb-2">Fit 4</p>
-                  <div className="space-y-1.5 mb-5">
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">Digital</span>
-                      <span className="text-sm font-semibold text-navy-900">5 000 &euro;</span>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">AI</span>
-                      <span className="text-sm font-semibold text-navy-900">25 000 &euro;</span>
-                    </div>
-                    <div className="flex items-center justify-between px-3 py-2.5 bg-primary-50/60 rounded-lg">
-                      <span className="text-sm text-navy-700">Innovation</span>
-                      <span className="text-sm font-semibold text-navy-900">7 500 &euro;</span>
-                    </div>
-                  </div>
-
-                  {/* Coverage info */}
-                  <div className="flex items-center gap-3 p-3 bg-green-50 rounded-xl border border-green-100">
-                    <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <p className="text-sm text-green-800">{t('hero.card.coverageRange')}</p>
+                    <p className="text-sm text-navy-300 leading-relaxed">{t('hero.card.bullet3')}</p>
                   </div>
                 </div>
               </div>
@@ -212,31 +184,14 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Partner logos */}
+      {/* Partner badge */}
       <section className="py-10 border-t border-gray-100 bg-gray-50/50">
         <div className="max-w-5xl mx-auto px-4">
-          <p className="text-center text-xs text-navy-400 uppercase tracking-widest font-medium mb-6">
-            {t('hero.partners')}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14">
-            <div className="flex items-center gap-2.5 text-navy-300 hover:text-navy-500 transition-colors">
-              <div className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
-                <span className="text-[10px] font-bold text-navy-400">LX</span>
-              </div>
-              <span className="text-sm font-medium">Luxinnovation</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-navy-300 hover:text-navy-500 transition-colors">
-              <div className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
-                <span className="text-[10px] font-bold text-navy-400">ME</span>
-              </div>
-              <span className="text-sm font-medium">Minist&egrave;re de l&apos;&Eacute;conomie</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-navy-300 hover:text-navy-500 transition-colors">
-              <div className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
-                <span className="text-[10px] font-bold text-navy-400">DL</span>
-              </div>
-              <span className="text-sm font-medium">Digital Luxembourg</span>
-            </div>
+          <div className="flex items-center justify-center gap-3">
+            <span className="text-2xl" role="img" aria-label="Luxembourg flag">{'\u{1F1F1}\u{1F1FA}'}</span>
+            <p className="text-sm text-navy-500 font-medium">
+              {t('hero.partners')}
+            </p>
           </div>
         </div>
       </section>

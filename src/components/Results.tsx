@@ -78,14 +78,14 @@ ${'─'.repeat(40)}
   ${t('results.savings')}: ${totalSavings.toLocaleString()} €
 
 ${'─'.repeat(40)}
-forge-simulator.lu
+openletz.com
 `
 
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `forge-rapport-eligibilite.txt`
+    a.download = `openletz-rapport-eligibilite.txt`
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)

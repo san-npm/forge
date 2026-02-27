@@ -51,22 +51,22 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Estimer mes aides', en: 'Estimate my funding', lb: 'Meng Hëllefen schätzen', de: 'Meine Förderung schätzen', it: 'Stima i miei finanziamenti', pt: 'Estimar os meus apoios',
   },
   'hero.stat1.value': {
-    fr: '70%', en: '70%', lb: '70%', de: '70%', it: '70%', pt: '70%',
+    fr: '10 sec', en: '10 sec', lb: '10 sec', de: '10 Sek', it: '10 sec', pt: '10 seg',
   },
   'hero.stat1.label': {
-    fr: 'remboursé en moyenne', en: 'reimbursed on average', lb: 'am Duerchschnëtt rembourséiert', de: 'durchschnittlich erstattet', it: 'rimborsato in media', pt: 'reembolsado em média',
+    fr: 'pour obtenir vos résultats', en: 'to get your results', lb: 'fir Är Resultater ze kréien', de: 'um Ihre Ergebnisse zu erhalten', it: 'per ottenere i risultati', pt: 'para obter os seus resultados',
   },
   'hero.stat2.value': {
-    fr: '25 000 €', en: '€25,000', lb: '25.000 €', de: '25.000 €', it: '25.000 €', pt: '25.000 €',
+    fr: '100%', en: '100%', lb: '100%', de: '100%', it: '100%', pt: '100%',
   },
   'hero.stat2.label': {
-    fr: "jusqu'à de subvention", en: 'up to in grants', lb: 'bis zu u Subventiounen', de: 'bis zu an Zuschüssen', it: 'fino a in sovvenzioni', pt: 'até em subsídios',
+    fr: 'gratuit et confidentiel', en: 'free and confidential', lb: 'gratis a vertraulech', de: 'kostenlos und vertraulich', it: 'gratuito e riservato', pt: 'gratuito e confidencial',
   },
   'hero.stat3.value': {
     fr: '6', en: '6', lb: '6', de: '6', it: '6', pt: '6',
   },
   'hero.stat3.label': {
-    fr: 'programmes disponibles', en: 'programs available', lb: 'Programmer disponibel', de: 'Programme verfügbar', it: 'programmi disponibili', pt: 'programas disponíveis',
+    fr: 'programmes analysés', en: 'programs analyzed', lb: 'Programmer analyséiert', de: 'Programme analysiert', it: 'programmi analizzati', pt: 'programas analisados',
   },
   'hero.trust': {
     fr: 'Programmes référencés', en: 'Referenced programs', lb: 'Referenzéiert Programmer', de: 'Referenzierte Programme', it: 'Programmi di riferimento', pt: 'Programas referenciados',
@@ -78,20 +78,23 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Simulateur gratuit', en: 'Free simulator', lb: 'Gratis Simulator', de: 'Kostenloser Simulator', it: 'Simulatore gratuito', pt: 'Simulador gratuito',
   },
   'hero.partners': {
-    fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
+    fr: 'Programmes référencés par la House of Entrepreneurship', en: 'Programs referenced by the House of Entrepreneurship', lb: 'Programmer referenzéiert vun der House of Entrepreneurship', de: 'Programme referenziert von der House of Entrepreneurship', it: 'Programmi referenziati dalla House of Entrepreneurship', pt: 'Programas referenciados pela House of Entrepreneurship',
   },
 
   'hero.card.header': {
-    fr: '6 programmes disponibles', en: '6 programs available', lb: '6 Programmer disponibel', de: '6 Programme verfügbar', it: '6 programmi disponibili', pt: '6 programas disponíveis',
+    fr: 'Aides luxembourgeoises', en: 'Luxembourg grants', lb: 'Lëtzebuerger Hëllefen', de: 'Luxemburger Förderungen', it: 'Sovvenzioni lussemburghesi', pt: 'Apoios luxemburgueses',
   },
   'hero.card.upTo': {
-    fr: 'Jusqu\'à 25 000 € / programme', en: 'Up to €25,000 / program', lb: 'Bis zu 25.000 € / Programm', de: 'Bis zu 25.000 € / Programm', it: 'Fino a 25.000 € / programma', pt: 'Até 25.000 € / programa',
+    fr: 'max. par programme', en: 'max. per program', lb: 'max. pro Programm', de: 'max. pro Programm', it: 'max. per programma', pt: 'máx. por programa',
   },
-  'hero.card.cyber': {
-    fr: 'Cybersécurité', en: 'Cybersecurity', lb: 'Cybersécherheet', de: 'Cybersicherheit', it: 'Cybersicurezza', pt: 'Cibersegurança',
+  'hero.card.bullet1': {
+    fr: '6 programmes — Digital, IA, Cybersécurité, Innovation', en: '6 programs — Digital, AI, Cybersecurity, Innovation', lb: '6 Programmer — Digital, KI, Cybersécherheet, Innovatioun', de: '6 Programme — Digital, KI, Cybersicherheit, Innovation', it: '6 programmi — Digitale, IA, Cybersicurezza, Innovazione', pt: '6 programas — Digital, IA, Cibersegurança, Inovação',
   },
-  'hero.card.coverageRange': {
-    fr: 'Couverture de 50 % à 100 % selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Copertura dal 50 % al 100 % a seconda del programma', pt: 'Cobertura de 50 % a 100 % dependendo do programa',
+  'hero.card.bullet2': {
+    fr: '50 % à 100 % de couverture selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Dal 50 % al 100 % di copertura a seconda del programma', pt: '50 % a 100 % de cobertura dependendo do programa',
+  },
+  'hero.card.bullet3': {
+    fr: 'Résultat en 10 secondes — gratuit et confidentiel', en: 'Results in 10 seconds — free and confidential', lb: 'Resultat an 10 Sekonnen — gratis a vertraulech', de: 'Ergebnis in 10 Sekunden — kostenlos und vertraulich', it: 'Risultato in 10 secondi — gratuito e riservato', pt: 'Resultado em 10 segundos — gratuito e confidencial',
   },
 
   // ─── How it works ───
@@ -798,7 +801,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Contact', en: 'Contact', lb: 'Kontakt', de: 'Kontakt', it: 'Contatto', pt: 'Contacto',
   },
   'footer.rights': {
-    fr: '© 2025 Forge. Tous droits réservés.', en: '© 2025 Forge. All rights reserved.', lb: '© 2025 Forge. All Rechter reservéiert.', de: '© 2025 Forge. Alle Rechte vorbehalten.', it: '© 2025 Forge. Tutti i diritti riservati.', pt: '© 2025 Forge. Todos os direitos reservados.',
+    fr: '© 2025 OpenLetz. Tous droits réservés.', en: '© 2025 OpenLetz. All rights reserved.', lb: '© 2025 OpenLetz. All Rechter reservéiert.', de: '© 2025 OpenLetz. Alle Rechte vorbehalten.', it: '© 2025 OpenLetz. Tutti i diritti riservati.', pt: '© 2025 OpenLetz. Todos os direitos reservados.',
   },
 
   // ─── PageNavbar ───
@@ -867,29 +870,29 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── About Page ───
   'about.title': {
-    fr: 'À propos de Forge', en: 'About Forge', lb: 'Iwwer Forge', de: 'Über Forge', it: 'Chi è Forge', pt: 'Sobre o Forge',
+    fr: 'À propos d\'OpenLetz', en: 'About OpenLetz', lb: 'Iwwer OpenLetz', de: 'Über OpenLetz', it: 'Chi è OpenLetz', pt: 'Sobre o OpenLetz',
   },
   'about.mission.title': {
     fr: 'Notre mission', en: 'Our Mission', lb: 'Eis Missioun', de: 'Unsere Mission', it: 'La nostra missione', pt: 'A nossa missão',
   },
   'about.mission.text': {
-    fr: 'Forge aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 10 secondes les programmes de subventions auxquels vous êtes éligible.',
-    en: 'Forge helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 10 seconds the grant programs you are eligible for.',
-    lb: 'Forge hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 10 Sekonnen déi Subventioune fir déi Dir eligibel sidd.',
-    de: 'Forge hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 10 Sekunden die Förderprogramme, für die Sie berechtigt sind.',
-    it: 'Forge aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 10 secondi i programmi di sovvenzione per i quali siete ammissibili.',
-    pt: 'O Forge ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 10 segundos os programas de subsídios aos quais é elegível.',
+    fr: 'OpenLetz aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 10 secondes les programmes de subventions auxquels vous êtes éligible.',
+    en: 'OpenLetz helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 10 seconds the grant programs you are eligible for.',
+    lb: 'OpenLetz hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 10 Sekonnen déi Subventioune fir déi Dir eligibel sidd.',
+    de: 'OpenLetz hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 10 Sekunden die Förderprogramme, für die Sie berechtigt sind.',
+    it: 'OpenLetz aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 10 secondi i programmi di sovvenzione per i quali siete ammissibili.',
+    pt: 'O OpenLetz ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 10 segundos os programas de subsídios aos quais é elegível.',
   },
   'about.why.title': {
-    fr: 'Pourquoi Forge ?', en: 'Why Forge?', lb: 'Firwat Forge?', de: 'Warum Forge?', it: 'Perché Forge?', pt: 'Porquê Forge?',
+    fr: 'Pourquoi OpenLetz ?', en: 'Why OpenLetz?', lb: 'Firwat OpenLetz?', de: 'Warum OpenLetz?', it: 'Perché OpenLetz?', pt: 'Porquê OpenLetz?',
   },
   'about.why.text': {
-    fr: 'Le Luxembourg offre des programmes de financement parmi les plus généreux d\'Europe pour la digitalisation des PME, mais beaucoup d\'entreprises ne connaissent pas ces aides ou trouvent les démarches complexes. Forge simplifie ce processus.',
-    en: 'Luxembourg offers some of Europe\'s most generous funding programs for SME digitalization, but many companies are unaware of these grants or find the process complex. Forge simplifies this process.',
-    lb: 'Lëtzebuerg bitt ee vun de generéisten Förderprogrammer an Europa fir d\'Digitaliséierung vu KMU, awer vill Firmen kennen dës Hëllefe net oder fannen de Prozess komplex. Forge vereinfacht dëse Prozess.',
-    de: 'Luxemburg bietet einige der großzügigsten Förderprogramme Europas für die Digitalisierung von KMU, aber viele Unternehmen kennen diese Förderungen nicht oder finden den Prozess komplex. Forge vereinfacht diesen Prozess.',
-    it: 'Il Lussemburgo offre alcuni dei programmi di finanziamento più generosi d\'Europa per la digitalizzazione delle PMI, ma molte aziende non conoscono questi aiuti o trovano il processo complesso. Forge semplifica questo processo.',
-    pt: 'O Luxemburgo oferece alguns dos programas de financiamento mais generosos da Europa para a digitalização das PME, mas muitas empresas desconhecem estes apoios ou consideram o processo complexo. O Forge simplifica este processo.',
+    fr: 'Le Luxembourg offre des programmes de financement parmi les plus généreux d\'Europe pour la digitalisation des PME, mais beaucoup d\'entreprises ne connaissent pas ces aides ou trouvent les démarches complexes. OpenLetz simplifie ce processus.',
+    en: 'Luxembourg offers some of Europe\'s most generous funding programs for SME digitalization, but many companies are unaware of these grants or find the process complex. OpenLetz simplifies this process.',
+    lb: 'Lëtzebuerg bitt ee vun de generéisten Förderprogrammer an Europa fir d\'Digitaliséierung vu KMU, awer vill Firmen kennen dës Hëllefe net oder fannen de Prozess komplex. OpenLetz vereinfacht dëse Prozess.',
+    de: 'Luxemburg bietet einige der großzügigsten Förderprogramme Europas für die Digitalisierung von KMU, aber viele Unternehmen kennen diese Förderungen nicht oder finden den Prozess komplex. OpenLetz vereinfacht diesen Prozess.',
+    it: 'Il Lussemburgo offre alcuni dei programmi di finanziamento più generosi d\'Europa per la digitalizzazione delle PMI, ma molte aziende non conoscono questi aiuti o trovano il processo complesso. OpenLetz semplifica questo processo.',
+    pt: 'O Luxemburgo oferece alguns dos programas de financiamento mais generosos da Europa para a digitalização das PME, mas muitas empresas desconhecem estes apoios ou consideram o processo complexo. O OpenLetz simplifica este processo.',
   },
   'about.programs.title': {
     fr: '6 programmes référencés', en: '6 referenced programs', lb: '6 referenzéiert Programmer', de: '6 referenzierte Programme', it: '6 programmi referenziati', pt: '6 programas referenciados',
@@ -1098,7 +1101,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Télécharger le rapport PDF', en: 'Download PDF report', lb: 'PDF-Rapport eroflueden', de: 'PDF-Bericht herunterladen', it: 'Scarica rapporto PDF', pt: 'Descarregar relatório PDF',
   },
   'report.title': {
-    fr: 'Rapport d\'éligibilité — Forge', en: 'Eligibility Report — Forge', lb: 'Eligibilitéitsrapport — Forge', de: 'Förderfähigkeitsbericht — Forge', it: 'Rapporto di ammissibilità — Forge', pt: 'Relatório de elegibilidade — Forge',
+    fr: 'Rapport d\'éligibilité — OpenLetz', en: 'Eligibility Report — OpenLetz', lb: 'Eligibilitéitsrapport — OpenLetz', de: 'Förderfähigkeitsbericht — OpenLetz', it: 'Rapporto di ammissibilità — OpenLetz', pt: 'Relatório de elegibilidade — OpenLetz',
   },
   'report.generatedOn': {
     fr: 'Généré le', en: 'Generated on', lb: 'Generéiert den', de: 'Erstellt am', it: 'Generato il', pt: 'Gerado em',
