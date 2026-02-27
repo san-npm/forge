@@ -38,6 +38,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
+                  {t('footer.blog')}
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
                   {t('footer.about')}
                 </Link>
@@ -76,10 +81,18 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-navy-800">
-          <p className="text-center text-xs text-navy-500">
+        <div className="mt-12 pt-6 border-t border-navy-800 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-xs text-navy-500">
             {t('footer.rights')}
           </p>
+          <a
+            href="https://www.skills.ws/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-navy-500 hover:text-primary-400 transition-colors"
+          >
+            skills.ws
+          </a>
         </div>
       </div>
     </footer>

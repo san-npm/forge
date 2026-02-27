@@ -782,6 +782,9 @@ const translations: Record<string, Record<Language, string>> = {
   'footer.agents': {
     fr: 'Agents IA', en: 'AI Agents', lb: 'KI Agenten', de: 'KI-Agenten', it: 'Agenti IA', pt: 'Agentes IA',
   },
+  'footer.blog': {
+    fr: 'Blog', en: 'Blog', lb: 'Blog', de: 'Blog', it: 'Blog', pt: 'Blog',
+  },
   'footer.about': {
     fr: 'À propos', en: 'About', lb: 'Iwwer eis', de: 'Über uns', it: 'Chi siamo', pt: 'Sobre nós',
   },
