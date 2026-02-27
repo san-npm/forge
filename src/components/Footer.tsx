@@ -13,8 +13,10 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <img src="/openletz.svg" alt="OpenLetz" className="w-7 h-7 invert" />
-              <span className="font-bold text-lg">OpenLetz</span>
+              <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">F</span>
+              </div>
+              <span className="font-bold text-lg">Forge</span>
             </div>
             <p className="text-sm text-navy-400 leading-relaxed max-w-xs">
               {t('footer.description')}

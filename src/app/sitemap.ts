@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { AGENTS } from '@/lib/agents'
 import { getAllPosts } from '@/lib/blog'
 
-const SITE_URL = 'https://www.openletz.com'
+const SITE_URL = 'https://forge-simulator.lu'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString()

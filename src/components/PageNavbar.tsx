@@ -26,8 +26,10 @@ export default function PageNavbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2.5">
-            <img src="/openletz.svg" alt="OpenLetz" className="w-7 h-7" />
-            <span className="font-bold text-lg text-navy-900">OpenLetz</span>
+            <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">F</span>
+            </div>
+            <span className="font-bold text-lg text-navy-900">Forge</span>
           </Link>
 
           {/* Desktop nav */}

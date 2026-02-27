@@ -3,13 +3,13 @@ import Script from 'next/script'
 import './globals.css'
 import Providers from './providers'
 
-const SITE_URL = 'https://www.openletz.com'
+const SITE_URL = 'https://forge-simulator.lu'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'OpenLetz — Simulateur Aides Digitalisation & IA Luxembourg | Subventions PME',
-    template: '%s | OpenLetz Luxembourg',
+    default: 'Forge — Simulateur Aides Digitalisation & IA Luxembourg | Subventions PME',
+    template: '%s | Forge Luxembourg',
   },
   description:
     'Simulateur gratuit d\'éligibilité aux aides luxembourgeoises pour PME. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — jusqu\'à 25 000 € de subvention. Résultats en 10 secondes.',
@@ -35,19 +35,19 @@ export const metadata: Metadata = {
     'Grande Région',
     'aides publiques Luxembourg',
   ],
-  authors: [{ name: 'OpenLetz', url: SITE_URL }],
-  creator: 'OpenLetz — COMMIT MEDIA SARL',
-  publisher: 'OpenLetz',
+  authors: [{ name: 'Forge', url: SITE_URL }],
+  creator: 'Forge — COMMIT MEDIA SARL',
+  publisher: 'Forge',
   formatDetection: { telephone: true, email: true },
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: 'OpenLetz — Simulateur Aides Digitalisation & IA Luxembourg',
+    title: 'Forge — Simulateur Aides Digitalisation & IA Luxembourg',
     description:
       'Simulateur gratuit : identifiez les subventions luxembourgeoises pour votre PME en 10 secondes. Jusqu\'à 25 000 € et 70 % de couverture.',
     url: SITE_URL,
-    siteName: 'OpenLetz',
+    siteName: 'Forge',
     locale: 'fr_LU',
     type: 'website',
     images: [
@@ -55,13 +55,13 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: 'OpenLetz — Simulateur aides digitalisation Luxembourg',
+        alt: 'Forge — Simulateur aides digitalisation Luxembourg',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OpenLetz — Simulateur Aides Digitalisation Luxembourg',
+    title: 'Forge — Simulateur Aides Digitalisation Luxembourg',
     description: 'Identifiez vos subventions PME en 10 sec. Gratuit.',
     images: [`${SITE_URL}/og-image.png`],
   },
@@ -93,13 +93,13 @@ const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${SITE_URL}/#organization`,
-  name: 'OpenLetz',
+  name: 'Forge',
   legalName: 'COMMIT MEDIA SARL',
   url: SITE_URL,
-  logo: `${SITE_URL}/openletz-logo.png`,
+  logo: `${SITE_URL}/og-image.png`,
   description:
     'Simulateur gratuit d\'aides luxembourgeoises pour la transformation digitale et l\'innovation IA des PME.',
-  email: 'bob@openletz.com',
+  email: 'contact@forge-simulator.lu',
   telephone: '+352661968051',
   address: {
     '@type': 'PostalAddress',
@@ -127,7 +127,7 @@ const webAppJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   '@id': `${SITE_URL}/#webapp`,
-  name: 'OpenLetz — Simulateur d\'Aides Luxembourg',
+  name: 'Forge — Simulateur d\'Aides Luxembourg',
   url: SITE_URL,
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Any',
