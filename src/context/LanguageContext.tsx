@@ -32,12 +32,12 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── Landing page ───
   'hero.title': {
-    fr: 'Jusqu\'à 25 000 € d\'aides pour digitaliser votre PME au Luxembourg',
-    en: 'Up to €25,000 in grants to digitalize your SME in Luxembourg',
-    lb: 'Bis zu 25.000 € Hëllefen fir Är KMU zu Lëtzebuerg ze digitaliséieren',
-    de: 'Bis zu 25.000 € Förderung für die Digitalisierung Ihres KMU in Luxemburg',
-    it: 'Fino a 25.000 € di sovvenzioni per digitalizzare la vostra PMI in Lussemburgo',
-    pt: 'Até 25.000 € em apoios para digitalizar a sua PME no Luxemburgo',
+    fr: 'Digitalisez votre PME grâce aux aides luxembourgeoises',
+    en: 'Digitalize your SME with Luxembourg grants',
+    lb: 'Digitaliséiert Är KMU mat lëtzebuerger Hëllefen',
+    de: 'Digitalisieren Sie Ihr KMU mit luxemburgischen Förderungen',
+    it: 'Digitalizzate la vostra PMI con le sovvenzioni lussemburghesi',
+    pt: 'Digitalize a sua PME com os apoios luxemburgueses',
   },
   'hero.subtitle': {
     fr: '6 questions, 10 secondes, et vous savez exactement à quelles aides vous avez droit. Gratuit et confidentiel.',
