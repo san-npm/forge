@@ -32,12 +32,12 @@ const translations: Record<string, Record<Language, string>> = {
 
   // ─── Landing page ───
   'hero.title': {
-    fr: 'Jusqu\'à 25 000 € d\'aides pour digitaliser votre PME au Luxembourg',
-    en: 'Up to €25,000 in grants to digitalize your SME in Luxembourg',
-    lb: 'Bis zu 25.000 € Hëllefen fir Är KMU zu Lëtzebuerg ze digitaliséieren',
-    de: 'Bis zu 25.000 € Förderung für die Digitalisierung Ihres KMU in Luxemburg',
-    it: 'Fino a 25.000 € di sovvenzioni per digitalizzare la vostra PMI in Lussemburgo',
-    pt: 'Até 25.000 € em apoios para digitalizar a sua PME no Luxemburgo',
+    fr: 'Digitalisez votre PME grâce aux aides luxembourgeoises',
+    en: 'Digitalize your SME with Luxembourg grants',
+    lb: 'Digitaliséiert Är KMU mat lëtzebuerger Hëllefen',
+    de: 'Digitalisieren Sie Ihr KMU mit luxemburgischen Förderungen',
+    it: 'Digitalizzate la vostra PMI con le sovvenzioni lussemburghesi',
+    pt: 'Digitalize a sua PME com os apoios luxemburgueses',
   },
   'hero.subtitle': {
     fr: '6 questions, 10 secondes, et vous savez exactement à quelles aides vous avez droit. Gratuit et confidentiel.',
@@ -51,22 +51,22 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Estimer mes aides', en: 'Estimate my funding', lb: 'Meng Hëllefen schätzen', de: 'Meine Förderung schätzen', it: 'Stima i miei finanziamenti', pt: 'Estimar os meus apoios',
   },
   'hero.stat1.value': {
-    fr: '70%', en: '70%', lb: '70%', de: '70%', it: '70%', pt: '70%',
+    fr: '10 sec', en: '10 sec', lb: '10 sec', de: '10 Sek', it: '10 sec', pt: '10 seg',
   },
   'hero.stat1.label': {
-    fr: 'remboursé en moyenne', en: 'reimbursed on average', lb: 'am Duerchschnëtt rembourséiert', de: 'durchschnittlich erstattet', it: 'rimborsato in media', pt: 'reembolsado em média',
+    fr: 'pour obtenir vos résultats', en: 'to get your results', lb: 'fir Är Resultater ze kréien', de: 'um Ihre Ergebnisse zu erhalten', it: 'per ottenere i risultati', pt: 'para obter os seus resultados',
   },
   'hero.stat2.value': {
-    fr: '25 000 €', en: '€25,000', lb: '25.000 €', de: '25.000 €', it: '25.000 €', pt: '25.000 €',
+    fr: '100%', en: '100%', lb: '100%', de: '100%', it: '100%', pt: '100%',
   },
   'hero.stat2.label': {
-    fr: "jusqu'à de subvention", en: 'up to in grants', lb: 'bis zu u Subventiounen', de: 'bis zu an Zuschüssen', it: 'fino a in sovvenzioni', pt: 'até em subsídios',
+    fr: 'gratuit et confidentiel', en: 'free and confidential', lb: 'gratis a vertraulech', de: 'kostenlos und vertraulich', it: 'gratuito e riservato', pt: 'gratuito e confidencial',
   },
   'hero.stat3.value': {
     fr: '6', en: '6', lb: '6', de: '6', it: '6', pt: '6',
   },
   'hero.stat3.label': {
-    fr: 'programmes disponibles', en: 'programs available', lb: 'Programmer disponibel', de: 'Programme verfügbar', it: 'programmi disponibili', pt: 'programas disponíveis',
+    fr: 'programmes analysés', en: 'programs analyzed', lb: 'Programmer analyséiert', de: 'Programme analysiert', it: 'programmi analizzati', pt: 'programas analisados',
   },
   'hero.trust': {
     fr: 'Programmes référencés', en: 'Referenced programs', lb: 'Referenzéiert Programmer', de: 'Referenzierte Programme', it: 'Programmi di riferimento', pt: 'Programas referenciados',
@@ -78,20 +78,23 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Simulateur gratuit', en: 'Free simulator', lb: 'Gratis Simulator', de: 'Kostenloser Simulator', it: 'Simulatore gratuito', pt: 'Simulador gratuito',
   },
   'hero.partners': {
-    fr: 'Aides publiques luxembourgeoises', en: 'Luxembourg public grants', lb: 'Lëtzebuerger ëffentlech Hëllefen', de: 'Luxemburger öffentliche Förderungen', it: 'Sovvenzioni pubbliche lussemburghesi', pt: 'Apoios públicos luxemburgueses',
+    fr: 'Programmes référencés par la House of Entrepreneurship', en: 'Programs referenced by the House of Entrepreneurship', lb: 'Programmer referenzéiert vun der House of Entrepreneurship', de: 'Programme referenziert von der House of Entrepreneurship', it: 'Programmi referenziati dalla House of Entrepreneurship', pt: 'Programas referenciados pela House of Entrepreneurship',
   },
 
   'hero.card.header': {
-    fr: 'Cumulez jusqu\'à', en: 'Combine up to', lb: 'Kumuléiert bis zu', de: 'Kumulieren Sie bis zu', it: 'Cumulate fino a', pt: 'Acumule até',
+    fr: 'Aides luxembourgeoises', en: 'Luxembourg grants', lb: 'Lëtzebuerger Hëllefen', de: 'Luxemburger Förderungen', it: 'Sovvenzioni lussemburghesi', pt: 'Apoios luxemburgueses',
   },
   'hero.card.upTo': {
-    fr: '90 000 € d\'aides', en: '€90,000 in grants', lb: '90.000 € u Hëllefen', de: '90.000 € an Förderungen', it: '90.000 € di sovvenzioni', pt: '90.000 € em apoios',
+    fr: 'max. par programme', en: 'max. per program', lb: 'max. pro Programm', de: 'max. pro Programm', it: 'max. per programma', pt: 'máx. por programa',
   },
-  'hero.card.cyber': {
-    fr: 'Cybersécurité', en: 'Cybersecurity', lb: 'Cybersécherheet', de: 'Cybersicherheit', it: 'Cybersicurezza', pt: 'Cibersegurança',
+  'hero.card.bullet1': {
+    fr: '6 programmes — Digital, IA, Cybersécurité, Innovation', en: '6 programs — Digital, AI, Cybersecurity, Innovation', lb: '6 Programmer — Digital, KI, Cybersécherheet, Innovatioun', de: '6 Programme — Digital, KI, Cybersicherheit, Innovation', it: '6 programmi — Digitale, IA, Cybersicurezza, Innovazione', pt: '6 programas — Digital, IA, Cibersegurança, Inovação',
   },
-  'hero.card.coverageRange': {
-    fr: 'Couverture de 50 % à 100 % selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Copertura dal 50 % al 100 % a seconda del programma', pt: 'Cobertura de 50 % a 100 % dependendo do programa',
+  'hero.card.bullet2': {
+    fr: '50 % à 100 % de couverture selon le programme', en: '50% to 100% coverage depending on the program', lb: '50 % bis 100 % Deckung je no Programm', de: '50 % bis 100 % Abdeckung je nach Programm', it: 'Dal 50 % al 100 % di copertura a seconda del programma', pt: '50 % a 100 % de cobertura dependendo do programa',
+  },
+  'hero.card.bullet3': {
+    fr: 'Résultat en 10 secondes — gratuit et confidentiel', en: 'Results in 10 seconds — free and confidential', lb: 'Resultat an 10 Sekonnen — gratis a vertraulech', de: 'Ergebnis in 10 Sekunden — kostenlos und vertraulich', it: 'Risultato in 10 secondi — gratuito e riservato', pt: 'Resultado em 10 segundos — gratuito e confidencial',
   },
 
   // ─── How it works ───
