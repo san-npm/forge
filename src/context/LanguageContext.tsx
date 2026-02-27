@@ -78,14 +78,14 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Simulateur gratuit', en: 'Free simulator', lb: 'Gratis Simulator', de: 'Kostenloser Simulator', it: 'Simulatore gratuito', pt: 'Simulador gratuito',
   },
   'hero.partners': {
-    fr: 'Aides publiques luxembourgeoises', en: 'Luxembourg public grants', lb: 'Lëtzebuerger ëffentlech Hëllefen', de: 'Luxemburger öffentliche Förderungen', it: 'Sovvenzioni pubbliche lussemburghesi', pt: 'Apoios públicos luxemburgueses',
+    fr: 'Programmes référencés par', en: 'Programs referenced by', lb: 'Programmer referenzéiert vun', de: 'Programme referenziert von', it: 'Programmi referenziati da', pt: 'Programas referenciados por',
   },
 
   'hero.card.header': {
-    fr: 'Cumulez jusqu\'à', en: 'Combine up to', lb: 'Kumuléiert bis zu', de: 'Kumulieren Sie bis zu', it: 'Cumulate fino a', pt: 'Acumule até',
+    fr: '6 programmes disponibles', en: '6 programs available', lb: '6 Programmer disponibel', de: '6 Programme verfügbar', it: '6 programmi disponibili', pt: '6 programas disponíveis',
   },
   'hero.card.upTo': {
-    fr: '90 000 € d\'aides', en: '€90,000 in grants', lb: '90.000 € u Hëllefen', de: '90.000 € an Förderungen', it: '90.000 € di sovvenzioni', pt: '90.000 € em apoios',
+    fr: 'Jusqu\'à 25 000 € / programme', en: 'Up to €25,000 / program', lb: 'Bis zu 25.000 € / Programm', de: 'Bis zu 25.000 € / Programm', it: 'Fino a 25.000 € / programma', pt: 'Até 25.000 € / programa',
   },
   'hero.card.cyber': {
     fr: 'Cybersécurité', en: 'Cybersecurity', lb: 'Cybersécherheet', de: 'Cybersicherheit', it: 'Cybersicurezza', pt: 'Cibersegurança',

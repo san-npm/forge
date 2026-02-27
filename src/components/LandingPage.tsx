@@ -212,14 +212,51 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Luxembourg badge */}
+      {/* Partner logos */}
       <section className="py-10 border-t border-gray-100 bg-gray-50/50">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="flex items-center justify-center gap-3">
-            <span className="text-2xl" role="img" aria-label="Luxembourg flag">{'\u{1F1F1}\u{1F1FA}'}</span>
-            <p className="text-sm text-navy-500 font-medium">
-              {t('hero.partners')}
-            </p>
+          <p className="text-center text-xs text-navy-400 uppercase tracking-widest font-medium mb-6">
+            {t('hero.partners')}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14">
+            <div className="flex items-center gap-2.5 text-navy-300 hover:text-navy-500 transition-colors">
+              <div className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
+                <span className="text-[10px] font-bold text-navy-400">LX</span>
+              </div>
+              <span className="text-sm font-medium">Luxinnovation</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-navy-300 hover:text-navy-500 transition-colors">
+              <div className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
+                <span className="text-[10px] font-bold text-navy-400">ME</span>
+              </div>
+              <span className="text-sm font-medium">Minist&egrave;re de l&apos;&Eacute;conomie</span>
+            </div>
+            <div className="flex items-center gap-2.5 text-navy-300 hover:text-navy-500 transition-colors">
+              <div className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center">
+                <span className="text-[10px] font-bold text-navy-400">DL</span>
+              </div>
+              <span className="text-sm font-medium">Digital Luxembourg</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="text-center animate-slide-up">
+              <div className="text-5xl font-bold text-navy-900 mb-2">{t('hero.stat1.value')}</div>
+              <div className="text-navy-500">{t('hero.stat1.label')}</div>
+            </div>
+            <div className="text-center animate-slide-up" style={{ animationDelay: '0.1s' }}>
+              <div className="text-5xl font-bold text-navy-900 mb-2">{t('hero.stat2.value')}</div>
+              <div className="text-navy-500">{t('hero.stat2.label')}</div>
+            </div>
+            <div className="text-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              <div className="text-5xl font-bold text-navy-900 mb-2">{t('hero.stat3.value')}</div>
+              <div className="text-navy-500">{t('hero.stat3.label')}</div>
+            </div>
           </div>
         </div>
       </section>
