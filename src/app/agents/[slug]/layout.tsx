@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { AGENTS } from '@/lib/agents'
 
-const SITE_URL = 'https://www.openletz.com'
+const SITE_URL = 'https://forge-simulator.lu'
 
 type Props = { params: { slug: string } }
 
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `${agent.description.fr} ${gdpr}. ${euData ? euData + '. ' : ''}Tarifs : ${agent.pricing.fr}. Fiche complète pour PME luxembourgeoises.`,
     alternates: { canonical: `${SITE_URL}/agents/${agent.slug}` },
     openGraph: {
-      title: `${agent.name} — Conformité RGPD & Tarifs | OpenLetz`,
+      title: `${agent.name} — Conformité RGPD & Tarifs | Forge`,
       description: agent.description.fr,
       url: `${SITE_URL}/agents/${agent.slug}`,
     },

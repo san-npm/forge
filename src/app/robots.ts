@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/admin/'],
       },
     ],
-    sitemap: 'https://www.openletz.com/sitemap.xml',
+    sitemap: 'https://forge-simulator.lu/sitemap.xml',
   }
 }

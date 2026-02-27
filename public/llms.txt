@@ -1,6 +1,6 @@
-# OpenLetz — Simulateur d'Aides Luxembourg
+# Forge — Simulateur d'Aides Luxembourg
 
-> OpenLetz aide les PME luxembourgeoises à identifier les subventions publiques pour leur transformation digitale et l'adoption de l'IA. Simulateur gratuit, résultats en 10 secondes.
+> Forge aide les PME luxembourgeoises à identifier les subventions publiques pour leur transformation digitale et l'adoption de l'IA. Simulateur gratuit, résultats en 10 secondes.
 
 ## Programmes d'aides analysés
 
@@ -22,14 +22,14 @@
 
 ## Pages
 
-- Simulateur : https://www.openletz.com/
-- Répertoire IA : https://www.openletz.com/agents
-- Tarifs : https://www.openletz.com/pricing
-- Blog : https://www.openletz.com/blog
-- À propos : https://www.openletz.com/about
-- Contact : https://www.openletz.com/contact
+- Simulateur : https://forge-simulator.lu/
+- Répertoire IA : https://forge-simulator.lu/agents
+- Tarifs : https://forge-simulator.lu/pricing
+- Blog : https://forge-simulator.lu/blog
+- À propos : https://forge-simulator.lu/about
+- Contact : https://forge-simulator.lu/contact
 
 ## Entité
 
 COMMIT MEDIA SARL · RCS B276192 · Luxembourg
-Contact : bob@openletz.com · +352 661 968 051
+Contact : contact@forge-simulator.lu · +352 661 968 051

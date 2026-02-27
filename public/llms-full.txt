@@ -1,10 +1,10 @@
-# OpenLetz — Full Content Reference for LLMs
+# Forge — Full Content Reference for LLMs
 
-> OpenLetz aide les PME luxembourgeoises a identifier les subventions publiques pour leur transformation digitale et l'adoption de l'IA.
+> Forge aide les PME luxembourgeoises a identifier les subventions publiques pour leur transformation digitale et l'adoption de l'IA.
 > Simulateur gratuit, resultats en 10 secondes. 6 langues : FR, EN, DE, LB, IT, PT.
-> Site : https://www.openletz.com
+> Site : https://forge-simulator.lu
 > Entite : COMMIT MEDIA SARL - RCS B276192 - Luxembourg
-> Contact : bob@openletz.com - +352 661 968 051
+> Contact : contact@forge-simulator.lu - +352 661 968 051
 
 ## Programmes d'aides analyses
 
@@ -38,7 +38,7 @@
 - Couverture : 50 %
 - Innovation et R&D : nouveaux produits, services, processus
 
-## Services OpenLetz
+## Services Forge
 
 ### Simulateur d'eligibilite
 - Tarif : Gratuit
@@ -66,7 +66,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### ChatGPT
 - URL : https://chat.openai.com
-- Page : https://www.openletz.com/agents/chatgpt
+- Page : https://forge-simulator.lu/agents/chatgpt
 - Categorie : assistant
 - Editeur : OpenAI (San Francisco, USA)
 - Description : Assistant IA polyvalent par OpenAI. Conversation, rédaction, analyse et programmation.
@@ -75,7 +75,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Claude
 - URL : https://claude.ai
-- Page : https://www.openletz.com/agents/claude
+- Page : https://forge-simulator.lu/agents/claude
 - Categorie : assistant
 - Editeur : Anthropic (San Francisco, USA)
 - Description : Assistant IA par Anthropic. Excellente compréhension, rédaction longue et analyse de documents.
@@ -84,7 +84,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Perplexity
 - URL : https://perplexity.ai
-- Page : https://www.openletz.com/agents/perplexity
+- Page : https://forge-simulator.lu/agents/perplexity
 - Categorie : assistant
 - Editeur : Perplexity AI (San Francisco, USA)
 - Description : Moteur de recherche IA avec sources citées. Idéal pour la veille et la recherche d
@@ -93,7 +93,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Jasper
 - URL : https://jasper.ai
-- Page : https://www.openletz.com/agents/jasper
+- Page : https://forge-simulator.lu/agents/jasper
 - Categorie : content
 - Editeur : Jasper AI (Austin, USA)
 - Description : Plateforme de contenu marketing IA. Génère des articles, publicités et contenus de marque.
@@ -102,7 +102,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Copy.ai
 - URL : https://copy.ai
-- Page : https://www.openletz.com/agents/copy-ai
+- Page : https://forge-simulator.lu/agents/copy-ai
 - Categorie : content
 - Editeur : Copy.ai (Memphis, USA)
 - Description : Rédacteur IA pour le copywriting. Emails, posts réseaux sociaux, descriptions produits.
@@ -111,7 +111,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### ElevenLabs
 - URL : https://elevenlabs.io
-- Page : https://www.openletz.com/agents/elevenlabs
+- Page : https://forge-simulator.lu/agents/elevenlabs
 - Categorie : content
 - Editeur : ElevenLabs (New York, USA / London, UK)
 - Description : Synthèse vocale IA ultra-réaliste. Voix off, doublage, podcasts multilingues.
@@ -120,7 +120,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Zapier AI
 - URL : https://zapier.com
-- Page : https://www.openletz.com/agents/zapier-ai
+- Page : https://forge-simulator.lu/agents/zapier-ai
 - Categorie : productivity
 - Editeur : Zapier (San Francisco, USA)
 - Description : Automatisation de workflows avec l
@@ -129,7 +129,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Notion AI
 - URL : https://notion.so
-- Page : https://www.openletz.com/agents/notion-ai
+- Page : https://forge-simulator.lu/agents/notion-ai
 - Categorie : productivity
 - Editeur : Notion Labs (San Francisco, USA)
 - Description : IA intégrée à Notion pour rédiger, résumer et organiser vos documents et projets.
@@ -138,7 +138,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Otter.ai
 - URL : https://otter.ai
-- Page : https://www.openletz.com/agents/otter-ai
+- Page : https://forge-simulator.lu/agents/otter-ai
 - Categorie : productivity
 - Editeur : Otter.ai (AISense) (Mountain View, USA)
 - Description : Transcription automatique de réunions et interviews. Notes IA en temps réel.
@@ -147,7 +147,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Julius AI
 - URL : https://julius.ai
-- Page : https://www.openletz.com/agents/julius-ai
+- Page : https://forge-simulator.lu/agents/julius-ai
 - Categorie : analytics
 - Editeur : Julius AI (San Francisco, USA)
 - Description : Analyse de données par l
@@ -156,7 +156,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Rows AI
 - URL : https://rows.com
-- Page : https://www.openletz.com/agents/rows-ai
+- Page : https://forge-simulator.lu/agents/rows-ai
 - Categorie : analytics
 - Editeur : Rows GmbH (Berlin, Germany)
 - Description : Tableur avec IA intégrée. Analysez et visualisez vos données avec des prompts naturels.
@@ -165,7 +165,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### MonkeyLearn
 - URL : https://monkeylearn.com
-- Page : https://www.openletz.com/agents/monkeylearn
+- Page : https://forge-simulator.lu/agents/monkeylearn
 - Categorie : analytics
 - Editeur : Medallia (MonkeyLearn) (San Francisco, USA)
 - Description : Analyse de texte par IA. Classification, analyse de sentiments et extraction d
@@ -174,7 +174,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Midjourney
 - URL : https://midjourney.com
-- Page : https://www.openletz.com/agents/midjourney
+- Page : https://forge-simulator.lu/agents/midjourney
 - Categorie : creative
 - Editeur : Midjourney (San Francisco, USA)
 - Description : Génération d
@@ -183,7 +183,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Canva AI
 - URL : https://canva.com
-- Page : https://www.openletz.com/agents/canva-ai
+- Page : https://forge-simulator.lu/agents/canva-ai
 - Categorie : creative
 - Editeur : Canva Pty Ltd (Sydney, Australia)
 - Description : Design graphique assisté par l
@@ -192,7 +192,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Runway
 - URL : https://runwayml.com
-- Page : https://www.openletz.com/agents/runway
+- Page : https://forge-simulator.lu/agents/runway
 - Categorie : creative
 - Editeur : Runway AI (New York, USA)
 - Description : Génération et édition vidéo par IA. Effets spéciaux, animations et production vidéo.
@@ -201,7 +201,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### GitHub Copilot
 - URL : https://github.com/features/copilot
-- Page : https://www.openletz.com/agents/github-copilot
+- Page : https://forge-simulator.lu/agents/github-copilot
 - Categorie : dev
 - Editeur : Microsoft / GitHub (San Francisco, USA)
 - Description : Assistant de programmation IA. Complète votre code, génère des fonctions et aide au débogage.
@@ -210,7 +210,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Cursor
 - URL : https://cursor.com
-- Page : https://www.openletz.com/agents/cursor
+- Page : https://forge-simulator.lu/agents/cursor
 - Categorie : dev
 - Editeur : Anysphere (San Francisco, USA)
 - Description : IDE avec IA intégrée. Éditeur de code intelligent qui comprend l
@@ -219,7 +219,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### v0 by Vercel
 - URL : https://v0.dev
-- Page : https://www.openletz.com/agents/v0-by-vercel
+- Page : https://forge-simulator.lu/agents/v0-by-vercel
 - Categorie : dev
 - Editeur : Vercel (San Francisco, USA)
 - Description : Générateur d\
@@ -228,7 +228,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Google Gemini
 - URL : https://gemini.google.com
-- Page : https://www.openletz.com/agents/google-gemini
+- Page : https://forge-simulator.lu/agents/google-gemini
 - Categorie : assistant
 - Editeur : Google (Mountain View, USA)
 - Description : Assistant IA multimodal de Google. Texte, images, code et raisonnement avancé.
@@ -237,7 +237,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Mistral AI
 - URL : https://mistral.ai
-- Page : https://www.openletz.com/agents/mistral
+- Page : https://forge-simulator.lu/agents/mistral
 - Categorie : assistant
 - Editeur : Mistral AI (Paris, France)
 - Description : Modèles IA open-source européens. Alternative souveraine avec hébergement UE natif.
@@ -246,7 +246,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### DeepL
 - URL : https://deepl.com
-- Page : https://www.openletz.com/agents/deepl
+- Page : https://forge-simulator.lu/agents/deepl
 - Categorie : content
 - Editeur : DeepL SE (Cologne, Germany)
 - Description : Traduction automatique de haute qualité. API et intégrations pour la traduction professionnelle.
@@ -255,7 +255,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Grammarly
 - URL : https://grammarly.com
-- Page : https://www.openletz.com/agents/grammarly
+- Page : https://forge-simulator.lu/agents/grammarly
 - Categorie : content
 - Editeur : Grammarly Inc. (San Francisco, USA)
 - Description : Assistant d
@@ -264,7 +264,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Synthesia
 - URL : https://synthesia.io
-- Page : https://www.openletz.com/agents/synthesia
+- Page : https://forge-simulator.lu/agents/synthesia
 - Categorie : creative
 - Editeur : Synthesia Ltd (London, UK)
 - Description : Création de vidéos IA avec avatars réalistes. Idéal pour la formation et le marketing.
@@ -273,7 +273,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### HubSpot AI
 - URL : https://hubspot.com
-- Page : https://www.openletz.com/agents/hubspot-ai
+- Page : https://forge-simulator.lu/agents/hubspot-ai
 - Categorie : productivity
 - Editeur : HubSpot Inc. (Cambridge, USA)
 - Description : CRM avec IA intégrée. Automatisation marketing, vente et service client alimentés par l
@@ -282,7 +282,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Fireflies.ai
 - URL : https://fireflies.ai
-- Page : https://www.openletz.com/agents/fireflies-ai
+- Page : https://forge-simulator.lu/agents/fireflies-ai
 - Categorie : productivity
 - Editeur : Fireflies.ai Inc. (San Francisco, USA)
 - Description : Transcription et résumé de réunions par IA. Notes automatiques, action items et intégrations.
@@ -291,7 +291,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Durable
 - URL : https://durable.co
-- Page : https://www.openletz.com/agents/durable
+- Page : https://forge-simulator.lu/agents/durable
 - Categorie : dev
 - Editeur : Durable Inc. (Vancouver, Canada)
 - Description : Créateur de sites web IA. Générez un site professionnel complet en quelques secondes.
@@ -300,7 +300,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Writesonic
 - URL : https://writesonic.com
-- Page : https://www.openletz.com/agents/writesonic
+- Page : https://forge-simulator.lu/agents/writesonic
 - Categorie : content
 - Editeur : Writesonic Inc. (San Francisco, USA)
 - Description : Rédaction IA pour le marketing. Articles de blog, landing pages et contenu SEO optimisé.
@@ -309,7 +309,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Tome
 - URL : https://tome.app
-- Page : https://www.openletz.com/agents/tome
+- Page : https://forge-simulator.lu/agents/tome
 - Categorie : creative
 - Editeur : Magical Tome Inc. (San Francisco, USA)
 - Description : Présentations professionnelles générées par IA. Créez des decks en quelques minutes.
@@ -318,7 +318,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Surfer SEO
 - URL : https://surferseo.com
-- Page : https://www.openletz.com/agents/surfer-seo
+- Page : https://forge-simulator.lu/agents/surfer-seo
 - Categorie : analytics
 - Editeur : Surfer SEO Sp. z o.o. (Wroclaw, Poland)
 - Description : Optimisation SEO par IA. Analyse de contenu, recherche de mots-clés et audit SEO automatisé.
@@ -327,7 +327,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Make
 - URL : https://make.com
-- Page : https://www.openletz.com/agents/make
+- Page : https://forge-simulator.lu/agents/make
 - Categorie : productivity
 - Editeur : Celonis SE (Make) (Prague, Czech Republic)
 - Description : Automatisation visuelle de workflows. Connectez vos apps avec des scénarios visuels sans code.
@@ -336,7 +336,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### HeyGen
 - URL : https://heygen.com
-- Page : https://www.openletz.com/agents/heygen
+- Page : https://forge-simulator.lu/agents/heygen
 - Categorie : creative
 - Editeur : HeyGen Inc. (Los Angeles, USA)
 - Description : Création de vidéos avec avatars IA. Traduction vidéo et personnalisation à grande échelle.
@@ -345,7 +345,7 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ### Beautiful.ai
 - URL : https://beautiful.ai
-- Page : https://www.openletz.com/agents/beautiful-ai
+- Page : https://forge-simulator.lu/agents/beautiful-ai
 - Categorie : analytics
 - Editeur : Beautiful.ai Inc. (San Francisco, USA)
 - Description : Présentations professionnelles avec design IA automatique. Templates intelligents et mise en page adaptative.
@@ -354,14 +354,14 @@ Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, 
 
 ## Pages du site
 
-- https://www.openletz.com/ -- Simulateur d'eligibilite - page d'accueil avec quiz 6 questions
-- https://www.openletz.com/agents -- Repertoire de 32 outils IA avec conformite RGPD et EU AI Act
-- https://www.openletz.com/pricing -- Tarifs des services OpenLetz et comparatif prix outils IA
-- https://www.openletz.com/blog -- Blog : guides aides digitalisation, IA pour PME, Luxinnovation
-- https://www.openletz.com/about -- A propos : mission, programmes references, chiffres cles
-- https://www.openletz.com/contact -- Contact : demande de rappel expert, accompagnement subventions
-- https://www.openletz.com/privacy -- Politique de confidentialite RGPD
-- https://www.openletz.com/terms -- Conditions generales d'utilisation
+- https://forge-simulator.lu/ -- Simulateur d'eligibilite - page d'accueil avec quiz 6 questions
+- https://forge-simulator.lu/agents -- Repertoire de 32 outils IA avec conformite RGPD et EU AI Act
+- https://forge-simulator.lu/pricing -- Tarifs des services Forge et comparatif prix outils IA
+- https://forge-simulator.lu/blog -- Blog : guides aides digitalisation, IA pour PME, Luxinnovation
+- https://forge-simulator.lu/about -- A propos : mission, programmes references, chiffres cles
+- https://forge-simulator.lu/contact -- Contact : demande de rappel expert, accompagnement subventions
+- https://forge-simulator.lu/privacy -- Politique de confidentialite RGPD
+- https://forge-simulator.lu/terms -- Conditions generales d'utilisation
 
 ## Articles de blog
 

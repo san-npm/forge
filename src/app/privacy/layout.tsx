@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Politique de Confidentialité',
-  description: 'Politique de confidentialité et protection des données personnelles de OpenLetz. Conforme RGPD.',
-  alternates: { canonical: 'https://www.openletz.com/privacy' },
+  description: 'Politique de confidentialité et protection des données personnelles de Forge. Conforme RGPD.',
+  alternates: { canonical: 'https://forge-simulator.lu/privacy' },
   robots: { index: true, follow: true },
 }
 

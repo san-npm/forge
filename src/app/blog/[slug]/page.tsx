@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import BlogPostClient from './BlogPostClient'
 
-const SITE_URL = 'https://www.openletz.com'
+const SITE_URL = 'https://forge-simulator.lu'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     keywords: post.keywords,
-    authors: post.author ? [{ name: post.author }] : [{ name: 'OpenLetz' }],
+    authors: post.author ? [{ name: post.author }] : [{ name: 'Forge' }],
     alternates: { canonical: url },
     openGraph: {
       title,
@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       type: 'article',
       publishedTime: post.date,
-      authors: post.author ? [post.author] : ['OpenLetz'],
-      siteName: 'OpenLetz',
+      authors: post.author ? [post.author] : ['Forge'],
+      siteName: 'Forge',
       locale: 'fr_LU',
       alternateLocale: ['en_GB', 'de_LU', 'lb_LU'],
       images: [{ url: image, width: 1200, height: 630, alt: title }],
@@ -73,13 +73,13 @@ export default async function BlogPostPage({ params }: Props) {
     url: `${SITE_URL}/blog/${slug}`,
     publisher: {
       '@type': 'Organization',
-      name: 'OpenLetz',
+      name: 'Forge',
       url: SITE_URL,
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/openletz-logo.png` },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/og-image.png` },
     },
     author: {
       '@type': 'Organization',
-      name: post.author || 'OpenLetz',
+      name: post.author || 'Forge',
       url: SITE_URL,
     },
     inLanguage: 'fr',
