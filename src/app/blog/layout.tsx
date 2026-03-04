@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description:
     'Subventions, IA et stratégies concrètes pour les PME luxembourgeoises. Guides pratiques sur SME Package, Fit 4 Digital, Fit 4 AI et Luxinnovation.',
   alternates: { canonical: `${SITE_URL}/blog` },
+  other: {
+    'geo.region': 'LU',
+    'geo.placename': 'Luxembourg',
+    'geo.position': '49.6117;6.1300',
+    'ICBM': '49.6117, 6.1300',
+  },
   openGraph: {
     title: 'Le Digital au Luxembourg — Blog OpenLetz',
     description: 'Subventions, IA et stratégies concrètes pour les PME qui veulent passer à l\'action.',

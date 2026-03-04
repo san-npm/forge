@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description:
     'Services OpenLetz : développement web dès 900 €, intégration IA dès 900 €, maintenance dès 90 €/mois, conseil subventions dès 290 €. Éligible aux aides luxembourgeoises SME Package et Fit 4 Digital.',
   alternates: { canonical: `${SITE_URL}/pricing` },
+  other: {
+    'geo.region': 'LU',
+    'geo.placename': 'Luxembourg',
+    'geo.position': '49.6117;6.1300',
+    'ICBM': '49.6117, 6.1300',
+  },
   openGraph: {
     title: 'Tarifs Services Digitaux & IA — Éligible Subventions | OpenLetz',
     description: 'Développement web, IA, maintenance. Éligible aux aides SME Package Luxembourg.',

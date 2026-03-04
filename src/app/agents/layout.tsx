@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description:
     'Comparez 32 outils IA pour entreprises : ChatGPT, Claude, Midjourney, Copilot et plus. Conformité RGPD, EU AI Act, résidence données UE. Tarifs et avis pour PME au Luxembourg.',
   alternates: { canonical: `${SITE_URL}/agents` },
+  other: {
+    'geo.region': 'LU',
+    'geo.placename': 'Luxembourg',
+    'geo.position': '49.6117;6.1300',
+    'ICBM': '49.6117, 6.1300',
+  },
   openGraph: {
     title: 'Répertoire Outils IA pour PME — Conformité RGPD | OpenLetz',
     description: '32 outils IA comparés : conformité RGPD, EU AI Act, tarifs. Le guide IA pour les PME luxembourgeoises.',
