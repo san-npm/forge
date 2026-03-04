@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { promises as fs } from 'fs'
 import path from 'path'
 import { sendNotification } from '@/lib/notifications'
+import { rateLimit } from '@/lib/rateLimit'
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'newsletter.json')
 
@@ -20,10 +21,16 @@ async function readSubscribers(): Promise<NewsletterEntry[]> {
 }
 
 export async function POST(req: NextRequest) {
-  const body = await req.json()
-  const { email } = body
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+  const { ok } = rateLimit(ip, { limit: 5, windowMs: 60_000 })
+  if (!ok) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+  }
 
-  if (!email || typeof email !== 'string') {
+  const body = await req.json()
+  const email = typeof body.email === 'string' ? body.email.trim().slice(0, 500) : ''
+
+  if (!email) {
     return NextResponse.json({ error: 'Email is required' }, { status: 400 })
   }
 

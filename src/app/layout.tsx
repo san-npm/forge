@@ -34,6 +34,16 @@ export const metadata: Metadata = {
     'digitalization grants',
     'Grande Région',
     'aides publiques Luxembourg',
+    'aide digitalisation Luxembourg 2026',
+    'subvention IA PME Luxembourg',
+    'Luxinnovation programmes 2026',
+    'digitalisation commerce Luxembourg',
+    'aide création site web Luxembourg',
+    'KMU Förderung Luxemburg 2026',
+    'SME grants Luxembourg English',
+    'conformité RGPD outils IA',
+    'SME Package Cybersécurité',
+    'Saarland Lorraine Wallonie',
   ],
   authors: [{ name: 'OpenLetz', url: SITE_URL }],
   creator: 'OpenLetz — COMMIT MEDIA SARL',
@@ -64,6 +74,13 @@ export const metadata: Metadata = {
     title: 'OpenLetz — Simulateur Aides Digitalisation Luxembourg',
     description: 'Identifiez vos subventions PME en 10 sec. Gratuit.',
     images: [`${SITE_URL}/og-image.png`],
+  },
+  other: {
+    'geo.region': 'LU',
+    'geo.placename': 'Luxembourg',
+    'geo.position': '49.6117;6.1300',
+    'ICBM': '49.6117, 6.1300',
+    'content-language': 'fr, en, de, lb, it, pt',
   },
   robots: {
     index: true,
@@ -110,7 +127,9 @@ const organizationJsonLd = {
     { '@type': 'Country', name: 'Luxembourg' },
     { '@type': 'AdministrativeArea', name: 'Grande Région' },
   ],
-  sameAs: [],
+  sameAs: [
+    'https://www.linkedin.com/company/openletz',
+  ],
   knowsAbout: [
     'SME Package Digital',
     'SME Package AI',
@@ -120,6 +139,45 @@ const organizationJsonLd = {
     'Luxinnovation',
     'digitalisation PME',
     'intelligence artificielle',
+  ],
+}
+
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${SITE_URL}/#localbusiness`,
+  name: 'OpenLetz — COMMIT MEDIA SARL',
+  url: SITE_URL,
+  logo: `${SITE_URL}/openletz-logo.png`,
+  image: `${SITE_URL}/og-image.png`,
+  description:
+    'Accompagnement des PME luxembourgeoises dans leur transformation digitale et IA. Simulateur de subventions gratuit, développement web, intégration IA.',
+  email: 'bob@openletz.com',
+  telephone: '+352661968051',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Luxembourg',
+    addressRegion: 'Luxembourg',
+    addressCountry: 'LU',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 49.6117,
+    longitude: 6.13,
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Luxembourg' },
+    { '@type': 'AdministrativeArea', name: 'Grande Région' },
+  ],
+  priceRange: '€€',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00',
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/openletz',
   ],
 }
 
@@ -187,6 +245,11 @@ gtag('config', 'G-2Z75PD960S');`}
           id="json-ld-webapp"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+        />
+        <Script
+          id="json-ld-localbusiness"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
       <body className="antialiased">
