@@ -38,6 +38,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
                   {t('footer.about')}
                 </Link>
@@ -70,6 +75,11 @@ export default function Footer() {
                 <Link href="/contact" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
                   {t('footer.contact')}
                 </Link>
+              </li>
+              <li>
+                <a href="https://skills.ws" target="_blank" rel="noopener noreferrer" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
+                  skills.ws
+                </a>
               </li>
             </ul>
           </div>
