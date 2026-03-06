@@ -5,12 +5,12 @@ import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
 
 const lastUpdatedDate: Record<string, string> = {
-  fr: '15 f\u00e9vrier 2025',
-  en: 'February 15, 2025',
-  lb: '15. Februar 2025',
-  de: '15. Februar 2025',
-  it: '15 febbraio 2025',
-  pt: '15 de fevereiro de 2025',
+  fr: '6 mars 2026',
+  en: 'March 6, 2026',
+  lb: '6. Mäerz 2026',
+  de: '6. März 2026',
+  it: '6 marzo 2026',
+  pt: '6 de março de 2026',
 }
 
 const sections: { title: Record<string, string>; content: Record<string, string> }[] = [
@@ -60,12 +60,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '3. Data Storage',
     },
     content: {
-      fr: 'Les donn\u00e9es collect\u00e9es via le formulaire de contact sont stock\u00e9es dans un fichier JSON sur nos serveurs (data/contacts.json). Les adresses email de la newsletter sont stock\u00e9es dans un fichier s\u00e9par\u00e9 (data/newsletter.json) avec d\u00e9doublonnage automatique.\n\nNous n\u2019utilisons aucun service d\u2019analyse tiers (pas de Google Analytics, pas de pixels de suivi). Aucune donn\u00e9e n\u2019est transmise \u00e0 des plateformes tierces.',
-      en: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.\n\nWe do not use any third-party analytics services (no Google Analytics, no tracking pixels). No data is transmitted to third-party platforms.',
-      lb: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.\n\nWe do not use any third-party analytics services (no Google Analytics, no tracking pixels). No data is transmitted to third-party platforms.',
-      de: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.\n\nWe do not use any third-party analytics services (no Google Analytics, no tracking pixels). No data is transmitted to third-party platforms.',
-      it: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.\n\nWe do not use any third-party analytics services (no Google Analytics, no tracking pixels). No data is transmitted to third-party platforms.',
-      pt: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.\n\nWe do not use any third-party analytics services (no Google Analytics, no tracking pixels). No data is transmitted to third-party platforms.',
+      fr: 'Les donn\u00e9es collect\u00e9es via le formulaire de contact sont stock\u00e9es dans un fichier JSON sur nos serveurs (data/contacts.json). Les adresses email de la newsletter sont stock\u00e9es dans un fichier s\u00e9par\u00e9 (data/newsletter.json) avec d\u00e9doublonnage automatique.',
+      en: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.',
+      lb: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.',
+      de: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.',
+      it: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.',
+      pt: 'Data collected through the contact form is stored in a JSON file on our servers (data/contacts.json). Newsletter email addresses are stored in a separate file (data/newsletter.json) with automatic deduplication.',
     },
   },
   {
@@ -78,12 +78,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '4. Cookies',
     },
     content: {
-      fr: 'OpenLetz n\u2019utilise aucun cookie, aucun traceur et aucune technologie de suivi. Votre choix de langue est conserv\u00e9 uniquement dans l\u2019\u00e9tat de l\u2019application (m\u00e9moire du navigateur) et n\u2019est pas persist\u00e9 entre les sessions.',
-      en: 'OpenLetz does not use any cookies, trackers, or tracking technologies. Your language preference is kept only in the application state (browser memory) and is not persisted between sessions.',
-      lb: 'OpenLetz does not use any cookies, trackers, or tracking technologies. Your language preference is kept only in the application state (browser memory) and is not persisted between sessions.',
-      de: 'OpenLetz does not use any cookies, trackers, or tracking technologies. Your language preference is kept only in the application state (browser memory) and is not persisted between sessions.',
-      it: 'OpenLetz does not use any cookies, trackers, or tracking technologies. Your language preference is kept only in the application state (browser memory) and is not persisted between sessions.',
-      pt: 'OpenLetz does not use any cookies, trackers, or tracking technologies. Your language preference is kept only in the application state (browser memory) and is not persisted between sessions.',
+      fr: 'OpenLetz utilise Google Analytics 4 (GA4) et Google Tag Manager (GTM) pour mesurer la fr\u00e9quentation du site et am\u00e9liorer nos services. Ces outils peuvent d\u00e9poser des cookies sur votre navigateur. Les donn\u00e9es collect\u00e9es sont anonymis\u00e9es et agr\u00e9g\u00e9es. Elles ne sont pas crois\u00e9es avec d\u2019autres donn\u00e9es personnelles.\n\nVotre choix de langue est conserv\u00e9 uniquement dans l\u2019\u00e9tat de l\u2019application (m\u00e9moire du navigateur) et n\u2019est pas persist\u00e9 entre les sessions.\n\nVous pouvez d\u00e9sactiver les cookies d\u2019analyse via les param\u00e8tres de votre navigateur sans impact sur le fonctionnement du site.',
+      en: 'OpenLetz uses Google Analytics 4 (GA4) and Google Tag Manager (GTM) to measure site traffic and improve our services. These tools may place cookies in your browser. The data collected is anonymized and aggregated. It is not cross-referenced with other personal data.\n\nYour language preference is kept only in the application state (browser memory) and is not persisted between sessions.\n\nYou can disable analytics cookies via your browser settings without affecting site functionality.',
+      lb: 'OpenLetz uses Google Analytics 4 (GA4) and Google Tag Manager (GTM) to measure site traffic and improve our services. These tools may place cookies in your browser. The data collected is anonymized and aggregated. It is not cross-referenced with other personal data.\n\nYour language preference is kept only in the application state (browser memory) and is not persisted between sessions.\n\nYou can disable analytics cookies via your browser settings without affecting site functionality.',
+      de: 'OpenLetz uses Google Analytics 4 (GA4) and Google Tag Manager (GTM) to measure site traffic and improve our services. These tools may place cookies in your browser. The data collected is anonymized and aggregated. It is not cross-referenced with other personal data.\n\nYour language preference is kept only in the application state (browser memory) and is not persisted between sessions.\n\nYou can disable analytics cookies via your browser settings without affecting site functionality.',
+      it: 'OpenLetz uses Google Analytics 4 (GA4) and Google Tag Manager (GTM) to measure site traffic and improve our services. These tools may place cookies in your browser. The data collected is anonymized and aggregated. It is not cross-referenced with other personal data.\n\nYour language preference is kept only in the application state (browser memory) and is not persisted between sessions.\n\nYou can disable analytics cookies via your browser settings without affecting site functionality.',
+      pt: 'OpenLetz uses Google Analytics 4 (GA4) and Google Tag Manager (GTM) to measure site traffic and improve our services. These tools may place cookies in your browser. The data collected is anonymized and aggregated. It is not cross-referenced with other personal data.\n\nYour language preference is kept only in the application state (browser memory) and is not persisted between sessions.\n\nYou can disable analytics cookies via your browser settings without affecting site functionality.',
     },
   },
   {
@@ -114,12 +114,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '6. Data Controller',
     },
     content: {
-      fr: 'Le responsable du traitement des donn\u00e9es est OpenLetz, bas\u00e9 au Luxembourg. Pour toute question relative \u00e0 la protection de vos donn\u00e9es personnelles, vous pouvez nous contacter \u00e0 l\u2019adresse : privacy@openletz.com',
-      en: 'The data controller is OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
-      lb: 'The data controller is OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
-      de: 'The data controller is OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
-      it: 'The data controller is OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
-      pt: 'The data controller is OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
+      fr: 'Le responsable du traitement des donn\u00e9es est COMMIT MEDIA SARL (RCS B276192), op\u00e9rant sous le nom commercial OpenLetz, bas\u00e9e au Luxembourg. Pour toute question relative \u00e0 la protection de vos donn\u00e9es personnelles, vous pouvez nous contacter \u00e0 l\u2019adresse : privacy@openletz.com',
+      en: 'The data controller is COMMIT MEDIA SARL (RCS B276192), operating under the trade name OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
+      lb: 'The data controller is COMMIT MEDIA SARL (RCS B276192), operating under the trade name OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
+      de: 'The data controller is COMMIT MEDIA SARL (RCS B276192), operating under the trade name OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
+      it: 'The data controller is COMMIT MEDIA SARL (RCS B276192), operating under the trade name OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
+      pt: 'The data controller is COMMIT MEDIA SARL (RCS B276192), operating under the trade name OpenLetz, based in Luxembourg. For any questions regarding the protection of your personal data, you may contact us at: privacy@openletz.com',
     },
   },
   {

@@ -76,11 +76,7 @@ export default function Footer() {
                   {t('footer.contact')}
                 </Link>
               </li>
-              <li>
-                <a href="https://skills.ws" target="_blank" rel="noopener noreferrer" className="text-sm text-navy-400 hover:text-primary-400 transition-colors">
-                  skills.ws
-                </a>
-              </li>
+
             </ul>
           </div>
         </div>
