@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 import { Program, ProjectRecommendation } from '@/lib/eligibility'
+import { jsPDF } from 'jspdf'
 
 interface ResultsProps {
   eligible: boolean
@@ -44,52 +45,257 @@ export default function Results({ eligible, programs, projects, onNext }: Result
   const totalSavings = totalCostWithout - totalCostWith
 
   function handleDownloadPdf() {
+    const isFr = lang === 'fr' || lang === 'lb'
     const date = new Date().toLocaleDateString(lang === 'fr' ? 'fr-FR' : lang === 'de' ? 'de-DE' : 'en-GB', {
       year: 'numeric', month: 'long', day: 'numeric',
     })
 
-    const programLines = programs.map(
-      (p) => `  - ${p.name[lang] || p.name.fr}: ${p.maxGrant.toLocaleString()} € (${p.coveragePercent}% ${t('results.coverage')})`
-    ).join('\n')
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
+    const pageWidth = doc.internal.pageSize.getWidth()
+    const margin = 20
+    const contentWidth = pageWidth - margin * 2
+    let y = 20
 
-    const projectLines = projects.map(
-      (p) => `  - ${p.title[lang] || p.title.fr}\n    ${t('results.estimatedCost')}: ${p.estimatedCost.toLocaleString()} € | ${t('results.withGrant')}: -${p.grantCoverage.toLocaleString()} € | ${t('results.youPay')}: ${p.youPay.toLocaleString()} €`
-    ).join('\n\n')
+    // ── Helper functions ──
+    const addText = (text: string, size: number, style: 'normal' | 'bold' = 'normal', color: [number, number, number] = [30, 30, 60]) => {
+      doc.setFontSize(size)
+      doc.setFont('helvetica', style)
+      doc.setTextColor(...color)
+      const lines = doc.splitTextToSize(text, contentWidth)
+      if (y + lines.length * (size * 0.4) > 270) {
+        doc.addPage()
+        y = 20
+      }
+      doc.text(lines, margin, y)
+      y += lines.length * (size * 0.45) + 2
+    }
 
-    const content = `${t('report.title')}
-${'='.repeat(40)}
-${t('report.generatedOn')}: ${date}
+    const addLine = () => {
+      doc.setDrawColor(200, 200, 210)
+      doc.setLineWidth(0.3)
+      doc.line(margin, y, pageWidth - margin, y)
+      y += 6
+    }
 
-${'─'.repeat(40)}
-${t('results.eligible')}
-${'─'.repeat(40)}
-${programLines}
+    const checkPage = (needed: number) => {
+      if (y + needed > 270) {
+        doc.addPage()
+        y = 20
+      }
+    }
 
-${'─'.repeat(40)}
-${t('results.projects')}
-${'─'.repeat(40)}
-${projectLines}
+    // ── Header ──
+    doc.setFillColor(20, 25, 60)
+    doc.rect(0, 0, pageWidth, 42, 'F')
 
-${'─'.repeat(40)}
-${t('results.comparison')}
-${'─'.repeat(40)}
-  ${t('results.without')}: ${totalCostWithout.toLocaleString()} €
-  ${t('results.with')}: ${totalCostWith.toLocaleString()} €
-  ${t('results.savings')}: ${totalSavings.toLocaleString()} €
+    doc.setFontSize(22)
+    doc.setFont('helvetica', 'bold')
+    doc.setTextColor(255, 255, 255)
+    doc.text('OpenLetz', margin, 18)
 
-${'─'.repeat(40)}
-openletz.com
-`
+    doc.setFontSize(10)
+    doc.setFont('helvetica', 'normal')
+    doc.setTextColor(180, 185, 220)
+    doc.text(isFr
+      ? 'Simulateur d\'aides a la digitalisation des PME luxembourgeoises'
+      : 'Luxembourg SME digitalisation grants simulator',
+      margin, 26)
 
-    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `openletz-rapport-eligibilite.txt`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
+    doc.setFontSize(14)
+    doc.setFont('helvetica', 'bold')
+    doc.setTextColor(255, 255, 255)
+    doc.text(t('report.title'), margin, 36)
+
+    y = 52
+
+    // ── Date ──
+    addText(`${t('report.generatedOn')} : ${date}`, 9, 'normal', [120, 120, 140])
+    y += 2
+
+    // ── Disclaimer ──
+    doc.setFillColor(245, 247, 255)
+    doc.roundedRect(margin, y, contentWidth, 16, 2, 2, 'F')
+    doc.setFontSize(8)
+    doc.setFont('helvetica', 'normal')
+    doc.setTextColor(100, 100, 130)
+    const disclaimerText = isFr
+      ? 'Ce rapport est une estimation indicative basee sur vos reponses. Les montants indiques sont des maximums theoriques (HTVA). L\'eligibilite definitive est determinee par les organismes officiels (House of Entrepreneurship, Chambre des Metiers, Luxinnovation).'
+      : 'This report is an indicative estimate based on your answers. Amounts shown are theoretical maximums (excl. VAT). Final eligibility is determined by official bodies (House of Entrepreneurship, Chambre des Metiers, Luxinnovation).'
+    const disclaimerLines = doc.splitTextToSize(disclaimerText, contentWidth - 8)
+    doc.text(disclaimerLines, margin + 4, y + 5)
+    y += 22
+
+    addLine()
+
+    // ── Eligible Programs ──
+    addText(t('results.eligible'), 14, 'bold', [20, 25, 60])
+    y += 2
+
+    programs.forEach((program) => {
+      checkPage(24)
+      doc.setFillColor(250, 251, 255)
+      doc.roundedRect(margin, y, contentWidth, 20, 2, 2, 'F')
+      doc.setDrawColor(200, 210, 240)
+      doc.roundedRect(margin, y, contentWidth, 20, 2, 2, 'S')
+
+      doc.setFontSize(11)
+      doc.setFont('helvetica', 'bold')
+      doc.setTextColor(30, 30, 60)
+      doc.text(program.name[lang] || program.name.fr, margin + 4, y + 7)
+
+      doc.setFontSize(10)
+      doc.setFont('helvetica', 'normal')
+      doc.setTextColor(80, 80, 110)
+      doc.text(
+        `${t('results.upTo')} ${program.maxGrant.toLocaleString()} \u20AC HT  |  ${program.coveragePercent}% ${t('results.coverage')}`,
+        margin + 4, y + 14
+      )
+
+      y += 24
+    })
+
+    y += 4
+    addLine()
+
+    // ── Recommended Projects ──
+    if (projects.length > 0) {
+      addText(t('results.projects'), 14, 'bold', [20, 25, 60])
+      y += 2
+
+      projects.forEach((project) => {
+        checkPage(32)
+        doc.setFillColor(250, 253, 250)
+        doc.roundedRect(margin, y, contentWidth, 28, 2, 2, 'F')
+        doc.setDrawColor(200, 230, 200)
+        doc.roundedRect(margin, y, contentWidth, 28, 2, 2, 'S')
+
+        doc.setFontSize(11)
+        doc.setFont('helvetica', 'bold')
+        doc.setTextColor(30, 30, 60)
+        doc.text(project.title[lang] || project.title.fr, margin + 4, y + 7)
+
+        doc.setFontSize(9)
+        doc.setFont('helvetica', 'normal')
+        doc.setTextColor(80, 80, 110)
+        const descLines = doc.splitTextToSize(
+          project.description[lang] || project.description.fr,
+          contentWidth - 8
+        )
+        doc.text(descLines.slice(0, 2), margin + 4, y + 13)
+
+        const costY = y + 22
+        doc.setFontSize(9)
+        doc.setFont('helvetica', 'bold')
+        doc.setTextColor(60, 60, 90)
+        doc.text(`${t('results.estimatedCost')}: ${project.estimatedCost.toLocaleString()} \u20AC`, margin + 4, costY)
+        doc.setTextColor(22, 130, 60)
+        doc.text(`${t('results.withGrant')}: -${project.grantCoverage.toLocaleString()} \u20AC`, margin + 64, costY)
+        doc.setTextColor(30, 80, 170)
+        doc.text(`${t('results.youPay')}: ${project.youPay.toLocaleString()} \u20AC`, margin + 120, costY)
+
+        y += 32
+      })
+
+      y += 4
+      addLine()
+
+      // ── Cost Comparison Summary ──
+      checkPage(30)
+      addText(t('results.comparison'), 14, 'bold', [20, 25, 60])
+      y += 2
+
+      doc.setFillColor(240, 245, 255)
+      doc.roundedRect(margin, y, contentWidth, 22, 2, 2, 'F')
+
+      doc.setFontSize(11)
+      doc.setFont('helvetica', 'normal')
+      doc.setTextColor(120, 120, 140)
+      doc.text(`${t('results.without')}: ${totalCostWithout.toLocaleString()} \u20AC`, margin + 4, y + 8)
+
+      doc.setFont('helvetica', 'bold')
+      doc.setTextColor(30, 80, 170)
+      doc.text(`${t('results.with')}: ${totalCostWith.toLocaleString()} \u20AC`, margin + 4, y + 15)
+
+      doc.setTextColor(22, 130, 60)
+      doc.text(`${t('results.savings')}: ${totalSavings.toLocaleString()} \u20AC`, margin + 90, y + 15)
+
+      y += 30
+    }
+
+    addLine()
+
+    // ── About the programs ──
+    checkPage(40)
+    addText(
+      isFr ? 'A propos des programmes' : 'About the programs',
+      14, 'bold', [20, 25, 60]
+    )
+    y += 1
+    addText(
+      isFr
+        ? 'Les SME Packages sont geres par le Ministere de l\'Economie via la House of Entrepreneurship et la Chambre des Metiers. Ils couvrent jusqu\'a 70 % des depenses eligibles sur des projets de 3 000 a 25 000 \u20AC HTVA (soit un maximum de 17 500 \u20AC de subvention). Les programmes Fit 4 (Digital, AI, Innovation) sont geres par Luxinnovation. Tous ces programmes sont cumulables sous certaines conditions, dans la limite des plafonds europeens d\'aides d\'Etat (regle de minimis).'
+        : 'SME Packages are managed by the Ministry of Economy through the House of Entrepreneurship and Chambre des Metiers. They cover up to 70% of eligible costs on projects from \u20AC3,000 to \u20AC25,000 excl. VAT (maximum grant: \u20AC17,500). Fit 4 programs (Digital, AI, Innovation) are managed by Luxinnovation. All programs can be combined under certain conditions, within EU state aid limits (de minimis rule).',
+      9, 'normal', [80, 80, 110]
+    )
+
+    y += 6
+    addLine()
+
+    // ── Contact / COMMIT MEDIA ──
+    checkPage(50)
+    doc.setFillColor(20, 25, 60)
+    doc.roundedRect(margin, y, contentWidth, 40, 3, 3, 'F')
+
+    doc.setFontSize(12)
+    doc.setFont('helvetica', 'bold')
+    doc.setTextColor(255, 255, 255)
+    doc.text(
+      isFr ? 'Besoin d\'accompagnement ?' : 'Need support?',
+      margin + 6, y + 10
+    )
+
+    doc.setFontSize(9)
+    doc.setFont('helvetica', 'normal')
+    doc.setTextColor(180, 185, 220)
+    doc.text(
+      isFr
+        ? 'Un expert vous accompagne gratuitement dans vos demarches d\'aides luxembourgeoises.'
+        : 'An expert will guide you through Luxembourg grant applications at no charge.',
+      margin + 6, y + 17
+    )
+
+    doc.setFontSize(10)
+    doc.setFont('helvetica', 'bold')
+    doc.setTextColor(255, 255, 255)
+    doc.text('Bob  |  AI Manager — OpenLetz', margin + 6, y + 26)
+
+    doc.setFontSize(9)
+    doc.setFont('helvetica', 'normal')
+    doc.setTextColor(180, 185, 220)
+    doc.text('bob@openletz.com  |  +352 661 968 051  |  openletz.com', margin + 6, y + 32)
+
+    y += 46
+
+    // ── Footer ──
+    checkPage(16)
+    doc.setFontSize(7)
+    doc.setFont('helvetica', 'normal')
+    doc.setTextColor(160, 160, 180)
+    doc.text(
+      '\u00A9 2025\u20132026 COMMIT MEDIA SARL (RCS B276192)  |  openletz.com',
+      pageWidth / 2, y + 4,
+      { align: 'center' }
+    )
+    doc.text(
+      isFr
+        ? 'Ce document est genere automatiquement et ne constitue pas un engagement contractuel.'
+        : 'This document is automatically generated and does not constitute a contractual commitment.',
+      pageWidth / 2, y + 8,
+      { align: 'center' }
+    )
+
+    // ── Save ──
+    doc.save('openletz-rapport-eligibilite.pdf')
   }
 
   if (!eligible) {
@@ -146,10 +352,11 @@ openletz.com
                 <p className="text-sm text-gray-500 mb-4">{program.description[lang] || program.description.fr}</p>
                 <div className="flex items-baseline gap-4">
                   <div>
+                    <span className="text-sm text-gray-400 mr-1">{t('results.upTo')}</span>
                     <span className="text-2xl font-bold text-primary-600">
                       {program.maxGrant.toLocaleString()} €
                     </span>
-                    <span className="text-sm text-gray-400 ml-1">{t('results.grant')}</span>
+                    <span className="text-xs text-gray-400 ml-1">HT</span>
                   </div>
                   <div className="px-2 py-1 bg-green-50 text-green-700 rounded-md text-sm font-medium">
                     {program.coveragePercent}% {t('results.coverage')}
