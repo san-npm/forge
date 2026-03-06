@@ -163,7 +163,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Répertoire d\'agents IA', en: 'AI agents directory', lb: 'KI-Agenten Verzeechnes', de: 'KI-Agenten-Verzeichnis', it: 'Directory degli agenti IA', pt: 'Diretório de agentes IA',
   },
   'features.4.desc': {
-    fr: 'Parcourez plus de 15 outils IA avec infos conformité RGPD et tarifs.', en: 'Browse 15+ AI tools with GDPR compliance info and pricing.', lb: 'Entdeckt méi wéi 15 KI-Tools mat DSGVO-Konformitéitsinfoen a Präisser.', de: 'Durchsuchen Sie über 15 KI-Tools mit DSGVO-Konformitätsinfos und Preisen.', it: 'Sfoglia oltre 15 strumenti IA con informazioni sulla conformità GDPR e prezzi.', pt: 'Explore mais de 15 ferramentas de IA com informações de conformidade RGPD e preços.',
+    fr: 'Parcourez plus de 30 outils IA avec infos conformité RGPD et tarifs.', en: 'Browse 30+ AI tools with GDPR compliance info and pricing.', lb: 'Entdeckt méi wéi 30 KI-Tools mat DSGVO-Konformitéitsinfoen a Präisser.', de: 'Durchsuchen Sie über 30 KI-Tools mit DSGVO-Konformitätsinfos und Preisen.', it: 'Sfoglia oltre 30 strumenti IA con informazioni sulla conformità GDPR e prezzi.', pt: 'Explore mais de 30 ferramentas de IA com informações de conformidade RGPD e preços.',
   },
   'features.5.title': {
     fr: 'Accompagnement expert', en: 'Expert support', lb: 'Expert Begleedung', de: 'Expertenbegleitung', it: 'Supporto esperto', pt: 'Acompanhamento especializado',
@@ -801,7 +801,7 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Contact', en: 'Contact', lb: 'Kontakt', de: 'Kontakt', it: 'Contatto', pt: 'Contacto',
   },
   'footer.rights': {
-    fr: '© 2025 OpenLetz. Tous droits réservés.', en: '© 2025 OpenLetz. All rights reserved.', lb: '© 2025 OpenLetz. All Rechter reservéiert.', de: '© 2025 OpenLetz. Alle Rechte vorbehalten.', it: '© 2025 OpenLetz. Tutti i diritti riservati.', pt: '© 2025 OpenLetz. Todos os direitos reservados.',
+    fr: '© 2025–2026 COMMIT MEDIA SARL. Tous droits réservés.', en: '© 2025–2026 COMMIT MEDIA SARL. All rights reserved.', lb: '© 2025–2026 COMMIT MEDIA SARL. All Rechter reservéiert.', de: '© 2025–2026 COMMIT MEDIA SARL. Alle Rechte vorbehalten.', it: '© 2025–2026 COMMIT MEDIA SARL. Tutti i diritti riservati.', pt: '© 2025–2026 COMMIT MEDIA SARL. Todos os direitos reservados.',
   },
 
   // ─── PageNavbar ───
@@ -876,12 +876,12 @@ const translations: Record<string, Record<Language, string>> = {
     fr: 'Notre mission', en: 'Our Mission', lb: 'Eis Missioun', de: 'Unsere Mission', it: 'La nostra missione', pt: 'A nossa missão',
   },
   'about.mission.text': {
-    fr: 'OpenLetz aide les PME luxembourgeoises à naviguer dans l\'écosystème des aides publiques pour leur transformation digitale et l\'adoption de l\'intelligence artificielle. Notre simulateur gratuit identifie en 10 secondes les programmes de subventions auxquels vous êtes éligible.',
-    en: 'OpenLetz helps Luxembourg SMEs navigate the public funding ecosystem for their digital transformation and AI adoption. Our free simulator identifies in 10 seconds the grant programs you are eligible for.',
-    lb: 'OpenLetz hëlleft lëtzebuerger KMU, sech am ëffentleche Fördersystem fir hir digital Transformatioun an KI-Adoptioun ze orientéieren. Eise gratis Simulator identifizéiert an 10 Sekonnen déi Subventioune fir déi Dir eligibel sidd.',
-    de: 'OpenLetz hilft luxemburgischen KMU, sich im öffentlichen Fördersystem für ihre digitale Transformation und KI-Adoption zurechtzufinden. Unser kostenloser Simulator identifiziert in 10 Sekunden die Förderprogramme, für die Sie berechtigt sind.',
-    it: 'OpenLetz aiuta le PMI lussemburghesi a navigare nell\'ecosistema dei finanziamenti pubblici per la trasformazione digitale e l\'adozione dell\'IA. Il nostro simulatore gratuito identifica in 10 secondi i programmi di sovvenzione per i quali siete ammissibili.',
-    pt: 'O OpenLetz ajuda as PME luxemburguesas a navegar no ecossistema de apoios públicos para a sua transformação digital e adoção de IA. O nosso simulador gratuito identifica em 10 segundos os programas de subsídios aos quais é elegível.',
+    fr: 'OpenLetz est un service de COMMIT MEDIA SARL (RCS B276192), société luxembourgeoise spécialisée dans l\'accompagnement digital des PME. Notre simulateur gratuit identifie en 10 secondes les programmes de subventions auxquels vous êtes éligible pour votre transformation digitale et l\'adoption de l\'intelligence artificielle.',
+    en: 'OpenLetz is a service by COMMIT MEDIA SARL (RCS B276192), a Luxembourg company specialized in digital support for SMEs. Our free simulator identifies in 10 seconds the grant programs you are eligible for, covering digital transformation and AI adoption.',
+    lb: 'OpenLetz ass e Service vu COMMIT MEDIA SARL (RCS B276192), eng lëtzebuerger Firma spezialiséiert op digital Ënnerstëtzung fir KMU. Eise gratis Simulator identifizéiert an 10 Sekonnen déi Subventioune fir déi Dir eligibel sidd.',
+    de: 'OpenLetz ist ein Service der COMMIT MEDIA SARL (RCS B276192), einem luxemburgischen Unternehmen, das auf digitale Unterstützung für KMU spezialisiert ist. Unser kostenloser Simulator identifiziert in 10 Sekunden die Förderprogramme, für die Sie berechtigt sind.',
+    it: 'OpenLetz è un servizio di COMMIT MEDIA SARL (RCS B276192), società lussemburghese specializzata nel supporto digitale alle PMI. Il nostro simulatore gratuito identifica in 10 secondi i programmi di sovvenzione per i quali siete ammissibili.',
+    pt: 'O OpenLetz é um serviço da COMMIT MEDIA SARL (RCS B276192), empresa luxemburguesa especializada em apoio digital às PME. O nosso simulador gratuito identifica em 10 segundos os programas de subsídios aos quais é elegível.',
   },
   'about.why.title': {
     fr: 'Pourquoi OpenLetz ?', en: 'Why OpenLetz?', lb: 'Firwat OpenLetz?', de: 'Warum OpenLetz?', it: 'Perché OpenLetz?', pt: 'Porquê OpenLetz?',
@@ -898,12 +898,12 @@ const translations: Record<string, Record<Language, string>> = {
     fr: '6 programmes référencés', en: '6 referenced programs', lb: '6 referenzéiert Programmer', de: '6 referenzierte Programme', it: '6 programmi referenziati', pt: '6 programas referenciados',
   },
   'about.programs.text': {
-    fr: 'Nous analysons votre éligibilité pour les 6 principaux programmes luxembourgeois : SME Package Digital, SME Package IA, SME Package Cybersécurité, Fit 4 Digital, Fit 4 AI et Fit 4 Innovation. Jusqu\'à 25 000 € de subvention et 70 % de couverture.',
-    en: 'We analyze your eligibility for the 6 main Luxembourg programs: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI and Fit 4 Innovation. Up to €25,000 in grants and 70% coverage.',
-    lb: 'Mir analyséieren Är Eligibilitéit fir déi 6 Haaptprogrammer: SME Package Digital, SME Package IA, SME Package Cybersécurité, Fit 4 Digital, Fit 4 AI a Fit 4 Innovation. Bis zu 25.000 € Subventioun an 70 % Deckung.',
-    de: 'Wir analysieren Ihre Berechtigung für die 6 Hauptprogramme: SME Package Digital, SME Package AI, SME Package Cybersicherheit, Fit 4 Digital, Fit 4 AI und Fit 4 Innovation. Bis zu 25.000 € Förderung und 70 % Abdeckung.',
-    it: 'Analizziamo la vostra ammissibilità per i 6 principali programmi: SME Package Digital, SME Package IA, SME Package Cybersicurezza, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Fino a 25.000 € di sovvenzione e 70 % di copertura.',
-    pt: 'Analisamos a sua elegibilidade para os 6 principais programas: SME Package Digital, SME Package IA, SME Package Cibersegurança, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Até 25.000 € de subsídio e 70 % de cobertura.',
+    fr: 'Nous analysons votre éligibilité pour les 6 principaux programmes luxembourgeois : SME Package Digital, SME Package IA, SME Package Cybersécurité, Fit 4 Digital, Fit 4 AI et Fit 4 Innovation. Jusqu\'à 25 000 € par programme et jusqu\'à 70 % de couverture.',
+    en: 'We analyze your eligibility for the 6 main Luxembourg programs: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI and Fit 4 Innovation. Up to €25,000 per program and up to 70% coverage.',
+    lb: 'Mir analyséieren Är Eligibilitéit fir déi 6 Haaptprogrammer: SME Package Digital, SME Package IA, SME Package Cybersécurité, Fit 4 Digital, Fit 4 AI a Fit 4 Innovation. Bis zu 25.000 € pro Programm an bis zu 70 % Deckung.',
+    de: 'Wir analysieren Ihre Berechtigung für die 6 Hauptprogramme: SME Package Digital, SME Package AI, SME Package Cybersicherheit, Fit 4 Digital, Fit 4 AI und Fit 4 Innovation. Bis zu 25.000 € pro Programm und bis zu 70 % Abdeckung.',
+    it: 'Analizziamo la vostra ammissibilità per i 6 principali programmi: SME Package Digital, SME Package IA, SME Package Cybersicurezza, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Fino a 25.000 € per programma e fino al 70 % di copertura.',
+    pt: 'Analisamos a sua elegibilidade para os 6 principais programas: SME Package Digital, SME Package IA, SME Package Cibersegurança, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Até 25.000 € por programa e até 70 % de cobertura.',
   },
   'about.cta': {
     fr: 'Simuler mes aides', en: 'Simulate my funding', lb: 'Meng Hëllefen simuléieren', de: 'Meine Förderung simulieren', it: 'Simula i miei finanziamenti', pt: 'Simular os meus apoios',

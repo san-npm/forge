@@ -5,6 +5,35 @@ import BlogPostClient from './BlogPostClient'
 
 const SITE_URL = 'https://www.openletz.com'
 
+/**
+ * Extract FAQ pairs from markdown content.
+ * Looks for bold question lines followed by answer text.
+ * Pattern: **Question?**\nAnswer text
+ */
+function extractFAQs(content: string): { question: string; answer: string }[] {
+  const faqs: { question: string; answer: string }[] = []
+  const lines = content.split('\n')
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim()
+    // Match **Question text?** pattern
+    const match = line.match(/^\*\*(.+\?)\*\*$/)
+    if (match) {
+      // Collect answer lines until next blank line, heading, or bold question
+      const answerLines: string[] = []
+      for (let j = i + 1; j < lines.length; j++) {
+        const nextLine = lines[j].trim()
+        if (nextLine === '' || nextLine.startsWith('#') || nextLine.match(/^\*\*(.+\?)\*\*$/)) break
+        answerLines.push(nextLine)
+      }
+      if (answerLines.length > 0) {
+        faqs.push({ question: match[1], answer: answerLines.join(' ') })
+      }
+    }
+  }
+  return faqs
+}
+
 interface Props {
   params: Promise<{ slug: string }>
 }
@@ -103,6 +132,20 @@ export default async function BlogPostPage({ params }: Props) {
     },
   }
 
+  const faqs = extractFAQs(post.content)
+  const faqJsonLd = faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  } : null
+
   return (
     <>
       <script
@@ -113,6 +156,12 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <BlogPostClient post={post} />
     </>
   )
