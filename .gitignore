@@ -31,3 +31,4 @@ next-env.d.ts
 
 # user data (form submissions, newsletter)
 /data/*.json
+.vercel
