@@ -12,6 +12,11 @@ const LANGUAGES: { code: Language; flag: string; label: string }[] = [
   { code: 'de', flag: '\u{1F1E9}\u{1F1EA}', label: 'Deutsch' },
   { code: 'it', flag: '\u{1F1EE}\u{1F1F9}', label: 'Italiano' },
   { code: 'pt', flag: '\u{1F1F5}\u{1F1F9}', label: 'Portugu\u00eas' },
+  { code: 'es', flag: '\u{1F1EA}\u{1F1F8}', label: 'Espa\u00f1ol' },
+  { code: 'ru', flag: '\u{1F1F7}\u{1F1FA}', label: '\u0420\u0443\u0441\u0441\u043a\u0438\u0439' },
+  { code: 'ar', flag: '\u{1F1F8}\u{1F1E6}', label: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629' },
+  { code: 'tr', flag: '\u{1F1F9}\u{1F1F7}', label: 'T\u00fcrk\u00e7e' },
+  { code: 'uk', flag: '\u{1F1FA}\u{1F1E6}', label: '\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430' },
 ]
 
 export default function PageNavbar() {

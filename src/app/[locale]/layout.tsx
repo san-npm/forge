@@ -16,6 +16,11 @@ const localeNames: Record<string, string> = {
   lb: 'Luxembourgish',
   it: 'Italian',
   pt: 'Portuguese',
+  es: 'Spanish',
+  ru: 'Russian',
+  ar: 'Arabic',
+  tr: 'Turkish',
+  uk: 'Ukrainian',
 };
 
 const localeOg: Record<string, string> = {
@@ -25,6 +30,11 @@ const localeOg: Record<string, string> = {
   lb: 'lb_LU',
   it: 'it_IT',
   pt: 'pt_PT',
+  es: 'es_ES',
+  ru: 'ru_RU',
+  ar: 'ar_SA',
+  tr: 'tr_TR',
+  uk: 'uk_UA',
 };
 
 // Additional OG alternate locales for broader reach
@@ -34,6 +44,11 @@ const ogAlternateLocales: Record<string, string[]> = {
   en: ['en_US', 'en_GB', 'en_AU', 'en_CA', 'en_IE', 'en_IN', 'en_ZA'],
   it: ['it_IT', 'it_CH'],
   pt: ['pt_PT', 'pt_BR', 'pt_AO', 'pt_MZ'],
+  es: ['es_ES', 'es_MX', 'es_AR', 'es_CO', 'es_CL', 'es_PE', 'es_EC', 'es_VE', 'es_US'],
+  ru: ['ru_RU', 'ru_BY', 'ru_KZ', 'ru_KG', 'ru_MD'],
+  ar: ['ar_SA', 'ar_AE', 'ar_EG', 'ar_MA', 'ar_DZ', 'ar_TN', 'ar_QA', 'ar_KW', 'ar_BH', 'ar_OM', 'ar_JO', 'ar_LB', 'ar_IQ'],
+  tr: ['tr_TR', 'tr_CY'],
+  uk: ['uk_UA'],
   lb: [],
 };
 
@@ -50,7 +65,7 @@ const hreflangMap: Record<string, string[]> = {
     'fr-GF', 'fr-PF', 'fr-NC',                               // Overseas territories
   ],
   de: [
-    'de-LU', 'de-DE', 'de-AT', 'de-CH', 'de-LI', 'de-BE',  // All German-speaking countries
+    'de-LU', 'de-DE', 'de-AT', 'de-CH', 'de-LI', 'de-BE',  // All German-speaking
   ],
   it: [
     'it-LU', 'it-IT', 'it-CH', 'it-SM', 'it-VA',            // Italy + Swiss Italian + microstates
@@ -63,6 +78,32 @@ const hreflangMap: Record<string, string[]> = {
     'en', 'en-GB', 'en-US', 'en-IE', 'en-AU', 'en-NZ',     // Core Anglophone
     'en-CA', 'en-SG', 'en-IN', 'en-ZA', 'en-NG',            // Commonwealth + key markets
     'en-KE', 'en-GH', 'en-PH',                               // East Africa + SE Asia
+  ],
+  es: [
+    'es-ES', 'es-MX', 'es-AR', 'es-CO', 'es-CL',           // Spain + major LATAM
+    'es-PE', 'es-EC', 'es-VE', 'es-BO', 'es-PY',           // Andean + Southern
+    'es-UY', 'es-CR', 'es-PA', 'es-DO', 'es-GT',           // Central America + Caribbean
+    'es-HN', 'es-SV', 'es-NI', 'es-CU', 'es-PR',           // Central America + Caribbean
+    'es-US', 'es-GQ',                                         // US Hispanic + Eq. Guinea
+  ],
+  ru: [
+    'ru-RU', 'ru-BY', 'ru-KZ', 'ru-KG', 'ru-TJ',           // Russia + CIS
+    'ru-UZ', 'ru-MD', 'ru-AM', 'ru-AZ', 'ru-GE',           // Former Soviet states
+    'ru-LV', 'ru-EE', 'ru-LT', 'ru-IL',                     // Baltics + Israel (large diaspora)
+  ],
+  ar: [
+    'ar-SA', 'ar-AE', 'ar-EG', 'ar-MA', 'ar-DZ',           // Gulf + North Africa
+    'ar-TN', 'ar-LY', 'ar-IQ', 'ar-JO', 'ar-LB',           // Levant + Maghreb
+    'ar-SY', 'ar-KW', 'ar-QA', 'ar-BH', 'ar-OM',           // Gulf states
+    'ar-YE', 'ar-SD', 'ar-SO', 'ar-MR', 'ar-PS',           // East Africa + Palestine
+  ],
+  tr: [
+    'tr-TR', 'tr-CY', 'tr-DE', 'tr-NL', 'tr-AT',           // Turkey + large diasporas in EU
+    'tr-BE', 'tr-FR',                                         // Belgium + France diaspora
+  ],
+  uk: [
+    'uk-UA', 'uk-PL', 'uk-CZ', 'uk-DE',                     // Ukraine + large diaspora (post-2022)
+    'uk-CA', 'uk-US',                                         // North American diaspora
   ],
   lb: ['lb'],
 };
@@ -85,6 +126,11 @@ export async function generateMetadata({
     lb: 'OpenLetz — KMU Digitaliséierung & KI Hëllefen Simulator Lëtzebuerg',
     it: 'OpenLetz — Simulatore Sovvenzioni Digitalizzazione & IA Lussemburgo',
     pt: 'OpenLetz — Simulador Apoios Digitalização & IA Luxemburgo',
+    es: 'OpenLetz — Simulador Ayudas Digitalización & IA Luxemburgo | Subvenciones PYME',
+    ru: 'OpenLetz — Симулятор субсидий на цифровизацию и ИИ для МСП в Люксембурге',
+    ar: 'OpenLetz — محاكي منح الرقمنة والذكاء الاصطناعي للشركات الصغيرة في لوكسمبورغ',
+    tr: 'OpenLetz — Lüksemburg KOBİ Dijitalleşme & Yapay Zekâ Hibe Simülatörü',
+    uk: 'OpenLetz — Симулятор субсидій на цифровізацію та ШІ для МСП у Люксембурзі',
   };
 
   const descriptions: Record<string, string> = {
@@ -94,6 +140,11 @@ export async function generateMetadata({
     lb: "Gratis Eligibilitéitssimulator fir Lëtzebuerger KMU. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — bis zu 25.000 € Subventioun.",
     it: 'Simulatore gratuito di ammissibilità per sovvenzioni PMI lussemburghesi. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — fino a 25.000 €.',
     pt: 'Simulador gratuito de elegibilidade para apoios PME luxemburgueses. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — até 25.000 €.',
+    es: 'Simulador gratuito de elegibilidad para ayudas luxemburguesas a PYMES. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — hasta 25.000 € de subvención.',
+    ru: 'Бесплатный симулятор для определения права на субсидии Люксембурга для МСП. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — до 25 000 €.',
+    ar: 'محاكي مجاني لتحديد أهلية الشركات الصغيرة والمتوسطة للحصول على منح لوكسمبورغ. SME Package، Fit 4 Digital، Fit 4 AI، Fit 4 Innovation — حتى 25,000 يورو.',
+    tr: 'Lüksemburg KOBİ hibeleri için ücretsiz uygunluk simülatörü. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — 25.000 €\'ya kadar hibe.',
+    uk: 'Безкоштовний симулятор для визначення права на субсидії Люксембургу для МСП. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — до 25 000 €.',
   };
 
   const canonicalUrl = `${SITE_URL}/${locale}`;
@@ -284,7 +335,7 @@ const webAppJsonLd = {
     '@type': 'Organization',
     '@id': `${SITE_URL}/#organization`,
   },
-  inLanguage: ['fr', 'en', 'de', 'lb', 'it', 'pt'],
+  inLanguage: ['fr', 'en', 'de', 'lb', 'it', 'pt', 'es', 'ru', 'ar', 'tr', 'uk'],
   availableLanguage: [
     { '@type': 'Language', name: 'French', alternateName: 'fr' },
     { '@type': 'Language', name: 'English', alternateName: 'en' },
@@ -292,6 +343,11 @@ const webAppJsonLd = {
     { '@type': 'Language', name: 'Luxembourgish', alternateName: 'lb' },
     { '@type': 'Language', name: 'Italian', alternateName: 'it' },
     { '@type': 'Language', name: 'Portuguese', alternateName: 'pt' },
+    { '@type': 'Language', name: 'Spanish', alternateName: 'es' },
+    { '@type': 'Language', name: 'Russian', alternateName: 'ru' },
+    { '@type': 'Language', name: 'Arabic', alternateName: 'ar' },
+    { '@type': 'Language', name: 'Turkish', alternateName: 'tr' },
+    { '@type': 'Language', name: 'Ukrainian', alternateName: 'uk' },
   ],
 };
 

@@ -1,5 +1,8 @@
 import { Language } from '@/context/LanguageContext'
 
+// Partial record: agents only need fr/en/de/lb/it/pt — new languages fall back to English
+type LangText = Partial<Record<Language, string>> & { en: string }
+
 export interface EUCompliance {
   gdprCompliant: boolean | 'partial'
   euAiActReady: boolean
@@ -7,19 +10,19 @@ export interface EUCompliance {
   hasEuDataResidency: boolean | 'partial'
   dpaAvailable: boolean
   certifications: string[]
-  complianceNote: Record<Language, string>
+  complianceNote: LangText
 }
 
 export interface Agent {
   slug: string
   name: string
-  description: Record<Language, string>
-  longDescription: Record<Language, string>
+  description: LangText
+  longDescription: LangText
   category: string
   url: string
   tags: string[]
   free: boolean
-  pricing: Record<Language, string>
+  pricing: LangText
   vendor: string
   founded: string
   headquarters: string
