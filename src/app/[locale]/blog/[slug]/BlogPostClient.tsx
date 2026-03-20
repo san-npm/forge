@@ -121,6 +121,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
   )
 
   return (
+    
     <div className="min-h-screen flex flex-col bg-white">
       <PageNavbar />
       <div className="flex-1">
@@ -159,5 +160,6 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
       </div>
       <Footer />
     </div>
+    
   )
 }

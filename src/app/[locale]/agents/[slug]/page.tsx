@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation'
 import { getAgentBySlug, CATEGORIES, AGENT_VISUALS } from '@/lib/agents'
 import { useLanguage } from '@/context/LanguageContext'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import AgentLogo from '@/components/AgentLogo'
 import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
@@ -53,6 +53,7 @@ export default function AgentDetailPage() {
 
   if (!agent) {
     return (
+      
       <>
         <PageNavbar />
         <div className="min-h-screen pt-20 pb-16 flex items-center justify-center">
@@ -334,5 +335,6 @@ export default function AgentDetailPage() {
       </div>
       <Footer />
     </>
+    
   )
 }

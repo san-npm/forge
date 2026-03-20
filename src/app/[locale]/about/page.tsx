@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { useLanguage } from '@/context/LanguageContext'
 import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
@@ -18,6 +18,7 @@ export default function AboutPage() {
   const { t } = useLanguage()
 
   return (
+    
     <div className="min-h-screen flex flex-col bg-white">
       <PageNavbar />
 
@@ -131,5 +132,6 @@ export default function AboutPage() {
 
       <Footer />
     </div>
+    
   )
 }

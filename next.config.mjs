@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
@@ -25,7 +29,7 @@ const nextConfig = {
           },
         ],
       },
-    ]
+    ];
   },
   async redirects() {
     return [
@@ -41,8 +45,8 @@ const nextConfig = {
         destination: 'https://www.openletz.com/:path*',
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};
 
-module.exports = nextConfig
+export default withNextIntl(nextConfig);
