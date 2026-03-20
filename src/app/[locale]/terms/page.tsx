@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { useLanguage } from '@/context/LanguageContext'
 import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
@@ -174,6 +174,7 @@ export default function TermsPage() {
   }
 
   return (
+    
     <div className="min-h-screen flex flex-col bg-white">
       <PageNavbar />
 
@@ -224,5 +225,6 @@ export default function TermsPage() {
 
       <Footer />
     </div>
+    
   )
 }

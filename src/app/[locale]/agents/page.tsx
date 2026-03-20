@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { useLanguage } from '@/context/LanguageContext'
 import { AGENTS, CATEGORIES, AGENT_VISUALS } from '@/lib/agents'
 import AgentLogo from '@/components/AgentLogo'
@@ -86,6 +86,7 @@ export default function AgentsPage() {
   })
 
   return (
+    
     <div className="min-h-screen flex flex-col bg-gray-50">
       <PageNavbar />
 
@@ -223,5 +224,6 @@ export default function AgentsPage() {
 
       <Footer />
     </div>
+    
   )
 }
