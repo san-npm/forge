@@ -21,19 +21,49 @@ const localeNames: Record<string, string> = {
 const localeOg: Record<string, string> = {
   fr: 'fr_LU',
   en: 'en_GB',
-  de: 'de_LU',
+  de: 'de_DE',
   lb: 'lb_LU',
-  it: 'it_LU',
+  it: 'it_IT',
   pt: 'pt_PT',
 };
 
+// Additional OG alternate locales for broader reach
+const ogAlternateLocales: Record<string, string[]> = {
+  fr: ['fr_FR', 'fr_BE', 'fr_CH', 'fr_CA', 'fr_MA', 'fr_SN', 'fr_CI', 'fr_CM', 'fr_CD'],
+  de: ['de_DE', 'de_AT', 'de_CH', 'de_LU'],
+  en: ['en_US', 'en_GB', 'en_AU', 'en_CA', 'en_IE', 'en_IN', 'en_ZA'],
+  it: ['it_IT', 'it_CH'],
+  pt: ['pt_PT', 'pt_BR', 'pt_AO', 'pt_MZ'],
+  lb: [],
+};
+
 // hreflang mappings for cross-country targeting
+// Maximise reach: every country where the language is official or widely spoken
 const hreflangMap: Record<string, string[]> = {
-  fr: ['fr-LU', 'fr-FR', 'fr-BE', 'fr-CH'],
-  de: ['de-LU', 'de-DE', 'de-AT', 'de-CH'],
-  it: ['it-LU', 'it-IT', 'it-CH'],
-  pt: ['pt-LU', 'pt-PT', 'pt-BR'],
-  en: ['en'],
+  fr: [
+    'fr-LU', 'fr-FR', 'fr-BE', 'fr-CH', 'fr-CA',           // Europe + Canada
+    'fr-MA', 'fr-TN', 'fr-DZ', 'fr-SN', 'fr-CI',           // Maghreb + West Africa
+    'fr-CM', 'fr-CD', 'fr-CG', 'fr-GA', 'fr-ML',           // Central + West Africa
+    'fr-BF', 'fr-NE', 'fr-TD', 'fr-GN', 'fr-BJ',           // West + Central Africa
+    'fr-TG', 'fr-RW', 'fr-BI', 'fr-MG', 'fr-MU',           // East Africa + Indian Ocean
+    'fr-HT', 'fr-MC', 'fr-RE', 'fr-GP', 'fr-MQ',           // Caribbean + DOM-TOM
+    'fr-GF', 'fr-PF', 'fr-NC',                               // Overseas territories
+  ],
+  de: [
+    'de-LU', 'de-DE', 'de-AT', 'de-CH', 'de-LI', 'de-BE',  // All German-speaking countries
+  ],
+  it: [
+    'it-LU', 'it-IT', 'it-CH', 'it-SM', 'it-VA',            // Italy + Swiss Italian + microstates
+  ],
+  pt: [
+    'pt-LU', 'pt-PT', 'pt-BR', 'pt-AO', 'pt-MZ',           // Europe + Brazil + Lusophone Africa
+    'pt-CV', 'pt-GW', 'pt-ST', 'pt-TL',                     // Cape Verde, Guinea-Bissau, etc.
+  ],
+  en: [
+    'en', 'en-GB', 'en-US', 'en-IE', 'en-AU', 'en-NZ',     // Core Anglophone
+    'en-CA', 'en-SG', 'en-IN', 'en-ZA', 'en-NG',            // Commonwealth + key markets
+    'en-KE', 'en-GH', 'en-PH',                               // East Africa + SE Asia
+  ],
   lb: ['lb'],
 };
 
@@ -77,8 +107,14 @@ export async function generateMetadata({
   }
   languages['x-default'] = `${SITE_URL}/fr`;
 
-  // Build og:locale:alternate list
-  const ogAlternates = Object.values(localeOg).filter((l) => l !== localeOg[locale]);
+  // Build og:locale:alternate list — include all country variants
+  const allOgLocales = new Set<string>();
+  for (const [loc, alts] of Object.entries(ogAlternateLocales)) {
+    allOgLocales.add(localeOg[loc]);
+    for (const alt of alts) allOgLocales.add(alt);
+  }
+  allOgLocales.delete(localeOg[locale]); // exclude current
+  const ogAlternates = Array.from(allOgLocales);
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -276,6 +312,20 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
 
+  // BreadcrumbList JSON-LD for homepage
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: locale === 'fr' ? 'Accueil' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : locale === 'lb' ? 'Heem' : locale === 'it' ? 'Home' : 'Início',
+        item: `${SITE_URL}/${locale}`,
+      },
+    ],
+  };
+
   // FAQPage JSON-LD (homepage FAQ in French — the default indexable language)
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -358,6 +408,11 @@ gtag('config', 'G-2Z75PD960S');`}
           id="json-ld-localbusiness"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        <Script
+          id="json-ld-breadcrumb"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
         />
         <Script
           id="json-ld-faq"

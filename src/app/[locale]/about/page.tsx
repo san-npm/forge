@@ -4,6 +4,7 @@ import { Link } from '@/i18n/routing'
 import { useLanguage } from '@/context/LanguageContext'
 import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
+import { BreadcrumbJsonLd, useBreadcrumbs } from '@/components/BreadcrumbJsonLd'
 
 const programs = [
   { name: 'SME Packages — Digital', maxGrant: '17 500', coverage: 70 },
