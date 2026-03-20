@@ -11,6 +11,11 @@ const LANGUAGES: { code: Language; flag: string; label: string }[] = [
   { code: 'de', flag: '\u{1F1E9}\u{1F1EA}', label: 'Deutsch' },
   { code: 'it', flag: '\u{1F1EE}\u{1F1F9}', label: 'Italiano' },
   { code: 'pt', flag: '\u{1F1F5}\u{1F1F9}', label: 'Português' },
+  { code: 'es', flag: '\u{1F1EA}\u{1F1F8}', label: 'Español' },
+  { code: 'ru', flag: '\u{1F1F7}\u{1F1FA}', label: 'Русский' },
+  { code: 'ar', flag: '\u{1F1F8}\u{1F1E6}', label: 'العربية' },
+  { code: 'tr', flag: '\u{1F1F9}\u{1F1F7}', label: 'Türkçe' },
+  { code: 'uk', flag: '\u{1F1FA}\u{1F1E6}', label: 'Українська' },
 ]
 
 interface NavbarProps {

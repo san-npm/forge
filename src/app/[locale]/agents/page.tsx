@@ -81,7 +81,7 @@ export default function AgentsPage() {
     const matchesSearch =
       search === '' ||
       agent.name.toLowerCase().includes(search.toLowerCase()) ||
-      agent.description[lang].toLowerCase().includes(search.toLowerCase()) ||
+      ((agent.description[lang] || agent.description.en || "")).toLowerCase().includes(search.toLowerCase()) ||
       agent.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()))
     return matchesCategory && matchesSearch
   })
@@ -199,7 +199,7 @@ export default function AgentsPage() {
 
                     {/* Description */}
                     <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2">
-                      {agent.description[lang]}
+                      {agent.description[lang] || agent.description.en}
                     </p>
 
                     {/* Tags + arrow */}

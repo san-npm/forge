@@ -4,7 +4,7 @@ import { createContext, useContext, ReactNode, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/routing';
 
-export type Language = 'fr' | 'en' | 'lb' | 'de' | 'it' | 'pt';
+export type Language = 'fr' | 'en' | 'lb' | 'de' | 'it' | 'pt' | 'es' | 'ru' | 'ar' | 'tr' | 'uk';
 
 interface LanguageContextType {
   lang: Language;

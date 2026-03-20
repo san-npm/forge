@@ -3,7 +3,7 @@ import { AGENTS } from '@/lib/agents';
 import { getAllPosts } from '@/lib/blog';
 
 const SITE_URL = 'https://www.openletz.com';
-const locales = ['fr', 'en', 'de', 'lb', 'it', 'pt'] as const;
+const locales = ['fr', 'en', 'de', 'lb', 'it', 'pt', 'es', 'ru', 'ar', 'tr', 'uk'] as const;
 
 function buildAlternates(path: string) {
   const languages: Record<string, string> = {};

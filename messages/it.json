@@ -300,5 +300,7 @@
   "terms.lastUpdated": "Ultimo aggiornamento",
   "results.downloadPdf": "Scarica rapporto PDF",
   "report.title": "Rapporto di ammissibilità — OpenLetz",
-  "report.generatedOn": "Generato il"
+  "report.generatedOn": "Generato il",
+  "q3.o1": "Yes, with a business permit",
+  "q5.o2": "Managing admin tasks"
 }
