@@ -7,6 +7,7 @@ import { AGENTS, CATEGORIES, AGENT_VISUALS } from '@/lib/agents'
 import AgentLogo from '@/components/AgentLogo'
 import PageNavbar from '@/components/PageNavbar'
 import Footer from '@/components/Footer'
+import { BreadcrumbJsonLd, useBreadcrumbs } from '@/components/BreadcrumbJsonLd'
 
 const categoryIcons: Record<string, React.ReactNode> = {
   Grid: (
@@ -85,10 +86,13 @@ export default function AgentsPage() {
     return matchesCategory && matchesSearch
   })
 
+  const breadcrumbItems = useBreadcrumbs()
+
   return (
-    
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <PageNavbar />
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} />
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <PageNavbar />
 
       {/* Header */}
       <div className="bg-navy-900 pt-24 pb-12">
@@ -224,6 +228,6 @@ export default function AgentsPage() {
 
       <Footer />
     </div>
-    
+  </>
   )
 }
