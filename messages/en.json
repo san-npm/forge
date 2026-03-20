@@ -79,6 +79,7 @@
   "q2.o7": "Other",
   "q3.title": "Is your company established in Luxembourg?",
   "q3.o1": "Yes, with a business permit",
+  "q3.o2": "In Luxembourg, but without permit / unsure",
   "q3.o3": "No, not in Luxembourg",
   "q4.title": "Do you already have a website / digital tools?",
   "q4.o1": "Nothing at all",
