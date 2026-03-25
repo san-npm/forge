@@ -362,7 +362,17 @@
       "title": "6 referenzéiert Programmer",
       "text": "Mir analyséieren Är Eligibilitéit fir déi 6 Haaptprogrammer: SME Package Digital, SME Package IA, SME Package Cybersécurité, Fit 4 Digital, Fit 4 AI a Fit 4 Innovation. Bis zu 25.000 € pro Programm an bis zu 70 % Deckung."
     },
-    "cta": "Meng Hëllefen simuléieren"
+    "cta": "Meng Hëllefen simuléieren",
+    "figures": {
+      "title": "Schlësselzuelen",
+      "text": "OpenLetz zentraliséiert Informatiounen iwwer Lëtzebuerger Subventiounen a bitt séiere Zougang zu Finanzéierungsprogrammer.",
+      "stat1": "Programmer analyséiert",
+      "stat2": "max. Subventioun pro Projet",
+      "stat3": "KI-Tools bewäert (RGPD)",
+      "stat4": "fir Är Resultater",
+      "sources": "Quellen a Referenzen",
+      "source3": "Lëtzebuerger Wirtschaftsministère"
+    }
   },
   "pricing": {
     "title": "Eis Servicer & Präisser",

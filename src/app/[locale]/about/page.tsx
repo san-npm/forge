@@ -116,6 +116,66 @@ export default function AboutPage() {
             </div>
           </section>
 
+          {/* Key figures — GEO credibility signals */}
+          <section className="mb-16 animate-slide-up" style={{ animationDelay: '0.35s' }}>
+            <div className="flex items-start gap-5 mb-8">
+              <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                  {t('about.figures.title')}
+                </h2>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  {t('about.figures.text')}
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+              <div className="text-center p-5 bg-navy-50 rounded-2xl">
+                <div className="text-3xl font-bold text-navy-900">6</div>
+                <div className="text-sm text-gray-600 mt-1">{t('about.figures.stat1')}</div>
+              </div>
+              <div className="text-center p-5 bg-navy-50 rounded-2xl">
+                <div className="text-3xl font-bold text-navy-900">25 000 €</div>
+                <div className="text-sm text-gray-600 mt-1">{t('about.figures.stat2')}</div>
+              </div>
+              <div className="text-center p-5 bg-navy-50 rounded-2xl">
+                <div className="text-3xl font-bold text-navy-900">32</div>
+                <div className="text-sm text-gray-600 mt-1">{t('about.figures.stat3')}</div>
+              </div>
+              <div className="text-center p-5 bg-navy-50 rounded-2xl">
+                <div className="text-3xl font-bold text-navy-900">10 sec</div>
+                <div className="text-sm text-gray-600 mt-1">{t('about.figures.stat4')}</div>
+              </div>
+            </div>
+
+            {/* Sources for GEO credibility */}
+            <div className="p-5 bg-gray-50 rounded-2xl text-sm text-gray-500">
+              <p className="font-semibold text-gray-700 mb-2">{t('about.figures.sources')}</p>
+              <ul className="space-y-1 list-disc pl-5">
+                <li>
+                  <a className="text-primary-600 underline" href="https://www.houseofentrepreneurship.lu" target="_blank" rel="noopener noreferrer">
+                    House of Entrepreneurship
+                  </a> — SME Packages (Digital, IA, Cybersécurité)
+                </li>
+                <li>
+                  <a className="text-primary-600 underline" href="https://www.luxinnovation.lu" target="_blank" rel="noopener noreferrer">
+                    Luxinnovation
+                  </a> — Fit 4 Digital, Fit 4 AI, Fit 4 Innovation
+                </li>
+                <li>
+                  <a className="text-primary-600 underline" href="https://meco.gouvernement.lu" target="_blank" rel="noopener noreferrer">
+                    {t('about.figures.source3')}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </section>
+
           {/* CTA */}
           <div className="text-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <Link

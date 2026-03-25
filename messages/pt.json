@@ -362,7 +362,17 @@
       "title": "6 programas referenciados",
       "text": "Analisamos a sua elegibilidade para os 6 principais programas: SME Package Digital, SME Package IA, SME Package Cibersegurança, Fit 4 Digital, Fit 4 AI e Fit 4 Innovation. Até 25.000 € por programa e até 70 % de cobertura."
     },
-    "cta": "Simular os meus apoios"
+    "cta": "Simular os meus apoios",
+    "figures": {
+      "title": "Números-chave",
+      "text": "OpenLetz centraliza informações sobre apoios públicos luxemburgueses e proporciona acesso rápido a programas de financiamento.",
+      "stat1": "programas analisados",
+      "stat2": "apoio máx. por projeto",
+      "stat3": "ferramentas IA avaliadas (RGPD)",
+      "stat4": "para obter resultados",
+      "sources": "Fontes e referências",
+      "source3": "Ministério da Economia do Luxemburgo"
+    }
   },
   "pricing": {
     "title": "Os nossos serviços e preços",
