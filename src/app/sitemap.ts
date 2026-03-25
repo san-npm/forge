@@ -3,11 +3,16 @@ import { AGENTS } from '@/lib/agents';
 import { getAllPosts } from '@/lib/blog';
 
 const SITE_URL = 'https://www.openletz.com';
-const locales = ['fr', 'en', 'de', 'lb', 'it', 'pt', 'es', 'ru', 'ar', 'tr', 'uk'] as const;
+// Core locales for sitemap — keep crawl budget focused on languages
+// relevant to Luxembourg (FR, EN, DE, LB, PT). Other locales still
+// work as routes but aren't submitted to search engines.
+const locales = ['fr', 'en', 'de', 'lb', 'pt'] as const;
+const allLocales = ['fr', 'en', 'de', 'lb', 'it', 'pt', 'es', 'ru', 'ar', 'tr', 'uk'] as const;
 
 function buildAlternates(path: string) {
   const languages: Record<string, string> = {};
-  for (const locale of locales) {
+  // Include ALL locales in hreflang alternates (even non-sitemap ones)
+  for (const locale of allLocales) {
     languages[locale] = `${SITE_URL}/${locale}${path}`;
   }
   languages['x-default'] = `${SITE_URL}/fr${path}`;
@@ -15,25 +20,27 @@ function buildAlternates(path: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
+  // Use distinct dates by page type to help crawlers prioritize
+  const contentDate = '2026-03-25T18:00:00.000Z'; // last content update
+  const staticDate = '2026-03-20T12:00:00.000Z';  // legal/about rarely change
 
   const staticPaths = [
-    { path: '', priority: 1.0, freq: 'weekly' as const },
-    { path: '/agents', priority: 0.9, freq: 'weekly' as const },
-    { path: '/pricing', priority: 0.8, freq: 'monthly' as const },
-    { path: '/blog', priority: 0.8, freq: 'weekly' as const },
-    { path: '/about', priority: 0.6, freq: 'monthly' as const },
-    { path: '/contact', priority: 0.7, freq: 'monthly' as const },
-    { path: '/privacy', priority: 0.3, freq: 'yearly' as const },
-    { path: '/terms', priority: 0.3, freq: 'yearly' as const },
+    { path: '', priority: 1.0, freq: 'weekly' as const, date: contentDate },
+    { path: '/agents', priority: 0.9, freq: 'weekly' as const, date: contentDate },
+    { path: '/pricing', priority: 0.8, freq: 'monthly' as const, date: contentDate },
+    { path: '/blog', priority: 0.8, freq: 'weekly' as const, date: contentDate },
+    { path: '/about', priority: 0.6, freq: 'monthly' as const, date: staticDate },
+    { path: '/contact', priority: 0.7, freq: 'monthly' as const, date: staticDate },
+    { path: '/privacy', priority: 0.3, freq: 'yearly' as const, date: staticDate },
+    { path: '/terms', priority: 0.3, freq: 'yearly' as const, date: staticDate },
   ];
 
   const staticPages: MetadataRoute.Sitemap = [];
-  for (const { path, priority, freq } of staticPaths) {
+  for (const { path, priority, freq, date } of staticPaths) {
     for (const locale of locales) {
       staticPages.push({
         url: `${SITE_URL}/${locale}${path}`,
-        lastModified: now,
+        lastModified: date,
         changeFrequency: freq,
         priority,
         alternates: buildAlternates(path),
@@ -47,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of locales) {
       agentPages.push({
         url: `${SITE_URL}/${locale}${path}`,
-        lastModified: now,
+        lastModified: contentDate,
         changeFrequency: 'monthly',
         priority: 0.7,
         alternates: buildAlternates(path),
