@@ -1,3 +1,41 @@
+# OpenLetz — Luxembourg SME Grants Simulator
+
+> OpenLetz helps Luxembourg SMEs identify public grants for digital transformation and AI adoption. Free simulator, results in 10 seconds.
+
+## Grant Programs Analyzed
+
+- **SME Package Digital**: up to €17,500, 70% coverage
+- **SME Package AI**: up to €17,500, 70% coverage
+- **SME Package Cybersecurity**: up to €17,500, 70% coverage
+- **Fit 4 Digital**: up to €5,000 (Phase 1), 100% coverage
+- **Fit 4 AI**: up to €25,000, 50% coverage
+- **Fit 4 Innovation**: up to €7,500, 50% coverage
+
+## Services
+
+- Free eligibility simulator (6 questions, 10 seconds)
+- Directory of 32 AI tools with GDPR and EU AI Act compliance data
+- Web development (websites, e-commerce, apps) from €900
+- AI integration (agents, automation, analytics) from €900
+- Proactive maintenance from €90/month
+- Grants advisory (application filing) from €290
+
+## Pages
+
+- Simulator: https://www.openletz.com/en
+- AI Directory: https://www.openletz.com/en/agents
+- Pricing: https://www.openletz.com/en/pricing
+- Blog: https://www.openletz.com/en/blog
+- About: https://www.openletz.com/en/about
+- Contact: https://www.openletz.com/en/contact
+
+## Entity
+
+COMMIT MEDIA SARL · RCS B276192 · Luxembourg
+Contact: bob@openletz.com · +352 661 968 051
+
+---
+
 # OpenLetz — Simulateur d'Aides Luxembourg
 
 > OpenLetz aide les PME luxembourgeoises à identifier les subventions publiques pour leur transformation digitale et l'adoption de l'IA. Simulateur gratuit, résultats en 10 secondes.
@@ -22,12 +60,12 @@
 
 ## Pages
 
-- Simulateur : https://www.openletz.com/
-- Répertoire IA : https://www.openletz.com/agents
-- Tarifs : https://www.openletz.com/pricing
-- Blog : https://www.openletz.com/blog
-- À propos : https://www.openletz.com/about
-- Contact : https://www.openletz.com/contact
+- Simulateur : https://www.openletz.com/fr
+- Répertoire IA : https://www.openletz.com/fr/agents
+- Tarifs : https://www.openletz.com/fr/pricing
+- Blog : https://www.openletz.com/fr/blog
+- À propos : https://www.openletz.com/fr/about
+- Contact : https://www.openletz.com/fr/contact
 
 ## Entité
 
