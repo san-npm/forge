@@ -112,12 +112,42 @@ export default async function AgentSlugLayout({
       }
     : null
 
+  // SoftwareApplication schema for rich results
+  const desc = agent?.description[locale as keyof typeof agent.description] || agent?.description.en || ''
+  const pricing = agent?.pricing[locale as keyof typeof agent.pricing] || agent?.pricing.en || ''
+  const softwareJsonLd = agent
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: agent.name,
+        applicationCategory: 'BusinessApplication',
+        description: desc,
+        url: agent.url,
+        offers: {
+          '@type': 'Offer',
+          price: agent.free ? '0' : undefined,
+          priceCurrency: 'EUR',
+          description: pricing,
+        },
+        author: {
+          '@type': 'Organization',
+          name: agent.vendor,
+        },
+      }
+    : null
+
   return (
     <>
       {breadcrumbJsonLd && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+      )}
+      {softwareJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
         />
       )}
       {children}
