@@ -362,7 +362,17 @@
       "title": "6 referenced programs",
       "text": "We analyze your eligibility for the 6 main Luxembourg programs: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI and Fit 4 Innovation. Up to €25,000 per program and up to 70% coverage."
     },
-    "cta": "Simulate my funding"
+    "cta": "Simulate my funding",
+    "figures": {
+      "title": "Key figures",
+      "text": "OpenLetz centralizes information on Luxembourg public grants and provides quick access to funding programs.",
+      "stat1": "programs analyzed",
+      "stat2": "max grant per project",
+      "stat3": "AI tools evaluated (GDPR)",
+      "stat4": "to get your results",
+      "sources": "Sources and references",
+      "source3": "Luxembourg Ministry of the Economy"
+    }
   },
   "pricing": {
     "title": "Our services & pricing",
