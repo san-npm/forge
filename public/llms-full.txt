@@ -1,10 +1,148 @@
 # OpenLetz — Full Content Reference for LLMs
 
+> OpenLetz helps Luxembourg SMEs identify public grants for digital transformation and AI adoption.
+> Free simulator, results in 10 seconds. 11 languages: FR, EN, DE, LB, IT, PT, ES, RU, AR, TR, UK.
+> Site: https://www.openletz.com
+> Entity: COMMIT MEDIA SARL · RCS B276192 · Luxembourg
+> Contact: bob@openletz.com · +352 661 968 051
+
+## Grant Programs Analyzed
+
+### SME Package Digital
+- Max grant: €17,500
+- Coverage: 70%
+- SME digitalization: website, e-commerce, management tools, CRM, ERP
+
+### SME Package AI
+- Max grant: €17,500
+- Coverage: 70%
+- AI adoption: AI agents, automation, data analysis
+
+### SME Package Cybersecurity
+- Max grant: €17,500
+- Coverage: 70%
+- IT security: audits, data protection, GDPR compliance
+
+### Fit 4 Digital
+- Max grant: €5,000 (Phase 1)
+- Coverage: 100%
+- Digital diagnostic and action plan by Luxinnovation
+
+### Fit 4 AI
+- Max grant: €25,000
+- Coverage: 50%
+- Advanced AI projects with Luxinnovation support
+
+### Fit 4 Innovation
+- Max grant: €7,500
+- Coverage: 50%
+- Innovation and R&D: new products, services, processes
+
+## OpenLetz Services
+
+### Eligibility Simulator
+- Price: Free
+- 6 questions, results in 10 seconds. Identifies eligible programs with estimated amounts.
+
+### Web Development
+- Price: From €900
+- Websites, e-commerce, web apps. 48h delivery. Eligible for SME Package.
+
+### AI Integration
+- Price: From €900
+- AI agents, automation, data analysis, team training. Eligible for SME Package.
+
+### Maintenance
+- Price: From €90/month
+- 24/7 monitoring, security updates, backups, reactive support.
+
+### Grants Advisory
+- Price: From €290
+- Complete application filing, follow-up until grant is obtained.
+
+## AI Tools Directory (32 tools)
+
+Each tool is evaluated on: GDPR compliance, EU AI Act, EU data residency, DPA, security certifications.
+
+### ChatGPT
+- URL: https://chat.openai.com
+- Page: https://www.openletz.com/en/agents/chatgpt
+- Category: assistant
+- Vendor: OpenAI (San Francisco, USA)
+- Description: Versatile AI assistant by OpenAI. Conversation, writing, analysis and coding.
+- Pricing: Free (limited) · Plus: $20/mo · Team: $25/mo · Enterprise: custom
+- GDPR Compliant
+
+### Claude
+- URL: https://claude.ai
+- Page: https://www.openletz.com/en/agents/claude
+- Category: assistant
+- Vendor: Anthropic (San Francisco, USA)
+- Description: AI assistant by Anthropic. Excellent comprehension, long-form writing and document analysis.
+- Pricing: Free (limited) · Pro: $20/mo · Team: $25/mo · Enterprise: custom
+- GDPR Compliant
+
+### Mistral AI
+- URL: https://mistral.ai
+- Page: https://www.openletz.com/en/agents/mistral
+- Category: assistant
+- Vendor: Mistral AI (Paris, France)
+- Description: European open-source AI models. Sovereign alternative with native EU hosting.
+- Pricing: Free (Le Chat) · API: pay-per-use · Enterprise: custom
+- GDPR Compliant
+
+### DeepL
+- URL: https://deepl.com
+- Page: https://www.openletz.com/en/agents/deepl
+- Category: content
+- Vendor: DeepL SE (Cologne, Germany)
+- Description: High-quality machine translation. API and integrations for professional translation.
+- Pricing: Free (limited) · Pro: €8.99/mo · Team: €27.99/mo · Enterprise: custom
+- GDPR Compliant
+
+### GitHub Copilot
+- URL: https://github.com/features/copilot
+- Page: https://www.openletz.com/en/agents/github-copilot
+- Category: dev
+- Vendor: Microsoft / GitHub (San Francisco, USA)
+- Description: AI coding assistant. Completes your code, generates functions and helps with debugging.
+- Pricing: Individual: $10/mo · Business: $19/mo · Enterprise: $39/mo
+- GDPR Compliant
+
+### Midjourney
+- URL: https://midjourney.com
+- Page: https://www.openletz.com/en/agents/midjourney
+- Category: creative
+- Vendor: Midjourney (San Francisco, USA)
+- Description: High-end AI image generation. Create professional visuals from text descriptions.
+- Pricing: Basic: $10/mo · Standard: $30/mo · Pro: $60/mo · Mega: $120/mo
+- Not GDPR Compliant
+
+(See https://www.openletz.com/en/agents for all 32 tools with full compliance data)
+
+## Site Pages
+
+- https://www.openletz.com/en — Eligibility simulator homepage with 6-question quiz
+- https://www.openletz.com/en/agents — Directory of 32 AI tools with GDPR and EU AI Act compliance
+- https://www.openletz.com/en/pricing — OpenLetz service pricing and AI tool comparison
+- https://www.openletz.com/en/blog — Blog: digitalization grants guides, AI for SMEs, Luxinnovation
+- https://www.openletz.com/en/about — About: mission, referenced programs, key figures
+- https://www.openletz.com/en/contact — Contact: expert callback request, grants support
+- https://www.openletz.com/en/privacy — GDPR privacy policy
+- https://www.openletz.com/en/terms — Terms of service
+
+## Supported Languages
+
+French (default), English, German, Luxembourgish, Italian, Portuguese, Spanish, Russian, Arabic, Turkish, Ukrainian
+
+---
+
+# Version française
+
 > OpenLetz aide les PME luxembourgeoises a identifier les subventions publiques pour leur transformation digitale et l'adoption de l'IA.
-> Simulateur gratuit, resultats en 10 secondes. 6 langues : FR, EN, DE, LB, IT, PT.
-> Site : https://www.openletz.com
-> Entite : COMMIT MEDIA SARL - RCS B276192 - Luxembourg
-> Contact : bob@openletz.com - +352 661 968 051
+> Simulateur gratuit, resultats en 10 secondes.
+> Entite : COMMIT MEDIA SARL · RCS B276192 · Luxembourg
+> Contact : bob@openletz.com · +352 661 968 051
 
 ## Programmes d'aides analyses
 
@@ -60,315 +198,11 @@
 - Tarif : A partir de 290 EUR
 - Montage complet du dossier, suivi jusqu'a obtention de l'aide.
 
-## Repertoire d'Agents IA (32 outils)
-
-Chaque outil est evalue sur : conformite RGPD, EU AI Act, residence donnees UE, DPA, certifications securite.
-
-### ChatGPT
-- URL : https://chat.openai.com
-- Page : https://www.openletz.com/agents/chatgpt
-- Categorie : assistant
-- Editeur : OpenAI (San Francisco, USA)
-- Description : Assistant IA polyvalent par OpenAI. Conversation, rédaction, analyse et programmation.
-- Tarifs : Gratuit (limité) · Plus : 20 $/mois · Team : 25 $/mois · Enterprise : sur devis
-- Conforme RGPD
-
-### Claude
-- URL : https://claude.ai
-- Page : https://www.openletz.com/agents/claude
-- Categorie : assistant
-- Editeur : Anthropic (San Francisco, USA)
-- Description : Assistant IA par Anthropic. Excellente compréhension, rédaction longue et analyse de documents.
-- Tarifs : Gratuit (limité) · Pro : 20 $/mois · Team : 25 $/mois · Enterprise : sur devis
-- Conforme RGPD
-
-### Perplexity
-- URL : https://perplexity.ai
-- Page : https://www.openletz.com/agents/perplexity
-- Categorie : assistant
-- Editeur : Perplexity AI (San Francisco, USA)
-- Description : Moteur de recherche IA avec sources citées. Idéal pour la veille et la recherche d
-- Tarifs : Gratuit (limité) · Pro : 20 $/mois · Enterprise Pro : sur devis
-- RGPD partiel
-
-### Jasper
-- URL : https://jasper.ai
-- Page : https://www.openletz.com/agents/jasper
-- Categorie : content
-- Editeur : Jasper AI (Austin, USA)
-- Description : Plateforme de contenu marketing IA. Génère des articles, publicités et contenus de marque.
-- Tarifs : Creator : 49 $/mois · Pro : 69 $/mois · Business : sur devis
-- Conforme RGPD
-
-### Copy.ai
-- URL : https://copy.ai
-- Page : https://www.openletz.com/agents/copy-ai
-- Categorie : content
-- Editeur : Copy.ai (Memphis, USA)
-- Description : Rédacteur IA pour le copywriting. Emails, posts réseaux sociaux, descriptions produits.
-- Tarifs : Gratuit (2 000 mots/mois) · Pro : 49 $/mois · Enterprise : sur devis
-- RGPD partiel
-
-### ElevenLabs
-- URL : https://elevenlabs.io
-- Page : https://www.openletz.com/agents/elevenlabs
-- Categorie : content
-- Editeur : ElevenLabs (New York, USA / London, UK)
-- Description : Synthèse vocale IA ultra-réaliste. Voix off, doublage, podcasts multilingues.
-- Tarifs : Gratuit (10 min/mois) · Starter : 5 $/mois · Creator : 22 $/mois · Pro : 99 $/mois
-- Conforme RGPD
-
-### Zapier AI
-- URL : https://zapier.com
-- Page : https://www.openletz.com/agents/zapier-ai
-- Categorie : productivity
-- Editeur : Zapier (San Francisco, USA)
-- Description : Automatisation de workflows avec l
-- Tarifs : Gratuit (100 tâches/mois) · Starter : 19,99 $/mois · Professional : 49 $/mois
-- Conforme RGPD
-
-### Notion AI
-- URL : https://notion.so
-- Page : https://www.openletz.com/agents/notion-ai
-- Categorie : productivity
-- Editeur : Notion Labs (San Francisco, USA)
-- Description : IA intégrée à Notion pour rédiger, résumer et organiser vos documents et projets.
-- Tarifs : Gratuit (limité) · Plus : 10 $/mois · Business : 18 $/mois · Enterprise : sur devis · IA : +10 $/mois
-- Conforme RGPD
-
-### Otter.ai
-- URL : https://otter.ai
-- Page : https://www.openletz.com/agents/otter-ai
-- Categorie : productivity
-- Editeur : Otter.ai (AISense) (Mountain View, USA)
-- Description : Transcription automatique de réunions et interviews. Notes IA en temps réel.
-- Tarifs : Gratuit (300 min/mois) · Pro : 16,99 $/mois · Business : 30 $/mois · Enterprise : sur devis
-- RGPD partiel
-
-### Julius AI
-- URL : https://julius.ai
-- Page : https://www.openletz.com/agents/julius-ai
-- Categorie : analytics
-- Editeur : Julius AI (San Francisco, USA)
-- Description : Analyse de données par l
-- Tarifs : Gratuit (limité) · Pro : 20 $/mois · Teams : sur devis
-- Conforme RGPD
-
-### Rows AI
-- URL : https://rows.com
-- Page : https://www.openletz.com/agents/rows-ai
-- Categorie : analytics
-- Editeur : Rows GmbH (Berlin, Germany)
-- Description : Tableur avec IA intégrée. Analysez et visualisez vos données avec des prompts naturels.
-- Tarifs : Gratuit (limité) · Pro : 59 $/mois · Enterprise : sur devis
-- Conforme RGPD
-
-### MonkeyLearn
-- URL : https://monkeylearn.com
-- Page : https://www.openletz.com/agents/monkeylearn
-- Categorie : analytics
-- Editeur : Medallia (MonkeyLearn) (San Francisco, USA)
-- Description : Analyse de texte par IA. Classification, analyse de sentiments et extraction d
-- Tarifs : Gratuit (300 requêtes/mois) · Team : 299 $/mois · Business : 999 $/mois · Enterprise : sur devis
-- RGPD partiel
-
-### Midjourney
-- URL : https://midjourney.com
-- Page : https://www.openletz.com/agents/midjourney
-- Categorie : creative
-- Editeur : Midjourney (San Francisco, USA)
-- Description : Génération d
-- Tarifs : Basic : 10 $/mois · Standard : 30 $/mois · Pro : 60 $/mois · Mega : 120 $/mois
-- Non conforme RGPD
-
-### Canva AI
-- URL : https://canva.com
-- Page : https://www.openletz.com/agents/canva-ai
-- Categorie : creative
-- Editeur : Canva Pty Ltd (Sydney, Australia)
-- Description : Design graphique assisté par l
-- Tarifs : Gratuit (limité) · Pro : 12,99 $/mois · Teams : 14,99 $/mois · Enterprise : sur devis
-- Conforme RGPD
-
-### Runway
-- URL : https://runwayml.com
-- Page : https://www.openletz.com/agents/runway
-- Categorie : creative
-- Editeur : Runway AI (New York, USA)
-- Description : Génération et édition vidéo par IA. Effets spéciaux, animations et production vidéo.
-- Tarifs : Gratuit (125 crédits) · Standard : 12 $/mois · Pro : 28 $/mois · Unlimited : 76 $/mois
-- RGPD partiel
-
-### GitHub Copilot
-- URL : https://github.com/features/copilot
-- Page : https://www.openletz.com/agents/github-copilot
-- Categorie : dev
-- Editeur : Microsoft / GitHub (San Francisco, USA)
-- Description : Assistant de programmation IA. Complète votre code, génère des fonctions et aide au débogage.
-- Tarifs : Individual : 10 $/mois · Business : 19 $/mois · Enterprise : 39 $/mois
-- Conforme RGPD
-
-### Cursor
-- URL : https://cursor.com
-- Page : https://www.openletz.com/agents/cursor
-- Categorie : dev
-- Editeur : Anysphere (San Francisco, USA)
-- Description : IDE avec IA intégrée. Éditeur de code intelligent qui comprend l
-- Tarifs : Hobby : gratuit · Pro : 20 $/mois · Business : 40 $/mois
-- RGPD partiel
-
-### v0 by Vercel
-- URL : https://v0.dev
-- Page : https://www.openletz.com/agents/v0-by-vercel
-- Categorie : dev
-- Editeur : Vercel (San Francisco, USA)
-- Description : Générateur d\
-- Tarifs : Gratuit (limité) · Premium : 20 $/mois · Team : 30 $/mois
-- Conforme RGPD
-
-### Google Gemini
-- URL : https://gemini.google.com
-- Page : https://www.openletz.com/agents/google-gemini
-- Categorie : assistant
-- Editeur : Google (Mountain View, USA)
-- Description : Assistant IA multimodal de Google. Texte, images, code et raisonnement avancé.
-- Tarifs : Gratuit (limité) · Gemini Advanced : 19,99 $/mois · Business : 14 $/utilisateur/mois
-- Conforme RGPD
-
-### Mistral AI
-- URL : https://mistral.ai
-- Page : https://www.openletz.com/agents/mistral
-- Categorie : assistant
-- Editeur : Mistral AI (Paris, France)
-- Description : Modèles IA open-source européens. Alternative souveraine avec hébergement UE natif.
-- Tarifs : Gratuit (Le Chat) · API : à la consommation · Enterprise : sur devis
-- Conforme RGPD
-
-### DeepL
-- URL : https://deepl.com
-- Page : https://www.openletz.com/agents/deepl
-- Categorie : content
-- Editeur : DeepL SE (Cologne, Germany)
-- Description : Traduction automatique de haute qualité. API et intégrations pour la traduction professionnelle.
-- Tarifs : Gratuit (limité) · Pro : 8,99 €/mois · Team : 27,99 €/mois · Enterprise : sur devis
-- Conforme RGPD
-
-### Grammarly
-- URL : https://grammarly.com
-- Page : https://www.openletz.com/agents/grammarly
-- Categorie : content
-- Editeur : Grammarly Inc. (San Francisco, USA)
-- Description : Assistant d
-- Tarifs : Gratuit (basique) · Premium : 12 $/mois · Business : 15 $/utilisateur/mois · Enterprise : sur devis
-- Conforme RGPD
-
-### Synthesia
-- URL : https://synthesia.io
-- Page : https://www.openletz.com/agents/synthesia
-- Categorie : creative
-- Editeur : Synthesia Ltd (London, UK)
-- Description : Création de vidéos IA avec avatars réalistes. Idéal pour la formation et le marketing.
-- Tarifs : Starter : 22 $/mois · Creator : 67 $/mois · Enterprise : sur devis
-- Conforme RGPD
-
-### HubSpot AI
-- URL : https://hubspot.com
-- Page : https://www.openletz.com/agents/hubspot-ai
-- Categorie : productivity
-- Editeur : HubSpot Inc. (Cambridge, USA)
-- Description : CRM avec IA intégrée. Automatisation marketing, vente et service client alimentés par l
-- Tarifs : Gratuit (CRM) · Starter : 20 €/mois · Pro : 880 €/mois · Enterprise : 3 300 €/mois
-- Conforme RGPD
-
-### Fireflies.ai
-- URL : https://fireflies.ai
-- Page : https://www.openletz.com/agents/fireflies-ai
-- Categorie : productivity
-- Editeur : Fireflies.ai Inc. (San Francisco, USA)
-- Description : Transcription et résumé de réunions par IA. Notes automatiques, action items et intégrations.
-- Tarifs : Gratuit (limité) · Pro : 18 $/mois · Business : 29 $/mois · Enterprise : 39 $/mois
-- Conforme RGPD
-
-### Durable
-- URL : https://durable.co
-- Page : https://www.openletz.com/agents/durable
-- Categorie : dev
-- Editeur : Durable Inc. (Vancouver, Canada)
-- Description : Créateur de sites web IA. Générez un site professionnel complet en quelques secondes.
-- Tarifs : Gratuit (essai) · Starter : 12 $/mois · Business : 20 $/mois
-- RGPD partiel
-
-### Writesonic
-- URL : https://writesonic.com
-- Page : https://www.openletz.com/agents/writesonic
-- Categorie : content
-- Editeur : Writesonic Inc. (San Francisco, USA)
-- Description : Rédaction IA pour le marketing. Articles de blog, landing pages et contenu SEO optimisé.
-- Tarifs : Gratuit (limité) · Individual : 16 $/mois · Team : 13 $/utilisateur/mois · Enterprise : sur devis
-- RGPD partiel
-
-### Tome
-- URL : https://tome.app
-- Page : https://www.openletz.com/agents/tome
-- Categorie : creative
-- Editeur : Magical Tome Inc. (San Francisco, USA)
-- Description : Présentations professionnelles générées par IA. Créez des decks en quelques minutes.
-- Tarifs : Gratuit (limité) · Pro : 16 $/mois · Business : sur devis
-- RGPD partiel
-
-### Surfer SEO
-- URL : https://surferseo.com
-- Page : https://www.openletz.com/agents/surfer-seo
-- Categorie : analytics
-- Editeur : Surfer SEO Sp. z o.o. (Wroclaw, Poland)
-- Description : Optimisation SEO par IA. Analyse de contenu, recherche de mots-clés et audit SEO automatisé.
-- Tarifs : Essential : 89 $/mois · Scale : 129 $/mois · Enterprise : sur devis
-- Conforme RGPD
-
-### Make
-- URL : https://make.com
-- Page : https://www.openletz.com/agents/make
-- Categorie : productivity
-- Editeur : Celonis SE (Make) (Prague, Czech Republic)
-- Description : Automatisation visuelle de workflows. Connectez vos apps avec des scénarios visuels sans code.
-- Tarifs : Gratuit (1 000 ops/mois) · Core : 9 $/mois · Pro : 16 $/mois · Teams : 29 $/mois · Enterprise : sur devis
-- Conforme RGPD
-
-### HeyGen
-- URL : https://heygen.com
-- Page : https://www.openletz.com/agents/heygen
-- Categorie : creative
-- Editeur : HeyGen Inc. (Los Angeles, USA)
-- Description : Création de vidéos avec avatars IA. Traduction vidéo et personnalisation à grande échelle.
-- Tarifs : Gratuit (1 crédit) · Creator : 24 $/mois · Business : 72 $/mois · Enterprise : sur devis
-- RGPD partiel
-
-### Beautiful.ai
-- URL : https://beautiful.ai
-- Page : https://www.openletz.com/agents/beautiful-ai
-- Categorie : analytics
-- Editeur : Beautiful.ai Inc. (San Francisco, USA)
-- Description : Présentations professionnelles avec design IA automatique. Templates intelligents et mise en page adaptative.
-- Tarifs : Pro : 12 $/mois · Team : 40 $/utilisateur/mois · Enterprise : sur devis
-- RGPD partiel
-
 ## Pages du site
 
-- https://www.openletz.com/ -- Simulateur d'eligibilite - page d'accueil avec quiz 6 questions
-- https://www.openletz.com/agents -- Repertoire de 32 outils IA avec conformite RGPD et EU AI Act
-- https://www.openletz.com/pricing -- Tarifs des services OpenLetz et comparatif prix outils IA
-- https://www.openletz.com/blog -- Blog : guides aides digitalisation, IA pour PME, Luxinnovation
-- https://www.openletz.com/about -- A propos : mission, programmes references, chiffres cles
-- https://www.openletz.com/contact -- Contact : demande de rappel expert, accompagnement subventions
-- https://www.openletz.com/privacy -- Politique de confidentialite RGPD
-- https://www.openletz.com/terms -- Conditions generales d'utilisation
-
-## Articles de blog
-
-- Guide complet des aides a la digitalisation au Luxembourg (2025)
-- L'IA pour les PME luxembourgeoises : opportunites et premiers pas
-- Luxinnovation : qui sont-ils et comment peuvent-ils aider votre entreprise ?
-
-## Langues supportees
-
-Francais (defaut), English, Deutsch, Letzebuerguesch, Italiano, Portugues
+- https://www.openletz.com/fr — Simulateur d'eligibilite - page d'accueil avec quiz 6 questions
+- https://www.openletz.com/fr/agents — Repertoire de 32 outils IA avec conformite RGPD et EU AI Act
+- https://www.openletz.com/fr/pricing — Tarifs des services OpenLetz
+- https://www.openletz.com/fr/blog — Blog : guides aides digitalisation, IA pour PME
+- https://www.openletz.com/fr/about — A propos : mission, programmes references
+- https://www.openletz.com/fr/contact — Contact : demande de rappel expert
