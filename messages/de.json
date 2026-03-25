@@ -362,7 +362,17 @@
       "title": "6 referenzierte Programme",
       "text": "Wir analysieren Ihre Berechtigung für die 6 Hauptprogramme: SME Package Digital, SME Package AI, SME Package Cybersicherheit, Fit 4 Digital, Fit 4 AI und Fit 4 Innovation. Bis zu 25.000 € pro Programm und bis zu 70 % Abdeckung."
     },
-    "cta": "Meine Förderung simulieren"
+    "cta": "Meine Förderung simulieren",
+    "figures": {
+      "title": "Eckdaten",
+      "text": "OpenLetz bündelt Informationen zu luxemburgischen Förderprogrammen und bietet schnellen Zugang zu Finanzierungsmöglichkeiten.",
+      "stat1": "Programme analysiert",
+      "stat2": "max. Förderung pro Projekt",
+      "stat3": "KI-Tools bewertet (DSGVO)",
+      "stat4": "für Ihre Ergebnisse",
+      "sources": "Quellen und Referenzen",
+      "source3": "Luxemburger Wirtschaftsministerium"
+    }
   },
   "pricing": {
     "title": "Unsere Services & Preise",
