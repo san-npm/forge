@@ -362,7 +362,17 @@
       "title": "6 referans program",
       "text": "6 ana Lüksemburg programı için uygunluğunuzu analiz ediyoruz: SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI ve Fit 4 Innovation. Program başına 25.000 €'ya kadar ve %70'e kadar kapsam."
     },
-    "cta": "Hibelerimi simüle et"
+    "cta": "Hibelerimi simüle et",
+    "figures": {
+      "title": "Önemli rakamlar",
+      "text": "OpenLetz, Lüksemburg kamu hibelerine ilişkin bilgileri merkezileştirir ve finansman programlarına hızlı erişim sağlar.",
+      "stat1": "program analiz edildi",
+      "stat2": "proje başına maks. hibe",
+      "stat3": "YZ aracı değerlendirildi (KVKK)",
+      "stat4": "sonuçlarınız için",
+      "sources": "Kaynaklar ve referanslar",
+      "source3": "Lüksemburg Ekonomi Bakanlığı"
+    }
   },
   "pricing": {
     "title": "Hizmetlerimiz ve fiyatlarımız",
