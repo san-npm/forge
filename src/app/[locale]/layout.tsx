@@ -382,52 +382,25 @@ export default async function LocaleLayout({
     ],
   };
 
-  // FAQPage JSON-LD (homepage FAQ in French — the default indexable language)
+  // FAQPage JSON-LD — dynamically generated from locale messages
+  const faqMessages = (messages as Record<string, Record<string, Record<string, string>>>)?.faq || {};
+  const faqEntries = [1, 2, 3, 4, 5]
+    .map((i) => {
+      const q = faqMessages[String(i)]?.q;
+      const a = faqMessages[String(i)]?.a;
+      if (!q || !a) return null;
+      return {
+        '@type': 'Question' as const,
+        name: q,
+        acceptedAnswer: { '@type': 'Answer' as const, text: a },
+      };
+    })
+    .filter(Boolean);
+
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Le simulateur est-il vraiment gratuit ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: "Oui, le simulateur est 100% gratuit et sans engagement. Vous répondez à 6 questions et obtenez vos résultats instantanément.",
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Quels programmes sont analysés ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Nous analysons 6 programmes luxembourgeois : SME Package Digital, SME Package AI, SME Package Cybersecurity, Fit 4 Digital, Fit 4 AI et Fit 4 Innovation.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Qui peut bénéficier de ces aides ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: "Toute PME établie au Luxembourg avec une autorisation d'établissement. La plupart des secteurs sont éligibles, y compris HORECA, commerce, artisanat, services et industrie.",
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Combien puis-je obtenir ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: "Selon votre profil, vous pouvez recevoir jusqu'à 25 000 € d'aides avec jusqu'à 70% de vos coûts de projet couverts.",
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Combien de temps prend le processus ?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: "La simulation prend 10 secondes. Si vous êtes éligible, le processus de demande d'aide prend généralement 4 à 8 semaines selon le programme.",
-        },
-      },
-    ],
+    mainEntity: faqEntries,
   };
 
   return (
