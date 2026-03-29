@@ -157,13 +157,17 @@ export default function AgentsPage() {
                 <Link
                   key={agent.slug}
                   href={`/agents/${agent.slug}`}
-                  className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-primary-300 transition-all duration-300 overflow-hidden animate-slide-up hover:-translate-y-1"
+                  className={`group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden animate-slide-up hover:-translate-y-1 ${
+                    agent.featured
+                      ? 'border-2 border-orange-400 ring-2 ring-orange-100 shadow-md'
+                      : 'border border-gray-200 hover:border-primary-300'
+                  }`}
                   style={{ animationDelay: `${index * 0.03}s` }}
                 >
                   {/* Colored top accent bar */}
                   <div
-                    className="h-1 w-full"
-                    style={{ backgroundColor: visual?.color || '#6B7280' }}
+                    className={agent.featured ? 'h-1.5 w-full bg-gradient-to-r from-orange-400 to-red-500' : 'h-1 w-full'}
+                    style={agent.featured ? undefined : { backgroundColor: visual?.color || '#6B7280' }}
                   />
                   <div className="p-6">
                     {/* Logo + name row */}
@@ -179,6 +183,11 @@ export default function AgentsPage() {
 
                     {/* Badges row */}
                     <div className="flex flex-wrap items-center gap-1.5 mb-3">
+                      {agent.featured && (
+                        <span className="px-2.5 py-0.5 text-xs font-semibold bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full shadow-sm">
+                          Featured
+                        </span>
+                      )}
                       {agent.free ? (
                         <span className="px-2.5 py-0.5 text-xs font-semibold bg-green-50 text-green-700 rounded-full border border-green-200">
                           {t('directory.freemium')}
