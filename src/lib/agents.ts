@@ -39,7 +39,7 @@ export const CATEGORIES: { id: string; labelKey: string; icon: string }[] = [
   { id: 'dev', labelKey: 'directory.cat.dev', icon: 'Code' },
 ]
 
-export const AGENT_VISUALS: Record<string, { icon: string; color: string; domain: string }> = {
+export const AGENT_VISUALS: Record<string, { icon: string; color: string; domain: string; localLogo?: string }> = {
   'chatgpt': { icon: 'AI', color: '#10A37F', domain: 'openai.com' },
   'claude': { icon: 'C', color: '#D97757', domain: 'anthropic.com' },
   'perplexity': { icon: 'P', color: '#20808D', domain: 'perplexity.ai' },
@@ -72,7 +72,7 @@ export const AGENT_VISUALS: Record<string, { icon: string; color: string; domain
   'make': { icon: 'Mk', color: '#6D00CC', domain: 'make.com' },
   'heygen': { icon: 'HG', color: '#5046E5', domain: 'heygen.com' },
   'beautiful-ai': { icon: 'BA', color: '#E85D3A', domain: 'beautiful.ai' },
-  'liberclaw': { icon: 'LC', color: '#6366F1', domain: 'liberclaw.ai' },
+  'liberclaw': { icon: 'LC', color: '#E1490D', domain: 'liberclaw.ai', localLogo: '/logos/liberclaw.svg' },
 }
 
 export const AGENTS: Agent[] = [
