@@ -37,9 +37,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
 
+  const keywords: Record<string, string[]> = {
+    fr: [
+      'outils IA Luxembourg', 'assistants IA coding Luxembourg', 'RGPD IA',
+      'claude rgpd', 'heygen gdpr', 'heygen dsgvo', 'outils IA RGPD conformes',
+      'AI tools Luxembourg PME', 'celonis', 'ai coding assistants luxembourg',
+    ],
+    en: [
+      'AI tools Luxembourg', 'ai coding assistants luxembourg', 'GDPR AI tools',
+      'claude gdpr', 'heygen gdpr', 'heygen dsgvo', 'GDPR compliant AI tools',
+      'AI tools Luxembourg SME', 'celonis', 'EU AI Act compliant tools',
+    ],
+  }
+
   return {
     title: titles[locale] || titles.fr,
     description: descriptions[locale] || descriptions.fr,
+    keywords: keywords[locale] || keywords.fr,
     alternates: { canonical: `${SITE_URL}/${locale}/agents` },
     other: {
       'geo.region': 'LU',
