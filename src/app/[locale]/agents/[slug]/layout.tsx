@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { AGENTS } from '@/lib/agents'
+import { safeJsonLd } from '@/lib/safeJsonLd'
 
 const SITE_URL = 'https://www.openletz.com'
 
@@ -141,13 +142,13 @@ export default async function AgentSlugLayout({
       {breadcrumbJsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbJsonLd) }}
         />
       )}
       {softwareJsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(softwareJsonLd) }}
         />
       )}
       {children}

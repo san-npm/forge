@@ -5,6 +5,14 @@ export function rateLimit(
   { limit = 5, windowMs = 60_000 }: { limit?: number; windowMs?: number } = {}
 ): { ok: boolean; remaining: number } {
   const now = Date.now()
+
+  // Evict stale entries to prevent unbounded memory growth
+  if (hits.size > 10_000) {
+    hits.forEach((val, key) => {
+      if (now > val.resetAt) hits.delete(key)
+    })
+  }
+
   const entry = hits.get(ip)
 
   if (!entry || now > entry.resetAt) {
