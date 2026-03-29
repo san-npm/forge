@@ -23,14 +23,17 @@ export default function AgentLogo({ slug, name, size = 'md', className = '' }: A
   const domain = visual?.domain
   const config = sizeConfig[size]
 
-  const sources = domain
-    ? [
-        `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
-        `https://logo.clearbit.com/${domain}`,
-      ]
-    : []
+  const sources = [
+    ...(visual?.localLogo ? [visual.localLogo] : []),
+    ...(domain
+      ? [
+          `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
+          `https://logo.clearbit.com/${domain}`,
+        ]
+      : []),
+  ]
 
-  if (domain && imgError < sources.length) {
+  if (sources.length > 0 && imgError < sources.length) {
     return (
       <div
         className={`${config.container} flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden bg-white border border-gray-100 ${className}`}
