@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { safeCompare } from '@/lib/safeCompare'
+import { rateLimit } from '@/lib/rateLimit'
 import { promises as fs } from 'fs'
 import path from 'path'
 
@@ -17,8 +19,14 @@ async function readJson<T>(filePath: string): Promise<T[]> {
 }
 
 export async function GET(req: NextRequest) {
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+  const { ok } = rateLimit(ip, { limit: 10, windowMs: 60_000 })
+  if (!ok) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+  }
+
   const token = req.headers.get('authorization')?.replace('Bearer ', '')
-  if (!ADMIN_TOKEN || token !== ADMIN_TOKEN) {
+  if (!ADMIN_TOKEN || !token || !safeCompare(token, ADMIN_TOKEN)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

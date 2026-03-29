@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Script from 'next/script';
 import type { Metadata } from 'next';
+import { safeJsonLd } from '@/lib/safeJsonLd';
 import Providers from './providers';
 import '../globals.css';
 
@@ -403,6 +404,52 @@ export default async function LocaleLayout({
     mainEntity: faqEntries,
   };
 
+  const howToJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: locale === 'fr'
+      ? 'Comment simuler votre éligibilité aux aides luxembourgeoises'
+      : 'How to simulate your eligibility for Luxembourg grants',
+    description: locale === 'fr'
+      ? 'Répondez à 6 questions et découvrez les programmes de subventions auxquels votre PME est éligible.'
+      : 'Answer 6 questions and discover which grant programs your SME is eligible for.',
+    totalTime: 'PT2M',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: locale === 'fr' ? 'Lancez le simulateur' : 'Start the simulator',
+        text: locale === 'fr'
+          ? 'Cliquez sur "Commencer" pour démarrer le questionnaire gratuit.'
+          : 'Click "Start" to begin the free questionnaire.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: locale === 'fr' ? 'Répondez à 6 questions' : 'Answer 6 questions',
+        text: locale === 'fr'
+          ? 'Taille, secteur, statut luxembourgeois, maturité digitale, défi principal, usage IA.'
+          : 'Company size, sector, Luxembourg status, digital maturity, biggest challenge, AI usage.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: locale === 'fr' ? 'Découvrez vos résultats' : 'Get your results',
+        text: locale === 'fr'
+          ? 'Recevez la liste des programmes éligibles avec les montants estimés et recommandations de projets.'
+          : 'Receive the list of eligible programs with estimated grant amounts and project recommendations.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: locale === 'fr' ? 'Contactez un expert' : 'Contact an expert',
+        text: locale === 'fr'
+          ? 'Demandez un accompagnement personnalisé pour monter votre dossier de subvention.'
+          : 'Request personalized support to prepare your grant application.',
+      },
+    ],
+  };
+
   return (
     <html lang={locale}>
       <head>
@@ -426,27 +473,32 @@ gtag('config', 'G-2Z75PD960S');`}
         <Script
           id="json-ld-org"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd) }}
         />
         <Script
           id="json-ld-webapp"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(webAppJsonLd) }}
         />
         <Script
           id="json-ld-localbusiness"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(localBusinessJsonLd) }}
         />
         <Script
           id="json-ld-breadcrumb"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbJsonLd) }}
         />
         <Script
           id="json-ld-faq"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
+        />
+        <Script
+          id="json-ld-howto"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(howToJsonLd) }}
         />
       </head>
       <body className="antialiased">

@@ -48,6 +48,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })
   }
 
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: 'Invalid email format' }, { status: 400 })
+  }
+
   const entry: ContactEntry = {
     name,
     email,

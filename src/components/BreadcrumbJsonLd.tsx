@@ -32,7 +32,7 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
     <Script
       id="json-ld-breadcrumb"
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbList) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbList).replace(/<\/script>/gi, '<\\/script>') }}
     />
   );
 }

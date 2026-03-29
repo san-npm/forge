@@ -30,8 +30,8 @@ export async function POST(req: NextRequest) {
   const body = await req.json()
   const email = typeof body.email === 'string' ? body.email.trim().slice(0, 500) : ''
 
-  if (!email) {
-    return NextResponse.json({ error: 'Email is required' }, { status: 400 })
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: 'Valid email is required' }, { status: 400 })
   }
 
   const subscribers = await readSubscribers()

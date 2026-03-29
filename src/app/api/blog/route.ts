@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getAllPosts } from '@/lib/blog'
+import { safeCompare } from '@/lib/safeCompare'
+import { rateLimit } from '@/lib/rateLimit'
 import { promises as fs } from 'fs'
 import path from 'path'
 
@@ -22,8 +24,15 @@ export async function POST(req: NextRequest) {
     )
   }
 
-  if (authHeader !== `Bearer ${token}`) {
+  const expected = `Bearer ${token}`
+  if (!authHeader || !safeCompare(authHeader, expected)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+  const { ok } = rateLimit(ip, { limit: 10, windowMs: 60_000 })
+  if (!ok) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
   }
 
   const body = await req.json()
@@ -89,5 +98,5 @@ export async function POST(req: NextRequest) {
   await fs.mkdir(BLOG_DIR, { recursive: true })
   await fs.writeFile(filePath, mdxContent, 'utf-8')
 
-  return NextResponse.json({ success: true, slug: safeSlug, path: filePath })
+  return NextResponse.json({ success: true, slug: safeSlug })
 }
