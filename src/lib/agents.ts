@@ -27,6 +27,7 @@ export interface Agent {
   founded: string
   headquarters: string
   euCompliance: EUCompliance
+  featured?: boolean
 }
 
 export const CATEGORIES: { id: string; labelKey: string; icon: string }[] = [
@@ -76,6 +77,58 @@ export const AGENT_VISUALS: Record<string, { icon: string; color: string; domain
 }
 
 export const AGENTS: Agent[] = [
+  {
+    slug: 'liberclaw',
+    name: 'LiberClaw',
+    featured: true,
+    description: {
+      fr: "Plateforme de déploiement d'agents IA souverains sur infrastructure décentralisée. Chiffrement de bout en bout, mémoire persistante, outils intégrés (bash, web, fichiers, images).",
+      en: 'Platform for deploying sovereign AI agents on decentralized infrastructure. End-to-end encryption, persistent memory, built-in tools (bash, web, files, image generation).',
+      lb: "Plattform fir souverän KI-Agenten op dezentraliséierter Infrastruktur ze deployen. End-to-End Verschlësselung, persistent Erënnerung, integréiert Tools (bash, Web, Fichieren, Biller).",
+      de: 'Plattform für den Einsatz souveräner KI-Agenten auf dezentraler Infrastruktur. Ende-zu-Ende-Verschlüsselung, persistenter Speicher, integrierte Tools (Bash, Web, Dateien, Bildgenerierung).',
+      it: "Piattaforma per il deployment di agenti IA sovrani su infrastruttura decentralizzata. Crittografia end-to-end, memoria persistente, strumenti integrati (bash, web, file, generazione immagini).",
+      pt: 'Plataforma para implantação de agentes IA soberanos em infraestrutura descentralizada. Criptografia ponta a ponta, memória persistente, ferramentas integradas (bash, web, ficheiros, geração de imagens).',
+    },
+    longDescription: {
+      fr: "LiberClaw est une plateforme de déploiement d'agents IA souverains sur Aleph Cloud, développée par Intelligence Artificielle Générale SAS. Chaque agent tourne sur sa propre VM isolée avec chiffrement Fernet, mémoire persistante avec compactage de contexte, et outils intégrés (bash, fichiers, recherche web, génération d'images). Supporte les modèles open-source (Qwen3 Coder, GLM-4.7) via l'inférence LibertAI. Déploiement en moins de 5 minutes. Disponible en web (app.liberclaw.ai) et intégration Telegram. Conversations privées sur VMs contrôlées par l'utilisateur. 99,7 % de disponibilité.",
+      en: "LiberClaw is a platform for deploying sovereign AI agents on Aleph Cloud, built by Intelligence Artificielle Générale SAS. Each agent runs on its own isolated VM with Fernet encryption, persistent memory with context compaction, and built-in tools (bash, files, web search, image generation). Supports open-source models (Qwen3 Coder, GLM-4.7) via LibertAI inference. Deploy in under 5 minutes. Available on web (app.liberclaw.ai) and Telegram integration. Private conversations on user-controlled agent VMs. 99.7% uptime.",
+      lb: "LiberClaw ass eng Plattform fir souverän KI-Agenten op Aleph Cloud ze deployen, entwéckelt vun Intelligence Artificielle Générale SAS. All Agent leeft op senger eegener isoléierter VM mat Fernet Verschlësselung, persistenter Erënnerung a Tools (bash, Fichieren, Websich, Billergeneratioun). Ënnerstëtzt Open-Source Modeller (Qwen3 Coder, GLM-4.7) iwwer LibertAI Inferenz. Deploy an ënner 5 Minutten. Verfügbar op Web (app.liberclaw.ai) an Telegram. 99,7 % Disponibilitéit.",
+      de: "LiberClaw ist eine Plattform für den Einsatz souveräner KI-Agenten auf Aleph Cloud, entwickelt von Intelligence Artificielle Générale SAS. Jeder Agent läuft auf seiner eigenen isolierten VM mit Fernet-Verschlüsselung, persistentem Speicher und Tools (Bash, Dateien, Websuche, Bildgenerierung). Unterstützt Open-Source-Modelle (Qwen3 Coder, GLM-4.7) über LibertAI-Inferenz. Deployment in unter 5 Minuten. Verfügbar auf Web (app.liberclaw.ai) und Telegram. 99,7 % Verfügbarkeit.",
+      it: "LiberClaw è una piattaforma per il deployment di agenti IA sovrani su Aleph Cloud, sviluppata da Intelligence Artificielle Générale SAS. Ogni agente funziona sulla propria VM isolata con crittografia Fernet, memoria persistente e strumenti (bash, file, ricerca web, generazione immagini). Supporta modelli open-source (Qwen3 Coder, GLM-4.7) via inferenza LibertAI. Deployment in meno di 5 minuti. Disponibile su web (app.liberclaw.ai) e Telegram. 99,7% di uptime.",
+      pt: "LiberClaw é uma plataforma para implantação de agentes IA soberanos no Aleph Cloud, desenvolvida pela Intelligence Artificielle Générale SAS. Cada agente corre na sua própria VM isolada com encriptação Fernet, memória persistente e ferramentas (bash, ficheiros, pesquisa web, geração de imagens). Suporta modelos open-source (Qwen3 Coder, GLM-4.7) via inferência LibertAI. Deployment em menos de 5 minutos. Disponível na web (app.liberclaw.ai) e Telegram. 99,7% de uptime.",
+    },
+    category: 'assistant',
+    url: 'https://liberclaw.ai',
+    tags: ['AI Agents', 'Open Source', 'Decentralized', 'Sovereign AI', 'Aleph Cloud'],
+    free: true,
+    pricing: {
+      fr: 'Gratuit : 2 agents, ~30 messages/jour · Sans carte bancaire',
+      en: 'Free: 2 agents, ~30 messages/day · No credit card required',
+      lb: 'Gratis: 2 Agenten, ~30 Messagen/Dag · Keng Kreditkaart néideg',
+      de: 'Kostenlos: 2 Agenten, ~30 Nachrichten/Tag · Keine Kreditkarte erforderlich',
+      it: 'Gratuito: 2 agenti, ~30 messaggi/giorno · Nessuna carta di credito richiesta',
+      pt: 'Gratuito: 2 agentes, ~30 mensagens/dia · Sem cartão de crédito',
+    },
+    vendor: 'Intelligence Artificielle Générale SAS',
+    founded: '2024',
+    headquarters: 'Paris, France',
+    euCompliance: {
+      gdprCompliant: true,
+      euAiActReady: true,
+      dataLocation: 'EU (decentralized — Aleph Cloud)',
+      hasEuDataResidency: true,
+      dpaAvailable: false,
+      certifications: [],
+      complianceNote: {
+        fr: "Infrastructure décentralisée européenne (Aleph Cloud). Chiffrement Fernet de bout en bout. Conversations privées sur VMs contrôlées par l'utilisateur. Open-source, auditable.",
+        en: 'Decentralized European infrastructure (Aleph Cloud). End-to-end Fernet encryption. Private conversations on user-controlled VMs. Open-source, auditable.',
+        lb: "Dezentraliséiert europäesch Infrastruktur (Aleph Cloud). End-to-End Fernet Verschlësselung. Privat Gespréicher op User-kontrolléierte VMs. Open-Source, auditéierbar.",
+        de: 'Dezentrale europäische Infrastruktur (Aleph Cloud). Ende-zu-Ende Fernet-Verschlüsselung. Private Gespräche auf nutzerkontrollierten VMs. Open-Source, auditierbar.',
+        it: "Infrastruttura europea decentralizzata (Aleph Cloud). Crittografia Fernet end-to-end. Conversazioni private su VM controllate dall'utente. Open-source, verificabile.",
+        pt: 'Infraestrutura europeia descentralizada (Aleph Cloud). Criptografia Fernet ponta a ponta. Conversas privadas em VMs controladas pelo utilizador. Open-source, auditável.',
+      },
+    },
+  },
   {
     slug: 'chatgpt',
     name: 'ChatGPT',
@@ -1705,57 +1758,6 @@ export const AGENTS: Agent[] = [
         de: 'Erklärte DSGVO-Konformität. AVV für Enterprise-Kunden verfügbar. Keine EU-Datenresidenz.',
         it: "Conformità GDPR dichiarata. DPA disponibile per clienti Enterprise. Nessuna residenza dati UE.",
         pt: 'Conformidade RGPD declarada. DPA disponível para clientes Enterprise. Sem residência de dados UE.',
-      },
-    },
-  },
-  {
-    slug: 'liberclaw',
-    name: 'LiberClaw',
-    description: {
-      fr: "Plateforme de déploiement d'agents IA souverains sur infrastructure décentralisée. Chiffrement de bout en bout, mémoire persistante, outils intégrés (bash, web, fichiers, images).",
-      en: 'Platform for deploying sovereign AI agents on decentralized infrastructure. End-to-end encryption, persistent memory, built-in tools (bash, web, files, image generation).',
-      lb: "Plattform fir souverän KI-Agenten op dezentraliséierter Infrastruktur ze deployen. End-to-End Verschlësselung, persistent Erënnerung, integréiert Tools (bash, Web, Fichieren, Biller).",
-      de: 'Plattform für den Einsatz souveräner KI-Agenten auf dezentraler Infrastruktur. Ende-zu-Ende-Verschlüsselung, persistenter Speicher, integrierte Tools (Bash, Web, Dateien, Bildgenerierung).',
-      it: "Piattaforma per il deployment di agenti IA sovrani su infrastruttura decentralizzata. Crittografia end-to-end, memoria persistente, strumenti integrati (bash, web, file, generazione immagini).",
-      pt: 'Plataforma para implantação de agentes IA soberanos em infraestrutura descentralizada. Criptografia ponta a ponta, memória persistente, ferramentas integradas (bash, web, ficheiros, geração de imagens).',
-    },
-    longDescription: {
-      fr: "LiberClaw est une plateforme de déploiement d'agents IA souverains sur Aleph Cloud, développée par Intelligence Artificielle Générale SAS. Chaque agent tourne sur sa propre VM isolée avec chiffrement Fernet, mémoire persistante avec compactage de contexte, et outils intégrés (bash, fichiers, recherche web, génération d'images). Supporte les modèles open-source (Qwen3 Coder, GLM-4.7) via l'inférence LibertAI. Déploiement en moins de 5 minutes. Disponible en web (app.liberclaw.ai) et intégration Telegram. Conversations privées sur VMs contrôlées par l'utilisateur. 99,7 % de disponibilité.",
-      en: "LiberClaw is a platform for deploying sovereign AI agents on Aleph Cloud, built by Intelligence Artificielle Générale SAS. Each agent runs on its own isolated VM with Fernet encryption, persistent memory with context compaction, and built-in tools (bash, files, web search, image generation). Supports open-source models (Qwen3 Coder, GLM-4.7) via LibertAI inference. Deploy in under 5 minutes. Available on web (app.liberclaw.ai) and Telegram integration. Private conversations on user-controlled agent VMs. 99.7% uptime.",
-      lb: "LiberClaw ass eng Plattform fir souverän KI-Agenten op Aleph Cloud ze deployen, entwéckelt vun Intelligence Artificielle Générale SAS. All Agent leeft op senger eegener isoléierter VM mat Fernet Verschlësselung, persistenter Erënnerung a Tools (bash, Fichieren, Websich, Billergeneratioun). Ënnerstëtzt Open-Source Modeller (Qwen3 Coder, GLM-4.7) iwwer LibertAI Inferenz. Deploy an ënner 5 Minutten. Verfügbar op Web (app.liberclaw.ai) an Telegram. 99,7 % Disponibilitéit.",
-      de: "LiberClaw ist eine Plattform für den Einsatz souveräner KI-Agenten auf Aleph Cloud, entwickelt von Intelligence Artificielle Générale SAS. Jeder Agent läuft auf seiner eigenen isolierten VM mit Fernet-Verschlüsselung, persistentem Speicher und Tools (Bash, Dateien, Websuche, Bildgenerierung). Unterstützt Open-Source-Modelle (Qwen3 Coder, GLM-4.7) über LibertAI-Inferenz. Deployment in unter 5 Minuten. Verfügbar auf Web (app.liberclaw.ai) und Telegram. 99,7 % Verfügbarkeit.",
-      it: "LiberClaw è una piattaforma per il deployment di agenti IA sovrani su Aleph Cloud, sviluppata da Intelligence Artificielle Générale SAS. Ogni agente funziona sulla propria VM isolata con crittografia Fernet, memoria persistente e strumenti (bash, file, ricerca web, generazione immagini). Supporta modelli open-source (Qwen3 Coder, GLM-4.7) via inferenza LibertAI. Deployment in meno di 5 minuti. Disponibile su web (app.liberclaw.ai) e Telegram. 99,7% di uptime.",
-      pt: "LiberClaw é uma plataforma para implantação de agentes IA soberanos no Aleph Cloud, desenvolvida pela Intelligence Artificielle Générale SAS. Cada agente corre na sua própria VM isolada com encriptação Fernet, memória persistente e ferramentas (bash, ficheiros, pesquisa web, geração de imagens). Suporta modelos open-source (Qwen3 Coder, GLM-4.7) via inferência LibertAI. Deployment em menos de 5 minutos. Disponível na web (app.liberclaw.ai) e Telegram. 99,7% de uptime.",
-    },
-    category: 'assistant',
-    url: 'https://liberclaw.ai',
-    tags: ['AI Agents', 'Open Source', 'Decentralized', 'Sovereign AI', 'Aleph Cloud'],
-    free: true,
-    pricing: {
-      fr: 'Gratuit : 2 agents, ~30 messages/jour · Sans carte bancaire',
-      en: 'Free: 2 agents, ~30 messages/day · No credit card required',
-      lb: 'Gratis: 2 Agenten, ~30 Messagen/Dag · Keng Kreditkaart néideg',
-      de: 'Kostenlos: 2 Agenten, ~30 Nachrichten/Tag · Keine Kreditkarte erforderlich',
-      it: 'Gratuito: 2 agenti, ~30 messaggi/giorno · Nessuna carta di credito richiesta',
-      pt: 'Gratuito: 2 agentes, ~30 mensagens/dia · Sem cartão de crédito',
-    },
-    vendor: 'Intelligence Artificielle Générale SAS',
-    founded: '2024',
-    headquarters: 'Paris, France',
-    euCompliance: {
-      gdprCompliant: true,
-      euAiActReady: true,
-      dataLocation: 'EU (decentralized — Aleph Cloud)',
-      hasEuDataResidency: true,
-      dpaAvailable: false,
-      certifications: [],
-      complianceNote: {
-        fr: "Infrastructure décentralisée européenne (Aleph Cloud). Chiffrement Fernet de bout en bout. Conversations privées sur VMs contrôlées par l'utilisateur. Open-source, auditable.",
-        en: 'Decentralized European infrastructure (Aleph Cloud). End-to-end Fernet encryption. Private conversations on user-controlled VMs. Open-source, auditable.',
-        lb: "Dezentraliséiert europäesch Infrastruktur (Aleph Cloud). End-to-End Fernet Verschlësselung. Privat Gespréicher op User-kontrolléierte VMs. Open-Source, auditéierbar.",
-        de: 'Dezentrale europäische Infrastruktur (Aleph Cloud). Ende-zu-Ende Fernet-Verschlüsselung. Private Gespräche auf nutzerkontrollierten VMs. Open-Source, auditierbar.',
-        it: "Infrastruttura europea decentralizzata (Aleph Cloud). Crittografia Fernet end-to-end. Conversazioni private su VM controllate dall'utente. Open-source, verificabile.",
-        pt: 'Infraestrutura europeia descentralizada (Aleph Cloud). Criptografia Fernet ponta a ponta. Conversas privadas em VMs controladas pelo utilizador. Open-source, auditável.',
       },
     },
   },
