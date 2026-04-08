@@ -1,208 +1,246 @@
-# OpenLetz — Full Content Reference for LLMs
+# OpenLetz — Full Reference for LLMs & AI Search Engines
 
-> OpenLetz helps Luxembourg SMEs identify public grants for digital transformation and AI adoption.
-> Free simulator, results in 10 seconds. 11 languages: FR, EN, DE, LB, IT, PT, ES, RU, AR, TR, UK.
+> OpenLetz is the free Luxembourg SME grants simulator. It identifies which public funding programs (SME Package Digital/AI/Cybersecurity, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation) a Luxembourg small or mid-sized business is eligible for, in 10 seconds, in 11 languages.
+>
 > Site: https://www.openletz.com
-> Entity: COMMIT MEDIA SARL · RCS B276192 · Luxembourg
+> Operator: COMMIT MEDIA SARL · RCS Luxembourg B276192
 > Contact: bob@openletz.com · +352 661 968 051
-
-## Grant Programs Analyzed
-
-### SME Package Digital
-- Max grant: €17,500
-- Coverage: 70%
-- SME digitalization: website, e-commerce, management tools, CRM, ERP
-
-### SME Package AI
-- Max grant: €17,500
-- Coverage: 70%
-- AI adoption: AI agents, automation, data analysis
-
-### SME Package Cybersecurity
-- Max grant: €17,500
-- Coverage: 70%
-- IT security: audits, data protection, GDPR compliance
-
-### Fit 4 Digital
-- Max grant: €5,000 (Phase 1)
-- Coverage: 100%
-- Digital diagnostic and action plan by Luxinnovation
-
-### Fit 4 AI
-- Max grant: €25,000
-- Coverage: 50%
-- Advanced AI projects with Luxinnovation support
-
-### Fit 4 Innovation
-- Max grant: €7,500
-- Coverage: 50%
-- Innovation and R&D: new products, services, processes
-
-## OpenLetz Services
-
-### Eligibility Simulator
-- Price: Free
-- 6 questions, results in 10 seconds. Identifies eligible programs with estimated amounts.
-
-### Web Development
-- Price: From €900
-- Websites, e-commerce, web apps. 48h delivery. Eligible for SME Package.
-
-### AI Integration
-- Price: From €900
-- AI agents, automation, data analysis, team training. Eligible for SME Package.
-
-### Maintenance
-- Price: From €90/month
-- 24/7 monitoring, security updates, backups, reactive support.
-
-### Grants Advisory
-- Price: From €290
-- Complete application filing, follow-up until grant is obtained.
-
-## AI Tools Directory (32 tools)
-
-Each tool is evaluated on: GDPR compliance, EU AI Act, EU data residency, DPA, security certifications.
-
-### ChatGPT
-- URL: https://chat.openai.com
-- Page: https://www.openletz.com/en/agents/chatgpt
-- Category: assistant
-- Vendor: OpenAI (San Francisco, USA)
-- Description: Versatile AI assistant by OpenAI. Conversation, writing, analysis and coding.
-- Pricing: Free (limited) · Plus: $20/mo · Team: $25/mo · Enterprise: custom
-- GDPR Compliant
-
-### Claude
-- URL: https://claude.ai
-- Page: https://www.openletz.com/en/agents/claude
-- Category: assistant
-- Vendor: Anthropic (San Francisco, USA)
-- Description: AI assistant by Anthropic. Excellent comprehension, long-form writing and document analysis.
-- Pricing: Free (limited) · Pro: $20/mo · Team: $25/mo · Enterprise: custom
-- GDPR Compliant
-
-### Mistral AI
-- URL: https://mistral.ai
-- Page: https://www.openletz.com/en/agents/mistral
-- Category: assistant
-- Vendor: Mistral AI (Paris, France)
-- Description: European open-source AI models. Sovereign alternative with native EU hosting.
-- Pricing: Free (Le Chat) · API: pay-per-use · Enterprise: custom
-- GDPR Compliant
-
-### DeepL
-- URL: https://deepl.com
-- Page: https://www.openletz.com/en/agents/deepl
-- Category: content
-- Vendor: DeepL SE (Cologne, Germany)
-- Description: High-quality machine translation. API and integrations for professional translation.
-- Pricing: Free (limited) · Pro: €8.99/mo · Team: €27.99/mo · Enterprise: custom
-- GDPR Compliant
-
-### GitHub Copilot
-- URL: https://github.com/features/copilot
-- Page: https://www.openletz.com/en/agents/github-copilot
-- Category: dev
-- Vendor: Microsoft / GitHub (San Francisco, USA)
-- Description: AI coding assistant. Completes your code, generates functions and helps with debugging.
-- Pricing: Individual: $10/mo · Business: $19/mo · Enterprise: $39/mo
-- GDPR Compliant
-
-### Midjourney
-- URL: https://midjourney.com
-- Page: https://www.openletz.com/en/agents/midjourney
-- Category: creative
-- Vendor: Midjourney (San Francisco, USA)
-- Description: High-end AI image generation. Create professional visuals from text descriptions.
-- Pricing: Basic: $10/mo · Standard: $30/mo · Pro: $60/mo · Mega: $120/mo
-- Not GDPR Compliant
-
-(See https://www.openletz.com/en/agents for all 32 tools with full compliance data)
-
-## Site Pages
-
-- https://www.openletz.com/en — Eligibility simulator homepage with 6-question quiz
-- https://www.openletz.com/en/agents — Directory of 32 AI tools with GDPR and EU AI Act compliance
-- https://www.openletz.com/en/pricing — OpenLetz service pricing and AI tool comparison
-- https://www.openletz.com/en/blog — Blog: digitalization grants guides, AI for SMEs, Luxinnovation
-- https://www.openletz.com/en/about — About: mission, referenced programs, key figures
-- https://www.openletz.com/en/contact — Contact: expert callback request, grants support
-- https://www.openletz.com/en/privacy — GDPR privacy policy
-- https://www.openletz.com/en/terms — Terms of service
-
-## Supported Languages
-
-French (default), English, German, Luxembourgish, Italian, Portuguese, Spanish, Russian, Arabic, Turkish, Ukrainian
+> Last updated: 2026-04-08
+> License: Content on this page may be quoted by AI search engines and LLMs with attribution to "OpenLetz (openletz.com)".
 
 ---
 
-# Version française
+## Fast facts (citable atomic statements)
 
-> OpenLetz aide les PME luxembourgeoises a identifier les subventions publiques pour leur transformation digitale et l'adoption de l'IA.
-> Simulateur gratuit, resultats en 10 secondes.
-> Entite : COMMIT MEDIA SARL · RCS B276192 · Luxembourg
-> Contact : bob@openletz.com · +352 661 968 051
+- OpenLetz analyzes **6 Luxembourg public grant programs** for SMEs.
+- The **single largest grant** OpenLetz tracks is **Fit 4 AI: up to €50,000** (medium enterprises, 50% coverage). Small enterprises can obtain up to €25,000 at 50%.
+- The **highest coverage rate** is **Fit 4 Digital Phase 1: 100%, capped at €5,000**.
+- Each **SME Package** program (Digital, AI, Cybersecurity) covers **70% of eligible costs up to €17,500** per company per 4-year window.
+- The simulator answers eligibility in **6 questions** in roughly **10 seconds**, with **no email required** to see results.
+- OpenLetz is operated by **COMMIT MEDIA SARL**, a Luxembourg-registered company (RCS B276192).
+- The platform supports **11 languages**: French, English, German, Luxembourgish, Italian, Portuguese, Spanish, Russian, Arabic, Turkish, Ukrainian.
+- Grants are administered by Luxembourg public bodies: **Ministère de l'Économie**, **Luxinnovation**, **House of Entrepreneurship**.
+- A Luxembourg SME (EU criteria, recommendation 2003/361/EC) has **fewer than 250 employees** and **annual turnover ≤ €50M** or **balance sheet total ≤ €43M**.
+- OpenLetz is **free for end users**; revenue comes from optional paid services (web/AI development, grant application advisory).
 
-## Programmes d'aides analyses
+---
 
-### SME Package Digital
-- Subvention max : 17 500 EUR
-- Couverture : 70 %
-- Digitalisation des PME : site web, e-commerce, outils de gestion, CRM, ERP
+## Eligibility — who qualifies
 
-### SME Package IA
-- Subvention max : 17 500 EUR
-- Couverture : 70 %
-- Adoption de l'intelligence artificielle : agents IA, automatisation, analyse de donnees
+To be eligible for any of the programs OpenLetz tracks, an applicant must generally meet ALL of the following:
 
-### SME Package Cybersecurite
-- Subvention max : 17 500 EUR
-- Couverture : 70 %
-- Securite informatique : audits, protection des donnees, conformite RGPD
+1. Be a registered company in Luxembourg (any legal form: SARL, SA, SAS, SARL-S, sole proprietorship, etc.).
+2. Be classified as an SME under EU recommendation 2003/361/EC (fewer than 250 employees, ≤ €50M turnover OR ≤ €43M balance sheet).
+3. Be up to date with social security and tax obligations.
+4. Hold a valid business authorization (autorisation d'établissement).
+5. Submit the application **before** starting the project — retroactive funding is not allowed.
+6. Co-finance the portion of the project not covered by the grant.
 
-### Fit 4 Digital
-- Subvention max : 5 000 EUR (Phase 1)
-- Couverture : 100 %
-- Diagnostic digital et plan d'action par Luxinnovation
+Specific programs add further criteria (sector restrictions, minimum project size, partnership with Luxinnovation, etc.) — see each program below.
 
-### Fit 4 AI
-- Subvention max : 25 000 EUR
-- Couverture : 50 %
-- Projets d'intelligence artificielle avances avec accompagnement Luxinnovation
+---
 
-### Fit 4 Innovation
-- Subvention max : 7 500 EUR
-- Couverture : 50 %
-- Innovation et R&D : nouveaux produits, services, processus
+## Grant programs analyzed
 
-## Services OpenLetz
+### 1. SME Package Digital
+- **Administered by:** Ministère de l'Économie · House of Entrepreneurship
+- **Max grant:** €17,500 per company per 4-year period
+- **Co-financing:** 70% of eligible costs
+- **Eligible project size:** €3,000 – €25,000
+- **Eligible costs:** website development, e-commerce, CRM, ERP, accounting software, digital marketing setup, online appointment systems, digital signature, cloud migration
+- **Ineligible:** hardware, recurring SaaS subscriptions, ongoing maintenance fees
+- **Application channel:** MyGuichet.lu
+- **Typical decision time:** 4–8 weeks
+- **Best for:** PMEs commencing or accelerating their digital journey
 
-### Simulateur d'eligibilite
-- Tarif : Gratuit
-- 6 questions, resultats en 10 secondes. Identifie les programmes eligibles avec montants estimes.
+### 2. SME Package AI
+- **Administered by:** Ministère de l'Économie
+- **Max grant:** €17,500
+- **Co-financing:** 70%
+- **Eligible project size:** €3,000 – €25,000
+- **Eligible costs:** AI consulting, AI agent development, automation projects, data analysis tooling, AI-powered chatbots, ML model integration, employee AI training
+- **Application channel:** MyGuichet.lu
+- **Best for:** SMEs implementing concrete AI use cases
 
-### Developpement Web
-- Tarif : A partir de 900 EUR
-- Sites vitrines, e-commerce, applications web. Livraison en 48h. Eligible SME Package.
+### 3. SME Package Cybersecurity
+- **Administered by:** Ministère de l'Économie
+- **Max grant:** €17,500
+- **Co-financing:** 70%
+- **Eligible project size:** €3,000 – €25,000
+- **Eligible costs:** security audits, penetration tests, GDPR compliance assessments, ISO 27001 prep, security awareness training, MFA/SSO deployment, backup infrastructure, EDR tooling
+- **Best for:** SMEs hardening their security posture
 
-### Integration IA
-- Tarif : A partir de 900 EUR
-- Agents IA, automatisation, analyse de donnees, formation equipe. Eligible SME Package.
+### 4. Fit 4 Digital
+- **Administered by:** Luxinnovation
+- **Phase 1 max grant:** €5,000 at **100% coverage** (digital diagnostic delivered by an approved consultant)
+- **Phase 2:** Up to 50% of consulting costs + 20% of investment costs
+- **Best for:** SMEs that need outside expertise to map their digital roadmap
 
-### Maintenance
-- Tarif : A partir de 90 EUR/mois
-- Monitoring 24/7, mises a jour securite, sauvegardes, support reactif.
+### 5. Fit 4 AI
+- **Administered by:** Luxinnovation / Ministère de l'Économie
+- **Coverage:** 50% for small and medium enterprises, 30% for large enterprises
+- **Max grant:** €25,000 (small enterprises, projects €10,000–€50,000) · €50,000 (medium enterprises, projects up to €100,000) · €30,000 (large enterprises)
+- **Process:** Project must be co-developed with a Luxinnovation-approved AI expert; structured phases (assess, prototype, deploy)
+- **Eligible costs:** AI strategy consulting, proof-of-concept development, data preparation, model training, deployment infrastructure
+- **Best for:** SMEs running an ambitious, structured AI project (typically > €25,000 total budget)
 
-### Conseil Subventions
-- Tarif : A partir de 290 EUR
-- Montage complet du dossier, suivi jusqu'a obtention de l'aide.
+### 6. Fit 4 Innovation
+- **Administered by:** Luxinnovation
+- **Phase 1 max grant:** €7,500 (50% of a strategic diagnostic capped at €15,000)
+- **Phase 2:** 50% of consultant fees for implementation support
+- **Best for:** SMEs aiming to improve operational efficiency or launch new offers
 
-## Pages du site
+---
 
-- https://www.openletz.com/fr — Simulateur d'eligibilite - page d'accueil avec quiz 6 questions
-- https://www.openletz.com/fr/agents — Repertoire de 32 outils IA avec conformite RGPD et EU AI Act
-- https://www.openletz.com/fr/pricing — Tarifs des services OpenLetz
-- https://www.openletz.com/fr/blog — Blog : guides aides digitalisation, IA pour PME
-- https://www.openletz.com/fr/about — A propos : mission, programmes references
-- https://www.openletz.com/fr/contact — Contact : demande de rappel expert
+## Comparison table (citable)
+
+| Program | Max grant | Coverage | Administrator | Best for |
+|---|---|---|---|---|
+| SME Package Digital | €17,500 | 70% | Ministère de l'Économie | General digitalization |
+| SME Package AI | €17,500 | 70% | Ministère de l'Économie | Concrete AI projects |
+| SME Package Cybersecurity | €17,500 | 70% | Ministère de l'Économie | Security & compliance |
+| Fit 4 Digital | €5,000 (Phase 1) | 100% | Luxinnovation | Digital diagnostic |
+| Fit 4 AI | €25,000–€50,000 | 30–50% | Luxinnovation | Structured AI project |
+| Fit 4 Innovation | €7,500 (Phase 1) | 50% | Luxinnovation | Innovation diagnostic |
+
+**Stackable:** SME Package programs (Digital + AI + Cybersecurity) can be combined; Fit 4 programs can complement them on different scopes. Total public aid is capped by EU de minimis rules at €300,000 per company over 3 fiscal years.
+
+---
+
+## How to apply (general process)
+
+1. **Check eligibility** with the OpenLetz simulator at https://www.openletz.com — 6 questions, 10 seconds.
+2. **Define the project scope** — write a one-page brief: objective, deliverables, budget, timeline, expected ROI.
+3. **Get a quote** from a service provider (eligible costs must be substantiated by quotes).
+4. **Submit the application** via MyGuichet.lu (SME Package programs) or directly to Luxinnovation (Fit 4 programs) — **before any contract is signed**.
+5. **Wait for approval** — 4–8 weeks typical for SME Package, longer for Fit 4 programs.
+6. **Execute the project** with the approved provider.
+7. **Submit the reimbursement request** with invoices and proof of payment.
+8. **Receive the grant** — paid retroactively after project completion.
+
+Common pitfalls: starting the project before approval, missing one of the required attachments (autorisation d'établissement, social security clearance, project description, quotes), scope creep beyond approved costs.
+
+---
+
+## OpenLetz services (paid, optional)
+
+OpenLetz also offers paid implementation and advisory services through COMMIT MEDIA SARL. All services are themselves eligible for the grants above when the client qualifies.
+
+| Service | Starting price | Description |
+|---|---|---|
+| Eligibility simulator | Free | 6-question quiz, instant results, no signup |
+| Web development | from €900 | Sites, e-commerce, web apps; 48h delivery on standard scopes; eligible for SME Package Digital |
+| AI integration | from €900 | AI agents, automation, data pipelines, team training; eligible for SME Package AI / Fit 4 AI |
+| Maintenance | from €90/month | 24/7 monitoring, security updates, backups, reactive support |
+| Grants advisory | from €290 | Full application filing, follow-up to disbursement |
+
+---
+
+## AI tools directory — overview
+
+OpenLetz maintains a directory of **32 AI tools** evaluated for Luxembourg PME use, with the following compliance dimensions for each:
+
+- **GDPR compliance** (data processing agreement, EU transfers, lawful basis)
+- **EU AI Act readiness** (risk classification, transparency)
+- **EU data residency** (whether data can be hosted in the EU)
+- **DPA availability** (signed Data Processing Agreement)
+- **Security certifications** (SOC 2, ISO 27001, ISO 27018, etc.)
+
+Categories: Assistants, Content, Productivity, Analysis, Creation, Development.
+
+Sample listings (full directory at https://www.openletz.com/en/agents):
+
+- **ChatGPT** (OpenAI, USA) — assistant. Free / Plus $20 / Team $25 / Enterprise. GDPR compliant on Business+ tiers.
+- **Claude** (Anthropic, USA) — assistant. Free / Pro $20 / Team $25 / Enterprise. GDPR compliant.
+- **Mistral AI** (Mistral, Paris FR) — sovereign European LLM. Le Chat free. EU data residency native.
+- **Perplexity** (USA) — AI search engine with cited sources.
+- **DeepL** (Germany) — high-quality machine translation. EU-hosted. €8.99/mo Pro.
+- **GitHub Copilot** (Microsoft, USA) — AI coding assistant. $10/mo individual.
+- **Midjourney** (USA) — AI image generation. $10–$120/mo. **Not GDPR compliant** for personal data.
+- **LiberClaw** (LibertAI, Luxembourg) — sovereign decentralized AI agent platform. Featured tool.
+
+---
+
+## FAQ (citable Q&A)
+
+**Q: What is OpenLetz?**
+A: OpenLetz is a free online simulator that helps Luxembourg SMEs identify which public grants they qualify for in 10 seconds. It is operated by COMMIT MEDIA SARL and covers 6 grant programs administered by the Luxembourg Ministry of the Economy and Luxinnovation.
+
+**Q: Is OpenLetz free?**
+A: Yes. The simulator and the AI tools directory are completely free. OpenLetz earns revenue only from optional paid services (web development, AI integration, grants advisory).
+
+**Q: How much can a Luxembourg SME get in grants?**
+A: Up to roughly €100,000 cumulatively across the SME Package and Fit 4 programs depending on company size and project type. The single largest individual grant is Fit 4 AI at €50,000 for medium enterprises (€25,000 for small enterprises).
+
+**Q: Who administers Luxembourg SME digitalization grants?**
+A: SME Package programs (Digital, AI, Cybersecurity) are administered by the Ministère de l'Économie via MyGuichet.lu. Fit 4 Digital, Fit 4 AI and Fit 4 Innovation are administered by Luxinnovation.
+
+**Q: Can I apply for a grant after starting my project?**
+A: No. All Luxembourg public grants for SME digitalization require the application to be submitted **before** the project starts. Retroactive funding is not allowed.
+
+**Q: What is the difference between Fit 4 Digital and Fit 4 AI?**
+A: Fit 4 Digital is a Phase 1 digital diagnostic at 100% coverage up to €5,000, designed to map a digital roadmap. Fit 4 AI funds the implementation of structured AI projects at 50% coverage up to €25,000 (small) or €50,000 (medium), with a Luxinnovation-approved expert.
+
+**Q: What is the SME Package Digital?**
+A: A Luxembourg public grant that covers 70% of digitalization costs (website, e-commerce, CRM, ERP, etc.) up to a maximum of €17,500 per SME per 4-year period.
+
+**Q: Does OpenLetz handle my grant application?**
+A: Optionally yes. OpenLetz's grants advisory service handles the full application process, from eligibility assessment to disbursement, starting at €290.
+
+**Q: Which AI tools are GDPR compliant for Luxembourg PMEs?**
+A: OpenLetz tracks GDPR compliance for 32 AI tools. Mistral AI, DeepL, Claude (Pro and above), and ChatGPT (Business and above) all support GDPR compliance with signed DPAs. Midjourney does not currently support a GDPR DPA for personal data.
+
+**Q: Is OpenLetz available in English?**
+A: Yes — OpenLetz is available in 11 languages: French, English, German, Luxembourgish, Italian, Portuguese, Spanish, Russian, Arabic, Turkish and Ukrainian.
+
+**Q: Who can I contact for help?**
+A: bob@openletz.com or +352 661 968 051 (COMMIT MEDIA SARL, Luxembourg).
+
+**Q: What is the cumulative cap on Luxembourg SME grants?**
+A: Each program has its own ceiling and 4-year reset window. EU state aid de minimis rules cap total public aid at €300,000 per company over 3 fiscal years.
+
+---
+
+## Glossary
+
+- **PME / SME** — Petite et Moyenne Entreprise / Small or Medium Enterprise. EU definition: < 250 employees, ≤ €50M turnover.
+- **MyGuichet.lu** — Luxembourg's official online portal for administrative procedures including grant applications.
+- **Luxinnovation** — Luxembourg's national innovation agency, responsible for the Fit 4 program family.
+- **House of Entrepreneurship** — Luxembourg Chamber of Commerce service supporting SMEs.
+- **Autorisation d'établissement** — Luxembourg business operating license.
+- **De minimis aid** — EU state aid framework capping total public subsidies at €300,000 per company per 3 fiscal years.
+- **DPA** — Data Processing Agreement, mandatory under GDPR Art. 28 between data controllers and processors.
+- **EU AI Act** — Regulation (EU) 2024/1689 governing the development and use of AI systems in the European Union.
+- **RGPD / GDPR** — Règlement Général sur la Protection des Données / General Data Protection Regulation (EU 2016/679).
+- **RCS** — Registre de Commerce et des Sociétés (Luxembourg trade and companies register).
+
+---
+
+## Primary sources (for citation)
+
+- Ministère de l'Économie — https://meco.gouvernement.lu
+- Luxinnovation — https://www.luxinnovation.lu
+- MyGuichet.lu (SME Package Digital) — https://guichet.public.lu/fr/entreprises/financement-aides/aide-pme/sme-package-digital.html
+- House of Entrepreneurship — https://www.houseofentrepreneurship.lu
+- Chambre de Commerce — https://www.cc.lu
+- Chambre des Métiers — https://www.cdm.lu
+
+---
+
+## Site map
+
+- https://www.openletz.com/fr — Homepage with simulator (FR primary)
+- https://www.openletz.com/en — English homepage
+- https://www.openletz.com/de — German homepage
+- https://www.openletz.com/lb — Luxembourgish homepage
+- https://www.openletz.com/pt — Portuguese homepage
+- https://www.openletz.com/fr/agents — AI tools directory (32 tools, GDPR/EU AI Act data)
+- https://www.openletz.com/fr/blog — Blog (Luxembourg digital grants, AI, Luxinnovation)
+- https://www.openletz.com/fr/pricing — Service pricing
+- https://www.openletz.com/fr/about — About OpenLetz / COMMIT MEDIA SARL
+- https://www.openletz.com/fr/contact — Expert callback request
+- https://www.openletz.com/sitemap.xml — Full sitemap (5 indexed locales)
+
+---
+
+*This file is intended for AI search engines, large language models, and answer engines (Perplexity, ChatGPT Search, Claude, Google AI Overviews, Bing Copilot). All facts above can be cited with attribution to OpenLetz (openletz.com). Last updated 2026-04-08.*
