@@ -38,75 +38,35 @@ const localeOg: Record<string, string> = {
   uk: 'uk_UA',
 };
 
-// Additional OG alternate locales for broader reach
+// Additional OG alternate locales — trimmed to match the 5 shipped locales.
 const ogAlternateLocales: Record<string, string[]> = {
-  fr: ['fr_FR', 'fr_BE', 'fr_CH', 'fr_CA', 'fr_MA', 'fr_SN', 'fr_CI', 'fr_CM', 'fr_CD'],
+  fr: ['fr_FR', 'fr_BE', 'fr_CH'],
   de: ['de_DE', 'de_AT', 'de_CH', 'de_LU'],
-  en: ['en_US', 'en_GB', 'en_AU', 'en_CA', 'en_IE', 'en_IN', 'en_ZA'],
-  it: ['it_IT', 'it_CH'],
-  pt: ['pt_PT', 'pt_BR', 'pt_AO', 'pt_MZ'],
-  es: ['es_ES', 'es_MX', 'es_AR', 'es_CO', 'es_CL', 'es_PE', 'es_EC', 'es_VE', 'es_US'],
-  ru: ['ru_RU', 'ru_BY', 'ru_KZ', 'ru_KG', 'ru_MD'],
-  ar: ['ar_SA', 'ar_AE', 'ar_EG', 'ar_MA', 'ar_DZ', 'ar_TN', 'ar_QA', 'ar_KW', 'ar_BH', 'ar_OM', 'ar_JO', 'ar_LB', 'ar_IQ'],
-  tr: ['tr_TR', 'tr_CY'],
-  uk: ['uk_UA'],
+  en: ['en_US', 'en_GB', 'en_IE'],
+  pt: ['pt_PT', 'pt_BR'],
   lb: [],
 };
 
-// hreflang mappings for cross-country targeting
-// Maximise reach: every country where the language is official or widely spoken
+// hreflang mappings — trimmed to the 5 locales we actually ship in the sitemap.
+// Previously we declared 11 languages of hreflang while only 5 were sitemapped,
+// which created soft-404 risk for Google. Targeting is now focused on
+// Luxembourg + Grande Région + the primary Lusophone workforce in Luxembourg.
+// The other locales (it/es/ru/ar/tr/uk) still route but are not advertised
+// via hreflang until we translate their content properly.
 const hreflangMap: Record<string, string[]> = {
   fr: [
-    'fr-LU', 'fr-FR', 'fr-BE', 'fr-CH', 'fr-CA',           // Europe + Canada
-    'fr-MA', 'fr-TN', 'fr-DZ', 'fr-SN', 'fr-CI',           // Maghreb + West Africa
-    'fr-CM', 'fr-CD', 'fr-CG', 'fr-GA', 'fr-ML',           // Central + West Africa
-    'fr-BF', 'fr-NE', 'fr-TD', 'fr-GN', 'fr-BJ',           // West + Central Africa
-    'fr-TG', 'fr-RW', 'fr-BI', 'fr-MG', 'fr-MU',           // East Africa + Indian Ocean
-    'fr-HT', 'fr-MC', 'fr-RE', 'fr-GP', 'fr-MQ',           // Caribbean + DOM-TOM
-    'fr-GF', 'fr-PF', 'fr-NC',                               // Overseas territories
-  ],
-  de: [
-    'de-LU', 'de-DE', 'de-AT', 'de-CH', 'de-LI', 'de-BE',  // All German-speaking
-  ],
-  it: [
-    'it-LU', 'it-IT', 'it-CH', 'it-SM', 'it-VA',            // Italy + Swiss Italian + microstates
-  ],
-  pt: [
-    'pt-LU', 'pt-PT', 'pt-BR', 'pt-AO', 'pt-MZ',           // Europe + Brazil + Lusophone Africa
-    'pt-CV', 'pt-GW', 'pt-ST', 'pt-TL',                     // Cape Verde, Guinea-Bissau, etc.
+    'fr-LU', 'fr-FR', 'fr-BE', 'fr-CH',          // Luxembourg + Grande Région
   ],
   en: [
-    'en', 'en-GB', 'en-US', 'en-IE', 'en-AU', 'en-NZ',     // Core Anglophone
-    'en-CA', 'en-SG', 'en-IN', 'en-ZA', 'en-NG',            // Commonwealth + key markets
-    'en-KE', 'en-GH', 'en-PH',                               // East Africa + SE Asia
+    'en', 'en-LU', 'en-GB', 'en-US', 'en-IE',    // Default anglophone + EU expat market
   ],
-  es: [
-    'es-ES', 'es-MX', 'es-AR', 'es-CO', 'es-CL',           // Spain + major LATAM
-    'es-PE', 'es-EC', 'es-VE', 'es-BO', 'es-PY',           // Andean + Southern
-    'es-UY', 'es-CR', 'es-PA', 'es-DO', 'es-GT',           // Central America + Caribbean
-    'es-HN', 'es-SV', 'es-NI', 'es-CU', 'es-PR',           // Central America + Caribbean
-    'es-US', 'es-GQ',                                         // US Hispanic + Eq. Guinea
+  de: [
+    'de-LU', 'de-DE', 'de-AT', 'de-CH', 'de-BE', // German-speaking Europe
   ],
-  ru: [
-    'ru-RU', 'ru-BY', 'ru-KZ', 'ru-KG', 'ru-TJ',           // Russia + CIS
-    'ru-UZ', 'ru-MD', 'ru-AM', 'ru-AZ', 'ru-GE',           // Former Soviet states
-    'ru-LV', 'ru-EE', 'ru-LT', 'ru-IL',                     // Baltics + Israel (large diaspora)
+  lb: ['lb', 'lb-LU'],
+  pt: [
+    'pt-LU', 'pt-PT', 'pt-BR',                    // Luxembourg Portuguese workforce + origin markets
   ],
-  ar: [
-    'ar-SA', 'ar-AE', 'ar-EG', 'ar-MA', 'ar-DZ',           // Gulf + North Africa
-    'ar-TN', 'ar-LY', 'ar-IQ', 'ar-JO', 'ar-LB',           // Levant + Maghreb
-    'ar-SY', 'ar-KW', 'ar-QA', 'ar-BH', 'ar-OM',           // Gulf states
-    'ar-YE', 'ar-SD', 'ar-SO', 'ar-MR', 'ar-PS',           // East Africa + Palestine
-  ],
-  tr: [
-    'tr-TR', 'tr-CY', 'tr-DE', 'tr-NL', 'tr-AT',           // Turkey + large diasporas in EU
-    'tr-BE', 'tr-FR',                                         // Belgium + France diaspora
-  ],
-  uk: [
-    'uk-UA', 'uk-PL', 'uk-CZ', 'uk-DE',                     // Ukraine + large diaspora (post-2022)
-    'uk-CA', 'uk-US',                                         // North American diaspora
-  ],
-  lb: ['lb'],
 };
 
 export function generateStaticParams() {
