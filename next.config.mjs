@@ -45,6 +45,31 @@ const nextConfig = {
         destination: 'https://www.openletz.com/:path*',
         permanent: true,
       },
+      // Short blog URL: openletz.com/blog/xxx → /fr/blog/xxx
+      // The canonical article lives under /fr/blog/:slug (FR is the default
+      // locale). Accepting the shorter public URL form as a permanent alias
+      // makes it easier to share and matches user intent.
+      {
+        source: '/blog',
+        destination: '/fr/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/:slug',
+        destination: '/fr/blog/:slug',
+        permanent: true,
+      },
+      // Same shortcut for the new grant-program pillar pages
+      {
+        source: '/aides',
+        destination: '/fr/aides',
+        permanent: true,
+      },
+      {
+        source: '/aides/:slug',
+        destination: '/fr/aides/:slug',
+        permanent: true,
+      },
     ];
   },
 
