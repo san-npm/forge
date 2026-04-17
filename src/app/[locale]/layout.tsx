@@ -10,6 +10,15 @@ import '../globals.css';
 
 const SITE_URL = 'https://www.openletz.com';
 
+// Only these locales get indexed. The other 6 still route (for users who
+// switch languages) but return noindex so Google doesn't crawl thin,
+// auto-translated copies of French content and dilute topical authority.
+const INDEXABLE_LOCALES = new Set(['fr', 'en', 'de', 'lb', 'pt']);
+
+// Preview deployments (code-name-forge-ai.vercel.app, *-git-*.vercel.app)
+// must never be indexed — Google was ranking the preview above production.
+const IS_PRODUCTION_HOST = process.env.VERCEL_ENV === 'production';
+
 const localeNames: Record<string, string> = {
   fr: 'French',
   en: 'English',
@@ -109,6 +118,7 @@ export async function generateMetadata({
   };
 
   const canonicalUrl = `${SITE_URL}/${locale}`;
+  const shouldIndex = IS_PRODUCTION_HOST && INDEXABLE_LOCALES.has(locale);
 
   // Build hreflang alternates
   const languages: Record<string, string> = {};
@@ -185,14 +195,25 @@ export async function generateMetadata({
       'content-language': locale,
     },
     robots: {
-      index: true,
-      follow: true,
+      index: shouldIndex,
+      follow: shouldIndex,
       googleBot: {
-        index: true,
-        follow: true,
+        index: shouldIndex,
+        follow: shouldIndex,
         'max-video-preview': -1,
         'max-image-preview': 'large',
         'max-snippet': -1,
+      },
+    },
+    verification: {
+      google: process.env.GSC_VERIFICATION || undefined,
+      other: {
+        ...(process.env.BING_VERIFICATION
+          ? { 'msvalidate.01': process.env.BING_VERIFICATION }
+          : {}),
+        ...(process.env.YANDEX_VERIFICATION
+          ? { 'yandex-verification': process.env.YANDEX_VERIFICATION }
+          : {}),
       },
     },
     icons: {

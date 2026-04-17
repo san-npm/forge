@@ -5,14 +5,16 @@ import { getAllPosts } from '@/lib/blog';
 const SITE_URL = 'https://www.openletz.com';
 // Core locales for sitemap — keep crawl budget focused on languages
 // relevant to Luxembourg (FR, EN, DE, LB, PT). Other locales still
-// work as routes but aren't submitted to search engines.
+// work as routes but aren't submitted to search engines and return
+// noindex from the layout metadata.
 const locales = ['fr', 'en', 'de', 'lb', 'pt'] as const;
-const allLocales = ['fr', 'en', 'de', 'lb', 'it', 'pt', 'es', 'ru', 'ar', 'tr', 'uk'] as const;
 
 function buildAlternates(path: string) {
   const languages: Record<string, string> = {};
-  // Include ALL locales in hreflang alternates (even non-sitemap ones)
-  for (const locale of allLocales) {
+  // hreflang alternates must match sitemap loc-list and noindex policy.
+  // Advertising it/es/ru/ar/tr/uk would point Google at thin, untranslated
+  // content and dilute authority — declare only the 5 shipped locales.
+  for (const locale of locales) {
     languages[locale] = `${SITE_URL}/${locale}${path}`;
   }
   languages['x-default'] = `${SITE_URL}/fr${path}`;
