@@ -31,6 +31,14 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    // Map RFC 9727 / agent-discovery well-known paths to app-router handlers.
+    // Next.js can't host folders whose name starts with a dot, so we rewrite.
+    return [
+      { source: '/.well-known/api-catalog', destination: '/api/well-known/api-catalog' },
+      { source: '/.well-known/openapi.yaml', destination: '/api/well-known/openapi' },
+    ];
+  },
   async redirects() {
     return [
       {

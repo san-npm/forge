@@ -1,8 +1,14 @@
 import createMiddleware from 'next-intl/middleware';
-import type { NextRequest } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 import { routing } from './i18n/routing';
 
 const intlMiddleware = createMiddleware(routing);
+
+function prefersMarkdown(accept: string | null): boolean {
+  if (!accept) return false;
+  // Honor explicit text/markdown. Skip broad */* so browsers still get HTML.
+  return /(^|,)\s*text\/markdown\b/i.test(accept);
+}
 
 // Preview/dev deployments must never be indexed. Belt-and-suspenders on top of
 // the per-page `robots` metadata: this sets an HTTP header so Google treats
@@ -29,6 +35,14 @@ function filterLinkAlternates(headerValue: string): string {
 }
 
 export default function middleware(req: NextRequest) {
+  if (req.method === 'GET' && prefersMarkdown(req.headers.get('accept'))) {
+    // Rewrite to the catch-all markdown route. Encoding the original path as
+    // segments (rather than a query param) dodges Next.js middleware rewrites
+    // dropping the search string.
+    const target = new URL(`/api/md${req.nextUrl.pathname}`, req.nextUrl.origin);
+    return NextResponse.rewrite(target);
+  }
+
   const response = intlMiddleware(req);
   if (response) {
     if (!IS_PRODUCTION_HOST) {
