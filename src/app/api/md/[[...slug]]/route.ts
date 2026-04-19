@@ -10,9 +10,10 @@ import path from 'path';
 // fall back to the curated llms-full.txt.
 export async function GET(
   _req: Request,
-  { params }: { params: { slug?: string[] } },
+  { params }: { params: Promise<{ slug?: string[] }> },
 ) {
-  const segments = params.slug ?? [];
+  const { slug } = await params;
+  const segments = slug ?? [];
   const pathname = '/' + segments.join('/');
   const body = renderMarkdown(pathname.replace(/\/+$/, '') || '/');
 

@@ -1,8 +1,11 @@
-import createMiddleware from 'next-intl/middleware';
+import createIntlMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
 import { routing } from './i18n/routing';
 
-const intlMiddleware = createMiddleware(routing);
+// next-intl@4.x still ships its handler under `middleware` even though Next 16
+// renamed the root file convention to `proxy`. The factory works unchanged —
+// we just invoke it from our exported `proxy` function below.
+const intlProxy = createIntlMiddleware(routing);
 
 function prefersMarkdown(accept: string | null): boolean {
   if (!accept) return false;
@@ -34,16 +37,16 @@ function filterLinkAlternates(headerValue: string): string {
     .join(', ');
 }
 
-export default function middleware(req: NextRequest) {
+export default function proxy(req: NextRequest) {
   if (req.method === 'GET' && prefersMarkdown(req.headers.get('accept'))) {
     // Rewrite to the catch-all markdown route. Encoding the original path as
-    // segments (rather than a query param) dodges Next.js middleware rewrites
+    // segments (rather than a query param) dodges Next.js proxy rewrites
     // dropping the search string.
     const target = new URL(`/api/md${req.nextUrl.pathname}`, req.nextUrl.origin);
     return NextResponse.rewrite(target);
   }
 
-  const response = intlMiddleware(req);
+  const response = intlProxy(req);
   if (response) {
     if (!IS_PRODUCTION_HOST) {
       response.headers.set('X-Robots-Tag', 'noindex, nofollow');
