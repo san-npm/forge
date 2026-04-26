@@ -25,9 +25,15 @@
 - Simulator: https://www.openletz.com/en
 - AI Directory: https://www.openletz.com/en/agents
 - Pricing: https://www.openletz.com/en/pricing
+- Clients: https://www.openletz.com/en/clients
 - Blog: https://www.openletz.com/en/blog
 - About: https://www.openletz.com/en/about
 - Contact: https://www.openletz.com/en/contact
+
+## Client Projects
+
+- **Vins Fins** (https://www.vinsfins.lu) — Wine bar & restaurant in the Grund, Luxembourg. Multi-language e-commerce (FR/EN/DE/LB) with hundreds of wine references, Stripe checkout with Luxembourg VAT, POST Luxembourg shipping, Zenchef restaurant booking. Built on Next.js, TypeScript, Tailwind, Vercel KV (Redis), Vercel Edge CDN.
+- **La Grocerie** (https://www.lagrocerie.lu) — Sandwicherie, farm-to-table grocery and natural-wine cellar in the Grund, Luxembourg, since 1923. E-commerce with short-supply-chain producers, Stripe checkout, real-time stock management, lightweight admin. Same stack as Vins Fins.
 
 ## Entity
 
@@ -63,9 +69,15 @@ Contact: bob@openletz.com · +352 661 968 051
 - Simulateur : https://www.openletz.com/fr
 - Répertoire IA : https://www.openletz.com/fr/agents
 - Tarifs : https://www.openletz.com/fr/pricing
+- Clients : https://www.openletz.com/fr/clients
 - Blog : https://www.openletz.com/fr/blog
 - À propos : https://www.openletz.com/fr/about
 - Contact : https://www.openletz.com/fr/contact
+
+## Réalisations clients
+
+- **Vins Fins** (https://www.vinsfins.lu) — Bar à vins et restaurant au Grund, Luxembourg. Site e-commerce multi-langue (FR/EN/DE/LB) avec catalogue de plusieurs centaines de vins, paiement Stripe avec TVA luxembourgeoise, livraison POST Luxembourg, réservations Zenchef. Stack Next.js, TypeScript, Tailwind, Vercel KV (Redis), Vercel Edge CDN.
+- **La Grocerie** (https://www.lagrocerie.lu) — Sandwicherie artisanale, épicerie fermière et cave à vins naturels au Grund, Luxembourg, depuis 1923. E-commerce circuits courts, paiement Stripe, gestion stock temps-réel, admin légère. Même stack que Vins Fins.
 
 ## Entité
 

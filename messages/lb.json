@@ -6,7 +6,8 @@
     "blog": "Blog",
     "directory": "KI Agenten",
     "about": "Iwwer eis",
-    "pricing": "Präisser"
+    "pricing": "Präisser",
+    "clients": "Cliente'n"
   },
   "hero": {
     "title": "Digitaliséiert Är KMU mat lëtzebuerger Hëllefen",
@@ -452,5 +453,55 @@
   "report": {
     "title": "Eligibilitéitsrapport — OpenLetz",
     "generatedOn": "Generéiert den"
+  },
+  "clients": {
+    "eyebrow": "Eis Realisatiounen",
+    "title": "Eis Cliente'n",
+    "subtitle": "E-Commerce, Restauranten a Geschäfter geliwwert aus Lëtzebuerg.",
+    "intro": "Mir konzipéieren, bauen a betreiben Websäiten fir Lëtzebuerger KMU. Méisproocheg, Stripe-Bezuelung, Edge-Performance op Vercel — vum éischte Wireframe bis zum Support nom Lancement.",
+    "stackLabel": "Stack",
+    "viewSite": "Op d'Säit goen",
+    "vinsfins": {
+      "name": "Vins Fins",
+      "tagline": "Weinbar & Restaurant",
+      "location": "Gronn, Lëtzebuerg",
+      "summary": "Weinbar a Restaurant am Häerz vum Gronn, spezialiséiert op Natur- a Bio-Wäiner a saisonell franséisch Kichen. Komplett Säit 2026 geliwwert: Katalog mat e puer honnert Wäiner, Kuerf, Stripe-Bezuelung mat lëtzebuerger MwSt, POST-Liwwerung, Zenchef-Reservatiounen a Véier-Sproochen-UI (FR/EN/DE/LB)."
+    },
+    "grocerie": {
+      "name": "La Grocerie",
+      "tagline": "Sandwicherie, Epicerie & Naturweinkeller",
+      "location": "Gronn, Lëtzebuerg — zënter 1923",
+      "summary": "Gronner Institutioun zënter 1923: artisanal Sandwicherie, Baurenhaff-Epicerie an Naturweinkeller. Vitrinn an E-Commerce mat kuerze Liwwerketten, Stripe-Bezuelung, Echtzäit-Bestandsverwaltung an engem liichten Admin fir deeglech Menü- a Präisupdates."
+    },
+    "delivered": {
+      "title": "Wat mir liwweren",
+      "ecommerce": "Stripe-Checkout (LU-MwSt, Webhook-Idempotenz)",
+      "i18n": "FR/EN/DE/LB mat richtegem hreflang",
+      "stock": "Atomar Echtzäit-Bestand (Redis)",
+      "seo": "JSON-LD prett fir Google Rich Results",
+      "perf": "Edge-Performance op Vercel CDN",
+      "admin": "Liichten Admin fir deeglech Updates"
+    },
+    "faq": {
+      "title": "Heefeg gestallte Froen",
+      "q1": {
+        "q": "Wien huet vinsfins.lu a lagrocerie.lu gebaut?",
+        "a": "OpenLetz (COMMIT MEDIA SARL) huet déi zwou Säiten zu Lëtzebuerg konzipéiert, entwéckelt a betreift se. Vins Fins a La Grocerie sinn zwou onofhängeg lëtzebuerger KMU am Gronn."
+      },
+      "q2": {
+        "q": "Wéi eng Technologien benotzt Dir?",
+        "a": "Next.js 14+ (App Router) op TypeScript, Tailwind CSS, Stripe fir Bezuelungen, Vercel KV (Redis) fir Bestand a Sessiounen, Vercel Edge CDN. Fir Vins Fins integréiere mir Zenchef fir Restaurant-Reservatiounen."
+      },
+      "q3": {
+        "q": "Si dës Projeten fir lëtzebuerger Hëllefen elegibel?",
+        "a": "Jo. Eis Leeschtungen falen ënner d'SME Package Digital (bis 17 500 €, 70 % gedeckt), Fit 4 Digital (5 000 €, 100 % an Phas 1) a Fit 4 AI fir KI-Moduler. Probéiert de Simulator fir Är Eligibilitéit an 10 Sekonnen ze schätzen."
+      }
+    },
+    "cta": {
+      "title": "Ass den nächste Projet ären?",
+      "subtitle": "Schätzt Är Hëllefen mat 6 Froen oder freet eng Offer un.",
+      "primary": "Mäi Hëllefe schätzen",
+      "secondary": "Offer ufroen"
+    }
   }
 }

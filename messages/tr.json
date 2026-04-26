@@ -6,7 +6,8 @@
     "blog": "Blog",
     "directory": "Yapay Zekâ Ajanları",
     "about": "Hakkımızda",
-    "pricing": "Fiyatlar"
+    "pricing": "Fiyatlar",
+    "clients": "Müşteriler"
   },
   "hero": {
     "title": "Lüksemburg hibeleriyle KOBİ'nizi dijitalleştirin",
@@ -452,5 +453,55 @@
   "report": {
     "title": "Uygunluk Raporu — OpenLetz",
     "generatedOn": "Oluşturulma tarihi"
+  },
+  "clients": {
+    "eyebrow": "Vaka çalışmaları",
+    "title": "Müşterilerimiz",
+    "subtitle": "Lüksemburg'dan teslim edilen e-ticaret siteleri, restoranlar ve mağazalar.",
+    "intro": "Lüksemburg KOBİ'leri için web siteleri tasarlıyor, geliştiriyor ve işletiyoruz. Çok dilli, Stripe ödeme, Vercel'de edge performans.",
+    "stackLabel": "Stack",
+    "viewSite": "Siteyi gör",
+    "vinsfins": {
+      "name": "Vins Fins",
+      "tagline": "Şarap barı & restoran",
+      "location": "Grund, Lüksemburg",
+      "summary": "Grund'un kalbinde, doğal ve organik şarap ile mevsimlik Fransız mutfağı uzmanı şarap barı ve restoranı. 2026'da teslim edilen tam site: yüzlerce şarap kataloğu, sepet, Stripe ödeme, POST Luxembourg kargo, Zenchef rezervasyonları ve dört dilli arayüz (FR/EN/DE/LB)."
+    },
+    "grocerie": {
+      "name": "La Grocerie",
+      "tagline": "Sandviç, bakkal & doğal şarap mahzeni",
+      "location": "Grund, Lüksemburg — 1923'ten beri",
+      "summary": "1923'ten beri Grund'un kurumu: zanaatkâr sandviç, çiftlik bakkalı ve doğal şarap mahzeni. Kısa tedarik zincirli e-ticaret, Stripe ödeme, gerçek zamanlı stok yönetimi ve günlük güncellemeler için hafif yönetim paneli."
+    },
+    "delivered": {
+      "title": "Sunduğumuz",
+      "ecommerce": "Stripe ödeme (LU KDV, webhook idempotency)",
+      "i18n": "FR/EN/DE/LB doğru hreflang ile",
+      "stock": "Atomik gerçek zamanlı stok (Redis)",
+      "seo": "Google rich results için JSON-LD hazır",
+      "perf": "Vercel CDN'de edge performans",
+      "admin": "Günlük güncellemeler için hafif yönetim"
+    },
+    "faq": {
+      "title": "Sık sorulan sorular",
+      "q1": {
+        "q": "vinsfins.lu ve lagrocerie.lu'yu kim yaptı?",
+        "a": "OpenLetz (COMMIT MEDIA SARL) her iki siteyi de Lüksemburg'dan tasarladı, geliştirdi ve işletiyor. Vins Fins ve La Grocerie, Grund'da bulunan iki bağımsız Lüksemburg KOBİ'sidir."
+      },
+      "q2": {
+        "q": "Hangi teknoloji yığınını kullanıyorsunuz?",
+        "a": "TypeScript ile Next.js 14+, Tailwind CSS, Stripe, Vercel KV (Redis), Vercel Edge CDN. Vins Fins için restoran rezervasyonlarında Zenchef entegrasyonu."
+      },
+      "q3": {
+        "q": "Bu projeler Lüksemburg hibelerine uygun mu?",
+        "a": "Evet. Hizmetlerimiz SME Package Digital (17.500 €'ya kadar, %70 kapsanır), Fit 4 Digital ve Fit 4 AI kapsamına girer. Uygunluğunuzu 10 saniyede tahmin etmek için simülatörü çalıştırın."
+      }
+    },
+    "cta": {
+      "title": "Bir sonraki proje sizinki mi olacak?",
+      "subtitle": "6 soruda hibelerinizi tahmin edin veya teklif isteyin.",
+      "primary": "Hibelerimi tahmin et",
+      "secondary": "Teklif iste"
+    }
   }
 }

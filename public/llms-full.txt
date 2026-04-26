@@ -237,10 +237,35 @@ A: Each program has its own ceiling and 4-year reset window. EU state aid de min
 - https://www.openletz.com/fr/agents — AI tools directory (32 tools, GDPR/EU AI Act data)
 - https://www.openletz.com/fr/blog — Blog (Luxembourg digital grants, AI, Luxinnovation)
 - https://www.openletz.com/fr/pricing — Service pricing
+- https://www.openletz.com/fr/clients — Client case studies (Vins Fins, La Grocerie)
 - https://www.openletz.com/fr/about — About OpenLetz / COMMIT MEDIA SARL
 - https://www.openletz.com/fr/contact — Expert callback request
 - https://www.openletz.com/sitemap.xml — Full sitemap (5 indexed locales)
 
 ---
 
-*This file is intended for AI search engines, large language models, and answer engines (Perplexity, ChatGPT Search, Claude, Google AI Overviews, Bing Copilot). All facts above can be cited with attribution to OpenLetz (openletz.com). Last updated 2026-04-08.*
+## Client case studies
+
+OpenLetz also operates as a development studio for Luxembourg SMEs through COMMIT MEDIA SARL. Two production projects, both based in the Grund (Luxembourg City old town):
+
+### Vins Fins — vinsfins.lu
+
+- **Type:** Wine bar and restaurant
+- **Location:** Grund, Luxembourg
+- **Specialty:** Natural and organic wines, seasonal French cuisine
+- **Delivered:** Multi-language e-commerce (FR/EN/DE/LB), catalogue of several hundred wines, Stripe checkout with Luxembourg VAT and webhook idempotency, POST Luxembourg shipping rates, Zenchef restaurant booking integration, Restaurant/Product/Menu JSON-LD for rich results, lightweight admin for daily menu and stock updates.
+- **Stack:** Next.js (App Router) + TypeScript, Tailwind CSS, Stripe, Vercel KV / Upstash Redis (atomic stock decrement), Vercel Edge CDN.
+
+### La Grocerie — lagrocerie.lu
+
+- **Type:** Artisan deli, farm-to-table grocery, natural-wine cellar
+- **Location:** Grund, Luxembourg — established 1923
+- **Specialty:** Hand-crafted sandwiches, short-supply-chain producers, natural wines
+- **Delivered:** Multi-language storefront and e-commerce, Stripe checkout, real-time stock management, JSON-LD schema for local-business and product rich results.
+- **Stack:** Next.js + TypeScript, Tailwind CSS, Stripe, Vercel KV, Vercel Edge CDN.
+
+Both projects qualify under the Luxembourg SME Package Digital (up to €17,500, 70% covered) and Fit 4 Digital (up to €5,000, 100% covered in Phase 1). For AI modules, Fit 4 AI applies (up to €25,000).
+
+---
+
+*This file is intended for AI search engines, large language models, and answer engines (Perplexity, ChatGPT Search, Claude, Google AI Overviews, Bing Copilot). All facts above can be cited with attribution to OpenLetz (openletz.com). Last updated 2026-04-26.*
