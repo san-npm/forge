@@ -457,50 +457,50 @@
   "clients": {
     "eyebrow": "Vaka çalışmaları",
     "title": "Müşterilerimiz",
-    "subtitle": "Lüksemburg'dan teslim edilen e-ticaret siteleri, restoranlar ve mağazalar.",
-    "intro": "Lüksemburg KOBİ'leri için web siteleri tasarlıyor, geliştiriyor ve işletiyoruz. Çok dilli, Stripe ödeme, Vercel'de edge performans.",
+    "subtitle": "Lüksemburg KOBİ'leri için web siteleri ve online mağazalar.",
+    "intro": "Birkaç güncel proje, hepsi Grund'da, Lüksemburg Şehri'nde. Canlı görmek için tıklayın.",
     "stackLabel": "Stack",
     "viewSite": "Siteyi gör",
     "vinsfins": {
       "name": "Vins Fins",
       "tagline": "Şarap barı & restoran",
       "location": "Grund, Lüksemburg",
-      "summary": "Grund'un kalbinde, doğal ve organik şarap ile mevsimlik Fransız mutfağı uzmanı şarap barı ve restoranı. 2026'da teslim edilen tam site: yüzlerce şarap kataloğu, sepet, Stripe ödeme, POST Luxembourg kargo, Zenchef rezervasyonları ve dört dilli arayüz (FR/EN/DE/LB)."
+      "summary": "Grund'un kalbinde, doğal ve organik şaraplar ile mevsimlik Fransız mutfağına odaklanan şarap barı ve restoranı. 2026'da teslim edildi: çevrim içi şarap kartı, tek tıkla rezervasyon ve paket-gönderim mağazası."
     },
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandviç, bakkal & doğal şarap mahzeni",
       "location": "Grund, Lüksemburg — 1923'ten beri",
-      "summary": "1923'ten beri Grund'un kurumu: zanaatkâr sandviç, çiftlik bakkalı ve doğal şarap mahzeni. Kısa tedarik zincirli e-ticaret, Stripe ödeme, gerçek zamanlı stok yönetimi ve günlük güncellemeler için hafif yönetim paneli."
+      "summary": "1923'ten beri Grund'un kurumu. Vitrin ve çevrim içi mağaza, zanaatkâr ürünleri ve doğal şarapları öne çıkarıyor ve uzaktan sipariş alıyor — yerin ruhunu bozmadan."
     },
     "delivered": {
-      "title": "Sunduğumuz",
-      "ecommerce": "Stripe ödeme (LU KDV, webhook idempotency)",
-      "i18n": "FR/EN/DE/LB doğru hreflang ile",
-      "stock": "Atomik gerçek zamanlı stok (Redis)",
-      "seo": "Google rich results için JSON-LD hazır",
-      "perf": "Vercel CDN'de edge performans",
-      "admin": "Günlük güncellemeler için hafif yönetim"
+      "title": "Bu siteler ne sunar",
+      "ecommerce": "Güvenli ödemeli online mağaza",
+      "i18n": "4 dilde (FR/EN/DE/LB)",
+      "stock": "Stok gerçek zamanlı",
+      "seo": "Google ve YZ aramasında bulunabilir",
+      "perf": "Mobilde hızlı, her yerde akıcı",
+      "admin": "İşletme sahibi menüyü kendi günceller"
     },
     "faq": {
       "title": "Sık sorulan sorular",
       "q1": {
-        "q": "vinsfins.lu ve lagrocerie.lu'yu kim yaptı?",
-        "a": "OpenLetz (COMMIT MEDIA SARL) her iki siteyi de Lüksemburg'dan tasarladı, geliştirdi ve işletiyor. Vins Fins ve La Grocerie, Grund'da bulunan iki bağımsız Lüksemburg KOBİ'sidir."
+        "q": "Böyle bir site ne kadar sürer?",
+        "a": "Kapsama göre 4 ila 8 hafta. Vins Fins ve La Grocerie için ilk wireframe'den canlı mağazaya iki aydan kısa sürede ulaştık."
       },
       "q2": {
-        "q": "Hangi teknoloji yığınını kullanıyorsunuz?",
-        "a": "TypeScript ile Next.js 14+, Tailwind CSS, Stripe, Vercel KV (Redis), Vercel Edge CDN. Vins Fins için restoran rezervasyonlarında Zenchef entegrasyonu."
+        "q": "Maliyeti nedir?",
+        "a": "Vitrin site 900 €'dan başlar. Bu seviyede tam bir online mağaza 3 000 € – 8 000 € arasında. Sonra bakım 90 €/ay'dan başlar."
       },
       "q3": {
-        "q": "Bu projeler Lüksemburg hibelerine uygun mu?",
-        "a": "Evet. Hizmetlerimiz SME Package Digital (17.500 €'ya kadar, %70 kapsanır), Fit 4 Digital ve Fit 4 AI kapsamına girer. Uygunluğunuzu 10 saniyede tahmin etmek için simülatörü çalıştırın."
+        "q": "Lüksemburg hibelerine uygun mu?",
+        "a": "Evet, bu bizim uzmanlık alanımız. SME Package Digital %70'e kadar (azami 17 500 €), Fit 4 Digital Faz 1'de %100 (5 000 €'ya kadar). 10 saniyede uygunluğunuzu tahmin etmek için simülatörü çalıştırın."
       }
     },
     "cta": {
-      "title": "Bir sonraki proje sizinki mi olacak?",
+      "title": "Bir sonraki sizinki olsun mu?",
       "subtitle": "6 soruda hibelerinizi tahmin edin veya teklif isteyin.",
-      "primary": "Hibelerimi tahmin et",
+      "primary": "Hibe tahmini",
       "secondary": "Teklif iste"
     }
   }

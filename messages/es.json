@@ -457,50 +457,50 @@
   "clients": {
     "eyebrow": "Realizaciones",
     "title": "Nuestros clientes",
-    "subtitle": "Sitios e-commerce, restaurantes y tiendas entregados desde Luxemburgo.",
-    "intro": "Diseñamos, construimos y operamos sitios web para PYMES luxemburguesas. Multilingüe, pago Stripe, rendimiento edge en Vercel.",
+    "subtitle": "Webs y tiendas online para PYMES del Luxemburgo.",
+    "intro": "Algunos proyectos recientes, todos en el Grund, Ciudad de Luxemburgo. Haz clic para verlos en vivo.",
     "stackLabel": "Stack",
     "viewSite": "Visitar el sitio",
     "vinsfins": {
       "name": "Vins Fins",
       "tagline": "Bar de vinos & restaurante",
       "location": "Grund, Luxemburgo",
-      "summary": "Bar de vinos y restaurante en el corazón del Grund, especializado en vinos naturales y biológicos y cocina francesa de temporada. Sitio completo entregado en 2026: catálogo de cientos de vinos, carrito, checkout Stripe, envío POST Luxembourg, reservas Zenchef e interfaz multilingüe (FR/EN/DE/LB)."
+      "summary": "Bar de vinos y restaurante en el corazón del Grund, centrado en vinos naturales, biológicos y cocina francesa de temporada. Sitio completo entregado en 2026: carta de vinos online, reserva de mesa en un clic, y tienda para comprar botellas para llevar o enviar."
     },
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandwichería, tienda & bodega de vinos naturales",
       "location": "Grund, Luxemburgo — desde 1923",
-      "summary": "Institución del Grund desde 1923: sandwichería artesanal, tienda de productores y bodega de vinos naturales. E-commerce con cadenas cortas, checkout Stripe, gestión de stock en tiempo real y admin ligero para actualizaciones diarias."
+      "summary": "Institución del Grund desde 1923. Sitio y tienda online para mostrar productos artesanales y vinos naturales y permitir pedidos a distancia — sin tocar el alma del lugar."
     },
     "delivered": {
-      "title": "Lo que entregamos",
-      "ecommerce": "Checkout Stripe (IVA LU, idempotencia webhook)",
-      "i18n": "FR/EN/DE/LB con hreflang",
-      "stock": "Stock en tiempo real atómico (Redis)",
-      "seo": "JSON-LD listo para Google rich results",
-      "perf": "Rendimiento edge en Vercel CDN",
-      "admin": "Admin ligero para actualizaciones diarias"
+      "title": "Lo que ofrecen estos sitios",
+      "ecommerce": "Tienda online con pago seguro",
+      "i18n": "Disponible en 4 idiomas (FR/EN/DE/LB)",
+      "stock": "Disponibilidad en tiempo real",
+      "seo": "Aparece en Google y búsqueda IA",
+      "perf": "Rápido en móvil, fluido en todas partes",
+      "admin": "El comerciante actualiza la carta solo"
     },
     "faq": {
       "title": "Preguntas frecuentes",
       "q1": {
-        "q": "¿Quién construyó vinsfins.lu y lagrocerie.lu?",
-        "a": "OpenLetz (COMMIT MEDIA SARL) diseñó y opera ambos sitios desde Luxemburgo. Vins Fins y La Grocerie son dos PYMES luxemburguesas independientes en el Grund."
+        "q": "¿Cuánto tarda un sitio como este?",
+        "a": "Entre 4 y 8 semanas según el alcance. Para Vins Fins y La Grocerie pasamos del primer wireframe a la tienda online en menos de dos meses."
       },
       "q2": {
-        "q": "¿Qué stack tecnológico usan?",
-        "a": "Next.js 14+ en TypeScript, Tailwind CSS, Stripe, Vercel KV (Redis), Vercel Edge CDN. Para Vins Fins integramos Zenchef para reservas de restaurante."
+        "q": "¿Cuánto cuesta?",
+        "a": "Un sitio vitrina arranca en 900 €. Una tienda online completa como estas se sitúa entre 3 000 € y 8 000 €. Mantenimiento luego desde 90 €/mes."
       },
       "q3": {
         "q": "¿Son elegibles para subvenciones luxemburguesas?",
-        "a": "Sí. Nuestros servicios entran en SME Package Digital (hasta 17 500 €, 70% cubiertos), Fit 4 Digital y Fit 4 AI. Use el simulador para estimar su elegibilidad en 10 segundos."
+        "a": "Sí, es nuestra especialidad. SME Package Digital cubre hasta el 70 % (máx. 17 500 €), Fit 4 Digital cubre el 100 % en Fase 1 (hasta 5 000 €). Use el simulador para estimar la elegibilidad en 10 segundos."
       }
     },
     "cta": {
-      "title": "¿El próximo proyecto será el tuyo?",
-      "subtitle": "Estima tus ayudas en 6 preguntas o solicita un presupuesto.",
-      "primary": "Estimar mis ayudas",
+      "title": "¿El próximo será el tuyo?",
+      "subtitle": "Estima tus ayudas en 6 preguntas o solicita presupuesto.",
+      "primary": "Estimar ayudas",
       "secondary": "Solicitar presupuesto"
     }
   }

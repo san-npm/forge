@@ -457,50 +457,50 @@
   "clients": {
     "eyebrow": "Realizzazioni",
     "title": "I nostri clienti",
-    "subtitle": "Siti e-commerce, ristoranti e negozi consegnati dal Lussemburgo.",
-    "intro": "Progettiamo, costruiamo e gestiamo siti web per PMI lussemburghesi. Multilingue, pagamento Stripe, performance edge su Vercel.",
+    "subtitle": "Siti web e shop online per PMI lussemburghesi.",
+    "intro": "Alcuni progetti recenti, tutti al Grund, Città di Lussemburgo. Cliccate per vederli online.",
     "stackLabel": "Stack",
     "viewSite": "Vai al sito",
     "vinsfins": {
       "name": "Vins Fins",
       "tagline": "Wine bar & ristorante",
       "location": "Grund, Lussemburgo",
-      "summary": "Wine bar e ristorante nel cuore del Grund, specializzato in vini naturali e biologici e cucina francese di stagione. Sito completo consegnato nel 2026: catalogo di centinaia di vini, carrello, checkout Stripe, spedizione POST Luxembourg, prenotazioni Zenchef e interfaccia multilingue (FR/EN/DE/LB)."
+      "summary": "Wine bar e ristorante nel cuore del Grund, dedicato a vini naturali, biologici e cucina francese di stagione. Sito completo nel 2026: carta dei vini online, prenotazione tavolo in un clic, e shop per acquistare bottiglie da asporto o consegna."
     },
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandwicheria, drogheria & enoteca naturale",
       "location": "Grund, Lussemburgo — dal 1923",
-      "summary": "Istituzione del Grund dal 1923: sandwicheria artigianale, drogheria fattoriale ed enoteca di vini naturali. Sito e-commerce con filiera corta, checkout Stripe, gestione stock in tempo reale e admin leggera per aggiornamenti quotidiani."
+      "summary": "Istituzione del Grund dal 1923. Sito e shop online per valorizzare i prodotti artigianali e i vini naturali e permettere ordini a distanza — senza snaturare il luogo."
     },
     "delivered": {
-      "title": "Cosa consegniamo",
-      "ecommerce": "Checkout Stripe (IVA LU, idempotenza webhook)",
-      "i18n": "FR/EN/DE/LB con hreflang",
-      "stock": "Stock in tempo reale atomico (Redis)",
-      "seo": "JSON-LD pronto per Google rich results",
-      "perf": "Performance edge su Vercel CDN",
-      "admin": "Admin leggera per aggiornamenti quotidiani"
+      "title": "Cosa offrono questi siti",
+      "ecommerce": "Shop online con pagamento sicuro",
+      "i18n": "Disponibile in 4 lingue (FR/EN/DE/LB)",
+      "stock": "Disponibilità in tempo reale",
+      "seo": "Trovabile su Google e ricerca IA",
+      "perf": "Veloce su mobile, fluido ovunque",
+      "admin": "Il titolare aggiorna la carta da solo"
     },
     "faq": {
       "title": "Domande frequenti",
       "q1": {
-        "q": "Chi ha costruito vinsfins.lu e lagrocerie.lu?",
-        "a": "OpenLetz (COMMIT MEDIA SARL) ha progettato e sviluppa entrambi i siti dal Lussemburgo. Vins Fins e La Grocerie sono due PMI lussemburghesi indipendenti situate nel Grund."
+        "q": "Quanto tempo per un sito così?",
+        "a": "Da 4 a 8 settimane a seconda del perimetro. Per Vins Fins e La Grocerie, dal primo wireframe allo shop online in meno di due mesi."
       },
       "q2": {
-        "q": "Quale stack tecnologico utilizzate?",
-        "a": "Next.js 14+ in TypeScript, Tailwind CSS, Stripe, Vercel KV (Redis), Vercel Edge CDN. Per Vins Fins integriamo Zenchef per le prenotazioni del ristorante."
+        "q": "Quanto costa?",
+        "a": "Un sito vetrina parte da 900 €. Uno shop online completo come questi si colloca tra 3 000 € e 8 000 €. Manutenzione poi da 90 €/mese."
       },
       "q3": {
         "q": "Sono ammissibili a sovvenzioni lussemburghesi?",
-        "a": "Sì. I nostri servizi rientrano nei programmi SME Package Digital (fino a 17 500 €, 70% coperti), Fit 4 Digital e Fit 4 AI. Prova il simulatore per stimare la tua eleggibilità in 10 secondi."
+        "a": "Sì, è la nostra specialità. SME Package Digital copre fino al 70 % (max 17 500 €), Fit 4 Digital copre il 100 % in Fase 1 (fino a 5 000 €). Provate il simulatore per stimare l'idoneità in 10 secondi."
       }
     },
     "cta": {
-      "title": "Il prossimo progetto sarà il tuo?",
-      "subtitle": "Stima le tue sovvenzioni in 6 domande o richiedi un preventivo.",
-      "primary": "Stima le sovvenzioni",
+      "title": "Il prossimo sarà il tuo?",
+      "subtitle": "Stima le sovvenzioni in 6 domande o richiedi un preventivo.",
+      "primary": "Stima sovvenzioni",
       "secondary": "Richiedi preventivo"
     }
   }

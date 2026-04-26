@@ -455,46 +455,46 @@
     "generatedOn": "Erstellt am"
   },
   "clients": {
-    "eyebrow": "Referenzen",
+    "eyebrow": "Ausgewählte Arbeiten",
     "title": "Unsere Kunden",
-    "subtitle": "E-Commerce-Webseiten, Restaurants und Shops aus Luxemburg geliefert.",
-    "intro": "Wir konzipieren, entwickeln und betreiben Webseiten für luxemburgische KMU. Mehrsprachig, Stripe-Zahlung, Edge-Performance auf Vercel — vom ersten Wireframe bis zum Support nach dem Launch.",
+    "subtitle": "Webseiten und Online-Shops für luxemburgische KMU.",
+    "intro": "Einige aktuelle Projekte, alle im Grund in Luxemburg-Stadt. Klicken Sie sich durch, um sie live zu sehen.",
     "stackLabel": "Stack",
     "viewSite": "Zur Webseite",
     "vinsfins": {
       "name": "Vins Fins",
       "tagline": "Weinbar & Restaurant",
       "location": "Grund, Luxemburg",
-      "summary": "Weinbar und Restaurant im Herzen des Grunds, spezialisiert auf Naturweine, Bio-Weine und saisonale französische Küche. Komplette Webseite 2026 ausgeliefert: Katalog mit mehreren hundert Weinen, Warenkorb, Stripe-Checkout mit luxemburgischer MwSt., POST Luxembourg-Versand, Zenchef-Reservierungen und Vier-Sprachen-UI (FR/EN/DE/LB)."
+      "summary": "Weinbar und Restaurant im Herzen des Grunds, spezialisiert auf Naturweine, Bio-Weine und saisonale französische Küche. 2026 ausgeliefert: Online-Weinkarte, Tischreservierung mit einem Klick und Shop für Mitnahme oder Lieferung."
     },
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandwicherie, Feinkost & Naturweinkeller",
       "location": "Grund, Luxemburg — seit 1923",
-      "summary": "Grund-Institution seit 1923: handwerkliche Sandwicherie, Bauernhof-Feinkost und Naturweinkeller. Webseite und E-Commerce mit kurzen Lieferketten, Stripe-Checkout, Echtzeit-Bestandsverwaltung und einem leichtgewichtigen Admin für tägliche Menü- und Preis-Updates."
+      "summary": "Grund-Institution seit 1923. Webseite und Online-Shop, um handwerkliche Produkte und Naturweine zu zeigen und Bestellungen aus der Ferne zu ermöglichen — ohne den Charakter des Hauses zu verändern."
     },
     "delivered": {
-      "title": "Was wir liefern",
-      "ecommerce": "Stripe-Checkout (LU-MwSt., Webhook-Idempotenz)",
-      "i18n": "FR/EN/DE/LB mit korrektem hreflang",
-      "stock": "Atomarer Echtzeit-Bestand (Redis)",
-      "seo": "JSON-LD bereit für Google Rich Results",
-      "perf": "Edge-Performance auf Vercel CDN",
-      "admin": "Leichtes Admin für tägliche Updates"
+      "title": "Was diese Webseiten bieten",
+      "ecommerce": "Online-Shop mit sicherer Zahlung",
+      "i18n": "Verfügbar in 4 Sprachen (FR/EN/DE/LB)",
+      "stock": "Bestand in Echtzeit",
+      "seo": "Auf Google und KI-Suche auffindbar",
+      "perf": "Schnell auf dem Handy, flüssig überall",
+      "admin": "Inhaber pflegt die Karte selbst"
     },
     "faq": {
       "title": "Häufige Fragen",
       "q1": {
-        "q": "Wer hat vinsfins.lu und lagrocerie.lu gebaut?",
-        "a": "OpenLetz (COMMIT MEDIA SARL) hat beide Webseiten von Luxemburg aus konzipiert, entwickelt und betreibt sie. Vins Fins und La Grocerie sind zwei unabhängige luxemburgische KMU im Grund."
+        "q": "Wie lange dauert eine solche Webseite?",
+        "a": "Vier bis acht Wochen, je nach Umfang. Vins Fins und La Grocerie haben wir vom ersten Wireframe bis zum Live-Shop in unter zwei Monaten umgesetzt."
       },
       "q2": {
-        "q": "Welche Technologie nutzen Sie?",
-        "a": "Next.js 14+ (App Router) in TypeScript, Tailwind CSS, Stripe für Zahlungen, Vercel KV (Redis) für Bestand und Sessions, Vercel Edge CDN. Für Vins Fins integrieren wir Zenchef für Restaurant-Reservierungen."
+        "q": "Was kostet das?",
+        "a": "Eine einfache Visitenkarten-Webseite startet bei 900 €. Ein vollwertiger Online-Shop wie diese liegt zwischen 3 000 € und 8 000 € je nach Umfang. Wartung danach ab 90 €/Monat."
       },
       "q3": {
-        "q": "Sind diese Projekte für luxemburgische Förderungen geeignet?",
-        "a": "Ja. Unsere Leistungen fallen unter das SME Package Digital (bis 17.500 €, 70 % gedeckt), Fit 4 Digital (5.000 €, 100 % in Phase 1) und Fit 4 AI für KI-Module. Starten Sie den Simulator, um Ihre Förderfähigkeit in 10 Sekunden zu schätzen."
+        "q": "Bekomme ich dafür luxemburgische Förderungen?",
+        "a": "Ja — das ist unsere Spezialität. SME Package Digital deckt bis zu 70 % ab (max 17 500 €), Fit 4 Digital deckt 100 % in Phase 1 (bis 5 000 €). Starten Sie den Simulator, um Ihre Förderfähigkeit in 10 Sekunden zu schätzen."
       }
     },
     "cta": {

@@ -457,50 +457,50 @@
   "clients": {
     "eyebrow": "Realizações",
     "title": "Os nossos clientes",
-    "subtitle": "Sites e-commerce, restaurantes e lojas entregues a partir do Luxemburgo.",
-    "intro": "Concebemos, construímos e operamos sites para PMEs luxemburguesas. Multilíngue, pagamento Stripe, performance edge na Vercel — do primeiro wireframe ao apoio pós-lançamento.",
+    "subtitle": "Sites e lojas online para PMEs do Luxemburgo.",
+    "intro": "Alguns projetos recentes, todos no Grund, Cidade do Luxemburgo. Clique para ver o resultado online.",
     "stackLabel": "Stack",
     "viewSite": "Visitar o site",
     "vinsfins": {
       "name": "Vins Fins",
       "tagline": "Bar de vinhos & restaurante",
       "location": "Grund, Luxemburgo",
-      "summary": "Bar de vinhos e restaurante no coração do Grund, especializado em vinhos naturais e biológicos e cozinha francesa de estação. Site completo entregue em 2026: catálogo de várias centenas de referências, carrinho, checkout Stripe com IVA luxemburguês, envio POST Luxembourg, reservas Zenchef e UI em quatro idiomas (FR/EN/DE/LB)."
+      "summary": "Bar de vinhos e restaurante no coração do Grund, focado em vinhos naturais, biológicos e cozinha francesa de estação. Site completo entregue em 2026: carta de vinhos online, reserva de mesa num clique, e loja para encomendar garrafas para levar ou em entrega."
     },
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandes, mercearia & garrafeira de vinhos naturais",
       "location": "Grund, Luxemburgo — desde 1923",
-      "summary": "Instituição do Grund desde 1923: sandwicheria artesanal, mercearia de produtores e garrafeira de vinhos naturais. Site e e-commerce com cadeias curtas, checkout Stripe, gestão de stock em tempo real e admin leve para atualizações diárias do menu e dos preços."
+      "summary": "Instituição do Grund desde 1923. Site e loja online para mostrar os produtos artesanais e vinhos naturais e permitir encomendar à distância — sem mexer na alma do lugar."
     },
     "delivered": {
-      "title": "O que entregamos",
-      "ecommerce": "Checkout Stripe (IVA LU, idempotência webhook)",
-      "i18n": "FR/EN/DE/LB com hreflang correto",
-      "stock": "Stock em tempo real atómico (Redis)",
-      "seo": "JSON-LD pronto para Google rich results",
-      "perf": "Performance edge na Vercel CDN",
-      "admin": "Admin leve para atualizações diárias"
+      "title": "O que estes sites trazem",
+      "ecommerce": "Loja online com pagamento seguro",
+      "i18n": "Disponível em 4 idiomas (FR/EN/DE/LB)",
+      "stock": "Disponibilidade em tempo real",
+      "seo": "Visível no Google e na pesquisa IA",
+      "perf": "Rápido no telemóvel, fluido em qualquer ecrã",
+      "admin": "O comerciante atualiza a carta sozinho"
     },
     "faq": {
       "title": "Perguntas frequentes",
       "q1": {
-        "q": "Quem construiu vinsfins.lu e lagrocerie.lu?",
-        "a": "A OpenLetz (COMMIT MEDIA SARL) concebeu, desenvolveu e opera os dois sites a partir do Luxemburgo. Vins Fins e La Grocerie são duas PMEs luxemburguesas independentes sediadas no Grund."
+        "q": "Quanto tempo demora um site como este?",
+        "a": "Entre 4 e 8 semanas, conforme o âmbito. Para o Vins Fins e La Grocerie, fomos do primeiro wireframe à loja online em menos de dois meses."
       },
       "q2": {
-        "q": "Que stack utilizam?",
-        "a": "Next.js 14+ (App Router) em TypeScript, Tailwind CSS, Stripe para pagamentos, Vercel KV (Redis) para stock e sessões, Vercel Edge CDN. Para a Vins Fins integramos também o Zenchef para reservas de restaurante."
+        "q": "Quanto custa?",
+        "a": "Um site vitrina começa em 900 €. Uma loja online completa como estas situa-se entre 3 000 € e 8 000 €, conforme o âmbito. Manutenção depois a partir de 90 €/mês."
       },
       "q3": {
-        "q": "Estes projetos são elegíveis para apoios luxemburgueses?",
-        "a": "Sim. O nosso trabalho qualifica-se ao abrigo do SME Package Digital (até 17 500 €, 70% cobertos), Fit 4 Digital (5 000 €, 100% cobertos na Fase 1) e Fit 4 AI para módulos de IA. Use o simulador para estimar a sua elegibilidade em 10 segundos."
+        "q": "É elegível para apoios luxemburgueses?",
+        "a": "Sim — é a nossa especialidade. O SME Package Digital cobre até 70 % (máx. 17 500 €), Fit 4 Digital cobre 100 % na Fase 1 (até 5 000 €). Use o simulador para estimar a sua elegibilidade em 10 segundos."
       }
     },
     "cta": {
       "title": "O próximo projeto pode ser o seu?",
       "subtitle": "Estime os apoios em 6 perguntas ou peça um orçamento.",
-      "primary": "Estimar os meus apoios",
+      "primary": "Estimar apoios",
       "secondary": "Pedir orçamento"
     }
   }

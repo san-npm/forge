@@ -11,10 +11,10 @@ type Project = {
   domain: string
   accent: 'wine' | 'olive'
   initials: string
-  // Static facts that are not localized: tech stack tags + delivered features.
-  // Localized text (name, tagline, summary) comes from the translation
-  // dictionary so SEO/AEO copy stays per-locale.
-  stack: string[]
+  // Visible feature bullets — labels come from messages/*.json; the keys
+  // here just control which bullets render and in which order. Tech-stack
+  // fingerprints stay in the JSON-LD `keywords` so AI engines still
+  // categorize the work without exposing jargon to potential leads.
   delivered: ('ecommerce' | 'i18n' | 'stock' | 'seo' | 'perf' | 'admin')[]
 }
 
@@ -25,7 +25,6 @@ const projects: Project[] = [
     domain: 'vinsfins.lu',
     accent: 'wine',
     initials: 'VF',
-    stack: ['Next.js', 'TypeScript', 'Tailwind', 'Stripe', 'Vercel KV', 'Zenchef'],
     delivered: ['ecommerce', 'i18n', 'stock', 'seo', 'perf', 'admin'],
   },
   {
@@ -34,7 +33,6 @@ const projects: Project[] = [
     domain: 'lagrocerie.lu',
     accent: 'olive',
     initials: 'LG',
-    stack: ['Next.js', 'TypeScript', 'Tailwind', 'Stripe', 'Vercel KV'],
     delivered: ['ecommerce', 'i18n', 'stock', 'seo', 'perf', 'admin'],
   },
 ]
@@ -171,23 +169,6 @@ export default function ClientsPage() {
                           </li>
                         ))}
                       </ul>
-                    </div>
-
-                    {/* Stack tags */}
-                    <div className="mb-6">
-                      <h3 className="text-xs font-bold uppercase tracking-wide text-navy-500 mb-2">
-                        {t('clients.stackLabel')}
-                      </h3>
-                      <div className="flex flex-wrap gap-1.5">
-                        {p.stack.map((s) => (
-                          <span
-                            key={s}
-                            className="px-2.5 py-1 text-xs font-mono text-gray-600 bg-gray-100 rounded-md"
-                          >
-                            {s}
-                          </span>
-                        ))}
-                      </div>
                     </div>
 
                     {/* CTA */}
