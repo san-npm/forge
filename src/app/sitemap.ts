@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '', priority: 1.0, freq: 'weekly' as const, date: contentDate },
     { path: '/agents', priority: 0.9, freq: 'weekly' as const, date: contentDate },
     { path: '/pricing', priority: 0.8, freq: 'monthly' as const, date: contentDate },
+    { path: '/clients', priority: 0.8, freq: 'monthly' as const, date: contentDate },
     { path: '/blog', priority: 0.8, freq: 'weekly' as const, date: contentDate },
     { path: '/about', priority: 0.6, freq: 'monthly' as const, date: staticDate },
     { path: '/contact', priority: 0.7, freq: 'monthly' as const, date: staticDate },

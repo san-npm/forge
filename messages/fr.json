@@ -6,7 +6,8 @@
     "blog": "Blog",
     "directory": "Agents IA",
     "about": "À propos",
-    "pricing": "Tarifs"
+    "pricing": "Tarifs",
+    "clients": "Clients"
   },
   "hero": {
     "title": "Digitalisez votre PME grâce aux aides luxembourgeoises",
@@ -452,5 +453,55 @@
   "report": {
     "title": "Rapport d'éligibilité — OpenLetz",
     "generatedOn": "Généré le"
+  },
+  "clients": {
+    "eyebrow": "Nos réalisations",
+    "title": "Nos clients",
+    "subtitle": "Sites e-commerce, restaurants et boutiques livrés depuis le Luxembourg.",
+    "intro": "Nous concevons, construisons et opérons des sites web pour des PME luxembourgeoises. Multi-langue, paiement Stripe, performance edge sur Vercel — du premier wireframe au support après lancement.",
+    "stackLabel": "Stack",
+    "viewSite": "Voir le site",
+    "vinsfins": {
+      "name": "Vins Fins",
+      "tagline": "Bar à vins & restaurant",
+      "location": "Grund, Luxembourg",
+      "summary": "Bar à vins et restaurant au cœur du Grund, spécialisé en vins naturels et bio et cuisine française de saison. Site complet livré en 2026 : catalogue de plusieurs centaines de références, panier, paiement Stripe avec TVA luxembourgeoise, livraison POST Luxembourg, réservations Zenchef intégrées et carte multilingue (FR/EN/DE/LB)."
+    },
+    "grocerie": {
+      "name": "La Grocerie",
+      "tagline": "Sandwicherie, épicerie & cave à vins naturels",
+      "location": "Grund, Luxembourg — depuis 1923",
+      "summary": "Institution du Grund depuis 1923 : sandwicherie artisanale, épicerie fermière et cave à vins naturels. Site vitrine et e-commerce avec circuits courts, paiement Stripe, gestion stock temps-réel et interface admin pour mises à jour quotidiennes du menu et des prix."
+    },
+    "delivered": {
+      "title": "Ce que nous livrons",
+      "ecommerce": "E-commerce Stripe (TVA LU, idempotence webhook)",
+      "i18n": "Multi-langue FR/EN/DE/LB avec hreflang",
+      "stock": "Stock temps-réel atomique (Redis)",
+      "seo": "JSON-LD prêt pour Google rich results",
+      "perf": "Performance edge sur Vercel CDN",
+      "admin": "Admin pour mises à jour quotidiennes"
+    },
+    "faq": {
+      "title": "Questions fréquentes sur nos réalisations",
+      "q1": {
+        "q": "Qui a construit vinsfins.lu et lagrocerie.lu ?",
+        "a": "OpenLetz (COMMIT MEDIA SARL) a conçu, développé et opère les deux sites depuis Luxembourg. Vins Fins et La Grocerie sont deux PME indépendantes situées au Grund, partenaires de longue date."
+      },
+      "q2": {
+        "q": "Quelle stack technique utilisez-vous ?",
+        "a": "Next.js 14+ (App Router) en TypeScript, Tailwind CSS, Stripe pour le paiement, Vercel KV (Redis) pour le stock et les sessions, Vercel Edge CDN pour la diffusion. Pour Vins Fins, intégration Zenchef pour les réservations restaurant."
+      },
+      "q3": {
+        "q": "Êtes-vous éligible à des aides luxembourgeoises ?",
+        "a": "Oui. Nos prestations rentrent dans le périmètre du SME Package Digital (jusqu'à 17 500 €, 70 % couverts), de Fit 4 Digital (5 000 €, 100 % couverts en Phase 1) et de Fit 4 AI pour les modules d'intelligence artificielle. Lancez le simulateur pour estimer votre éligibilité en 10 secondes."
+      }
+    },
+    "cta": {
+      "title": "Le prochain projet, c'est le vôtre ?",
+      "subtitle": "Estimez vos aides en 6 questions ou demandez un devis.",
+      "primary": "Estimer mes aides",
+      "secondary": "Demander un devis"
+    }
   }
 }
