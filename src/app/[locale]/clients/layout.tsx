@@ -22,17 +22,17 @@ const titles: Record<string, string> = {
 }
 
 const descriptions: Record<string, string> = {
-  fr: "Sites e-commerce, restaurants et boutiques livrés par OpenLetz pour des PME luxembourgeoises : Vins Fins (bar à vins, Grund) et La Grocerie (sandwicherie & cave à vins, Grund, depuis 1923). Stack Next.js / Stripe / Vercel.",
-  en: 'E-commerce sites, restaurants and shops delivered by OpenLetz for Luxembourg SMEs: Vins Fins (wine bar, Grund) and La Grocerie (deli & natural wine cellar, Grund, since 1923). Next.js / Stripe / Vercel stack.',
-  de: 'E-Commerce-Webseiten, Restaurants und Shops von OpenLetz für luxemburgische KMU: Vins Fins (Weinbar, Grund) und La Grocerie (Sandwicherie & Naturweinkeller, Grund, seit 1923). Next.js / Stripe / Vercel-Stack.',
-  lb: 'E-Commerce, Restauranten a Geschäfter geliwwert vun OpenLetz fir Lëtzebuerger KMU: Vins Fins (Weinbar, Gronn) a La Grocerie (Sandwicherie & Naturweinkeller, Gronn, zënter 1923). Next.js / Stripe / Vercel.',
-  it: 'Siti e-commerce, ristoranti e negozi consegnati da OpenLetz per PMI lussemburghesi: Vins Fins (wine bar, Grund) e La Grocerie (sandwicheria & cantina naturale, Grund, dal 1923). Stack Next.js / Stripe / Vercel.',
-  pt: 'Sites e-commerce, restaurantes e lojas entregues pela OpenLetz para PMEs luxemburguesas: Vins Fins (bar de vinhos, Grund) e La Grocerie (sandes & vinhos naturais, Grund, desde 1923). Stack Next.js / Stripe / Vercel.',
-  es: 'Sitios e-commerce, restaurantes y tiendas entregados por OpenLetz para PYMES luxemburguesas: Vins Fins (bar de vinos, Grund) y La Grocerie (sandwichería y vinos naturales, Grund, desde 1923). Stack Next.js / Stripe / Vercel.',
-  ru: 'Сайты e-commerce, рестораны и магазины, реализованные OpenLetz для люксембургских МСП: Vins Fins (винный бар, Гранд) и La Grocerie (сэндвичная и винотека, Гранд, с 1923 года). Стек Next.js / Stripe / Vercel.',
-  ar: 'مواقع تجارة إلكترونية ومطاعم ومتاجر سلمتها OpenLetz للشركات الصغيرة والمتوسطة في لوكسمبورغ: Vins Fins (بار النبيذ، غروند) و La Grocerie (محل سندويتشات وقبو نبيذ طبيعي، غروند، منذ 1923). Next.js / Stripe / Vercel.',
-  tr: 'OpenLetz tarafından Lüksemburg KOBİ\'leri için teslim edilen e-ticaret siteleri, restoranlar ve mağazalar: Vins Fins (şarap barı, Grund) ve La Grocerie (sandviç & doğal şarap mahzeni, Grund, 1923\'ten beri). Next.js / Stripe / Vercel.',
-  uk: 'Сайти e-commerce, ресторани та магазини, реалізовані OpenLetz для люксембурзьких МСП: Vins Fins (винний бар, Ґрунд) та La Grocerie (сендвічна та винотека, Ґрунд, з 1923 року). Стек Next.js / Stripe / Vercel.',
+  fr: "Sites web et boutiques en ligne livrés par OpenLetz pour des PME luxembourgeoises : Vins Fins (bar à vins, Grund) et La Grocerie (sandwicherie & cave à vins naturels, Grund, depuis 1923). Aides luxembourgeoises éligibles.",
+  en: 'Websites and online shops delivered by OpenLetz for Luxembourg SMEs: Vins Fins (wine bar, Grund) and La Grocerie (deli & natural-wine cellar, Grund, since 1923). Eligible for Luxembourg public grants.',
+  de: 'Webseiten und Online-Shops von OpenLetz für luxemburgische KMU: Vins Fins (Weinbar, Grund) und La Grocerie (Sandwicherie & Naturweinkeller, Grund, seit 1923). Förderfähig in Luxemburg.',
+  lb: 'Websäiten an Online-Shops geliwwert vun OpenLetz fir Lëtzebuerger KMU: Vins Fins (Weinbar, Gronn) a La Grocerie (Sandwicherie & Naturweinkeller, Gronn, zënter 1923). Lëtzebuerger Hëllefen méiglech.',
+  it: 'Siti web e shop online di OpenLetz per PMI lussemburghesi: Vins Fins (wine bar, Grund) e La Grocerie (sandwicheria & cantina naturale, Grund, dal 1923). Sovvenzioni lussemburghesi disponibili.',
+  pt: 'Sites e lojas online entregues pela OpenLetz para PMEs luxemburguesas: Vins Fins (bar de vinhos, Grund) e La Grocerie (sandes & vinhos naturais, Grund, desde 1923). Apoios luxemburgueses elegíveis.',
+  es: 'Webs y tiendas online entregadas por OpenLetz para PYMES luxemburguesas: Vins Fins (bar de vinos, Grund) y La Grocerie (sandwichería y vinos naturales, Grund, desde 1923). Subvenciones luxemburguesas elegibles.',
+  ru: 'Сайты и онлайн-магазины OpenLetz для люксембургских МСП: Vins Fins (винный бар, Гранд) и La Grocerie (сэндвичная и винотека, Гранд, с 1923 года). Возможны субсидии Люксембурга.',
+  ar: 'مواقع ومتاجر إلكترونية سلمتها OpenLetz للشركات الصغيرة والمتوسطة في لوكسمبورغ: Vins Fins (بار النبيذ، غروند) و La Grocerie (محل سندويتشات وقبو نبيذ طبيعي، غروند، منذ 1923). منح لوكسمبورغ متاحة.',
+  tr: 'OpenLetz\'in Lüksemburg KOBİ\'leri için teslim ettiği web siteleri ve online mağazalar: Vins Fins (şarap barı, Grund) ve La Grocerie (sandviç & doğal şarap mahzeni, Grund, 1923\'ten beri). Lüksemburg hibelerine uygun.',
+  uk: 'Сайти та онлайн-магазини OpenLetz для люксембурзьких МСП: Vins Fins (винний бар, Ґрунд) та La Grocerie (сендвічна та винотека, Ґрунд, з 1923 року). Можливі люксембурзькі субсидії.',
 }
 
 const breadcrumbLabels: Record<string, { home: string; clients: string }> = {
