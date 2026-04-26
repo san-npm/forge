@@ -457,44 +457,44 @@
   "clients": {
     "eyebrow": "Eis Realisatiounen",
     "title": "Eis Cliente'n",
-    "subtitle": "E-Commerce, Restauranten a Geschäfter geliwwert aus Lëtzebuerg.",
-    "intro": "Mir konzipéieren, bauen a betreiben Websäiten fir Lëtzebuerger KMU. Méisproocheg, Stripe-Bezuelung, Edge-Performance op Vercel — vum éischte Wireframe bis zum Support nom Lancement.",
+    "subtitle": "Websäiten an Online-Shops fir Lëtzebuerger KMU.",
+    "intro": "E puer rezent Projeten, all am Gronn, an der Stad. Klickt fir si live ze gesinn.",
     "stackLabel": "Stack",
     "viewSite": "Op d'Säit goen",
     "vinsfins": {
       "name": "Vins Fins",
       "tagline": "Weinbar & Restaurant",
       "location": "Gronn, Lëtzebuerg",
-      "summary": "Weinbar a Restaurant am Häerz vum Gronn, spezialiséiert op Natur- a Bio-Wäiner a saisonell franséisch Kichen. Komplett Säit 2026 geliwwert: Katalog mat e puer honnert Wäiner, Kuerf, Stripe-Bezuelung mat lëtzebuerger MwSt, POST-Liwwerung, Zenchef-Reservatiounen a Véier-Sproochen-UI (FR/EN/DE/LB)."
+      "summary": "Weinbar a Restaurant am Häerz vum Gronn, spezialiséiert op Natur- a Bio-Wäiner a saisonell franséisch Kichen. 2026 geliwwert: Online-Weinkaart, Dëschreservatioun mat engem Klick, a Shop fir mat heem ze huelen oder Liwwerung."
     },
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandwicherie, Epicerie & Naturweinkeller",
       "location": "Gronn, Lëtzebuerg — zënter 1923",
-      "summary": "Gronner Institutioun zënter 1923: artisanal Sandwicherie, Baurenhaff-Epicerie an Naturweinkeller. Vitrinn an E-Commerce mat kuerze Liwwerketten, Stripe-Bezuelung, Echtzäit-Bestandsverwaltung an engem liichten Admin fir deeglech Menü- a Präisupdates."
+      "summary": "Gronner Institutioun zënter 1923. Vitrinn an Online-Shop fir artisanal Produkter an Naturwäiner ze weisen an d'Bestellung op Distanz z'erméiglechen — ouni d'Séil vum Geschäft ze änneren."
     },
     "delivered": {
-      "title": "Wat mir liwweren",
-      "ecommerce": "Stripe-Checkout (LU-MwSt, Webhook-Idempotenz)",
-      "i18n": "FR/EN/DE/LB mat richtegem hreflang",
-      "stock": "Atomar Echtzäit-Bestand (Redis)",
-      "seo": "JSON-LD prett fir Google Rich Results",
-      "perf": "Edge-Performance op Vercel CDN",
-      "admin": "Liichten Admin fir deeglech Updates"
+      "title": "Wat dës Säiten bréngen",
+      "ecommerce": "Online-Shop mat séierer Bezuelung",
+      "i18n": "Op 4 Sproochen (FR/EN/DE/LB)",
+      "stock": "Verfügbarkeet an Echtzäit",
+      "seo": "Op Google an KI-Sich z'fanne",
+      "perf": "Séier um Smartphone, flott iwwerall",
+      "admin": "De Patron mécht d'Kaart selwer"
     },
     "faq": {
       "title": "Heefeg gestallte Froen",
       "q1": {
-        "q": "Wien huet vinsfins.lu a lagrocerie.lu gebaut?",
-        "a": "OpenLetz (COMMIT MEDIA SARL) huet déi zwou Säiten zu Lëtzebuerg konzipéiert, entwéckelt a betreift se. Vins Fins a La Grocerie sinn zwou onofhängeg lëtzebuerger KMU am Gronn."
+        "q": "Wéi laang fir esou eng Säit?",
+        "a": "Véier bis aacht Wochen, je no Periphérie. Bei Vins Fins a La Grocerie sinn mir vun der éischter Skizz bis zum Live-Shop a manner wéi zwee Méint komm."
       },
       "q2": {
-        "q": "Wéi eng Technologien benotzt Dir?",
-        "a": "Next.js 14+ (App Router) op TypeScript, Tailwind CSS, Stripe fir Bezuelungen, Vercel KV (Redis) fir Bestand a Sessiounen, Vercel Edge CDN. Fir Vins Fins integréiere mir Zenchef fir Restaurant-Reservatiounen."
+        "q": "Wat kascht et?",
+        "a": "Eng einfach Vitrinns-Säit fänkt bei 900 € un. E vollen Online-Shop wéi dëse läit tëschent 3 000 € an 8 000 €, je no Periphérie. Maintenance duerno ab 90 €/Mount."
       },
       "q3": {
-        "q": "Si dës Projeten fir lëtzebuerger Hëllefen elegibel?",
-        "a": "Jo. Eis Leeschtungen falen ënner d'SME Package Digital (bis 17 500 €, 70 % gedeckt), Fit 4 Digital (5 000 €, 100 % an Phas 1) a Fit 4 AI fir KI-Moduler. Probéiert de Simulator fir Är Eligibilitéit an 10 Sekonnen ze schätzen."
+        "q": "Krit een dofir lëtzebuerger Hëllefen?",
+        "a": "Jo — dat ass eis Spezialitéit. SME Package Digital deckt bis zu 70 % (max 17 500 €), Fit 4 Digital deckt 100 % an Phas 1 (bis 5 000 €). Probéiert de Simulator fir Är Eligibilitéit an 10 Sekonnen ze schätzen."
       }
     },
     "cta": {
