@@ -470,8 +470,8 @@
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandwicherie, Feinkost & Naturweinkeller",
-      "location": "Grund, Luxemburg — seit 1923",
-      "summary": "Grund-Institution seit 1923. Webseite und Online-Shop, um handwerkliche Produkte und Naturweine zu zeigen und Bestellungen aus der Ferne zu ermöglichen — ohne den Charakter des Hauses zu verändern."
+      "location": "Grund, Luxemburg",
+      "summary": "Quartierladen mit Naturweinkeller im Grund. Webseite und Online-Shop zeigen handwerkliche Produkte und Naturweine und ermöglichen Bestellungen aus der Ferne — ohne den Charakter des Hauses zu verändern."
     },
     "delivered": {
       "title": "Was diese Webseiten bieten",
@@ -494,7 +494,7 @@
       },
       "q3": {
         "q": "Bekomme ich dafür luxemburgische Förderungen?",
-        "a": "Ja — das ist unsere Spezialität. SME Package Digital deckt bis zu 70 % ab (max 17 500 €), Fit 4 Digital deckt 100 % in Phase 1 (bis 5 000 €). Starten Sie den Simulator, um Ihre Förderfähigkeit in 10 Sekunden zu schätzen."
+        "a": "Ja — das ist unsere Spezialität. SME Package Digital deckt bis zu 70 % auf Projekten bis 25 000 € (netto), Fit 4 Digital deckt 100 % in Phase 1 (bis 5 000 €). Starten Sie den Simulator, um Ihre Förderfähigkeit in 10 Sekunden zu schätzen."
       }
     },
     "cta": {

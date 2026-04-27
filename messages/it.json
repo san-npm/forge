@@ -470,8 +470,8 @@
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandwicheria, drogheria & enoteca naturale",
-      "location": "Grund, Lussemburgo — dal 1923",
-      "summary": "Istituzione del Grund dal 1923. Sito e shop online per valorizzare i prodotti artigianali e i vini naturali e permettere ordini a distanza — senza snaturare il luogo."
+      "location": "Grund, Lussemburgo",
+      "summary": "Indirizzo di quartiere nel cuore del Grund. Sito vetrina e shop online per valorizzare i prodotti artigianali e i vini naturali e permettere ordini a distanza — senza snaturare il luogo."
     },
     "delivered": {
       "title": "Cosa offrono questi siti",
@@ -494,7 +494,7 @@
       },
       "q3": {
         "q": "Sono ammissibili a sovvenzioni lussemburghesi?",
-        "a": "Sì, è la nostra specialità. SME Package Digital copre fino al 70 % (max 17 500 €), Fit 4 Digital copre il 100 % in Fase 1 (fino a 5 000 €). Provate il simulatore per stimare l'idoneità in 10 secondi."
+        "a": "Sì, è la nostra specialità. SME Package Digital copre fino al 70 % su progetti fino a 25 000 € (IVA esclusa), Fit 4 Digital copre il 100 % in Fase 1 (fino a 5 000 €). Provate il simulatore per stimare l'idoneità in 10 secondi."
       }
     },
     "cta": {
