@@ -470,8 +470,8 @@
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandviç, bakkal & doğal şarap mahzeni",
-      "location": "Grund, Lüksemburg — 1923'ten beri",
-      "summary": "1923'ten beri Grund'un kurumu. Vitrin ve çevrim içi mağaza, zanaatkâr ürünleri ve doğal şarapları öne çıkarıyor ve uzaktan sipariş alıyor — yerin ruhunu bozmadan."
+      "location": "Grund, Lüksemburg",
+      "summary": "Grund'un kalbinde semt adresi. Vitrin ve çevrim içi mağaza, zanaatkâr ürünleri ve doğal şarapları öne çıkarıyor ve uzaktan sipariş alıyor — yerin ruhunu bozmadan."
     },
     "delivered": {
       "title": "Bu siteler ne sunar",
@@ -494,7 +494,7 @@
       },
       "q3": {
         "q": "Lüksemburg hibelerine uygun mu?",
-        "a": "Evet, bu bizim uzmanlık alanımız. SME Package Digital %70'e kadar (azami 17 500 €), Fit 4 Digital Faz 1'de %100 (5 000 €'ya kadar). 10 saniyede uygunluğunuzu tahmin etmek için simülatörü çalıştırın."
+        "a": "Evet, bu bizim uzmanlık alanımız. SME Package Digital, 25 000 €'ya kadar (KDV hariç) projelerde %70'e kadar kapsar; Fit 4 Digital Faz 1'de %100 (5 000 €'ya kadar). 10 saniyede uygunluğunuzu tahmin etmek için simülatörü çalıştırın."
       }
     },
     "cta": {

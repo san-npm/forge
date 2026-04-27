@@ -470,8 +470,8 @@
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandwicherie, épicerie & cave à vins naturels",
-      "location": "Grund, Luxembourg — depuis 1923",
-      "summary": "Institution du Grund depuis 1923. Site vitrine et boutique en ligne pour mettre en avant les produits artisanaux, les vins naturels et permettre la commande à distance — sans changer l'âme du lieu."
+      "location": "Grund, Luxembourg",
+      "summary": "Adresse de quartier au cœur du Grund. Site vitrine et boutique en ligne pour mettre en avant les produits artisanaux, les vins naturels et permettre la commande à distance — sans dénaturer l'esprit du lieu."
     },
     "delivered": {
       "title": "Ce que ces sites apportent",
@@ -494,7 +494,7 @@
       },
       "q3": {
         "q": "Êtes-vous éligible à des aides luxembourgeoises ?",
-        "a": "Oui — c'est même notre spécialité. Le SME Package Digital couvre jusqu'à 70 % du projet (max 17 500 €) et Fit 4 Digital couvre 100 % en Phase 1 (jusqu'à 5 000 €). Lancez le simulateur pour estimer en 10 secondes vos droits."
+        "a": "Oui — c'est même notre spécialité. Le SME Package Digital couvre jusqu'à 70 % sur des projets jusqu'à 25 000 € HTVA, et Fit 4 Digital couvre 100 % en Phase 1 (jusqu'à 5 000 €). Lancez le simulateur pour estimer en 10 secondes vos droits."
       }
     },
     "cta": {

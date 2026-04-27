@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Link } from '@/i18n/routing'
 import { useLanguage } from '@/context/LanguageContext'
 import PageNavbar from '@/components/PageNavbar'
@@ -10,7 +11,7 @@ type Project = {
   url: string
   domain: string
   accent: 'wine' | 'olive'
-  initials: string
+  logo: { src: string; width: number; height: number; boxClass: string }
   // Visible feature bullets — labels come from messages/*.json; the keys
   // here just control which bullets render and in which order. Tech-stack
   // fingerprints stay in the JSON-LD `keywords` so AI engines still
@@ -24,7 +25,7 @@ const projects: Project[] = [
     url: 'https://www.vinsfins.lu',
     domain: 'vinsfins.lu',
     accent: 'wine',
-    initials: 'VF',
+    logo: { src: '/clients/vinsfins-logo.png', width: 56, height: 56, boxClass: 'w-14 h-14' },
     delivered: ['ecommerce', 'i18n', 'stock', 'seo', 'perf', 'admin'],
   },
   {
@@ -32,7 +33,7 @@ const projects: Project[] = [
     url: 'https://www.lagrocerie.lu',
     domain: 'lagrocerie.lu',
     accent: 'olive',
-    initials: 'LG',
+    logo: { src: '/clients/lagrocerie-logo.png', width: 140, height: 56, boxClass: 'w-32 h-14' },
     delivered: ['ecommerce', 'i18n', 'stock', 'seo', 'perf', 'admin'],
   },
 ]
@@ -128,10 +129,15 @@ export default function ClientsPage() {
                     {/* Header */}
                     <div className="flex items-center gap-4 mb-5">
                       <div
-                        className={`w-14 h-14 rounded-2xl ring-4 ${accent.ring} ${accent.bg} ${accent.text} flex items-center justify-center font-bold text-lg`}
-                        aria-hidden="true"
+                        className={`${p.logo.boxClass} rounded-2xl ring-4 ${accent.ring} ${accent.bg} flex items-center justify-center p-2 shrink-0`}
                       >
-                        {p.initials}
+                        <Image
+                          src={p.logo.src}
+                          alt={t(`clients.${p.id}.name`)}
+                          width={p.logo.width}
+                          height={p.logo.height}
+                          className="max-h-full max-w-full w-auto h-auto object-contain"
+                        />
                       </div>
                       <div>
                         <h2 id={`project-${p.id}-name`} className="text-2xl font-bold text-navy-900">

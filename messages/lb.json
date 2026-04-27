@@ -470,8 +470,8 @@
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Sandwicherie, Epicerie & Naturweinkeller",
-      "location": "Gronn, Lëtzebuerg — zënter 1923",
-      "summary": "Gronner Institutioun zënter 1923. Vitrinn an Online-Shop fir artisanal Produkter an Naturwäiner ze weisen an d'Bestellung op Distanz z'erméiglechen — ouni d'Séil vum Geschäft ze änneren."
+      "location": "Gronn, Lëtzebuerg",
+      "summary": "Quartiersadress am Häerz vum Gronn. Vitrinn an Online-Shop fir artisanal Produkter an Naturwäiner ze weisen an d'Bestellung op Distanz z'erméiglechen — ouni d'Séil vum Geschäft ze änneren."
     },
     "delivered": {
       "title": "Wat dës Säiten bréngen",
@@ -494,7 +494,7 @@
       },
       "q3": {
         "q": "Krit een dofir lëtzebuerger Hëllefen?",
-        "a": "Jo — dat ass eis Spezialitéit. SME Package Digital deckt bis zu 70 % (max 17 500 €), Fit 4 Digital deckt 100 % an Phas 1 (bis 5 000 €). Probéiert de Simulator fir Är Eligibilitéit an 10 Sekonnen ze schätzen."
+        "a": "Jo — dat ass eis Spezialitéit. SME Package Digital deckt bis zu 70 % op Projeten bis 25 000 € (HTVA), Fit 4 Digital deckt 100 % an Phas 1 (bis 5 000 €). Probéiert de Simulator fir Är Eligibilitéit an 10 Sekonnen ze schätzen."
       }
     },
     "cta": {

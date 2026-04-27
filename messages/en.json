@@ -470,8 +470,8 @@
     "grocerie": {
       "name": "La Grocerie",
       "tagline": "Deli, grocery & natural-wine cellar",
-      "location": "Grund, Luxembourg — since 1923",
-      "summary": "Grund institution since 1923. Storefront and online shop showcasing artisan products and natural wines, with remote ordering — without changing the soul of the place."
+      "location": "Grund, Luxembourg",
+      "summary": "Neighbourhood deli and natural-wine cellar in the Grund. Storefront and online shop showcasing artisan products and natural wines, with remote ordering — keeping the soul of the place intact."
     },
     "delivered": {
       "title": "What these sites give you",
@@ -494,7 +494,7 @@
       },
       "q3": {
         "q": "Can I get Luxembourg public grants for this?",
-        "a": "Yes — it's our specialty. SME Package Digital covers up to 70% (max €17,500). Fit 4 Digital covers 100% in Phase 1 (up to €5,000). Run the simulator to estimate your eligibility in 10 seconds."
+        "a": "Yes — it's our specialty. SME Package Digital covers up to 70% on projects up to €25,000 (excl. VAT). Fit 4 Digital covers 100% in Phase 1 (up to €5,000). Run the simulator to estimate your eligibility in 10 seconds."
       }
     },
     "cta": {
