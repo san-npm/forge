@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-
-const SITE_URL = 'https://www.openletz.com'
+import { localeUrl } from '@/lib/locale-url'
 
 const titles: Record<string, string> = {
   fr: 'Répertoire Outils IA — 32 Agents IA avec Conformité RGPD & EU AI Act',
@@ -54,7 +53,7 @@ export async function generateMetadata({
     title: titles[locale] || titles.fr,
     description: descriptions[locale] || descriptions.fr,
     keywords: keywords[locale] || keywords.fr,
-    alternates: { canonical: `${SITE_URL}/${locale}/agents` },
+    alternates: { canonical: localeUrl(locale, '/agents') },
     other: {
       'geo.region': 'LU',
       'geo.placename': 'Luxembourg',
@@ -64,7 +63,7 @@ export async function generateMetadata({
     openGraph: {
       title: titles[locale] || titles.fr,
       description: descriptions[locale] || descriptions.fr,
-      url: `${SITE_URL}/${locale}/agents`,
+      url: localeUrl(locale, '/agents'),
     },
   }
 }
