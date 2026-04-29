@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { safeJsonLd } from '@/lib/safeJsonLd'
+import { localeUrl } from '@/lib/locale-url'
 import BlogPostClient from './BlogPostClient'
 
 const SITE_URL = 'https://www.openletz.com'
@@ -36,7 +37,7 @@ function extractFAQs(content: string): { question: string; answer: string }[] {
 }
 
 interface Props {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string; locale: string }>
 }
 
 export async function generateStaticParams() {
@@ -45,13 +46,13 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
+  const { slug, locale } = await params
   const post = getPostBySlug(slug)
   if (!post) return { title: 'Article introuvable' }
 
   const title = post.title.fr || Object.values(post.title)[0] || slug
   const description = post.metaDescription?.fr || post.excerpt?.fr || post.excerpt?.en || ''
-  const url = `${SITE_URL}/blog/${slug}`
+  const url = localeUrl(locale, `/blog/${slug}`)
   const image = post.image || `${SITE_URL}/og-image.png`
 
   return {
@@ -89,17 +90,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params
+  const { slug, locale } = await params
   const post = getPostBySlug(slug)
   if (!post) notFound()
 
+  const postUrl = localeUrl(locale, `/blog/${slug}`)
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'OpenLetz', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
-      { '@type': 'ListItem', position: 3, name: post.title.fr || Object.values(post.title)[0], item: `${SITE_URL}/blog/${slug}` },
+      { '@type': 'ListItem', position: 1, name: 'OpenLetz', item: localeUrl(locale) },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: localeUrl(locale, '/blog') },
+      { '@type': 'ListItem', position: 3, name: post.title.fr || Object.values(post.title)[0], item: postUrl },
     ],
   }
 
@@ -110,7 +112,7 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.metaDescription?.fr || post.excerpt?.fr || post.excerpt?.en || '',
     datePublished: post.date,
     dateModified: post.date,
-    url: `${SITE_URL}/blog/${slug}`,
+    url: postUrl,
     publisher: {
       '@type': 'Organization',
       name: 'OpenLetz',
@@ -123,7 +125,7 @@ export default async function BlogPostPage({ params }: Props) {
       url: SITE_URL,
     },
     inLanguage: 'fr',
-    mainEntityOfPage: `${SITE_URL}/blog/${slug}`,
+    mainEntityOfPage: postUrl,
     image: post.image || `${SITE_URL}/og-image.png`,
     keywords: post.keywords?.join(', '),
     spatialCoverage: {
