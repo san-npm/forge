@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { AGENTS } from '@/lib/agents';
 import { getAllPosts } from '@/lib/blog';
+import { localeUrl } from '@/lib/locale-url';
 
-const SITE_URL = 'https://www.openletz.com';
 // Core locales for sitemap — keep crawl budget focused on languages
 // relevant to Luxembourg (FR, EN, DE, LB, PT). Other locales still
 // work as routes but aren't submitted to search engines and return
@@ -15,9 +15,9 @@ function buildAlternates(path: string) {
   // Advertising it/es/ru/ar/tr/uk would point Google at thin, untranslated
   // content and dilute authority — declare only the 5 shipped locales.
   for (const locale of locales) {
-    languages[locale] = `${SITE_URL}/${locale}${path}`;
+    languages[locale] = localeUrl(locale, path);
   }
-  languages['x-default'] = `${SITE_URL}/fr${path}`;
+  languages['x-default'] = localeUrl('fr', path);
   return { languages };
 }
 
@@ -42,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const { path, priority, freq, date } of staticPaths) {
     for (const locale of locales) {
       staticPages.push({
-        url: `${SITE_URL}/${locale}${path}`,
+        url: localeUrl(locale, path),
         lastModified: date,
         changeFrequency: freq,
         priority,
@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const path = `/agents/${agent.slug}`;
     for (const locale of locales) {
       agentPages.push({
-        url: `${SITE_URL}/${locale}${path}`,
+        url: localeUrl(locale, path),
         lastModified: contentDate,
         changeFrequency: 'monthly',
         priority: 0.7,
@@ -70,7 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const path = `/blog/${post.slug}`;
     for (const locale of locales) {
       blogPages.push({
-        url: `${SITE_URL}/${locale}${path}`,
+        url: localeUrl(locale, path),
         lastModified: post.date,
         changeFrequency: 'monthly',
         priority: 0.7,

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { safeJsonLd } from '@/lib/safeJsonLd'
+import { localeUrl } from '@/lib/locale-url'
 
 const SITE_URL = 'https://www.openletz.com'
 const PATH = '/clients'
@@ -55,15 +56,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const title = titles[locale] || titles.en
   const description = descriptions[locale] || descriptions.en
-  const canonicalUrl = `${SITE_URL}/${locale}${PATH}`
+  const canonicalUrl = localeUrl(locale, PATH)
   const shouldIndex = IS_PRODUCTION_HOST && INDEXABLE_LOCALES.has(locale)
 
   // hreflang alternates — only the 5 indexable locales (matches sitemap policy)
   const languages: Record<string, string> = {}
   for (const loc of ['fr', 'en', 'de', 'lb', 'pt']) {
-    languages[loc] = `${SITE_URL}/${loc}${PATH}`
+    languages[loc] = localeUrl(loc, PATH)
   }
-  languages['x-default'] = `${SITE_URL}/fr${PATH}`
+  languages['x-default'] = localeUrl('fr', PATH)
 
   return {
     title,
@@ -123,8 +124,8 @@ export default async function ClientsLayout({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: labels.home, item: `${SITE_URL}/${locale}` },
-      { '@type': 'ListItem', position: 2, name: labels.clients, item: `${SITE_URL}/${locale}${PATH}` },
+      { '@type': 'ListItem', position: 1, name: labels.home, item: localeUrl(locale) },
+      { '@type': 'ListItem', position: 2, name: labels.clients, item: localeUrl(locale, PATH) },
     ],
   }
 
@@ -145,7 +146,7 @@ export default async function ClientsLayout({
         position: 1,
         item: {
           '@type': 'CreativeWork',
-          '@id': `${SITE_URL}/${locale}${PATH}#vinsfins`,
+          '@id': `${localeUrl(locale, PATH)}#vinsfins`,
           name: 'Vins Fins — vinsfins.lu',
           url: 'https://www.vinsfins.lu',
           description:
@@ -188,7 +189,7 @@ export default async function ClientsLayout({
         position: 2,
         item: {
           '@type': 'CreativeWork',
-          '@id': `${SITE_URL}/${locale}${PATH}#grocerie`,
+          '@id': `${localeUrl(locale, PATH)}#grocerie`,
           name: 'La Grocerie — lagrocerie.lu',
           url: 'https://www.lagrocerie.lu',
           description:

@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing';
 import Script from 'next/script';
 import type { Metadata } from 'next';
 import { safeJsonLd } from '@/lib/safeJsonLd';
+import { localeUrl } from '@/lib/locale-url';
 import Providers from './providers';
 import '../globals.css';
 
@@ -117,17 +118,17 @@ export async function generateMetadata({
     uk: 'Безкоштовний симулятор для визначення права на субсидії Люксембургу для МСП. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — до 25 000 €.',
   };
 
-  const canonicalUrl = `${SITE_URL}/${locale}`;
+  const canonicalUrl = localeUrl(locale);
   const shouldIndex = IS_PRODUCTION_HOST && INDEXABLE_LOCALES.has(locale);
 
   // Build hreflang alternates
   const languages: Record<string, string> = {};
   for (const [loc, hreflangs] of Object.entries(hreflangMap)) {
     for (const hl of hreflangs) {
-      languages[hl] = `${SITE_URL}/${loc}`;
+      languages[hl] = localeUrl(loc);
     }
   }
-  languages['x-default'] = `${SITE_URL}/fr`;
+  languages['x-default'] = localeUrl('fr');
 
   // Build og:locale:alternate list — include all country variants
   const allOgLocales = new Set<string>();
@@ -359,7 +360,7 @@ export default async function LocaleLayout({
         '@type': 'ListItem',
         position: 1,
         name: locale === 'fr' ? 'Accueil' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : locale === 'lb' ? 'Heem' : locale === 'it' ? 'Home' : 'Início',
-        item: `${SITE_URL}/${locale}`,
+        item: localeUrl(locale),
       },
     ],
   };

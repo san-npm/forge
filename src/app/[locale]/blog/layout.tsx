@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { localeUrl } from '@/lib/locale-url'
 
 const SITE_URL = 'https://www.openletz.com'
 
@@ -40,7 +41,7 @@ export async function generateMetadata({
   return {
     title: titles[locale] || titles.fr,
     description: descriptions[locale] || descriptions.fr,
-    alternates: { canonical: `${SITE_URL}/${locale}/blog` },
+    alternates: { canonical: localeUrl(locale, '/blog') },
     other: {
       'geo.region': 'LU',
       'geo.placename': 'Luxembourg',
@@ -50,7 +51,7 @@ export async function generateMetadata({
     openGraph: {
       title: titles[locale] || titles.fr,
       description: descriptions[locale] || descriptions.fr,
-      url: `${SITE_URL}/${locale}/blog`,
+      url: localeUrl(locale, '/blog'),
       type: 'website',
       images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: `Blog OpenLetz` }],
     },
