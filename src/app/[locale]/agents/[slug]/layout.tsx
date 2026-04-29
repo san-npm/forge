@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { AGENTS } from '@/lib/agents'
 import { safeJsonLd } from '@/lib/safeJsonLd'
+import { localeUrl } from '@/lib/locale-url'
 
 const SITE_URL = 'https://www.openletz.com'
 
@@ -76,7 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description: `${desc} ${gdpr}. ${euData ? euData + '. ' : ''}${pricing}.`,
-    alternates: { canonical: `${SITE_URL}/${locale}/agents/${agent.slug}` },
+    alternates: { canonical: localeUrl(locale, `/agents/${agent.slug}`) },
     other: {
       'geo.region': 'LU',
       'geo.placename': 'Luxembourg',
@@ -86,7 +87,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${agent.name} — ${gdpr} | OpenLetz`,
       description: desc,
-      url: `${SITE_URL}/${locale}/agents/${agent.slug}`,
+      url: localeUrl(locale, `/agents/${agent.slug}`),
     },
   }
 }
@@ -106,9 +107,9 @@ export default async function AgentSlugLayout({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'OpenLetz', item: SITE_URL },
-          { '@type': 'ListItem', position: 2, name: labels.directory, item: `${SITE_URL}/${locale}/agents` },
-          { '@type': 'ListItem', position: 3, name: agent.name, item: `${SITE_URL}/${locale}/agents/${agent.slug}` },
+          { '@type': 'ListItem', position: 1, name: 'OpenLetz', item: localeUrl(locale) },
+          { '@type': 'ListItem', position: 2, name: labels.directory, item: localeUrl(locale, '/agents') },
+          { '@type': 'ListItem', position: 3, name: agent.name, item: localeUrl(locale, `/agents/${agent.slug}`) },
         ],
       }
     : null
