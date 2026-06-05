@@ -22,8 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# env files
-.env*.local
+# env files — ignore every variant; keep only the committed placeholder template
+.env
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo

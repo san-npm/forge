@@ -63,6 +63,8 @@ export const config = {
   // Match all pathnames except for
   // - /api, /admin, /_next, /_vercel, /favicon.ico, static assets
   matcher: [
-    '/((?!api|admin|_next|_vercel|.*\\..*).*)',
+    // `os` = the standalone Openletz OS prototype route (no i18n); keep it out
+    // of the next-intl locale rewrite so /os resolves to app/os directly.
+    '/((?!api|admin|os|_next|_vercel|.*\\..*).*)',
   ],
 };
