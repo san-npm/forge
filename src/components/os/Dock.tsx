@@ -9,6 +9,7 @@ const RADIUS = 92;
 
 export default function Dock({ onOpen, openIds }: { onOpen: (id: WindowId) => void; openIds: WindowId[] }) {
   const items = useRef<(HTMLDivElement | null)[]>([]);
+  const dockApps = APPS.filter((a) => !a.desktopOnly);
 
   const magnify = (clientX: number) => {
     items.current.forEach((el) => {
@@ -29,7 +30,7 @@ export default function Dock({ onOpen, openIds }: { onOpen: (id: WindowId) => vo
         onMouseMove={(e) => magnify(e.clientX)}
         onMouseLeave={reset}
       >
-        {APPS.map((app, i) => (
+        {dockApps.map((app, i) => (
           <div
             key={app.id}
             ref={(el) => { items.current[i] = el; }}
@@ -49,7 +50,7 @@ export default function Dock({ onOpen, openIds }: { onOpen: (id: WindowId) => vo
         <div
           className="os-dock-item"
           data-variant="trash"
-          ref={(el) => { items.current[APPS.length] = el; }}
+          ref={(el) => { items.current[dockApps.length] = el; }}
           role="button"
           aria-label="Trash"
         >

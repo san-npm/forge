@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import OpenletzOS from '@/components/os/OpenletzOS';
+import CrawlableContent from '@/components/os/CrawlableContent';
 import '@/app/os/os.css';
 
 export const metadata: Metadata = {
@@ -9,5 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <OpenletzOS />;
+  return (
+    <>
+      <OpenletzOS />
+      <CrawlableContent />
+    </>
+  );
 }

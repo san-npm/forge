@@ -10,6 +10,7 @@ import Dock from './Dock';
 import { WindowBody } from './windows';
 import { AppleIcon, Spinner } from './icons';
 import { APPS, STUDIO, type WindowId } from './osData';
+import type { Lang } from './osI18n';
 
 gsap.registerPlugin(useGSAP);
 
@@ -46,6 +47,7 @@ export default function OpenletzOS() {
   const [booted, setBooted] = useState(false);
   const [intro, setIntro] = useState(true);
   const [appearance, setAppearance] = useState<'blue' | 'graphite'>('blue');
+  const [lang, setLang] = useState<Lang>('en');
   const [wins, setWins] = useState<OpenWin[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const zCounter = useRef(10);
@@ -77,8 +79,11 @@ export default function OpenletzOS() {
   }, []);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const noboot = new URLSearchParams(window.location.search).has('noboot');
+    const noboot = params.has('noboot');
+    const langParam = params.get('lang');
+    if (langParam && ['en', 'fr', 'de', 'lb'].includes(langParam)) setLang(langParam as Lang);
     let seen = false;
     try { seen = sessionStorage.getItem('openletz-os-booted') === '1'; } catch { /* ignore */ }
     if (reduce || seen || noboot) { setIntro(false); handleBootDone(); }
@@ -107,7 +112,7 @@ export default function OpenletzOS() {
     <div className="os-root" data-appearance={appearance}>
       {!booted && <Boot onDone={handleBootDone} />}
 
-      <MenuBar onOpen={open} appearance={appearance} onToggleAppearance={toggleAppearance} />
+      <MenuBar onOpen={open} appearance={appearance} onToggleAppearance={toggleAppearance} lang={lang} onSelectLang={setLang} />
 
       <div className="os-desktop" ref={deskRef} onPointerDown={() => setSelected(null)}>
         {/* desktop drives / files, top-right */}
@@ -119,6 +124,12 @@ export default function OpenletzOS() {
           label="Read Me" icon="doc" right={28} y={126}
           selected={selected === 'readme'} onSelect={() => setSelected('readme')} onOpen={() => open('welcome')}
         />
+        {APPS.filter((a) => a.desktopOnly).map((app, i) => (
+          <DesktopIcon
+            key={app.id} label={app.label} icon={app.icon} right={28} y={216 + i * 96}
+            selected={selected === app.id} onSelect={() => setSelected(app.id)} onOpen={() => open(app.id)}
+          />
+        ))}
 
         {booted && wins.map((w) => {
           const app = APPS.find((a) => a.id === w.id)!;
@@ -135,7 +146,7 @@ export default function OpenletzOS() {
               onClose={() => close(w.id)}
               onFocus={() => focus(w.id)}
             >
-              <WindowBody id={w.id} onOpen={open} />
+              <WindowBody id={w.id} onOpen={open} lang={lang} />
             </MacWindow>
           );
         })}
