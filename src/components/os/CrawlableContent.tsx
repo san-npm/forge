@@ -2,7 +2,7 @@
 // The Aqua desktop is a client-rendered facade; this guarantees the same copy
 // is in the initial HTML for Googlebot and AI answer engines (GPTBot/ClaudeBot
 // don't run JS). Visually hidden, but real, matching content — not cloaking.
-import { STUDIO, SERVICES, PRICING, ABOUT, WORK, TOOLS, INSIGHTS } from './osData';
+import { STUDIO, SERVICES, PRICING, ABOUT, WORK } from './osData';
 
 const PILLARS = ['ai', 'marketing', 'web3'] as const;
 
@@ -11,7 +11,6 @@ export default function CrawlableContent() {
     <div className="os-seo">
       <h1>{STUDIO.name} — {STUDIO.tagline}</h1>
       <p>{STUDIO.sub} {STUDIO.welcomeLead}</p>
-      <p>{STUDIO.narrative}</p>
 
       <h2>What we do</h2>
       {PILLARS.map((k) => {
@@ -29,24 +28,19 @@ export default function CrawlableContent() {
       <section>
         <h2>Pricing</h2>
         <p>{PRICING.lead}</p>
-        <ul>{PRICING.tiers.map((t) => <li key={t.name}>{t.name} — {t.price}: {t.desc}</li>)}</ul>
+        <ul>{PRICING.tiers.map((t) => <li key={t.name}>{t.name} ({t.price}): {t.desc}</li>)}</ul>
         <p>{PRICING.note}</p>
       </section>
 
       <section>
         <h2>Work</h2>
-        <ul>{WORK.map((w) => <li key={w.name}><strong>{w.name}</strong> ({w.kind}, {w.year}): {w.blurb}</li>)}</ul>
-      </section>
-
-      <section>
-        <h2>AI tools we trust</h2>
-        <p>{TOOLS.lead}</p>
-        <ul>{TOOLS.items.map((t) => <li key={t.name}>{t.name} ({t.cat}): {t.note}</li>)}</ul>
-      </section>
-
-      <section>
-        <h2>Insights</h2>
-        <ul>{INSIGHTS.items.map((a) => <li key={a.title}><strong>{a.title}</strong> — {a.excerpt}</li>)}</ul>
+        <ul>
+          {WORK.map((w) => (
+            <li key={w.slug}>
+              <a href={w.link}><strong>{w.name}</strong></a> ({w.kind}): {w.about} What we did: {w.did.join('; ')}.
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section>

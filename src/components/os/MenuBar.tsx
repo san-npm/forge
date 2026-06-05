@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { AppleIcon } from './icons';
+import { OpenletzLogo } from './icons';
 import type { WindowId } from './osData';
 import { LANGS, type Lang } from './osI18n';
 
@@ -89,7 +89,7 @@ export default function MenuBar({ onOpen, appearance, onToggleAppearance, lang, 
             onPointerDown={(e) => { e.stopPropagation(); setOpen(open === i ? null : i); }}
             onPointerEnter={() => open !== null && setOpen(i)}
           >
-            {menu.apple ? <AppleIcon /> : menu.label}
+            {menu.apple ? <OpenletzLogo /> : menu.label}
           </div>
           {open === i && (
             <div className="os-dropdown" style={{ left: 0 }}>

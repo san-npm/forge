@@ -8,8 +8,8 @@ import DesktopIcon from './DesktopIcon';
 import MacWindow from './MacWindow';
 import Dock from './Dock';
 import { WindowBody } from './windows';
-import { AppleIcon, Spinner } from './icons';
-import { APPS, STUDIO, type WindowId } from './osData';
+import { OpenletzLogo, Spinner } from './icons';
+import { APPS, STUDIO, WORK, type WindowId, type WorkItem } from './osData';
 import type { Lang } from './osI18n';
 
 gsap.registerPlugin(useGSAP);
@@ -45,7 +45,7 @@ function Boot({ onDone }: { onDone: () => void }) {
   return (
     <div className="os-boot" ref={ref} onClick={finish}>
       <div className="os-boot-inner">
-        <div className="os-boot-apple"><AppleIcon /></div>
+        <div className="os-boot-apple"><OpenletzLogo /></div>
         <div className="os-spinner"><Spinner /></div>
         <div className="os-boot-title">Welcome to {STUDIO.name}</div>
         <div className="os-boot-skip">click to skip</div>
@@ -60,6 +60,7 @@ export default function OpenletzOS() {
   const [intro, setIntro] = useState(true);
   const [appearance, setAppearance] = useState<'blue' | 'graphite'>('blue');
   const [lang, setLang] = useState<Lang>('en');
+  const [project, setProject] = useState<WorkItem | null>(null);
   const [wins, setWins] = useState<OpenWin[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const zCounter = useRef(10);
@@ -82,6 +83,11 @@ export default function OpenletzOS() {
       return [...prev, { id, z, x, y }];
     });
   }, []);
+
+  const openProject = useCallback((slug: string) => {
+    setProject(WORK.find((w) => w.slug === slug) ?? null);
+    open('project');
+  }, [open]);
 
   const close = useCallback((id: WindowId) => {
     setWins((prev) => prev.filter((w) => w.id !== id));
@@ -110,9 +116,12 @@ export default function OpenletzOS() {
   // deep-link: /?open=<app> opens that window once booted
   useEffect(() => {
     if (!booted) return;
-    const id = new URLSearchParams(window.location.search).get('open');
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('open');
     if (id && APPS.some((a) => a.id === id)) open(id as WindowId);
-  }, [booted, open]);
+    const slug = params.get('project');
+    if (slug && WORK.some((w) => w.slug === slug)) openProject(slug);
+  }, [booted, open, openProject]);
 
   const toggleAppearance = useCallback(() => setAppearance((a) => (a === 'blue' ? 'graphite' : 'blue')), []);
 
@@ -154,7 +163,7 @@ export default function OpenletzOS() {
           return (
             <MacWindow
               key={w.id}
-              title={app.label}
+              title={w.id === 'project' ? (project?.name ?? 'Project') : app.label}
               z={w.z}
               active={topId === w.id}
               x={w.x}
@@ -164,7 +173,7 @@ export default function OpenletzOS() {
               onClose={() => close(w.id)}
               onFocus={() => focus(w.id)}
             >
-              <WindowBody id={w.id} onOpen={open} lang={lang} />
+              <WindowBody id={w.id} onOpen={open} onOpenProject={openProject} project={project} lang={lang} />
             </MacWindow>
           );
         })}
