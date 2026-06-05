@@ -7,7 +7,13 @@ import type { Metadata } from 'next';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 import { localeUrl } from '@/lib/locale-url';
 import Providers from './providers';
+import { Lato, JetBrains_Mono } from 'next/font/google';
 import '../globals.css';
+
+// Fonts for the Openletz OS homepage (Lucida Grande is native on macOS; Lato
+// is the cross-platform fallback). Variables consumed by src/app/os/os.css.
+const osLato = Lato({ subsets: ['latin'], weight: ['400', '700'], variable: '--f-lato', display: 'swap' });
+const osMono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--f-mono', display: 'swap' });
 
 const SITE_URL = 'https://www.openletz.com';
 
@@ -237,7 +243,7 @@ const organizationJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/openletz-logo.png`,
   description:
-    "Simulateur gratuit d'aides luxembourgeoises pour la transformation digitale et l'innovation IA des PME.",
+    'Luxembourg AI & Web3 studio. We build AI automation, on-chain products and high-performance websites — and market them to grow.',
   email: 'bob@openletz.com',
   telephone: '+352661968051',
   address: {
@@ -251,14 +257,15 @@ const organizationJsonLd = {
   ],
   sameAs: ['https://www.linkedin.com/company/openletz'],
   knowsAbout: [
-    'SME Package Digital',
-    'SME Package AI',
-    'Fit 4 Digital',
-    'Fit 4 AI',
-    'Fit 4 Innovation',
-    'Luxinnovation',
-    'digitalisation PME',
-    'intelligence artificielle',
+    'Artificial intelligence',
+    'AI automation',
+    'AI agents',
+    'Web3 development',
+    'Smart contracts',
+    'Web development',
+    'E-commerce',
+    'Digital marketing',
+    'SEO',
   ],
 };
 
@@ -271,7 +278,7 @@ const localBusinessJsonLd = {
   logo: `${SITE_URL}/openletz-logo.png`,
   image: `${SITE_URL}/og-image.png`,
   description:
-    'Accompagnement des PME luxembourgeoises dans leur transformation digitale et IA. Simulateur de subventions gratuit, développement web, intégration IA.',
+    'Luxembourg AI & Web3 studio — AI automation and agents, dApp & smart-contract builds, websites, e-commerce and growth marketing.',
   email: 'bob@openletz.com',
   telephone: '+352661968051',
   address: {
@@ -433,7 +440,7 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={`${osLato.variable} ${osMono.variable}`}>
       <head>
         <Script id="gtm-init" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
