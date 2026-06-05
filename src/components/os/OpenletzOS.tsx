@@ -14,7 +14,19 @@ import type { Lang } from './osI18n';
 
 gsap.registerPlugin(useGSAP);
 
-interface OpenWin { id: WindowId; z: number }
+interface OpenWin { id: WindowId; z: number; x: number; y: number }
+
+// Centre a window on the desktop (between the 22px menu bar and the ~76px dock).
+// n = stack index for a gentle cascade; n = -1 means dead-centre.
+function centerOf(w: number, h: number, n = -1) {
+  const off = n < 0 ? 0 : (n % 6) * 24 - 60;
+  const vw = typeof window !== 'undefined' ? window.innerWidth : 1280;
+  const vh = typeof window !== 'undefined' ? window.innerHeight : 800;
+  return {
+    x: Math.round(Math.max(8, (vw - w) / 2 + off)),
+    y: Math.round(Math.max(34, 22 + (vh - 98 - h) / 2 + off)),
+  };
+}
 
 /* ---------------- Aqua boot ---------------- */
 function Boot({ onDone }: { onDone: () => void }) {
@@ -60,11 +72,15 @@ export default function OpenletzOS() {
   }, []);
 
   const open = useCallback((id: WindowId) => {
+    const app = APPS.find((a) => a.id === id);
+    if (!app) return;
     zCounter.current += 1;
     const z = zCounter.current;
-    setWins((prev) => (prev.some((w) => w.id === id)
-      ? prev.map((w) => (w.id === id ? { ...w, z } : w))
-      : [...prev, { id, z }]));
+    setWins((prev) => {
+      if (prev.some((w) => w.id === id)) return prev.map((w) => (w.id === id ? { ...w, z } : w));
+      const { x, y } = centerOf(app.win.w, app.win.h, prev.length);
+      return [...prev, { id, z, x, y }];
+    });
   }, []);
 
   const close = useCallback((id: WindowId) => {
@@ -74,7 +90,9 @@ export default function OpenletzOS() {
   const handleBootDone = useCallback(() => {
     setBooted(true);
     zCounter.current += 1;
-    setWins([{ id: 'welcome', z: zCounter.current }]);
+    const app = APPS.find((a) => a.id === 'welcome')!;
+    const { x, y } = centerOf(app.win.w, app.win.h);
+    setWins([{ id: 'welcome', z: zCounter.current, x, y }]);
     try { sessionStorage.setItem('openletz-os-booted', '1'); } catch { /* ignore */ }
   }, []);
 
@@ -139,8 +157,8 @@ export default function OpenletzOS() {
               title={app.label}
               z={w.z}
               active={topId === w.id}
-              x={app.win.x}
-              y={app.win.y}
+              x={w.x}
+              y={w.y}
               w={app.win.w}
               h={app.win.h}
               onClose={() => close(w.id)}
