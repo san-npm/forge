@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { AquaIcon, AquaTrash } from './aquaIcons';
+import { AquaIcon } from './aquaIcons';
 import { APPS, type WindowId } from './osData';
 
 const MAX_SCALE = 1.7;
@@ -44,19 +44,6 @@ export default function Dock({ onOpen, openIds }: { onOpen: (id: WindowId) => vo
             {openIds.includes(app.id) && <span className="os-dock-run" />}
           </div>
         ))}
-
-        <div className="os-dock-sep" />
-
-        <div
-          className="os-dock-item"
-          data-variant="trash"
-          ref={(el) => { items.current[dockApps.length] = el; }}
-          role="button"
-          aria-label="Trash"
-        >
-          <span className="os-dock-tip">Trash</span>
-          <div className="os-dock-tile"><AquaTrash /></div>
-        </div>
       </div>
     </div>
   );

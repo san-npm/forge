@@ -258,43 +258,50 @@ function News() {
   );
 }
 
-/* paint palette (Sketch) */
+/* paint palette + brush (Sketch) */
 function Palette() {
   return (
     <Frame>
       <defs>
-        <radialGradient id="plB" cx="40%" cy="32%" r="75%"><stop offset="0" stopColor="#fffdf6" /><stop offset="1" stopColor="#e3ddcb" /></radialGradient>
+        <radialGradient id="plB" cx="42%" cy="34%" r="72%"><stop offset="0" stopColor="#fffef9" /><stop offset="1" stopColor="#e6dfcb" /></radialGradient>
       </defs>
-      <ellipse cx="24" cy="42" rx="16" ry="2.2" fill="#000" opacity="0.13" />
-      <path d="M24 7 C13 7 5 14 5 23 c0 7 6 11 11 11 c3 0 3-2 3-3.5 c0-2 1.5-3.5 4-3.5 c5 0 11-3 11-9 C38 11 32 7 24 7 Z" fill="url(#plB)" stroke="#bdb59a" strokeWidth="0.7" />
-      <ellipse cx="16" cy="29" rx="2.4" ry="2.4" fill="#e0463c" />
-      <ellipse cx="13" cy="20" rx="2.4" ry="2.4" fill="#f4b333" />
-      <ellipse cx="20" cy="14" rx="2.4" ry="2.4" fill="#3fa648" />
-      <ellipse cx="29" cy="15" rx="2.4" ry="2.4" fill="#3f7bd0" />
-      <ellipse cx="33" cy="23" rx="2.4" ry="2.4" fill="#9b59c8" />
-      <circle cx="25" cy="27" r="3.2" fill="#fff" stroke="#bdb59a" strokeWidth="0.6" />
-      {/* brush */}
-      <rect x="30" y="30" width="12" height="3.2" rx="1.6" transform="rotate(38 30 30)" fill="#8a5a2b" />
-      <path d="M40 38 l4 4 l-1.5 1.5 l-4-4 Z" fill="#c2c6cd" />
+      <ellipse cx="24" cy="42.5" rx="15" ry="2.2" fill="#000" opacity="0.13" />
+      {/* kidney palette */}
+      <path d="M22 6 C12 6 5 12.8 5 20.6 c0 6 5 10 10.2 10 c2.6 0 4.2-1.7 4.2-3.7 c0-2.5 2-4 4.5-4.1 C29.4 22.4 38.8 19 38.8 12.6 C38.8 8.4 31 6 22 6 Z" fill="url(#plB)" stroke="#c0b89c" strokeWidth="0.8" />
+      <path d="M9.5 15 C12.5 10.5 17 8.2 22 8.2 c-4.2 1.4-8.2 3.9-12.5 6.8 Z" fill="#ffffff" opacity="0.35" />
+      {/* thumb hole */}
+      <ellipse cx="24.2" cy="25.2" rx="3" ry="2.6" fill="#cdc4a8" stroke="#b1a888" strokeWidth="0.6" />
+      {/* paint dabs, evenly arced */}
+      <circle cx="12.6" cy="20.4" r="2.3" fill="#e0463c" />
+      <circle cx="12.4" cy="14.4" r="2.3" fill="#f4b333" />
+      <circle cx="17" cy="10.6" r="2.3" fill="#3fa648" />
+      <circle cx="23" cy="9.2" r="2.3" fill="#3f7bd0" />
+      <circle cx="29" cy="10.8" r="2.3" fill="#9b59c8" />
+      {/* brush: wooden handle + metal ferrule + bristle tip */}
+      <line x1="42" y1="42.5" x2="33" y2="33.5" stroke="#a9712f" strokeWidth="3.4" strokeLinecap="round" />
+      <line x1="33.2" y1="33.7" x2="30.6" y2="31.1" stroke="#c6cad1" strokeWidth="4.2" strokeLinecap="butt" />
+      <path d="M31.6 32 L29.4 29.8 L25.4 28.4 L28 25.6 Z" fill="#3f7bd0" stroke="#2f5fb0" strokeWidth="0.4" />
     </Frame>
   );
 }
 
-/* green snake (Snake game) */
+/* coiled green snake (Snake game) */
 function Snake() {
   return (
     <Frame>
       <defs>
-        <linearGradient id="snB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#bdf59a" /><stop offset="1" stopColor="#34a836" /></linearGradient>
+        <linearGradient id="snB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#9be86a" /><stop offset="1" stopColor="#2f9c36" /></linearGradient>
       </defs>
-      <ellipse cx="24" cy="43" rx="14" ry="2" fill="#000" opacity="0.13" />
-      <path d="M10 34 C10 26 20 28 20 21 C20 14 30 14 30 21 C30 26 38 25 38 18"
-            fill="none" stroke="url(#snB)" strokeWidth="7" strokeLinecap="round" />
-      <path d="M10 34 C10 26 20 28 20 21 C20 14 30 14 30 21 C30 26 38 25 38 18"
-            fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.28" />
-      <circle cx="38" cy="18" r="4.4" fill="url(#snB)" stroke="#2c8f2e" strokeWidth="0.6" />
-      <circle cx="39.4" cy="16.8" r="1.1" fill="#10330f" />
-      <circle cx="11" cy="36" r="2.2" fill="#e0463c" />
+      <ellipse cx="24" cy="43" rx="13" ry="2" fill="#000" opacity="0.13" />
+      {/* body */}
+      <path d="M13 41 C7 35 11 27 18 28 C25 29 26 21 20 19 C14 17 17 10 25 11" fill="none" stroke="url(#snB)" strokeWidth="7.5" strokeLinecap="round" />
+      <path d="M13 41 C7 35 11 27 18 28 C25 29 26 21 20 19 C14 17 17 10 25 11" fill="none" stroke="#d2f7b0" strokeWidth="2.2" strokeLinecap="round" opacity="0.5" />
+      {/* head */}
+      <circle cx="27" cy="11.5" r="5" fill="url(#snB)" stroke="#26842b" strokeWidth="0.6" />
+      <circle cx="29" cy="10" r="1.3" fill="#0e330f" />
+      <circle cx="29.4" cy="9.6" r="0.4" fill="#ffffff" />
+      {/* forked tongue */}
+      <path d="M32 12.5 L36.5 11.5 M32 12.5 L36.5 13.8 M36.5 11.5 L35 12.6 M36.5 13.8 L35 12.6" stroke="#e0463c" strokeWidth="1" strokeLinecap="round" fill="none" />
     </Frame>
   );
 }

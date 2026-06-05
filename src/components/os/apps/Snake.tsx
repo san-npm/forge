@@ -103,20 +103,22 @@ export default function Snake() {
 
   return (
     <div className="os-snake">
-      <div className="os-snake-bar">
-        <span className="os-snake-score">Score: {score}</span>
-        <button type="button" className="os-btn" onClick={start}>{running ? 'Restart' : over ? 'Play again' : 'Start'}</button>
+      <div className="os-snake-head">
+        <span className="os-snake-title">Snake</span>
+        <span className="os-snake-score">Score&nbsp;{score}</span>
+        {running && <button type="button" className="os-btn" onClick={start}>Restart</button>}
       </div>
       <div className="os-snake-stage">
         <canvas ref={canvasRef} width={COLS * CELL} height={ROWS * CELL} className="os-snake-canvas" />
         {!running && (
           <div className="os-snake-overlay">
-            {over ? <><strong>Game over</strong><span>Score {score}</span></> : <strong>Snake</strong>}
+            <strong>{over ? 'Game over' : 'Snake'}</strong>
+            <span>{over ? `Score ${score}` : 'Eat the red squares'}</span>
             <button type="button" className="os-btn os-btn--default" onClick={start}>{over ? 'Play again' : 'Start'}</button>
           </div>
         )}
       </div>
-      <p className="os-note" style={{ marginTop: 8 }}>Arrow keys or W A S D. Don’t bite yourself.</p>
+      <p className="os-note os-snake-hint">Arrow keys or W A S D · don’t bite yourself</p>
     </div>
   );
 }

@@ -126,7 +126,7 @@ export const CONTACT = {
 
 // window + desktop registry (apps launch from the Dock)
 export const APPS: AppDef[] = [
-  { id: 'welcome',   label: 'Read Me',     icon: 'mac',      desktop: { x: 40, y: 28 },  win: { w: 560, h: 432, x: 70,  y: 40 } },
+  { id: 'welcome',   label: 'Read Me',     icon: 'mac',      desktop: { x: 40, y: 28 },  win: { w: 564, h: 516, x: 70,  y: 40 } },
   { id: 'ai',        label: 'AI',          icon: 'ai',       desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 116, y: 52 } },
   { id: 'marketing', label: 'Growth',      icon: 'growth',   desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 150, y: 68 } },
   { id: 'pricing',   label: 'Pricing',     icon: 'price',    desktop: { x: 40, y: 28 },  win: { w: 588, h: 492, x: 150, y: 56 } },
@@ -138,7 +138,7 @@ export const APPS: AppDef[] = [
   { id: 'contact',   label: 'New Project', icon: 'mail',     desktop: { x: 40, y: 28 },  win: { w: 448, h: 480, x: 262, y: 46 } },
   // playful extras — live on the desktop, not the Dock
   { id: 'sketch',    label: 'Sketch',      icon: 'sketch',   desktopOnly: true, win: { w: 600, h: 470, x: 130, y: 48 } },
-  { id: 'snake',     label: 'Snake',       icon: 'snake',    desktopOnly: true, win: { w: 432, h: 520, x: 320, y: 36 } },
+  { id: 'snake',     label: 'Snake',       icon: 'snake',    desktopOnly: true, win: { w: 412, h: 470, x: 320, y: 36 } },
 ];
 
 /* ---------- Pricing ---------- */
