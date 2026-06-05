@@ -69,6 +69,27 @@ export default function MacWindow({
     });
   }, [onClose]);
 
+  const startResize = useCallback((e: React.PointerEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onFocus();
+    const el = ref.current!;
+    const sx = e.clientX, sy = e.clientY;
+    const sw = el.offsetWidth, sh = el.offsetHeight;
+    const move = (ev: PointerEvent) => {
+      const w = Math.max(300, Math.min(window.innerWidth - 32, sw + (ev.clientX - sx)));
+      const h = Math.max(220, Math.min(window.innerHeight - 48, sh + (ev.clientY - sy)));
+      gsap.set(el, { width: w, height: h });
+      zoomed.current = false;
+    };
+    const up = () => {
+      document.removeEventListener('pointermove', move);
+      document.removeEventListener('pointerup', up);
+    };
+    document.addEventListener('pointermove', move);
+    document.addEventListener('pointerup', up);
+  }, [onFocus]);
+
   const zoom = useCallback(() => {
     const el = ref.current!;
     onFocus();
@@ -104,6 +125,7 @@ export default function MacWindow({
         <span className="os-title">{title}</span>
       </div>
       <div className="os-window-body">{children}</div>
+      <span className="os-resize" onPointerDown={startResize} aria-hidden />
     </div>
   );
 }

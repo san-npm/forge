@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { AppleIcon } from './icons';
 import type { WindowId } from './osData';
+import { LANGS, type Lang } from './osI18n';
+
+const LANG_MENU = 99;
 
 interface MenuItem { label: string; id?: WindowId; key?: string; disabled?: boolean; sep?: boolean; action?: 'appearance' }
 interface Menu { label: string; apple?: boolean; appname?: boolean; items: MenuItem[] }
@@ -25,10 +28,12 @@ function useClock() {
   return t;
 }
 
-export default function MenuBar({ onOpen, appearance, onToggleAppearance }: {
+export default function MenuBar({ onOpen, appearance, onToggleAppearance, lang, onSelectLang }: {
   onOpen: (id: WindowId) => void;
   appearance: 'blue' | 'graphite';
   onToggleAppearance: () => void;
+  lang: Lang;
+  onSelectLang: (l: Lang) => void;
 }) {
   const [open, setOpen] = useState<number | null>(null);
   const barRef = useRef<HTMLDivElement>(null);
@@ -108,6 +113,34 @@ export default function MenuBar({ onOpen, appearance, onToggleAppearance }: {
         </div>
       ))}
       <div className="os-menu-spacer" />
+
+      {/* language picker */}
+      <div style={{ position: 'relative', display: 'flex' }}>
+        <div
+          className="os-menu-item"
+          data-open={open === LANG_MENU}
+          onPointerDown={(e) => { e.stopPropagation(); setOpen(open === LANG_MENU ? null : LANG_MENU); }}
+          onPointerEnter={() => open !== null && setOpen(LANG_MENU)}
+          aria-label="Language"
+        >
+          <span style={{ fontSize: 15, lineHeight: 1 }}>{LANGS.find((l) => l.code === lang)?.flag}</span>
+        </div>
+        {open === LANG_MENU && (
+          <div className="os-dropdown" style={{ right: 0, left: 'auto' }}>
+            {LANGS.map((l) => (
+              <div
+                key={l.code}
+                className="os-dropdown-row"
+                onPointerDown={(e) => { e.stopPropagation(); onSelectLang(l.code); setOpen(null); }}
+              >
+                <span>{l.flag}&nbsp; {l.label}</span>
+                {l.code === lang && <span>✓</span>}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className="os-menu-clock">{clock}</div>
     </div>
   );

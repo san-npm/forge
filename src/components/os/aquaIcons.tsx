@@ -258,6 +258,47 @@ function News() {
   );
 }
 
+/* paint palette (Sketch) */
+function Palette() {
+  return (
+    <Frame>
+      <defs>
+        <radialGradient id="plB" cx="40%" cy="32%" r="75%"><stop offset="0" stopColor="#fffdf6" /><stop offset="1" stopColor="#e3ddcb" /></radialGradient>
+      </defs>
+      <ellipse cx="24" cy="42" rx="16" ry="2.2" fill="#000" opacity="0.13" />
+      <path d="M24 7 C13 7 5 14 5 23 c0 7 6 11 11 11 c3 0 3-2 3-3.5 c0-2 1.5-3.5 4-3.5 c5 0 11-3 11-9 C38 11 32 7 24 7 Z" fill="url(#plB)" stroke="#bdb59a" strokeWidth="0.7" />
+      <ellipse cx="16" cy="29" rx="2.4" ry="2.4" fill="#e0463c" />
+      <ellipse cx="13" cy="20" rx="2.4" ry="2.4" fill="#f4b333" />
+      <ellipse cx="20" cy="14" rx="2.4" ry="2.4" fill="#3fa648" />
+      <ellipse cx="29" cy="15" rx="2.4" ry="2.4" fill="#3f7bd0" />
+      <ellipse cx="33" cy="23" rx="2.4" ry="2.4" fill="#9b59c8" />
+      <circle cx="25" cy="27" r="3.2" fill="#fff" stroke="#bdb59a" strokeWidth="0.6" />
+      {/* brush */}
+      <rect x="30" y="30" width="12" height="3.2" rx="1.6" transform="rotate(38 30 30)" fill="#8a5a2b" />
+      <path d="M40 38 l4 4 l-1.5 1.5 l-4-4 Z" fill="#c2c6cd" />
+    </Frame>
+  );
+}
+
+/* green snake (Snake game) */
+function Snake() {
+  return (
+    <Frame>
+      <defs>
+        <linearGradient id="snB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#bdf59a" /><stop offset="1" stopColor="#34a836" /></linearGradient>
+      </defs>
+      <ellipse cx="24" cy="43" rx="14" ry="2" fill="#000" opacity="0.13" />
+      <path d="M10 34 C10 26 20 28 20 21 C20 14 30 14 30 21 C30 26 38 25 38 18"
+            fill="none" stroke="url(#snB)" strokeWidth="7" strokeLinecap="round" />
+      <path d="M10 34 C10 26 20 28 20 21 C20 14 30 14 30 21 C30 26 38 25 38 18"
+            fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.28" />
+      <circle cx="38" cy="18" r="4.4" fill="url(#snB)" stroke="#2c8f2e" strokeWidth="0.6" />
+      <circle cx="39.4" cy="16.8" r="1.1" fill="#10330f" />
+      <circle cx="11" cy="36" r="2.2" fill="#e0463c" />
+    </Frame>
+  );
+}
+
 const AQUA: Record<IconKey, () => React.JSX.Element> = {
   mac: MacFace,
   ai: AIOrb,
@@ -272,6 +313,8 @@ const AQUA: Record<IconKey, () => React.JSX.Element> = {
   price: PriceTag,
   tools: Shield,
   insights: News,
+  sketch: Palette,
+  snake: Snake,
 };
 
 export function AquaIcon({ name }: { name: IconKey }) {

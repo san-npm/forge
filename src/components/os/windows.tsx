@@ -3,10 +3,13 @@
 import { useState } from 'react';
 import { Icon } from './icons';
 import { AquaIcon } from './aquaIcons';
+import Sketch from './apps/Sketch';
+import Snake from './apps/Snake';
 import {
   STUDIO, SERVICES, WORK, ABOUT, CONTACT, PRICING, TOOLS, INSIGHTS,
   type WindowId, type ServiceData, type IconKey,
 } from './osData';
+import { HERO, type Lang } from './osI18n';
 
 const statusLabel: Record<'eu' | 'ok' | 'care', string> = { eu: 'EU-hosted', ok: 'GDPR-ready', care: 'Review' };
 
@@ -14,7 +17,8 @@ const stepStyle: React.CSSProperties = { display: 'flex', gap: 10, alignItems: '
 const numStyle: React.CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--platinum-3)', flex: 'none' };
 
 /* ---------- Welcome / Read Me ---------- */
-export function WelcomeContent({ onOpen }: { onOpen: (id: WindowId) => void }) {
+export function WelcomeContent({ onOpen, lang = 'en' }: { onOpen: (id: WindowId) => void; lang?: Lang }) {
+  const h = HERO[lang];
   const pillars: { id: WindowId; icon: IconKey; h: string; p: string }[] = [
     { id: 'ai', icon: 'ai', h: 'AI', p: 'Agents, automation & strategy that ship in weeks.' },
     { id: 'web3', icon: 'web3', h: 'Web3', p: 'dApps, smart contracts & token-gated products.' },
@@ -23,8 +27,9 @@ export function WelcomeContent({ onOpen }: { onOpen: (id: WindowId) => void }) {
   return (
     <div>
       <p className="os-kicker">Welcome to {STUDIO.name}</p>
-      <h1 className="os-h" style={{ fontSize: 26 }}>{STUDIO.tagline}</h1>
-      <p className="os-lead"><strong>{STUDIO.sub}</strong> {STUDIO.welcomeLead}</p>
+      <h1 className="os-h" style={{ fontSize: 26 }}>{h.tagline}</h1>
+      <p className="os-lead"><strong>{h.sub}</strong> {h.welcomeLead}</p>
+      {lang === 'en' && <p className="os-p" style={{ fontSize: 13, color: '#555' }}>{STUDIO.narrative}</p>}
 
       <div className="os-pillars">
         {pillars.map((p) => (
@@ -36,10 +41,10 @@ export function WelcomeContent({ onOpen }: { onOpen: (id: WindowId) => void }) {
         ))}
       </div>
 
-      <p className="os-note">{STUDIO.hint}</p>
+      <p className="os-note">{h.hint}</p>
       <div className="os-btn-row">
-        <button type="button" className="os-btn os-btn--default" onClick={() => onOpen('contact')}>New Project ▸</button>
-        <button type="button" className="os-btn" onClick={() => onOpen('work')}>See our work</button>
+        <button type="button" className="os-btn os-btn--default" onClick={() => onOpen('contact')}>{h.newProject}</button>
+        <button type="button" className="os-btn" onClick={() => onOpen('work')}>{h.seeWork}</button>
       </div>
     </div>
   );
@@ -239,20 +244,36 @@ export function ContactContent() {
     );
   }
 
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const payload = {
+      name: data.get('name'),
+      email: data.get('email'),
+      projectType: type,
+      message: data.get('message'),
+      source: 'openletz-os',
+    };
+    setSent(true); // optimistic — UX always completes
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    }).catch(() => { /* lead is non-critical; ignore network errors */ });
+  };
+
   return (
-    <form
-      onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-    >
+    <form onSubmit={onSubmit}>
       <p className="os-kicker">New Project</p>
       <p className="os-lead" style={{ fontSize: 14 }}>{CONTACT.lead}</p>
 
       <div className="os-field">
         <label htmlFor="c-name">Name</label>
-        <input id="c-name" className="os-input" required placeholder="Jane Doe" />
+        <input id="c-name" name="name" className="os-input" required placeholder="Jane Doe" />
       </div>
       <div className="os-field">
         <label htmlFor="c-email">Email</label>
-        <input id="c-email" type="email" className="os-input" required placeholder="jane@company.lu" />
+        <input id="c-email" name="email" type="email" className="os-input" required placeholder="jane@company.lu" />
       </div>
       <div className="os-field">
         <label htmlFor="c-type">What do you need?</label>
@@ -262,7 +283,7 @@ export function ContactContent() {
       </div>
       <div className="os-field">
         <label htmlFor="c-msg">Tell us about it</label>
-        <textarea id="c-msg" className="os-textarea" rows={3} placeholder="A few lines about the project, timeline and budget." />
+        <textarea id="c-msg" name="message" className="os-textarea" rows={3} placeholder="A few lines about the project, timeline and budget." />
       </div>
 
       <div className="os-btn-row">
@@ -274,9 +295,9 @@ export function ContactContent() {
 }
 
 /* ---------- registry: id -> content ---------- */
-export function WindowBody({ id, onOpen }: { id: WindowId; onOpen: (id: WindowId) => void }) {
+export function WindowBody({ id, onOpen, lang }: { id: WindowId; onOpen: (id: WindowId) => void; lang?: Lang }) {
   switch (id) {
-    case 'welcome': return <WelcomeContent onOpen={onOpen} />;
+    case 'welcome': return <WelcomeContent onOpen={onOpen} lang={lang} />;
     case 'ai': return <ServiceContent data={SERVICES.ai} onOpen={onOpen} />;
     case 'web3': return <ServiceContent data={SERVICES.web3} onOpen={onOpen} />;
     case 'marketing': return <ServiceContent data={SERVICES.marketing} onOpen={onOpen} />;
@@ -286,6 +307,8 @@ export function WindowBody({ id, onOpen }: { id: WindowId; onOpen: (id: WindowId
     case 'work': return <WorkContent onOpen={onOpen} />;
     case 'about': return <AboutContent onOpen={onOpen} />;
     case 'contact': return <ContactContent />;
+    case 'sketch': return <Sketch />;
+    case 'snake': return <Snake />;
     default: return null;
   }
 }

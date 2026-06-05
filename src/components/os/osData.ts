@@ -5,7 +5,8 @@
 export type IconKey =
   | 'mac' | 'ai' | 'web3' | 'growth' | 'folder'
   | 'about' | 'mail' | 'doc' | 'drive' | 'disk'
-  | 'price' | 'tools' | 'insights';
+  | 'price' | 'tools' | 'insights'
+  | 'sketch' | 'snake';
 
 export interface AppDef {
   id: WindowId;
@@ -13,19 +14,23 @@ export interface AppDef {
   icon: IconKey;
   desktop?: { x: number; y: number };
   win: { w: number; h: number; x: number; y: number };
+  desktopOnly?: boolean; // shown as a desktop icon, not in the Dock
 }
 
 export type WindowId =
   | 'welcome' | 'ai' | 'web3' | 'marketing'
   | 'work' | 'about' | 'contact'
-  | 'pricing' | 'tools' | 'insights';
+  | 'pricing' | 'tools' | 'insights'
+  | 'sketch' | 'snake';
 
 export const STUDIO = {
   name: 'Openletz',
   tagline: 'Websites that think, move & transact.',
-  sub: 'A Luxembourg AI & Web3 studio.',
+  sub: 'A Luxembourg AI & Web3 studio that ships.',
   welcomeLead:
-    'We design and build digital products end-to-end — made smart with AI, taken on-chain when it counts, and marketed to grow. One studio, shipped work, no slideware.',
+    'We design and build digital products end to end — made smart with AI, taken on-chain when it adds value, hosted in Europe, and marketed to grow. One accountable studio, real shipped work, no slideware.',
+  narrative:
+    'AI and Web3 aren’t rival bets — they’re complementary. We build smart products first: agents, automation and sites that earn their keep. Then we take what benefits from being on-chain on-chain — payments, ownership, token-gating — and host it in Europe, GDPR- and EU-AI-Act-ready by design.',
   hint: 'Double-click an icon to see what we do — or hit “New Project” to start.',
 };
 
@@ -44,41 +49,41 @@ export const SERVICES: Record<'ai' | 'web3' | 'marketing', ServiceData> = {
     kicker: 'What we do · 01',
     title: 'Artificial Intelligence',
     lead:
-      'From a one-page audit to a working AI system in weeks — built to be useful, measured, and EU-AI-Act-ready.',
+      'From a one-page audit to a working AI system in weeks — built to be useful, measured, and EU-AI-Act-ready. AI is the front door to everything we build.',
     what: [
       { t: 'AI agents & assistants', d: 'RAG chatbots, internal copilots and support/ops agents — deployed, not demoed.' },
       { t: 'Workflow automation', d: 'Document processing, lead scoring, CRM & ops pipelines with time-saved you can measure.' },
       { t: 'AI readiness audit', d: 'A scoped diagnostic that maps your highest-ROI automation first.' },
     ],
     how: ['Audit — one page, one week', 'Prototype — a working slice you can click', 'Ship & measure — in production with KPIs'],
-    proof: 'Every tool we deploy is vetted for GDPR & the EU AI Act before it touches your data.',
+    proof: 'Every tool we deploy is vetted for GDPR & the EU AI Act before it touches your data. We ship private AI assistants and agents — see LibertAI in the Work folder.',
     footer: 'Building with AI in Luxembourg? Your project may be co-funded up to 50% via Fit 4 AI — we handle the paperwork.',
   },
   web3: {
     kicker: 'What we do · 02',
     title: 'Web3 & On-Chain',
     lead:
-      'dApps, smart contracts and token-gated products that actually ship — with European hosting and an experience people enjoy using.',
+      'Web3 is the depth: when a product is better with payments, ownership or trust built in, we take it on-chain — and host it in Europe. dApps, smart contracts and token-gating that actually ship.',
     what: [
-      { t: 'dApp & smart-contract builds', d: 'From token-gating and mint mechanics to full on-chain apps and integrations.' },
+      { t: 'dApp & smart-contract builds', d: 'Token-gating, mint mechanics, full on-chain apps and integrations — built and audit-minded.' },
       { t: 'Token-gated experiences', d: 'Memberships, paywalls and communities wired to wallets and on-chain rules.' },
-      { t: 'European hosting & uptime', d: 'Hosted in Europe with managed operation and SLAs — no vendor lock-in.' },
+      { t: 'European hosting & uptime', d: 'Run in Europe with managed operation and SLAs — no vendor lock-in.' },
     ],
     how: ['Scope & architecture', 'Build & audit-minded testing', 'Launch + managed run'],
-    proof: 'We ship real on-chain products, not pitch decks — open the Work folder.',
+    proof: 'We ship real on-chain products, not pitch decks — Greg, aleph-fileshare and Gategram are all in the Work folder. Hosting runs on Aleph Cloud.',
   },
   marketing: {
     kicker: 'What we do · 03',
     title: 'Digital & Growth',
     lead:
-      'High-performance websites, e-commerce and the growth engine to make them pay off.',
+      'The layer that ties it together: high-performance websites, e-commerce and the growth engine that makes them pay off.',
     what: [
-      { t: 'Websites & e-commerce', d: 'Fast, modern builds on Next.js — like Vins Fins and La Grocerie.' },
+      { t: 'Websites & e-commerce', d: 'Fast, modern Next.js builds — like Vins Fins and La Grocerie.' },
       { t: 'SEO + answer-engine optimization', d: 'Found by Google and cited by AI assistants. Every signal is live on this site.' },
       { t: 'Content, paid & analytics', d: 'A growth loop with GA4 / Search Console and conversion tracking baked in.' },
     ],
     how: ['Position & design', 'Build & instrument', 'Grow & report'],
-    proof: 'Want to audit our own answer-engine setup? It is all live, in public.',
+    proof: 'Want to audit our own answer-engine setup? It is all live, in public — and we run growth for live AI and Web3 products, including Aleph Cloud.',
   },
 };
 
@@ -101,14 +106,14 @@ export const WORK: WorkItem[] = [
 
 export const ABOUT = {
   bioLead:
-    'Openletz is the studio brand of Commit Media — a Luxembourg shop that designs, builds and grows AI and Web3 products. Strategy, design, engineering and marketing under one roof, with a bias for shipping.',
-  founderName: '[Founder name]', // TODO: confirm — name + photo
+    'Openletz is the studio brand of Commit Media — a Luxembourg shop that designs, builds and grows AI and Web3 products. Strategy, design, engineering and marketing under one roof, with a bias for shipping. We treat AI and Web3 as complementary: build smart, go on-chain when it counts, host in Europe.',
+  founderName: 'Clément Fermaud', // photo still TODO
   founderRole:
-    'Founder & lead. Handles growth & marketing for live AI and Web3 products, including Aleph.im.',
+    'Founder & lead. Runs growth & marketing for live AI and Web3 products, including Aleph Cloud, and has shipped LibertAI, aleph-fileshare, Gategram and Greg.',
   facts: [
     'Based in Luxembourg, in the heart of the EU',
     'One accountable team — not an anonymous collective or an offshore template shop',
-    'AI tooling vetted for GDPR + the EU AI Act',
+    'AI tooling vetted for GDPR + the EU AI Act, hosting kept in Europe',
   ],
   entity: 'Commit Media S.à r.l. · RCS B276192 · Luxembourg',
 };
@@ -131,6 +136,9 @@ export const APPS: AppDef[] = [
   { id: 'insights',  label: 'Insights',    icon: 'insights', desktop: { x: 40, y: 28 },  win: { w: 540, h: 452, x: 198, y: 78 } },
   { id: 'about',     label: 'About',       icon: 'about',    desktop: { x: 40, y: 28 },  win: { w: 468, h: 424, x: 224, y: 62 } },
   { id: 'contact',   label: 'New Project', icon: 'mail',     desktop: { x: 40, y: 28 },  win: { w: 448, h: 480, x: 262, y: 46 } },
+  // playful extras — live on the desktop, not the Dock
+  { id: 'sketch',    label: 'Sketch',      icon: 'sketch',   desktopOnly: true, win: { w: 600, h: 470, x: 130, y: 48 } },
+  { id: 'snake',     label: 'Snake',       icon: 'snake',    desktopOnly: true, win: { w: 432, h: 520, x: 320, y: 36 } },
 ];
 
 /* ---------- Pricing ---------- */
