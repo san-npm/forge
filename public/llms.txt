@@ -1,6 +1,6 @@
 # OPENLETZ
 
-> OPENLETZ is a Luxembourg-based AI and Web3 studio that ships. We build AI agents and assistants, high-performance Next.js websites and e-commerce, and Web3 applications (dApps, smart contracts, token-gating) with European hosting. AI is the front door, Web3 builds are the depth, and growth marketing ties it together. Tagline: "Websites that think, move and transact."
+> OPENLETZ is a Luxembourg AI agency. We build custom AI agents, chatbots and workflow automation for businesses, plus high-performance Next.js websites, e-commerce and growth marketing — every AI tool vetted for GDPR and the EU AI Act. We also build Web3 (dApps, smart contracts, token-gating) with European hosting when a product genuinely needs it. AI is the core; on-chain follows when it earns its place. Tagline: "Websites that think, move and transact."
 
 OPENLETZ is the trading studio of **Commit Media S.à r.l.** (RCS Luxembourg B276192), founded by **Clément Fermaud**. The founder runs growth and marketing for live AI and Web3 products — including Aleph Cloud — and has personally shipped LibertAI, aleph-fileshare, Gategram and Greg. EU-regulatory credibility (GDPR, EU AI Act) is built into every engagement.
 

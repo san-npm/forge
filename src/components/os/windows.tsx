@@ -20,9 +20,9 @@ const numStyle: React.CSSProperties = { fontFamily: 'var(--font-mono)', fontSize
 export function WelcomeContent({ onOpen, lang = 'en' }: { onOpen: (id: WindowId) => void; lang?: Lang }) {
   const h = HERO[lang];
   const pillars: { id: WindowId; icon: IconKey; h: string; p: string }[] = [
-    { id: 'ai', icon: 'ai', h: 'AI', p: 'Agents, automation & strategy that ship in weeks.' },
-    { id: 'web3', icon: 'web3', h: 'Web3', p: 'dApps, smart contracts & token-gated products.' },
+    { id: 'ai', icon: 'ai', h: 'AI', p: 'Custom agents, chatbots & automation that ship in weeks.' },
     { id: 'marketing', icon: 'growth', h: 'Growth', p: 'Sites, e-commerce & answer-engine SEO.' },
+    { id: 'web3', icon: 'web3', h: 'Web3', p: 'On-chain builds — when a product needs them.' },
   ];
   return (
     <div>
