@@ -26,11 +26,11 @@ export type WindowId =
 export const STUDIO = {
   name: 'Openletz',
   tagline: 'Websites that think, move & transact.',
-  sub: 'A Luxembourg AI & Web3 studio that ships.',
+  sub: 'A Luxembourg AI agency.',
   welcomeLead:
-    'We design and build digital products end to end — made smart with AI, taken on-chain when it adds value, hosted in Europe, and marketed to grow. One accountable studio, real shipped work, no slideware.',
+    'We build AI that ships — custom agents, chatbots and workflow automation that save real time — plus the websites and growth to put them to work. EU-AI-Act- and GDPR-ready by design. (And when a product genuinely needs it, we build it on-chain too.) One accountable Luxembourg team, real shipped work, no slideware.',
   narrative:
-    'AI and Web3 aren’t rival bets — they’re complementary. We build smart products first: agents, automation and sites that earn their keep. Then we take what benefits from being on-chain on-chain — payments, ownership, token-gating — and host it in Europe, GDPR- and EU-AI-Act-ready by design.',
+    'We’re an AI agency first: we build AI agents, automation and AI-powered products for Luxembourg businesses, every tool vetted for GDPR and the EU AI Act. Web3 is a capability we reach for only when ownership, payments or token-gating make a product genuinely better — built and hosted in Europe. AI leads; on-chain follows when it earns its place.',
   hint: 'Double-click an icon to see what we do — or hit “New Project” to start.',
 };
 
@@ -46,24 +46,24 @@ export interface ServiceData {
 
 export const SERVICES: Record<'ai' | 'web3' | 'marketing', ServiceData> = {
   ai: {
-    kicker: 'What we do · 01',
-    title: 'Artificial Intelligence',
+    kicker: 'What we do · 01 — our core',
+    title: 'AI agents & automation',
     lead:
-      'From a one-page audit to a working AI system in weeks — built to be useful, measured, and EU-AI-Act-ready. AI is the front door to everything we build.',
+      'Custom AI agents, chatbots and automation for Luxembourg businesses — from a one-page audit to a working system in weeks. Useful, measured, and EU-AI-Act-ready. This is what we do best.',
     what: [
-      { t: 'AI agents & assistants', d: 'RAG chatbots, internal copilots and support/ops agents — deployed, not demoed.' },
-      { t: 'Workflow automation', d: 'Document processing, lead scoring, CRM & ops pipelines with time-saved you can measure.' },
-      { t: 'AI readiness audit', d: 'A scoped diagnostic that maps your highest-ROI automation first.' },
+      { t: 'Custom AI agents & chatbots', d: 'RAG assistants, support/ops agents and copilots — multilingual (FR/EN/DE/LB), deployed not demoed.' },
+      { t: 'Workflow automation', d: 'Document processing, lead scoring, CRM & ops pipelines — with time saved you can measure.' },
+      { t: 'AI strategy & readiness audit', d: 'A scoped diagnostic that maps your highest-ROI automation first.' },
     ],
     how: ['Audit — one page, one week', 'Prototype — a working slice you can click', 'Ship & measure — in production with KPIs'],
     proof: 'Every tool we deploy is vetted for GDPR & the EU AI Act before it touches your data. We ship private AI assistants and agents — see LibertAI in the Work folder.',
     footer: 'Building with AI in Luxembourg? Your project may be co-funded up to 50% via Fit 4 AI — we handle the paperwork.',
   },
   web3: {
-    kicker: 'What we do · 02',
+    kicker: 'What we do · 03 — when it helps',
     title: 'Web3 & On-Chain',
     lead:
-      'Web3 is the depth: when a product is better with payments, ownership or trust built in, we take it on-chain — and host it in Europe. dApps, smart contracts and token-gating that actually ship.',
+      'A capability, not the headline. When a product is genuinely better with payments, ownership or token-gating built in, we also build it on-chain — and host it in Europe. dApps, smart contracts and token-gated experiences that actually ship.',
     what: [
       { t: 'dApp & smart-contract builds', d: 'Token-gating, mint mechanics, full on-chain apps and integrations — built and audit-minded.' },
       { t: 'Token-gated experiences', d: 'Memberships, paywalls and communities wired to wallets and on-chain rules.' },
@@ -73,7 +73,7 @@ export const SERVICES: Record<'ai' | 'web3' | 'marketing', ServiceData> = {
     proof: 'We ship real on-chain products, not pitch decks — Greg, aleph-fileshare and Gategram are all in the Work folder. Hosting runs on Aleph Cloud.',
   },
   marketing: {
-    kicker: 'What we do · 03',
+    kicker: 'What we do · 02',
     title: 'Digital & Growth',
     lead:
       'The layer that ties it together: high-performance websites, e-commerce and the growth engine that makes them pay off.',
@@ -128,12 +128,12 @@ export const CONTACT = {
 export const APPS: AppDef[] = [
   { id: 'welcome',   label: 'Read Me',     icon: 'mac',      desktop: { x: 40, y: 28 },  win: { w: 560, h: 432, x: 70,  y: 40 } },
   { id: 'ai',        label: 'AI',          icon: 'ai',       desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 116, y: 52 } },
-  { id: 'web3',      label: 'Web3',        icon: 'web3',     desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 150, y: 68 } },
-  { id: 'marketing', label: 'Growth',      icon: 'growth',   desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 184, y: 84 } },
+  { id: 'marketing', label: 'Growth',      icon: 'growth',   desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 150, y: 68 } },
   { id: 'pricing',   label: 'Pricing',     icon: 'price',    desktop: { x: 40, y: 28 },  win: { w: 588, h: 492, x: 150, y: 56 } },
   { id: 'work',      label: 'Work',        icon: 'folder',   desktop: { x: 40, y: 28 },  win: { w: 588, h: 420, x: 150, y: 70 } },
   { id: 'tools',     label: 'AI Tools',    icon: 'tools',    desktop: { x: 40, y: 28 },  win: { w: 612, h: 452, x: 132, y: 60 } },
   { id: 'insights',  label: 'Insights',    icon: 'insights', desktop: { x: 40, y: 28 },  win: { w: 540, h: 452, x: 198, y: 78 } },
+  { id: 'web3',      label: 'Web3',        icon: 'web3',     desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 184, y: 84 } },
   { id: 'about',     label: 'About',       icon: 'about',    desktop: { x: 40, y: 28 },  win: { w: 468, h: 424, x: 224, y: 62 } },
   { id: 'contact',   label: 'New Project', icon: 'mail',     desktop: { x: 40, y: 28 },  win: { w: 448, h: 480, x: 262, y: 46 } },
   // playful extras — live on the desktop, not the Dock

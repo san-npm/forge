@@ -4,7 +4,7 @@
 // don't run JS). Visually hidden, but real, matching content — not cloaking.
 import { STUDIO, SERVICES, PRICING, ABOUT, WORK, TOOLS, INSIGHTS } from './osData';
 
-const PILLARS = ['ai', 'web3', 'marketing'] as const;
+const PILLARS = ['ai', 'marketing', 'web3'] as const;
 
 export default function CrawlableContent() {
   return (

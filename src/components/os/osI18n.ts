@@ -31,7 +31,7 @@ export const HERO: Record<Lang, Hero> = {
   },
   fr: {
     tagline: 'Des sites qui pensent, bougent et transigent.',
-    sub: 'Un studio IA & Web3 luxembourgeois qui livre.',
+    sub: 'Une agence IA au Luxembourg.',
     welcomeLead:
       'On conçoit et développe vos produits digitaux de A à Z — rendus intelligents par l’IA, portés on-chain quand ça apporte vraiment, hébergés en Europe et marketés pour grandir. Un seul studio responsable, du concret livré, zéro promesse en l’air.',
     hint: 'Double-cliquez sur une icône pour découvrir ce qu’on fait — ou lancez « Nouveau projet ».',
@@ -40,7 +40,7 @@ export const HERO: Record<Lang, Hero> = {
   },
   de: {
     tagline: 'Websites, die denken, bewegen und handeln.',
-    sub: 'Ein Luxemburger KI- & Web3-Studio, das liefert.',
+    sub: 'Eine KI-Agentur in Luxemburg.',
     welcomeLead:
       'Wir gestalten und entwickeln digitale Produkte von A bis Z — smart gemacht mit KI, on-chain gebracht, wo es echten Mehrwert schafft, in Europa gehostet und für Wachstum vermarktet. Ein Studio mit voller Verantwortung, echte fertige Arbeit, kein Blendwerk.',
     hint: 'Doppelklicken Sie auf ein Icon, um zu sehen, was wir tun — oder starten Sie „Neues Projekt".',
@@ -49,7 +49,7 @@ export const HERO: Record<Lang, Hero> = {
   },
   lb: {
     tagline: 'Websäiten déi denken, sech beweegen an handelen.',
-    sub: 'E Lëtzebuerger KI- & Web3-Studio dat liwwert.',
+    sub: 'Eng KI-Agentur zu Lëtzebuerg.',
     welcomeLead:
       'Mir designen a bauen digital Produkter vun A bis Z — schlau gemaach mat KI, op d’Chain bruecht wann et eppes bréngt, an Europa gehost a vermaart fir ze wuessen. Ee Studio dat d’Verantwortung iwwerhëlt, richteg fäerdeg Aarbecht, keng eidel Verspriechen.',
     hint: 'Duebelklick op en Icon fir ze gesinn wat mir maachen — oder dréck op „Neit Projet".',
