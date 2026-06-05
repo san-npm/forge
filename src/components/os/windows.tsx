@@ -6,12 +6,10 @@ import { AquaIcon } from './aquaIcons';
 import Sketch from './apps/Sketch';
 import Snake from './apps/Snake';
 import {
-  STUDIO, SERVICES, WORK, ABOUT, CONTACT, PRICING, TOOLS, INSIGHTS,
-  type WindowId, type ServiceData, type IconKey,
+  STUDIO, SERVICES, WORK, ABOUT, CONTACT, PRICING,
+  type WindowId, type ServiceData, type IconKey, type WorkItem,
 } from './osData';
 import { HERO, type Lang } from './osI18n';
-
-const statusLabel: Record<'eu' | 'ok' | 'care', string> = { eu: 'EU-hosted', ok: 'GDPR-ready', care: 'Review' };
 
 const stepStyle: React.CSSProperties = { display: 'flex', gap: 10, alignItems: 'baseline', marginBottom: 6 };
 const numStyle: React.CSSProperties = { fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--platinum-3)', flex: 'none' };
@@ -20,16 +18,15 @@ const numStyle: React.CSSProperties = { fontFamily: 'var(--font-mono)', fontSize
 export function WelcomeContent({ onOpen, lang = 'en' }: { onOpen: (id: WindowId) => void; lang?: Lang }) {
   const h = HERO[lang];
   const pillars: { id: WindowId; icon: IconKey; h: string; p: string }[] = [
-    { id: 'ai', icon: 'ai', h: 'AI', p: 'Custom agents, chatbots & automation that ship in weeks.' },
-    { id: 'marketing', icon: 'growth', h: 'Growth', p: 'Sites, e-commerce & answer-engine SEO.' },
-    { id: 'web3', icon: 'web3', h: 'Web3', p: 'On-chain builds — when a product needs them.' },
+    { id: 'ai', icon: 'ai', h: 'AI', p: 'Agents, chatbots and automations that save time.' },
+    { id: 'marketing', icon: 'growth', h: 'Growth', p: 'Websites, shops and the marketing to get them seen.' },
+    { id: 'web3', icon: 'web3', h: 'Web3', p: 'Smart contracts and on-chain apps, when you need them.' },
   ];
   return (
     <div>
       <p className="os-kicker">Welcome to {STUDIO.name}</p>
       <h1 className="os-h" style={{ fontSize: 26 }}>{h.tagline}</h1>
       <p className="os-lead"><strong>{h.sub}</strong> {h.welcomeLead}</p>
-      {lang === 'en' && <p className="os-p" style={{ fontSize: 13, color: '#555' }}>{STUDIO.narrative}</p>}
 
       <div className="os-pillars">
         {pillars.map((p) => (
@@ -77,11 +74,7 @@ export function ServiceContent({ data, onOpen }: { data: ServiceData; onOpen: (i
 
       <p className="os-note" style={{ marginTop: 12 }}>{data.proof}</p>
 
-      {data.footer && (
-        <div style={{ border: '1.5px solid var(--ink)', padding: '10px 12px', marginTop: 14, fontSize: 13 }}>
-          {data.footer}
-        </div>
-      )}
+      {data.footer && <div className="os-note-box" style={{ marginTop: 14 }}>{data.footer}</div>}
 
       <div className="os-btn-row" style={{ marginTop: 16 }}>
         <button type="button" className="os-btn os-btn--default" onClick={() => onOpen('contact')}>Start a project ▸</button>
@@ -97,12 +90,15 @@ export function PricingContent({ onOpen }: { onOpen: (id: WindowId) => void }) {
   return (
     <div>
       <p className="os-kicker">Pricing</p>
-      <h1 className="os-h">Simple, honest pricing</h1>
+      <h1 className="os-h">What it costs</h1>
       <p className="os-lead">{PRICING.lead}</p>
       <div className="os-price-grid">
         {PRICING.tiers.map((t) => (
           <div key={t.name} className={`os-price-card${t.highlight ? ' is-hot' : ''}`}>
-            <h4>{t.name}</h4>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+              <span style={{ width: 26, height: 26, flex: 'none' }}><AquaIcon name={t.icon} /></span>
+              <h4 style={{ margin: 0 }}>{t.name}</h4>
+            </div>
             <div className="os-price">{t.price}</div>
             <p className="os-price-desc">{t.desc}</p>
             <ul className="os-list os-price-feats">
@@ -120,84 +116,59 @@ export function PricingContent({ onOpen }: { onOpen: (id: WindowId) => void }) {
   );
 }
 
-/* ---------- AI Tools directory ---------- */
-export function ToolsContent({ onOpen }: { onOpen: (id: WindowId) => void }) {
-  return (
-    <div>
-      <p className="os-kicker">AI Tools · {TOOLS.items.length} rated</p>
-      <h1 className="os-h">Tools we trust</h1>
-      <p className="os-lead">{TOOLS.lead}</p>
-      <table className="os-finder">
-        <thead>
-          <tr><th>Name</th><th>Category</th><th>Compliance</th></tr>
-        </thead>
-        <tbody>
-          {TOOLS.items.map((t) => (
-            <tr key={t.name}>
-              <td>
-                <strong>{t.name}</strong>
-                <div className="meta">{t.note}</div>
-              </td>
-              <td>{t.cat}</td>
-              <td><span className={`os-badge ${t.status}`}>{statusLabel[t.status]}</span></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="os-btn-row" style={{ marginTop: 14 }}>
-        <button type="button" className="os-btn os-btn--default" onClick={() => onOpen('ai')}>Build with these ▸</button>
-      </div>
-    </div>
-  );
-}
-
-/* ---------- Insights ---------- */
-export function InsightsContent({ onOpen }: { onOpen: (id: WindowId) => void }) {
-  return (
-    <div>
-      <p className="os-kicker">Insights</p>
-      <h1 className="os-h">From the studio</h1>
-      <p className="os-lead">{INSIGHTS.lead}</p>
-      {INSIGHTS.items.map((a) => (
-        <div key={a.title} className="os-article">
-          <span className="os-article-tag">{a.tag}</span>
-          <h4>{a.title}</h4>
-          <p>{a.excerpt}</p>
-        </div>
-      ))}
-      <p className="os-note" style={{ marginTop: 6 }}>More notes soon.</p>
-      <div className="os-btn-row" style={{ marginTop: 12 }}>
-        <button type="button" className="os-btn os-btn--default" onClick={() => onOpen('contact')}>Work with us ▸</button>
-      </div>
-    </div>
-  );
-}
-
 /* ---------- Work (Finder list) ---------- */
-export function WorkContent({ onOpen }: { onOpen: (id: WindowId) => void }) {
+export function WorkContent({ onOpen, onOpenProject }: { onOpen: (id: WindowId) => void; onOpenProject: (slug: string) => void }) {
   return (
     <div>
       <p className="os-kicker">Macintosh HD ▸ Work — {WORK.length} items</p>
       <table className="os-finder">
         <thead>
-          <tr><th>Name</th><th>Kind</th><th style={{ textAlign: 'right' }}>Year</th></tr>
+          <tr><th>Name</th><th>Kind</th><th /></tr>
         </thead>
         <tbody>
           {WORK.map((w) => (
-            <tr key={w.name}>
+            <tr key={w.slug} onClick={() => onOpenProject(w.slug)} style={{ cursor: 'pointer' }}>
               <td>
                 <span className="file-ico" style={{ display: 'inline-block' }}><AquaIcon name="doc" /></span>
                 <strong>{w.name}</strong>
                 <div className="meta" style={{ paddingLeft: 25 }}>{w.blurb}</div>
               </td>
               <td>{w.kind}</td>
-              <td style={{ textAlign: 'right' }} className="meta">{w.year}</td>
+              <td className="meta" style={{ textAlign: 'right', whiteSpace: 'nowrap' }}>Open ›</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="os-btn-row" style={{ marginTop: 16 }}>
+      <p className="os-note" style={{ marginTop: 10 }}>Click a project to open its page.</p>
+      <div className="os-btn-row" style={{ marginTop: 10 }}>
         <button type="button" className="os-btn os-btn--default" onClick={() => onOpen('contact')}>Build something like this ▸</button>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Project detail (opened from Work) ---------- */
+export function ProjectContent({ project, onOpen }: { project: WorkItem | null; onOpen: (id: WindowId) => void }) {
+  if (!project) return null;
+  return (
+    <div>
+      <p className="os-kicker">{project.kind}</p>
+      <h1 className="os-h">{project.name}</h1>
+      <p className="os-lead">{project.about}</p>
+
+      <p className="os-kicker" style={{ marginBottom: 8 }}>What we did</p>
+      <ul className="os-list">
+        {project.did.map((d) => <li key={d}>{d}</li>)}
+      </ul>
+
+      <div className="os-tags">
+        {project.stack.map((s) => <span key={s} className="os-tag">{s}</span>)}
+      </div>
+
+      <hr className="os-hr" />
+      <div className="os-btn-row">
+        <a className="os-btn os-btn--default" href={project.link} target="_blank" rel="noopener noreferrer">Visit {project.name} ↗</a>
+        <button type="button" className="os-btn" onClick={() => onOpen('contact')}>Build something like this</button>
       </div>
     </div>
   );
@@ -295,16 +266,21 @@ export function ContactContent() {
 }
 
 /* ---------- registry: id -> content ---------- */
-export function WindowBody({ id, onOpen, lang }: { id: WindowId; onOpen: (id: WindowId) => void; lang?: Lang }) {
+export function WindowBody({ id, onOpen, onOpenProject, project, lang }: {
+  id: WindowId;
+  onOpen: (id: WindowId) => void;
+  onOpenProject: (slug: string) => void;
+  project: WorkItem | null;
+  lang?: Lang;
+}) {
   switch (id) {
     case 'welcome': return <WelcomeContent onOpen={onOpen} lang={lang} />;
     case 'ai': return <ServiceContent data={SERVICES.ai} onOpen={onOpen} />;
     case 'web3': return <ServiceContent data={SERVICES.web3} onOpen={onOpen} />;
     case 'marketing': return <ServiceContent data={SERVICES.marketing} onOpen={onOpen} />;
     case 'pricing': return <PricingContent onOpen={onOpen} />;
-    case 'tools': return <ToolsContent onOpen={onOpen} />;
-    case 'insights': return <InsightsContent onOpen={onOpen} />;
-    case 'work': return <WorkContent onOpen={onOpen} />;
+    case 'work': return <WorkContent onOpen={onOpen} onOpenProject={onOpenProject} />;
+    case 'project': return <ProjectContent project={project} onOpen={onOpen} />;
     case 'about': return <AboutContent onOpen={onOpen} />;
     case 'contact': return <ContactContent />;
     case 'sketch': return <Sketch />;

@@ -9,7 +9,7 @@ const RADIUS = 92;
 
 export default function Dock({ onOpen, openIds }: { onOpen: (id: WindowId) => void; openIds: WindowId[] }) {
   const items = useRef<(HTMLDivElement | null)[]>([]);
-  const dockApps = APPS.filter((a) => !a.desktopOnly);
+  const dockApps = APPS.filter((a) => !a.desktopOnly && !a.hidden);
 
   const magnify = (clientX: number) => {
     items.current.forEach((el) => {

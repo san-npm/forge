@@ -15,12 +15,13 @@ export interface AppDef {
   desktop?: { x: number; y: number };
   win: { w: number; h: number; x: number; y: number };
   desktopOnly?: boolean; // shown as a desktop icon, not in the Dock
+  hidden?: boolean;      // not in the Dock or on the desktop (opened programmatically)
 }
 
 export type WindowId =
   | 'welcome' | 'ai' | 'web3' | 'marketing'
   | 'work' | 'about' | 'contact'
-  | 'pricing' | 'tools' | 'insights'
+  | 'pricing' | 'project'
   | 'sketch' | 'snake';
 
 export const STUDIO = {
@@ -28,9 +29,7 @@ export const STUDIO = {
   tagline: 'Websites that think, move & transact.',
   sub: 'A Luxembourg AI agency.',
   welcomeLead:
-    'We build AI that ships — custom agents, chatbots and workflow automation that save real time — plus the websites and growth to put them to work. EU-AI-Act- and GDPR-ready by design. (And when a product genuinely needs it, we build it on-chain too.) One accountable Luxembourg team, real shipped work, no slideware.',
-  narrative:
-    'We’re an AI agency first: we build AI agents, automation and AI-powered products for Luxembourg businesses, every tool vetted for GDPR and the EU AI Act. Web3 is a capability we reach for only when ownership, payments or token-gating make a product genuinely better — built and hosted in Europe. AI leads; on-chain follows when it earns its place.',
+    'We’re a small Luxembourg studio. We build AI agents, chatbots and automations that actually save time — and the websites and shops around them. When a project needs blockchain, we build that too. Everything runs in Europe, and it’s yours to keep.',
   hint: 'Double-click an icon to see what we do — or hit “New Project” to start.',
 };
 
@@ -46,74 +45,113 @@ export interface ServiceData {
 
 export const SERVICES: Record<'ai' | 'web3' | 'marketing', ServiceData> = {
   ai: {
-    kicker: 'What we do · 01 — our core',
+    kicker: 'What we do · AI',
     title: 'AI agents & automation',
     lead:
-      'Custom AI agents, chatbots and automation for Luxembourg businesses — from a one-page audit to a working system in weeks. Useful, measured, and EU-AI-Act-ready. This is what we do best.',
+      'This is the core of what we do. We build AI agents, chatbots and automations for businesses in Luxembourg — from a quick audit to something running in production, usually in a few weeks.',
     what: [
-      { t: 'Custom AI agents & chatbots', d: 'RAG assistants, support/ops agents and copilots — multilingual (FR/EN/DE/LB), deployed not demoed.' },
-      { t: 'Workflow automation', d: 'Document processing, lead scoring, CRM & ops pipelines — with time saved you can measure.' },
-      { t: 'AI strategy & readiness audit', d: 'A scoped diagnostic that maps your highest-ROI automation first.' },
+      { t: 'Agents & chatbots', d: 'Assistants that answer questions, handle support and do back-office work — in French, English, German or Luxembourgish.' },
+      { t: 'Automations', d: 'The repetitive stuff — documents, leads, CRM, ops — handled, with the time saved you can actually measure.' },
+      { t: 'Where to start', d: 'A short audit that finds the one or two things worth automating first.' },
     ],
-    how: ['Audit — one page, one week', 'Prototype — a working slice you can click', 'Ship & measure — in production with KPIs'],
-    proof: 'Every tool we deploy is vetted for GDPR & the EU AI Act before it touches your data. We ship private AI assistants and agents — see LibertAI in the Work folder.',
-    footer: 'Building with AI in Luxembourg? Your project may be co-funded up to 50% via Fit 4 AI — we handle the paperwork.',
+    how: ['A quick audit', 'A working prototype you can click', 'Live, with numbers to show it works'],
+    proof: 'We pick tools with GDPR and the EU AI Act in mind. LiberClaw, a personal AI assistant, is one of our own — it’s in the Work folder.',
+    footer: 'In Luxembourg? Your project may be co-funded through the SME Package — we’ll help with the paperwork.',
   },
   web3: {
-    kicker: 'What we do · 03 — when it helps',
+    kicker: 'What we do · Web3',
     title: 'Web3 & On-Chain',
     lead:
-      'A capability, not the headline. When a product is genuinely better with payments, ownership or token-gating built in, we also build it on-chain — and host it in Europe. dApps, smart contracts and token-gated experiences that actually ship.',
+      'Not the headline — a tool we reach for when it helps. If a product is better with payments, ownership or token-gating built in, we’ll build it on-chain and host it in Europe.',
     what: [
-      { t: 'dApp & smart-contract builds', d: 'Token-gating, mint mechanics, full on-chain apps and integrations — built and audit-minded.' },
-      { t: 'Token-gated experiences', d: 'Memberships, paywalls and communities wired to wallets and on-chain rules.' },
-      { t: 'European hosting & uptime', d: 'Run in Europe with managed operation and SLAs — no vendor lock-in.' },
+      { t: 'Apps & smart contracts', d: 'Token-gating, mints and full on-chain apps — built carefully, with audits in mind.' },
+      { t: 'Token-gated access', d: 'Memberships, paywalls and communities tied to a wallet.' },
+      { t: 'European hosting', d: 'Run in Europe, no lock-in.' },
     ],
-    how: ['Scope & architecture', 'Build & audit-minded testing', 'Launch + managed run'],
-    proof: 'We ship real on-chain products, not pitch decks — Greg, aleph-fileshare and Gategram are all in the Work folder. Hosting runs on Aleph Cloud.',
+    how: ['Scope & architecture', 'Build & careful testing', 'Launch + support'],
+    proof: 'We ship real on-chain products, not decks — Ophis (a DEX aggregator) and Gategram are both in the Work folder.',
   },
   marketing: {
-    kicker: 'What we do · 02',
+    kicker: 'What we do · Growth',
     title: 'Digital & Growth',
     lead:
-      'The layer that ties it together: high-performance websites, e-commerce and the growth engine that makes them pay off.',
+      'The websites and shops that carry it all — and the marketing to get them seen.',
     what: [
-      { t: 'Websites & e-commerce', d: 'Fast, modern Next.js builds — like Vins Fins and La Grocerie.' },
-      { t: 'SEO + answer-engine optimization', d: 'Found by Google and cited by AI assistants. Every signal is live on this site.' },
-      { t: 'Content, paid & analytics', d: 'A growth loop with GA4 / Search Console and conversion tracking baked in.' },
+      { t: 'Websites & shops', d: 'Fast, modern builds on Next.js — like Vins Fins and La Grocerie.' },
+      { t: 'Getting found', d: 'SEO, plus the newer game of being cited by AI assistants. It’s all live on this very site.' },
+      { t: 'Content & analytics', d: 'A simple loop — publish, measure, improve — with GA4 and Search Console wired in.' },
     ],
     how: ['Position & design', 'Build & instrument', 'Grow & report'],
-    proof: 'Want to audit our own answer-engine setup? It is all live, in public — and we run growth for live AI and Web3 products, including Aleph Cloud.',
+    proof: 'We also run marketing for live products, including Aleph Cloud.',
   },
 };
 
 export interface WorkItem {
+  slug: string;
   name: string;
   kind: string;
-  year: string;
-  blurb: string;
-  tags: string[];
+  link: string;
+  blurb: string;     // one line, for the Finder list
+  about: string;     // longer, for the detail window
+  did: string[];     // what we did
+  stack: string[];
 }
 
 export const WORK: WorkItem[] = [
-  { name: 'Vins Fins', kind: 'E-commerce', year: '2026', blurb: 'Multilingual wine boutique & restaurant in the Grund — Stripe, VAT, shipping & bookings.', tags: ['Next.js', 'Stripe', 'i18n'] },
-  { name: 'La Grocerie', kind: 'E-commerce', year: '2026', blurb: 'Farm-to-table grocery & natural-wine cellar with real-time stock and a light admin.', tags: ['Next.js', 'Stripe', 'KV'] },
-  { name: 'Gategram', kind: 'Product', year: '2026', blurb: 'Sell digital content on Telegram with Stars — instant delivery, 95% creator earnings.', tags: ['Payments', 'Bots', 'Web3'] },
-  { name: 'LibertAI', kind: 'AI product', year: '2026', blurb: 'Private AI assistants and agents you actually control.', tags: ['AI', 'Agents'] },
-  { name: 'Greg', kind: 'Web3', year: '2026', blurb: 'Intent-based DEX aggregator for better on-chain swaps.', tags: ['Web3', 'DeFi'] },
-  { name: 'aleph-fileshare', kind: 'App', year: '2026', blurb: 'Encrypted peer-to-peer file sharing — no account needed.', tags: ['Web3', 'Privacy'] },
+  {
+    slug: 'vinsfins', name: 'Vins Fins', kind: 'E-commerce', link: 'https://www.vinsfins.lu',
+    blurb: 'A multilingual wine shop & restaurant in the Grund.',
+    about: 'Vins Fins is a wine bar and restaurant in Luxembourg’s Grund. We built their online shop and booking site — hundreds of wines, four languages, and a checkout that handles Luxembourg VAT and shipping.',
+    did: ['Designed and built the site on Next.js', 'Stripe checkout with Luxembourg VAT', 'POST Luxembourg shipping + Zenchef bookings', 'FR / EN / DE / LB, with a light admin'],
+    stack: ['Next.js', 'Stripe', 'Vercel'],
+  },
+  {
+    slug: 'lagrocerie', name: 'La Grocerie', kind: 'E-commerce', link: 'https://www.lagrocerie.lu',
+    blurb: 'Farm-to-table grocery & natural-wine cellar.',
+    about: 'A sister shop to Vins Fins: a grocery and natural-wine cellar in the Grund, sourcing from short-supply-chain producers. We built the shop, the stock system, and a simple admin the team actually uses.',
+    did: ['E-commerce on the same stack as Vins Fins', 'Real-time stock management', 'Stripe checkout', 'A lightweight admin'],
+    stack: ['Next.js', 'Stripe', 'Vercel KV'],
+  },
+  {
+    slug: 'gategram', name: 'Gategram', kind: 'Our product', link: 'https://gategram.app',
+    blurb: 'Sell digital content on Telegram, paid in Stars.',
+    about: 'Our own product: a way for creators to sell digital content inside Telegram and get paid in Stars — instant delivery, and the creator keeps 95%. Open source.',
+    did: ['Designed and built the product end to end', 'Telegram bot + Stars payments', 'Instant delivery, 95% to the creator', 'Open-sourced it'],
+    stack: ['Telegram', 'Payments', 'Next.js'],
+  },
+  {
+    slug: 'liberclaw', name: 'LiberClaw', kind: 'AI assistant', link: 'https://liberclaw.ai',
+    blurb: 'A personal AI assistant you actually control.',
+    about: 'LiberClaw is a personal AI assistant — email, calendar, notes and more, wired into your own accounts. We work on its skills and on how it gets real things done for you.',
+    did: ['Built assistant skills for email, calendar and notes', 'Wired them into real accounts', 'Kept privacy and control front and centre'],
+    stack: ['AI agents', 'Skills', 'TypeScript'],
+  },
+  {
+    slug: 'ophis', name: 'Ophis', kind: 'Web3 / DeFi', link: 'https://ophis.fi',
+    blurb: 'An intent-based DEX aggregator for better swaps.',
+    about: 'Ophis is a DEX aggregator — you say what you want, it finds the best way to swap on-chain and protects you from MEV. We handle the product, the brand and the front-end.',
+    did: ['Product, brand and front-end', 'Intent-based swap flow', 'MEV-protected execution + receipts'],
+    stack: ['Web3', 'DeFi', 'React'],
+  },
+  {
+    slug: 'skillsws', name: 'Skills.ws', kind: 'Our product', link: 'https://www.skills.ws',
+    blurb: 'A marketplace of skills for AI coding assistants.',
+    about: 'Our own product: a marketplace of ready-made skills for AI coding assistants like Claude Code, Cursor and Codex. Browse, install, and make your assistant better at real work.',
+    did: ['Designed and built the marketplace', '85+ agent skills, browsable and installable', 'Also shipped as an npm CLI'],
+    stack: ['Next.js', 'Vercel', 'npm'],
+  },
 ];
 
 export const ABOUT = {
   bioLead:
-    'Openletz is the studio brand of Commit Media — a Luxembourg shop that designs, builds and grows AI and Web3 products. Strategy, design, engineering and marketing under one roof, with a bias for shipping. We treat AI and Web3 as complementary: build smart, go on-chain when it counts, host in Europe.',
+    'Openletz is the studio name of Commit Media — a small Luxembourg shop. I design, build and market AI and web products, usually end to end, with a trusted crew when a project needs more hands.',
   founderName: 'Clément Fermaud', // photo still TODO
   founderRole:
-    'Founder & lead. Runs growth & marketing for live AI and Web3 products, including Aleph Cloud, and has shipped LibertAI, aleph-fileshare, Gategram and Greg.',
+    'Founder. I run marketing for Aleph Cloud, and I build my own products — LiberClaw, Gategram, Ophis and Skills.ws — alongside client work like Vins Fins and La Grocerie.',
   facts: [
-    'Based in Luxembourg, in the heart of the EU',
-    'One accountable team — not an anonymous collective or an offshore template shop',
-    'AI tooling vetted for GDPR + the EU AI Act, hosting kept in Europe',
+    'Based in Luxembourg, in the EU',
+    'You work with me directly — no account managers, no offshore handoff',
+    'AI tools chosen with GDPR and the EU AI Act in mind; hosting in Europe',
   ],
   entity: 'Commit Media S.à r.l. · RCS B276192 · Luxembourg',
 };
@@ -124,61 +162,32 @@ export const CONTACT = {
   callLine: 'Prefer to talk? Book a 15-minute intro call.',
 };
 
-// window + desktop registry (apps launch from the Dock)
+// window registry — apps launch from the Dock unless marked otherwise
 export const APPS: AppDef[] = [
-  { id: 'welcome',   label: 'Read Me',     icon: 'mac',      desktop: { x: 40, y: 28 },  win: { w: 564, h: 516, x: 70,  y: 40 } },
-  { id: 'ai',        label: 'AI',          icon: 'ai',       desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 116, y: 52 } },
-  { id: 'marketing', label: 'Growth',      icon: 'growth',   desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 150, y: 68 } },
-  { id: 'pricing',   label: 'Pricing',     icon: 'price',    desktop: { x: 40, y: 28 },  win: { w: 588, h: 492, x: 150, y: 56 } },
-  { id: 'work',      label: 'Work',        icon: 'folder',   desktop: { x: 40, y: 28 },  win: { w: 588, h: 420, x: 150, y: 70 } },
-  { id: 'tools',     label: 'AI Tools',    icon: 'tools',    desktop: { x: 40, y: 28 },  win: { w: 612, h: 452, x: 132, y: 60 } },
-  { id: 'insights',  label: 'Insights',    icon: 'insights', desktop: { x: 40, y: 28 },  win: { w: 540, h: 452, x: 198, y: 78 } },
-  { id: 'web3',      label: 'Web3',        icon: 'web3',     desktop: { x: 40, y: 28 },  win: { w: 490, h: 472, x: 184, y: 84 } },
-  { id: 'about',     label: 'About',       icon: 'about',    desktop: { x: 40, y: 28 },  win: { w: 468, h: 424, x: 224, y: 62 } },
-  { id: 'contact',   label: 'New Project', icon: 'mail',     desktop: { x: 40, y: 28 },  win: { w: 448, h: 480, x: 262, y: 46 } },
-  // playful extras — live on the desktop, not the Dock
-  { id: 'sketch',    label: 'Sketch',      icon: 'sketch',   desktopOnly: true, win: { w: 600, h: 470, x: 130, y: 48 } },
-  { id: 'snake',     label: 'Snake',       icon: 'snake',    desktopOnly: true, win: { w: 412, h: 470, x: 320, y: 36 } },
+  { id: 'welcome',   label: 'Read Me',     icon: 'mac',    win: { w: 564, h: 516, x: 70,  y: 40 } },
+  { id: 'ai',        label: 'AI',          icon: 'ai',     win: { w: 492, h: 480, x: 116, y: 52 } },
+  { id: 'marketing', label: 'Growth',      icon: 'growth', win: { w: 492, h: 472, x: 150, y: 68 } },
+  { id: 'pricing',   label: 'Pricing',     icon: 'price',  win: { w: 600, h: 500, x: 150, y: 56 } },
+  { id: 'work',      label: 'Work',        icon: 'folder', win: { w: 600, h: 458, x: 150, y: 70 } },
+  { id: 'web3',      label: 'Web3',        icon: 'web3',   win: { w: 492, h: 460, x: 184, y: 84 } },
+  { id: 'about',     label: 'About',       icon: 'about',  win: { w: 484, h: 446, x: 224, y: 62 } },
+  { id: 'contact',   label: 'New Project', icon: 'mail',   win: { w: 448, h: 480, x: 262, y: 46 } },
+  // project detail — opened from Work, hidden from the Dock
+  { id: 'project',   label: 'Project',     icon: 'doc',    hidden: true, win: { w: 560, h: 520, x: 0, y: 0 } },
+  // playful extras — on the desktop, not the Dock
+  { id: 'sketch',    label: 'Sketch',      icon: 'sketch', desktopOnly: true, win: { w: 600, h: 470, x: 130, y: 48 } },
+  { id: 'snake',     label: 'Snake',       icon: 'snake',  desktopOnly: true, win: { w: 412, h: 470, x: 320, y: 36 } },
 ];
 
 /* ---------- Pricing ---------- */
-export interface PriceTier { name: string; price: string; desc: string; feats: string[]; highlight?: boolean }
+export interface PriceTier { name: string; icon: IconKey; price: string; desc: string; feats: string[]; highlight?: boolean }
 export const PRICING: { lead: string; tiers: PriceTier[]; note: string } = {
-  lead: 'Clear starting points — every project gets a fixed quote. No sales-call gate, no surprises.',
+  lead: 'Every project gets a fixed quote up front. Here’s the shape of what we do.',
   tiers: [
-    { name: 'Website & e-commerce', price: 'from €900', desc: 'Fast, modern Next.js sites & shops.', feats: ['Design + build', 'Multilingual & SEO-ready', 'Stripe / bookings'], highlight: true },
-    { name: 'AI automation', price: 'from €900', desc: 'Agents, chatbots & workflow automation.', feats: ['Scoped audit first', 'Built & deployed', 'EU-AI-Act compliant'], highlight: true },
-    { name: 'Web3 build', price: 'scoped per project', desc: 'dApps, smart contracts & token-gating.', feats: ['Architecture & scope', 'Build & testing', 'Launch + managed run'] },
-    { name: 'Care & hosting', price: 'from €90/mo', desc: 'Managed updates, monitoring & EU hosting.', feats: ['Proactive maintenance', 'Monitoring & backups', 'Priority support'] },
+    { name: 'AI agents & automation', icon: 'ai', price: 'On request', desc: 'Agents, chatbots and automations.', feats: ['Scoped audit first', 'Built and deployed', 'You own it'], highlight: true },
+    { name: 'Website & e-commerce', icon: 'growth', price: 'On request', desc: 'Modern sites and shops on Next.js.', feats: ['Design + build', 'Multilingual & SEO', 'Stripe / bookings'], highlight: true },
+    { name: 'Web3 build', icon: 'web3', price: 'On request', desc: 'Smart contracts and on-chain apps.', feats: ['Scope & architecture', 'Build & testing', 'Launch + support'] },
+    { name: 'Care & hosting', icon: 'tools', price: 'On request', desc: 'Updates, monitoring and EU hosting.', feats: ['Maintenance', 'Monitoring & backups', 'Direct support'] },
   ],
-  note: 'AI projects in Luxembourg may be co-funded up to 50% via Fit 4 AI — we handle the paperwork.',
-};
-
-/* ---------- AI tools directory ---------- */
-export interface Tool { name: string; cat: string; status: 'eu' | 'ok' | 'care'; note: string }
-export const TOOLS: { lead: string; items: Tool[] } = {
-  lead: 'The AI tools we actually deploy — rated for GDPR and the EU AI Act, and kept current as the rules change.',
-  items: [
-    { name: 'Mistral', cat: 'LLM', status: 'eu', note: 'EU-built & EU-hosted. Strongest data-residency story.' },
-    { name: 'Claude', cat: 'LLM', status: 'ok', note: 'GDPR-ready with EU data options and an enterprise DPA.' },
-    { name: 'ChatGPT / OpenAI', cat: 'LLM', status: 'ok', note: 'GDPR-ready with a DPA; configure data controls.' },
-    { name: 'DeepL', cat: 'Translation', status: 'eu', note: 'German company, EU servers — excellent for Luxembourg.' },
-    { name: 'n8n', cat: 'Automation', status: 'eu', note: 'Open-source and self-hostable inside the EU.' },
-    { name: 'Perplexity', cat: 'Search', status: 'care', note: 'Useful, but review data handling per use-case.' },
-    { name: 'Canva', cat: 'Design', status: 'care', note: 'Convenient; check EU data & AI-training settings.' },
-    { name: 'Cursor', cat: 'Dev', status: 'ok', note: 'Great build speed; mind code and data privacy.' },
-  ],
-};
-
-/* ---------- Insights ---------- */
-export interface Article { title: string; tag: string; excerpt: string }
-export const INSIGHTS: { lead: string; items: Article[] } = {
-  lead: 'Notes from the studio — AI, Web3, and the EU rules that shape them.',
-  items: [
-    { title: 'Is Mistral GDPR-compliant? A 2026 guide', tag: 'AI · Compliance', excerpt: 'EU-built, EU-hosted — what that actually means for your data.' },
-    { title: 'AI agents for Luxembourg SMEs, without the hype', tag: 'AI', excerpt: 'Where automation pays off first — and where it really doesn’t.' },
-    { title: 'What the EU AI Act means for your chatbot', tag: 'Compliance', excerpt: 'A plain-language checklist to run before you ship.' },
-    { title: 'Token-gating 101: memberships that actually work', tag: 'Web3', excerpt: 'Wallets, rules and a UX people don’t hate.' },
-    { title: 'We shipped a dApp in 6 weeks. Here’s how.', tag: 'Web3 · Build', excerpt: 'Scope, architecture, and the parts that bit us.' },
-  ],
+  note: 'Based in Luxembourg, your project may be co-funded through the SME Package — we help with the paperwork.',
 };

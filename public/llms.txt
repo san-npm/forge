@@ -1,38 +1,34 @@
-# OPENLETZ
+# Openletz
 
-> OPENLETZ is a Luxembourg AI agency. We build custom AI agents, chatbots and workflow automation for businesses, plus high-performance Next.js websites, e-commerce and growth marketing — every AI tool vetted for GDPR and the EU AI Act. We also build Web3 (dApps, smart contracts, token-gating) with European hosting when a product genuinely needs it. AI is the core; on-chain follows when it earns its place. Tagline: "Websites that think, move and transact."
+> Openletz is a Luxembourg AI agency. We build AI agents, chatbots and automations for businesses, plus the websites and shops around them. When a project needs blockchain, we build that too. Everything is hosted in Europe.
 
-OPENLETZ is the trading studio of **Commit Media S.à r.l.** (RCS Luxembourg B276192), founded by **Clément Fermaud**. The founder runs growth and marketing for live AI and Web3 products — including Aleph Cloud — and has personally shipped LibertAI, aleph-fileshare, Gategram and Greg. EU-regulatory credibility (GDPR, EU AI Act) is built into every engagement.
+Openletz is the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud in Luxembourg. He also runs marketing for Aleph Cloud. We pick AI tools with GDPR and the EU AI Act in mind.
 
 Primary domain: https://openletz.ai
-Languages: English (primary), French, German, Luxembourgish (LB).
+Languages: English (primary), French, German, Luxembourgish.
 
-## What we do (3 pillars)
+## What we do
 
-- [AI — agents, assistants and automation](https://openletz.ai/#ai): RAG chatbots, copilots and AI assistants; workflow automation; AI readiness audits. Builds are designed to be EU AI Act-compliant. From €900. AI projects in Luxembourg may be co-funded up to 50% via Fit 4 AI.
-- [Digital and web marketing](https://openletz.ai/#marketing): Next.js websites and e-commerce, SEO + AEO/GEO, content, paid acquisition and analytics. Proof: Vins Fins and La Grocerie. Websites from €900.
-- [Web3 — dApps, smart contracts and on-chain](https://openletz.ai/#web3): dApp and smart-contract builds, token-gating and on-chain features, plus European hosting and uptime. Scoped per project.
+- AI agents & automation (our core): assistants, chatbots and automations — in French, English, German or Luxembourgish. A quick audit, a working prototype, then live in production.
+- Digital & growth: fast websites and e-commerce on Next.js, SEO and answer-engine optimization, content and analytics.
+- Web3 & on-chain (when it helps): smart contracts, token-gating and on-chain apps, hosted in Europe.
 
-## Pricing anchors
+## Pricing
 
-- [Pricing](https://openletz.ai/#pricing): Website from €900. AI automation from €900. Web3 build scoped per project. Care and hosting from €90/month.
+Every project gets a fixed quote up front; rates on request. Based in Luxembourg, your project may be co-funded through the SME Package — we help with the paperwork.
 
-## Shipped work
+## Work
 
-- [Vins Fins](https://openletz.ai/#work): E-commerce site for a fine-wine merchant (Next.js, Stripe).
-- [La Grocerie](https://openletz.ai/#work): E-commerce site sharing stock and checkout infrastructure with Vins Fins.
-- [Gategram](https://openletz.ai/#work): Telegram paywall product using Telegram Stars for token-gated access.
-- [LibertAI](https://openletz.ai/#work): Private AI assistants and agents (growth, marketing and product contributions).
-- [Greg](https://openletz.ai/#work): Intent-based DEX aggregator (Web3 trading application).
-- [aleph-fileshare](https://openletz.ai/#work): Encrypted peer-to-peer file sharing built on Aleph Cloud.
+- Vins Fins (https://www.vinsfins.lu): multilingual wine shop & restaurant e-commerce (Next.js, Stripe).
+- La Grocerie (https://www.lagrocerie.lu): farm-to-table grocery & natural-wine e-commerce.
+- Gategram (https://gategram.app): our product — sell digital content on Telegram, paid in Stars.
+- LiberClaw (https://liberclaw.ai): a personal AI assistant you control.
+- Ophis (https://ophis.fi): an intent-based DEX aggregator.
+- Skills.ws (https://www.skills.ws): our product — a marketplace of skills for AI coding assistants.
 
-## Studio and contact
+## Contact
 
-- [About OPENLETZ](https://openletz.ai/#about): Studio positioning, founder background and how we work.
-- [Contact](https://openletz.ai/#contact): Start a project, request a quote or book an intro call.
-- Entity: Commit Media S.à r.l. · RCS Luxembourg B276192 · Luxembourg.
-- Founder: Clément Fermaud.
-
-## Optional
-
-- [FAQ](https://openletz.ai/llms-full.txt): Detailed answers about services, pricing, hosting, EU AI Act and Fit 4 AI funding.
+- Entity: Commit Media S.à r.l. · RCS Luxembourg B276192 · Luxembourg
+- Founder: Clément Fermaud
+- Start a project at https://openletz.ai
+- Full reference: https://openletz.ai/llms-full.txt
