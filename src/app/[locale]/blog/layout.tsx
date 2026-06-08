@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { localeUrl } from '@/lib/locale-url'
 
-const SITE_URL = 'https://www.openletz.com'
+// Phase 2: blog route becomes /insights; SITE_URL updated to apex.
+const SITE_URL = 'https://openletz.ai'
 
 const titles: Record<string, string> = {
   fr: 'Le Digital au Luxembourg — Blog OpenLetz',
