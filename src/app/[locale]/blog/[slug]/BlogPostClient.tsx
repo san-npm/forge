@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useLanguage } from '@/context/LanguageContext'
 import PageNavbar from '@/components/PageNavbar'
-import Footer from '@/components/Footer'
+import { Footer } from '@/components/Footer'
 
 interface BlogPost {
   slug: string
@@ -158,7 +158,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
           </footer>
         </article>
       </div>
-      <Footer />
+      <Footer locale="en" />
     </div>
     
   )
