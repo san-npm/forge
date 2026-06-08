@@ -1,3 +1,4 @@
+import { connection } from 'next/server';
 import type { ProofMetric } from '@/lib/schema';
 import { PROOF_METRICS } from '@/data/proof';
 
@@ -51,6 +52,10 @@ async function fetchAlephNodes(): Promise<number | null> {
  * off `verifiedAt`.
  */
 export async function getProofSnapshot(): Promise<ProofSnapshot> {
+  // connection() signals to Next.js that this function runs at request time
+  // (not static pre-rendering), which allows Date.now() and live fetches.
+  // Wrapped in try-catch so Vitest (which has no request scope) doesn't throw.
+  try { await connection(); } catch { /* outside request scope — acceptable in tests */ }
   const nodes = await fetchAlephNodes();
   if (nodes === null) {
     return {
