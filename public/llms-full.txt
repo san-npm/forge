@@ -14,13 +14,13 @@ Openletz is the studio name of Commit Media S.à r.l., registered in Luxembourg 
 - Country: Luxembourg
 - Founder: Clément Fermaud
 - Primary website: https://openletz.ai
-- Languages: English (primary), French, German, Luxembourgish
+- Languages: English (primary), French, German
 
 ## What we do
 
 ### AI agents & automation (our core)
 
-We build AI agents, chatbots and automations for everyday business use — assistants that answer from your own documents, copilots inside existing workflows, and automation that removes repetitive operational work. We start with a short audit to find the one or two things worth automating first, build a working prototype, then ship it to production. Multilingual (French, English, German, Luxembourgish). Builds are designed to be EU AI Act-compliant.
+We build AI agents, chatbots and automations for everyday business use — assistants that answer from your own documents, copilots inside existing workflows, and automation that removes repetitive operational work. We start with a short audit to find the one or two things worth automating first, build a working prototype, then ship it to production. Multilingual (English, French, German). Builds are designed to be EU AI Act-compliant.
 
 ### Digital & growth
 
@@ -70,7 +70,7 @@ AI builds are designed to be EU AI Act-compliant, with GDPR-aware data handling.
 Founder Clément Fermaud, in Luxembourg, through Commit Media S.à r.l. (RCS Luxembourg B276192). He also runs marketing for Aleph Cloud.
 
 **What languages do you work in?**
-English (primary), French, German and Luxembourgish.
+English (primary), French and German.
 
 **What has Openletz shipped?**
 Vins Fins and La Grocerie (e-commerce), Gategram (Telegram-Stars content product), LiberClaw (personal AI assistant), Ophis (intent-based DEX aggregator), and Skills.ws (marketplace of skills for AI coding assistants).
