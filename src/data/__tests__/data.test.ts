@@ -4,7 +4,7 @@ import { SERVICES } from '@/data/services';
 import { WORK } from '@/data/work';
 import { ABOUT } from '@/data/about';
 import { CONTACT } from '@/data/contact';
-import { PRICING, PRICE_PLACEHOLDER } from '@/data/pricing';
+import { PRICING } from '@/data/pricing';
 
 describe('STUDIO', () => {
   it('matches osData ground truth', () => {
@@ -83,14 +83,16 @@ describe('CONTACT', () => {
 });
 
 describe('PRICING', () => {
-  it('has 4 tiers, each with an explicit "from" placeholder (never "On request")', () => {
+  it('has 4 tiers, none priced "On request", each with 3 feats', () => {
     expect(PRICING.tiers).toHaveLength(4);
     for (const t of PRICING.tiers) {
-      expect(t.price).toBe(PRICE_PLACEHOLDER);
-      expect(t.price).not.toBe('On request');
-      expect(t.price.toLowerCase()).toContain('from');
+      expect(t.price.toLowerCase()).not.toContain('on request');
       expect(t.feats).toHaveLength(3);
     }
+  });
+  it('the three pillar tiers use a "from €" anchor', () => {
+    const anchored = PRICING.tiers.filter((t) => t.price.startsWith('from €'));
+    expect(anchored.length).toBeGreaterThanOrEqual(3);
   });
   it('keeps the SME Package note', () => {
     expect(PRICING.note).toContain('SME Package');
