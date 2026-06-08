@@ -33,6 +33,6 @@ if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
   }
   // @ts-expect-error -- assigning a test double to the global
   window.IntersectionObserver = MockIntersectionObserver;
-  // @ts-expect-error -- mirror onto globalThis for non-window consumers
-  globalThis.IntersectionObserver = MockIntersectionObserver;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (globalThis as any).IntersectionObserver = MockIntersectionObserver;
 }
