@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext'
 import PageNavbar from '@/components/PageNavbar'
-import Footer from '@/components/Footer'
+import { Footer } from '@/components/Footer'
 
 const lastUpdatedDate: Record<string, string> = {
   fr: '6 mars 2026',
@@ -178,7 +178,7 @@ export default function PrivacyPage() {
         </div>
       </main>
 
-      <Footer />
+      <Footer locale="en" />
     </div>
     
   )

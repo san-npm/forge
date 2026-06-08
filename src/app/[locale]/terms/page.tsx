@@ -3,7 +3,7 @@
 import { Link } from '@/i18n/routing'
 import { useLanguage } from '@/context/LanguageContext'
 import PageNavbar from '@/components/PageNavbar'
-import Footer from '@/components/Footer'
+import { Footer } from '@/components/Footer'
 
 const lastUpdatedDate: Record<string, string> = {
   fr: '15 f\u00e9vrier 2025',
@@ -223,7 +223,7 @@ export default function TermsPage() {
         </div>
       </main>
 
-      <Footer />
+      <Footer locale="en" />
     </div>
     
   )
