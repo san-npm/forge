@@ -19,9 +19,9 @@ function prefersMarkdown(accept: string | null): boolean {
 const IS_PRODUCTION_HOST = process.env.VERCEL_ENV === 'production';
 
 // Locales advertised via hreflang. Must match sitemap + layout metadata.
-// next-intl otherwise auto-emits a Link header listing all 11 `routing.locales`,
+// next-intl otherwise auto-emits a Link header listing all 3 `routing.locales`,
 // which contradicts our sitemap/metadata and dilutes topical authority.
-const INDEXABLE_LOCALES = new Set(['fr', 'en', 'de', 'lb', 'pt']);
+const INDEXABLE_LOCALES = new Set(['en', 'fr', 'de']);
 
 function filterLinkAlternates(headerValue: string): string {
   return headerValue

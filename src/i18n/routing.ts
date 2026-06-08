@@ -1,11 +1,14 @@
 import { defineRouting } from 'next-intl/routing';
 import { createNavigation } from 'next-intl/navigation';
+import { LOCALES, DEFAULT_LOCALE, LOCALE_PREFIX } from '@/lib/site-config';
 
 export const routing = defineRouting({
-  locales: ['fr', 'en', 'de', 'lb', 'it', 'pt', 'es', 'ru', 'ar', 'tr', 'uk'],
-  defaultLocale: 'fr',
-  // Default locale served at `/` (not `/fr`); prefixed routes 308-redirect to the unprefixed canonical.
-  localePrefix: 'as-needed',
+  // Single source of truth: en/fr/de from site-config.
+  locales: [...LOCALES],
+  defaultLocale: DEFAULT_LOCALE,
+  // Default locale (en) served at `/`; fr/de prefixed. Prefixed default
+  // 308-redirects to the unprefixed canonical.
+  localePrefix: LOCALE_PREFIX,
   localeDetection: false,
 });
 
