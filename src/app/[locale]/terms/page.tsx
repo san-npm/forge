@@ -151,12 +151,12 @@ const sections: { title: Record<string, string>; content: Record<string, string>
       pt: '8. Contact',
     },
     content: {
-      fr: 'Pour toute question relative aux pr\u00e9sentes conditions d\u2019utilisation, vous pouvez nous contacter \u00e0 l\u2019adresse : contact@openletz.com',
-      en: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.com',
-      lb: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.com',
-      de: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.com',
-      it: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.com',
-      pt: 'For any questions regarding these terms of service, you may contact us at: contact@openletz.com',
+      fr: 'Pour toute question relative aux pr\u00e9sentes conditions d\u2019utilisation, vous pouvez nous contacter \u00e0 l\u2019adresse : privacy@openletz.ai',
+      en: 'For any questions regarding these terms of service, you may contact us at: privacy@openletz.ai',
+      lb: 'For any questions regarding these terms of service, you may contact us at: privacy@openletz.ai',
+      de: 'For any questions regarding these terms of service, you may contact us at: privacy@openletz.ai',
+      it: 'For any questions regarding these terms of service, you may contact us at: privacy@openletz.ai',
+      pt: 'For any questions regarding these terms of service, you may contact us at: privacy@openletz.ai',
     },
   },
 ]

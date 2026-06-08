@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
+import { SITE_URL } from '@/lib/site-config';
 
 // RFC 9727 API Catalog in linkset+json (RFC 9264) form.
 // Agents hit /.well-known/api-catalog; next.config rewrite forwards here.
 export async function GET() {
-  const base = 'https://www.openletz.com';
+  const base = SITE_URL;
 
   const linkset = {
     linkset: [
