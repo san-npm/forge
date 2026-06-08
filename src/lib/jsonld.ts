@@ -165,3 +165,54 @@ export function homeBreadcrumbLabel(locale: Locale): string {
 
 // re-export so the layout can build the home crumb URL in one import
 export { localeUrl };
+
+// ---------------------------------------------------------------------------
+// Phase-3 additions: per-page Service / Offer builders
+// ---------------------------------------------------------------------------
+import type { ServiceKey, ServiceData, PriceTier } from '@/lib/schema';
+
+/** Parse a 'from €1,500' / 'from €X' price string into a numeric minimum, or null. */
+function parseFromPrice(price: string): number | null {
+  const m = price.replace(/[\s,]/g, '').match(/(\d+(?:\.\d+)?)/);
+  return m ? Number(m[1]) : null;
+}
+
+/** Service node — one per pillar. @id anchored under /services. */
+export function serviceJsonLd(key: ServiceKey, data: ServiceData): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${SITE_URL}/services#${key}`,
+    name: data.title,
+    serviceType: data.kicker,
+    description: data.lead,
+    provider: { '@id': `${SITE_URL}/#organization` },
+    areaServed: { '@type': 'Country', name: 'Luxembourg' },
+    url: `${SITE_URL}/services`,
+  };
+}
+
+/** OfferCatalog node — all pricing tiers. @id anchored under /pricing. */
+export function offerCatalogJsonLd(tiers: PriceTier[]): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    '@id': `${SITE_URL}/pricing#catalog`,
+    name: 'Openletz packages',
+    url: `${SITE_URL}/pricing`,
+    provider: { '@id': `${SITE_URL}/#organization` },
+    itemListElement: tiers.map((t) => {
+      const min = parseFromPrice(t.price);
+      return {
+        '@type': 'Offer',
+        name: t.name,
+        description: t.desc,
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          priceCurrency: 'EUR',
+          ...(min !== null ? { minPrice: min, price: min } : {}),
+        },
+      };
+    }),
+  };
+}
