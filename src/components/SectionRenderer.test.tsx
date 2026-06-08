@@ -1,9 +1,22 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
+
 import { SectionRenderer } from '@/components/SectionRenderer';
 import { HOME_SECTIONS } from '@/data/pages/home';
 import type { Section } from '@/lib/schema';
 import type { Locale } from '@/lib/site-config';
+
+// ProofStripSection is an async Server Component (fetches live data). In the
+// unit-test environment it can't be resolved synchronously, so we stub it with
+// a synchronous shell that keeps the data-section marker for the count assertion.
+vi.mock('@/components/sections/ProofStripSection', () => ({
+  ProofStripSection: ({ label }: { label: string }) => (
+    <section data-section="proofStrip" aria-label={label} />
+  ),
+  ProofStripShell: ({ label }: { label: string }) => (
+    <section data-section="proofStrip" aria-label={label} />
+  ),
+}));
 
 const locale: Locale = 'en';
 
@@ -12,7 +25,7 @@ describe('SectionRenderer', () => {
     const { container } = render(
       <SectionRenderer sections={HOME_SECTIONS} locale={locale} />,
     );
-    // 8 top-level <section> shells, one per variant (footer is layout-level)
+    // 8 top-level <section> shells, one per variant (footer is layout-level).
     expect(container.querySelectorAll('[data-section]').length).toBe(8);
   });
 
