@@ -8,8 +8,6 @@ import {
   extractSignals,
 } from '@/lib/audit-fetch';
 
-export const runtime = 'nodejs';
-
 const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 5;
 const hits = new Map<string, number[]>();
