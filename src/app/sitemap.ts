@@ -1,83 +1,40 @@
 import type { MetadataRoute } from 'next';
-import { AGENTS } from '@/lib/agents';
-import { getAllPosts } from '@/lib/blog';
-import { localeUrl } from '@/lib/locale-url';
+import { localeUrl } from '@/lib/site-config';
+import { LOCALES, DEFAULT_LOCALE } from '@/lib/site-config';
 
-// Core locales for sitemap — keep crawl budget focused on languages
-// relevant to Luxembourg (FR, EN, DE, LB, PT). Other locales still
-// work as routes but aren't submitted to search engines and return
-// noindex from the layout metadata.
-const locales = ['fr', 'en', 'de', 'lb', 'pt'] as const;
-
+// Phase-0 minimal sitemap. The grants/agents-driven entries were deleted with
+// programs.ts/agents.ts. Phase 2 rebuilds this from the new IA (/work, /about,
+// /contact, /services, /pricing, /insights, legal) and the WORK/ posts data.
 function buildAlternates(path: string) {
   const languages: Record<string, string> = {};
-  // hreflang alternates must match sitemap loc-list and noindex policy.
-  // Advertising it/es/ru/ar/tr/uk would point Google at thin, untranslated
-  // content and dilute authority — declare only the 5 shipped locales.
-  for (const locale of locales) {
+  for (const locale of LOCALES) {
     languages[locale] = localeUrl(locale, path);
   }
-  languages['x-default'] = localeUrl('fr', path);
+  languages['x-default'] = localeUrl(DEFAULT_LOCALE, path);
   return { languages };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Use distinct dates by page type to help crawlers prioritize
-  const contentDate = '2026-03-25T18:00:00.000Z'; // last content update
-  const staticDate = '2026-03-20T12:00:00.000Z';  // legal/about rarely change
-
+  const lastModified = new Date().toISOString();
   const staticPaths = [
-    { path: '', priority: 1.0, freq: 'weekly' as const, date: contentDate },
-    { path: '/agents', priority: 0.9, freq: 'weekly' as const, date: contentDate },
-    { path: '/pricing', priority: 0.8, freq: 'monthly' as const, date: contentDate },
-    { path: '/clients', priority: 0.8, freq: 'monthly' as const, date: contentDate },
-    { path: '/blog', priority: 0.8, freq: 'weekly' as const, date: contentDate },
-    { path: '/about', priority: 0.6, freq: 'monthly' as const, date: staticDate },
-    { path: '/contact', priority: 0.7, freq: 'monthly' as const, date: staticDate },
-    { path: '/privacy', priority: 0.3, freq: 'yearly' as const, date: staticDate },
-    { path: '/terms', priority: 0.3, freq: 'yearly' as const, date: staticDate },
+    { path: '', priority: 1.0, freq: 'weekly' as const },
+    { path: '/about', priority: 0.6, freq: 'monthly' as const },
+    { path: '/contact', priority: 0.7, freq: 'monthly' as const },
+    { path: '/legal/privacy', priority: 0.3, freq: 'yearly' as const },
+    { path: '/legal/terms', priority: 0.3, freq: 'yearly' as const },
   ];
 
-  const staticPages: MetadataRoute.Sitemap = [];
-  for (const { path, priority, freq, date } of staticPaths) {
-    for (const locale of locales) {
-      staticPages.push({
+  const pages: MetadataRoute.Sitemap = [];
+  for (const { path, priority, freq } of staticPaths) {
+    for (const locale of LOCALES) {
+      pages.push({
         url: localeUrl(locale, path),
-        lastModified: date,
+        lastModified,
         changeFrequency: freq,
         priority,
         alternates: buildAlternates(path),
       });
     }
   }
-
-  const agentPages: MetadataRoute.Sitemap = [];
-  for (const agent of AGENTS) {
-    const path = `/agents/${agent.slug}`;
-    for (const locale of locales) {
-      agentPages.push({
-        url: localeUrl(locale, path),
-        lastModified: contentDate,
-        changeFrequency: 'monthly',
-        priority: 0.7,
-        alternates: buildAlternates(path),
-      });
-    }
-  }
-
-  const blogPages: MetadataRoute.Sitemap = [];
-  for (const post of getAllPosts()) {
-    const path = `/blog/${post.slug}`;
-    for (const locale of locales) {
-      blogPages.push({
-        url: localeUrl(locale, path),
-        lastModified: post.date,
-        changeFrequency: 'monthly',
-        priority: 0.7,
-        alternates: buildAlternates(path),
-      });
-    }
-  }
-
-  return [...staticPages, ...agentPages, ...blogPages];
+  return pages;
 }
