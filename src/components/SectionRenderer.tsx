@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import type { Section } from '@/lib/schema';
 import type { Locale } from '@/lib/site-config';
 import { HeroSection } from '@/components/sections/HeroSection';
@@ -18,7 +19,13 @@ function renderSection(section: Section, locale: Locale, key: number) {
     case 'hero':
       return <HeroSection key={key} {...section} />;
     case 'proofStrip':
-      return <ProofStripSection key={key} {...section} />;
+      // Wrapped in Suspense: ProofStripSection is async (live fetch + Date.now)
+      // and must not block the static shell of the page above it.
+      return (
+        <Suspense key={key} fallback={null}>
+          <ProofStripSection {...section} />
+        </Suspense>
+      );
     case 'servicesGrid':
       return <ServicesGridSection key={key} {...section} locale={locale} />;
     case 'howWeWork':
