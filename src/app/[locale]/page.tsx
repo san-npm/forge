@@ -1,5 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
-import { LOCALES } from '@/lib/site-config';
+import { SectionRenderer } from '@/components/SectionRenderer';
+import { HOME_SECTIONS } from '@/data/pages/home';
+import { LOCALES, type Locale } from '@/lib/site-config';
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -8,14 +10,13 @@ export function generateStaticParams() {
 export default async function HomePage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
   return (
     <main>
-      <h1>Websites that think, move &amp; transact.</h1>
-      <p>A Luxembourg AI agency.</p>
+      <SectionRenderer sections={HOME_SECTIONS} locale={locale} />
     </main>
   );
 }
