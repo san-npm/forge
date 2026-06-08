@@ -1,0 +1,40 @@
+/* The ONLY place design tokens are defined. Components reference these vars —
+   never raw hex, never ad-hoc ease/durations. Monochrome / "white-hot": light
+   itself is the accent. One reserved-but-unused accent slot (--accent). */
+:root {
+  /* ---- palette (monochrome / white-hot) ---- */
+  --bg: #0b0b0c; /* page base (near-black) */
+  --surface: #141416; /* cards, raised surfaces */
+  --surface-2: #1a1c1f; /* nested surfaces, inputs */
+  --text: #fafaf7; /* primary text (off-white) */
+  --text-dim: #a1a1a6; /* secondary text */
+  --hairline: rgba(255, 255, 255, 0.1); /* rules, borders, dividers */
+  --hot: #ffffff; /* "white-hot" — hover/active/emphasis (de-facto accent) */
+
+  --accent: var(--hot); /* RESERVED slot, == --hot at launch */
+
+  /* ---- easing ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* default */
+  --ease-fast: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* delight only */
+
+  /* ---- duration (keep ~everything < 300ms) ---- */
+  --dur-fast: 100ms;
+  --dur-base: 200ms;
+  --dur-slow: 300ms;
+
+  /* ---- stagger (word/line reveals 30–60ms range) ---- */
+  --stagger: 40ms;
+}
+
+/* global kill-switch — reduced ≠ stripped (fades remain near-instant) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
