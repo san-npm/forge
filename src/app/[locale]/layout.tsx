@@ -6,6 +6,7 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 import { localeUrl } from '@/lib/locale-url';
+import { SITE_URL } from '@/lib/site-config';
 import Providers from './providers';
 import { Lato, JetBrains_Mono } from 'next/font/google';
 import '../globals.css';
@@ -14,8 +15,6 @@ import '../globals.css';
 // is the cross-platform fallback). Variables consumed by src/app/os/os.css.
 const osLato = Lato({ subsets: ['latin'], weight: ['400', '700'], variable: '--f-lato', display: 'swap' });
 const osMono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--f-mono', display: 'swap' });
-
-const SITE_URL = 'https://www.openletz.com';
 
 // Only these locales get indexed. The other 6 still route (for users who
 // switch languages) but return noindex so Google doesn't crawl thin,
@@ -244,7 +243,7 @@ const organizationJsonLd = {
   logo: `${SITE_URL}/openletz-logo.png`,
   description:
     'Luxembourg AI & Web3 studio. We build AI automation, on-chain products and high-performance websites — and market them to grow.',
-  email: 'bob@openletz.com',
+  email: 'hello@openletz.ai',
   telephone: '+352661968051',
   address: {
     '@type': 'PostalAddress',
@@ -279,7 +278,7 @@ const localBusinessJsonLd = {
   image: `${SITE_URL}/og-image.png`,
   description:
     'Luxembourg AI & Web3 studio — AI automation and agents, dApp & smart-contract builds, websites, e-commerce and growth marketing.',
-  email: 'bob@openletz.com',
+  email: 'hello@openletz.ai',
   telephone: '+352661968051',
   address: {
     '@type': 'PostalAddress',

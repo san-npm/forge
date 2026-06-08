@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { safeJsonLd } from '@/lib/safeJsonLd'
 import { localeUrl } from '@/lib/locale-url'
-
-const SITE_URL = 'https://www.openletz.com'
+import { SITE_URL } from '@/lib/site-config'
 const PATH = '/clients'
 
 const INDEXABLE_LOCALES = new Set(['fr', 'en', 'de', 'lb', 'pt'])

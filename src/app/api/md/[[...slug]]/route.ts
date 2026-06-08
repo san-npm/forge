@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
+import { SITE_URL } from '@/lib/site-config';
 import fs from 'fs';
 import path from 'path';
 
@@ -46,7 +47,7 @@ function renderMarkdown(pathname: string): string {
     const lines = posts.map((p) => {
       const title = p.title?.[lang] ?? p.title?.fr ?? p.slug;
       const excerpt = p.excerpt?.[lang] ?? p.excerpt?.fr ?? '';
-      return `- [${title}](https://www.openletz.com/${lang}/blog/${p.slug}) — ${p.date}\n  ${excerpt}`;
+      return `- [${title}](${SITE_URL}/${lang}/blog/${p.slug}) — ${p.date}\n  ${excerpt}`;
     });
     return `# OpenLetz Blog\n\n${lines.join('\n\n')}\n`;
   }
@@ -57,6 +58,6 @@ function renderMarkdown(pathname: string): string {
       'utf-8',
     );
   } catch {
-    return '# OpenLetz\n\nSee https://www.openletz.com/en for the site.\n';
+    return `# OpenLetz\n\nSee ${SITE_URL}/en for the site.\n`;
   }
 }

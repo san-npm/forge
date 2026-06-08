@@ -3,6 +3,7 @@
 import Script from 'next/script';
 import { useTranslations } from 'next-intl';
 import { usePathname } from '@/i18n/routing';
+import { SITE_URL } from '@/lib/site-config';
 
 interface BreadcrumbJsonLdProps {
   items: Array<{
@@ -15,7 +16,7 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
   const pathname = usePathname();
   // Extract locale from pathname
   const locale = pathname.split('/')[1] || 'fr';
-  const siteUrl = 'https://www.openletz.com';
+  const siteUrl = SITE_URL;
 
   const breadcrumbList = {
     '@context': 'https://schema.org',
