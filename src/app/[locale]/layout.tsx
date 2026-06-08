@@ -11,8 +11,7 @@ import Providers from './providers';
 import { Lato, JetBrains_Mono } from 'next/font/google';
 import '../globals.css';
 
-// Fonts for the Openletz OS homepage (Lucida Grande is native on macOS; Lato
-// is the cross-platform fallback). Variables consumed by src/app/os/os.css.
+// Fonts: Lato (display/body) and JetBrains Mono (code/mono).
 const osLato = Lato({ subsets: ['latin'], weight: ['400', '700'], variable: '--f-lato', display: 'swap' });
 const osMono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--f-mono', display: 'swap' });
 
