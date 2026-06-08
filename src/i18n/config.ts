@@ -1,3 +1,4 @@
-export const locales = ['fr', 'en', 'de', 'lb', 'it', 'pt'] as const;
-export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = 'fr';
+// Back-compat shim: the locale set + default now live in site-config.ts.
+// Existing imports of `locales`/`defaultLocale`/`Locale` keep working.
+export { LOCALES as locales, DEFAULT_LOCALE as defaultLocale } from '@/lib/site-config';
+export type { Locale } from '@/lib/site-config';
