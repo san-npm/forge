@@ -5,11 +5,11 @@
 Openletz is the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud in Luxembourg. He also runs marketing for Aleph Cloud. We pick AI tools with GDPR and the EU AI Act in mind.
 
 Primary domain: https://openletz.ai
-Languages: English (primary), French, German, Luxembourgish.
+Languages: English (primary), French, German.
 
 ## What we do
 
-- AI agents & automation (our core): assistants, chatbots and automations — in French, English, German or Luxembourgish. A quick audit, a working prototype, then live in production.
+- AI agents & automation (our core): assistants, chatbots and automations — in English, French or German. A quick audit, a working prototype, then live in production.
 - Digital & growth: fast websites and e-commerce on Next.js, SEO and answer-engine optimization, content and analytics.
 - Web3 & on-chain (when it helps): smart contracts, token-gating and on-chain apps, hosted in Europe.
 
