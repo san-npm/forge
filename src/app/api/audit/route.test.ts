@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { promises as dnsPromises } from 'node:dns';
 import { POST } from '@/app/api/audit/route';
 
 function req(body: unknown, ip = '1.2.3.4'): Request {
@@ -16,6 +17,10 @@ const PAGE_HTML =
   '</head><body><h1>Example</h1><p>Real visible text content body here.</p></body></html>';
 
 beforeEach(() => {
+  // Resolve any DNS host to a public address by default so the SSRF guard lets
+  // the request through to the (mocked) fetch. Individual tests override this.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  vi.spyOn(dnsPromises, 'lookup').mockResolvedValue([{ address: '93.184.216.34', family: 4 }] as any);
   vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
     const url = String(input);
     if (url.endsWith('/robots.txt')) return new Response('User-agent: *', { status: 200 });
@@ -24,7 +29,10 @@ beforeEach(() => {
     return new Response(PAGE_HTML, { status: 200, headers: { 'content-type': 'text/html' } });
   }));
 });
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+});
 
 describe('POST /api/audit', () => {
   it('returns 200 with score, grade and checks for a valid URL', async () => {
@@ -43,6 +51,29 @@ describe('POST /api/audit', () => {
 
   it('returns 400 for a blocked SSRF host', async () => {
     const res = await POST(req({ url: 'http://169.254.169.254/latest/meta-data' }, '10.0.0.97'));
+    expect(res.status).toBe(400);
+  });
+
+  it('returns 400 for a hostname that resolves to a private address (DNS rebinding)', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    vi.spyOn(dnsPromises, 'lookup').mockResolvedValue([{ address: '127.0.0.1', family: 4 }] as any);
+    const res = await POST(req({ url: 'http://rebind.evil.example' }, '10.0.0.96'));
+    expect(res.status).toBe(400);
+  });
+
+  it('returns 400 when a redirect Location points at an internal host', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () =>
+      new Response(null, {
+        status: 302,
+        headers: { location: 'http://169.254.169.254/latest/meta-data' },
+      }),
+    ));
+    const res = await POST(req({ url: 'https://evil.example' }, '10.0.0.95'));
+    expect(res.status).toBe(400);
+  });
+
+  it('blocks non-canonical IPv4 forms (octal loopback)', async () => {
+    const res = await POST(req({ url: 'http://0177.0.0.1/' }, '10.0.0.94'));
     expect(res.status).toBe(400);
   });
 

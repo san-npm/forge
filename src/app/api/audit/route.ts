@@ -4,7 +4,7 @@ import { scoreAudit } from '@/lib/audit';
 import {
   AuditRequestSchema,
   normalizeAuditUrl,
-  isBlockedHost,
+  safeAuditFetch,
   extractSignals,
 } from '@/lib/audit-fetch';
 
@@ -32,12 +32,12 @@ function rateLimited(ip: string): boolean {
 
 async function probe(origin: string, file: string): Promise<boolean> {
   try {
-    const res = await fetch(`${origin}/${file}`, {
-      method: 'GET',
-      redirect: 'follow',
+    // Same SSRF-safe path (host re-validation + manual redirect checks) as the
+    // main fetch, so a robots.txt 30x to an internal address can't be followed.
+    const { response } = await safeAuditFetch(`${origin}/${file}`, {
       signal: AbortSignal.timeout(5000),
     });
-    return res.ok;
+    return response.ok;
   } catch {
     return false;
   }
@@ -61,31 +61,43 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'A valid URL is required' }, { status: 400 });
   }
 
-  let target: URL;
+  // Normalize first so an obviously invalid / non-http(s) URL is a clean 400
+  // before we attempt any network work.
+  let startUrl: string;
   try {
-    target = new URL(normalizeAuditUrl(parsed.data.url));
+    startUrl = normalizeAuditUrl(parsed.data.url);
   } catch {
     return NextResponse.json({ error: 'Invalid URL' }, { status: 400 });
-  }
-  if (isBlockedHost(target.hostname)) {
-    return NextResponse.json({ error: 'That host cannot be audited' }, { status: 400 });
   }
 
   let html: string;
   let finalUrl: string;
   try {
-    const res = await fetch(target.toString(), {
-      method: 'GET',
-      redirect: 'follow',
+    // safeAuditFetch performs the SSRF guard (literal + DNS resolution checks)
+    // and follows redirects manually, re-validating every hop's host. The
+    // previous post-fetch isBlockedHost(finalUrl) check is now redundant and has
+    // been removed — per-hop validation supersedes it.
+    const { response, finalUrl: resolved } = await safeAuditFetch(startUrl, {
       headers: { 'user-agent': 'OpenletzAuditBot/1.0 (+https://openletz.ai/audit)' },
       signal: AbortSignal.timeout(8000),
     });
-    finalUrl = res.url || target.toString();
-    if (isBlockedHost(new URL(finalUrl).hostname)) {
+    finalUrl = resolved;
+    html = (await response.text()).slice(0, 1_000_000);
+  } catch (err) {
+    // Never throw to the client. A blocked host (SSRF guard) is a 400; any other
+    // failure (DNS, network, timeout, too many redirects) is a generic 502.
+    const message = err instanceof Error ? err.message : '';
+    if (
+      message === 'Host is not allowed' ||
+      message === 'Host could not be resolved' ||
+      message === 'Host resolved to an invalid address' ||
+      message === 'Host resolves to a blocked address' ||
+      message === 'Invalid URL' ||
+      message === 'Only http(s) URLs are supported' ||
+      message === 'Invalid host'
+    ) {
       return NextResponse.json({ error: 'That host cannot be audited' }, { status: 400 });
     }
-    html = (await res.text()).slice(0, 1_000_000);
-  } catch {
     return NextResponse.json({ error: 'Could not reach that URL' }, { status: 502 });
   }
 
