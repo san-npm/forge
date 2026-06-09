@@ -35,3 +35,7 @@ next-env.d.ts
 /data/*.json
 .vercel
 .remember/
+
+# Playwright artifacts
+test-results/
+playwright-report/
