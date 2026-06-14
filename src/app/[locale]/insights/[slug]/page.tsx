@@ -61,7 +61,7 @@ export default async function InsightPage({
           {post.author ? <p className="mt-3 text-text-dim">By {post.author}</p> : null}
         </header>
         <div
-          className="prose prose-invert mt-10 max-w-none text-text [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-medium [&_h2]:text-text [&_li]:text-text-dim [&_p]:mt-4 [&_p]:text-text-dim [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6"
+          className="mt-10 max-w-none text-text [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-medium [&_h2]:text-text [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:font-medium [&_h3]:text-text [&_strong]:font-medium [&_strong]:text-text [&_em]:italic [&_code]:rounded [&_code]:bg-surface [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_li]:text-text-dim [&_p]:mt-4 [&_p]:text-text-dim [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </article>
