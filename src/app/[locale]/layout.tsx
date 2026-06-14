@@ -19,6 +19,7 @@ import {
 import { Analytics } from '@/components/Analytics';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
+import { MagneticCursor } from '@/components/ui/MagneticCursor';
 import '../globals.css';
 
 const localeOg: Record<Locale, string> = {
@@ -207,6 +208,8 @@ export default async function LocaleLayout({
       </head>
       <body className="antialiased">
         <Analytics />
+        {/* Global custom cursor island: renders null on touch / reduced-motion. */}
+        <MagneticCursor />
         <NextIntlClientProvider messages={messages} locale={loc}>
           {/* Layout-level chrome: ONE Nav + ONE Footer wrap every page. */}
           <Nav locale={loc} />
