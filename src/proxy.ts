@@ -1,6 +1,7 @@
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
 import { routing } from './i18n/routing';
+import { isProductionHost } from '@/lib/indexing';
 
 // next-intl@4.x still ships its handler under `middleware` even though Next 16
 // renamed the root file convention to `proxy`. The factory works unchanged —
@@ -14,9 +15,14 @@ function prefersMarkdown(accept: string | null): boolean {
 }
 
 // Preview/dev deployments must never be indexed. Belt-and-suspenders on top of
-// the per-page `robots` metadata: this sets an HTTP header so Google treats
-// sitemap.xml and any non-HTML response as noindex too.
-const IS_PRODUCTION_HOST = process.env.VERCEL_ENV === 'production';
+// the per-page `robots` metadata: this sets an `X-Robots-Tag` HTTP header on
+// non-production hosts. The matcher below excludes dotted paths, so this header
+// only ever covers HTML pages (sitemap.xml / robots.txt are NOT matched here —
+// those carry their own indexing posture). We reuse `isProductionHost()` — the
+// same guard the layout's robots metadata uses — so the HTTP header and the
+// page-level metadata agree on every host (Vercel or off-Vercel), instead of
+// the old Vercel-only `VERCEL_ENV === 'production'` check that would noindex a
+// real production deploy anywhere VERCEL_ENV is unset.
 
 // Locales advertised via hreflang. Must match sitemap + layout metadata.
 // next-intl otherwise auto-emits a Link header listing all 3 `routing.locales`,
@@ -48,7 +54,7 @@ export default function proxy(req: NextRequest) {
 
   const response = intlProxy(req);
   if (response) {
-    if (!IS_PRODUCTION_HOST) {
+    if (!isProductionHost()) {
       response.headers.set('X-Robots-Tag', 'noindex, nofollow');
     }
     const link = response.headers.get('link');
