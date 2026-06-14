@@ -19,7 +19,6 @@ import {
 import { Analytics } from '@/components/Analytics';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
-import Providers from './providers';
 import '../globals.css';
 
 const localeOg: Record<Locale, string> = {
@@ -209,12 +208,10 @@ export default async function LocaleLayout({
       <body className="antialiased">
         <Analytics />
         <NextIntlClientProvider messages={messages} locale={loc}>
-          <Providers>
-            {/* Layout-level chrome: ONE Nav + ONE Footer wrap every page. */}
-            <Nav locale={loc} />
-            {children}
-            <Footer locale={loc} />
-          </Providers>
+          {/* Layout-level chrome: ONE Nav + ONE Footer wrap every page. */}
+          <Nav locale={loc} />
+          {children}
+          <Footer locale={loc} />
         </NextIntlClientProvider>
       </body>
     </html>
