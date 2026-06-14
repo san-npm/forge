@@ -5,6 +5,7 @@ import { WORK } from '@/data/work';
 import { ABOUT } from '@/data/about';
 import { CONTACT } from '@/data/contact';
 import { PROOF_LOGOS, PROOF_METRICS } from '@/data/proof';
+import { TESTIMONIALS } from '@/data/testimonials';
 
 // The locked studio spine (spec §7). Order is significant — do not reorder.
 // Built from the Phase-1 typed data modules; carries ONLY the per-variant props
@@ -46,7 +47,7 @@ export const HOME_SECTIONS: Section[] = [
     type: 'deeperProof',
     shippedCount: WORK.length,       // 6 — defensible
     metrics: PROOF_METRICS,          // live signals; never fabricated
-    testimonials: [],                // empty until owner provides — empty-safe
+    testimonials: TESTIMONIALS,      // data-driven; empty until owner provides — empty-safe
   },
   {
     type: 'trustBlock',

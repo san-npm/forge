@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { ABOUT } from '@/data/about';
+import { Testimonials } from '@/components/Testimonials';
+import { TESTIMONIALS } from '@/data/testimonials';
 import { LOCALES, type Locale, localeUrl } from '@/lib/site-config';
 
 export function generateStaticParams() {
@@ -39,6 +41,9 @@ export function AboutBody() {
             ))}
           </ul>
         </section>
+
+        {/* Empty-safe: renders null while TESTIMONIALS is []. */}
+        <Testimonials items={TESTIMONIALS} />
 
         <p className="mt-12 text-sm text-text-dim">{ABOUT.entity}</p>
       </div>
