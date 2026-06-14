@@ -4,17 +4,17 @@
 
 Openletz (`openletz`) is the website of **a Luxembourg AI agency** (solo founder-operator: Clément Fermaud / Commit Media S.à r.l., RCS B276192). Tagline: "Websites that think, move & transact." AI agents & automation are the front door; digital & growth is the body; Web3/on-chain is secondary depth. The site's one job is to convert a qualified visitor into a **project enquiry**.
 
-This repo replaced an earlier Mac-OS-"Aqua" desktop homepage (scrapped) and, before that, a grants-eligibility simulator (deleted). Do not reintroduce OS-shell, quiz, or grants concepts.
+This repo replaced an earlier Mac-OS-"Aqua" desktop homepage (scrapped) and, before that, a Fit-4-Digital grants-**consultant** identity (an OS-shell + eligibility quiz, deleted). Do not reintroduce the OS-shell, the eligibility quiz, or the "Fit 4 Digital/AI" grants-consultant positioning. NOTE: the **SME Package** page + funding simulator (`/sme-package`) IS a current, legitimate value-add service (70% state co-funding we help clients claim) — it uses funding vocabulary (grant, eligibility) on purpose; that is not the killed identity.
 
 ## Tech Stack
 
 - **Framework:** Next.js 16 (App Router) / React 19
 - **Language:** TypeScript 5.7 (strict)
-- **i18n:** next-intl 4.x — locales **en (default, at `/`) · fr · de** only
-- **Styling:** Tailwind CSS 3.4, monochrome token system (no accent color)
-- **Content:** typed `src/data/*.ts` validated with **Zod** (single source of truth)
-- **Motion:** `motion/react` (default), CSS view-timeline reveals, GSAP only for the one optional set-piece
-- **Blog:** MDX read with `gray-matter`
+- **i18n:** next-intl 4.x — **en (default, at `/`) · fr · de**, ALL content fully translated. Content modules are locale-keyed (`Record<Locale, T>` + `getX(locale)` accessors; `getHomeSections(locale)`, `getUiStrings(locale)`). Blog/case-study bodies are localized via `content/blog/<slug>.<locale>.mdx` + `getPostBody(post, locale)`.
+- **Design:** "**Bold Kinetic**" — ink-black `#0A0A0B` + electric-lime `#C6FF3A` accent + film grain. Tailwind 3.4; tokens in `src/styles/tokens.css`; `.ol-btn`/`.ol-btn-ghost`/`.ol-input`/`.ol-chip`/`.ol-link`/`.ol-range` component classes in `globals.css`. Fonts (`src/lib/fonts.ts`): **Anton** display (`font-display`, giant poster headings), **Hanken Grotesk** body (`font-body`), JetBrains Mono labels (`font-mono`). NOT monochrome.
+- **Content:** typed `src/data/*.ts` validated with **Zod** (single source of truth, parsed per locale at load)
+- **Motion:** **GSAP 3.15** (`SplitText`/`ScrollTrigger` via `@gsap/react` `useGSAP`, registered in `src/lib/gsap.ts`) drives the kinetic headline, marquee, magnetic cursor and scroll reveals; `motion/react` for magnetic buttons. All effects are post-hydration enhancements: content renders full-opacity in SSR and stays legible under `prefers-reduced-motion`.
+- **Blog:** MDX read with `gray-matter` (`src/lib/blog.ts`); rendered by the dependency-free `src/lib/markdown.ts` (escapes-first, XSS-safe)
 - **Tests:** Vitest + Testing Library (unit/component), Playwright (E2E)
 - **Hosting:** Vercel
 
@@ -28,7 +28,7 @@ This repo replaced an earlier Mac-OS-"Aqua" desktop homepage (scrapped) and, bef
 npm run dev        # dev server (localhost:3000; E2E uses PORT=3030)
 npm run build      # production build
 npm run start      # serve production build
-npm run lint       # ESLint (Next preset)
+npm run lint       # NOTE: broken — `next lint` was removed in Next 16; ESLint not yet configured (follow-up). Use typecheck + build as the gates.
 npm run typecheck  # tsc --noEmit
 npm run test       # Vitest unit/component (one-shot)
 npm run test:watch # Vitest watch
@@ -49,8 +49,8 @@ npm run test:e2e   # Playwright E2E
 - **Locale content:** UI/content strings come from `src/data/*` (typed) — never hardcode user-facing copy in components.
 - **Motion:** transform + opacity only; LCP node renders at `opacity:1` on first paint; honor `prefers-reduced-motion` (reduced ≠ stripped — keep fades).
 - **Commits:** Conventional Commits (`type(scope): subject`). **NO AI attribution** (no `Co-Authored-By`, no "Generated with Claude") — Commit Media preference.
-- **Portfolio (exact, do not vary):** Vins Fins, La Grocerie, Gategram, LiberClaw, Ophis, Skills.ws. Never list LibertAI or aleph-fileshare. "Greg" is an internal codename for Ophis.
-- **Funding line:** always **SME Package** (soft, one line — Commit Media is not Fit 4 AI eligible). Never a pillar.
+- **Portfolio:** built products = Vins Fins, La Grocerie, Gategram, LiberClaw, Ophis, Skills.ws. **Aleph Cloud** is included in Work ONLY as a clearly-tagged "Growth & marketing" credential (a marketing client, NOT a product we built — never imply we built it). Never list LibertAI (not ours — distinct from LiberClaw) or aleph-fileshare. "Greg" is an internal codename for Ophis.
+- **SME Package:** the funding angle now has a full page + simulator (`/sme-package`, 70% state co-funding, €3k–€25k, Ministry of the Economy + Luxinnovation). Surface it (footer + soft links on services/pricing). Commit Media itself is SME-Package eligible (not Fit 4 AI). Keep funding facts exact + caveated (indicative, subject to eligibility + approval, reimbursed after delivery).
 
 ## API routes (salvaged)
 
