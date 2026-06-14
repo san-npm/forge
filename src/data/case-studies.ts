@@ -43,7 +43,7 @@ export const CASE_STUDIES: Record<'vinsfins' | 'lagrocerie', CaseStudy> = {
       { label: 'Catalogue size', value: 'TBD', placeholder: true },
     ],
     testimonial: {
-      quote: 'TBD — owner to provide.',
+      quote: 'TBD, owner to provide.',
       name: 'TBD',
       role: 'TBD',
       company: 'Vins Fins',
@@ -73,7 +73,7 @@ export const CASE_STUDIES: Record<'vinsfins' | 'lagrocerie', CaseStudy> = {
       { label: 'Catalogue size', value: 'TBD', placeholder: true },
     ],
     testimonial: {
-      quote: 'TBD — owner to provide.',
+      quote: 'TBD, owner to provide.',
       name: 'TBD',
       role: 'TBD',
       company: 'La Grocerie',

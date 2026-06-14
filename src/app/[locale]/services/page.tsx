@@ -11,7 +11,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Services — Openletz',
+  title: 'Services · Openletz',
   description:
     'One Luxembourg studio: AI agents & automation, digital & growth, and Web3 when it helps.',
   alternates: { canonical: localeUrl('en', '/services') },

@@ -20,7 +20,7 @@ export async function generateMetadata({
   const cs = getCaseStudy(slug);
   if (!cs) return {};
   return {
-    title: `${cs.title} — Case study — Openletz`,
+    title: `${cs.title} · Case study · Openletz`,
     description: cs.kicker,
     alternates: { canonical: localeUrl(locale, `/work/${slug}`) },
   };

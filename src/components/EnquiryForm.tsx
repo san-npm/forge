@@ -62,7 +62,7 @@ export function EnquiryForm({ pillars }: { pillars: string[] }) {
   if (status === 'success') {
     return (
       <p data-enquiry-success className="text-text">
-        Thanks — we've got it. We reply within one business day.
+        Thanks, we've got it. We reply within one business day.
       </p>
     );
   }

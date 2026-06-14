@@ -11,7 +11,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Free AI & web readiness audit — Openletz',
+  title: 'Free AI & web readiness audit · Openletz',
   description:
     'Check your site against the signals AI assistants and search engines look for. Concrete results in seconds, free.',
   alternates: { canonical: localeUrl('en', '/audit') },
@@ -52,7 +52,7 @@ export function AuditBody({ locale = 'en' as Locale }: { locale?: Locale }) {
         </h1>
         <p className="mt-4 text-lg text-text-dim">
           AI assistants and search engines read your site differently than people do. Run a free
-          check against the signals they look for — HTTPS, metadata, structured data, llms.txt, and
+          check against the signals they look for: HTTPS, metadata, structured data, llms.txt, and
           whether your content is in the static HTML at all. You get concrete results in seconds.
         </p>
       </header>

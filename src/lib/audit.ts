@@ -93,7 +93,7 @@ export function scoreAudit(s: AuditSignals): AuditResult {
     { id: 'llms-txt', label: 'llms.txt for AI crawlers', category: 'aeo', pass: s.hasLlmsTxt, weight: CHECK_WEIGHTS.llmsTxt,
       recommendation: 'Publish /llms.txt to guide AI assistants to your canonical content.' },
     { id: 'text-ratio', label: 'Content is in the static HTML', category: 'aeo', pass: textRatioOk, weight: CHECK_WEIGHTS.textRatio,
-      recommendation: 'Render text server-side — AI crawlers do not run your JavaScript.' },
+      recommendation: 'Render text server-side, because AI crawlers do not run your JavaScript.' },
     { id: 'robots-txt', label: 'robots.txt present', category: 'seo', pass: s.hasRobotsTxt, weight: CHECK_WEIGHTS.robotsTxt,
       recommendation: 'Add a robots.txt that points to your sitemap.' },
     { id: 'sitemap', label: 'XML sitemap present', category: 'seo', pass: s.hasSitemap, weight: CHECK_WEIGHTS.sitemap,

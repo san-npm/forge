@@ -7,7 +7,7 @@ import { SITE_URL, siteConfig, localeUrl, type Locale } from '@/lib/site-config'
 export const AGENCY_FAQS: { q: string; a: string }[] = [
   {
     q: 'What is Openletz?',
-    a: 'Openletz is a Luxembourg AI agency — the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud. We build AI agents, chatbots and automations, plus websites and growth, and Web3 when a product needs it.',
+    a: 'Openletz is a Luxembourg AI agency, the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud. We build AI agents, chatbots and automations, plus websites and growth, and Web3 when a product needs it.',
   },
   {
     q: 'What does Openletz do?',
@@ -62,7 +62,7 @@ export function organizationJsonLd(): object {
     url: SITE_URL,
     logo: siteConfig.brand.logoPng,
     description:
-      'Luxembourg AI agency. We build AI agents, chatbots and automation, the websites and shops around them, and Web3 when a product needs it — hosted in Europe.',
+      'Luxembourg AI agency. We build AI agents, chatbots and automation, the websites and shops around them, and Web3 when a product needs it, hosted in Europe.',
     email: siteConfig.brand.email,
     address: {
       '@type': 'PostalAddress',
@@ -84,11 +84,11 @@ export function professionalServiceJsonLd(): object {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': `${SITE_URL}/#localbusiness`,
-    name: `${siteConfig.brand.name} — Commit Media S.à r.l.`,
+    name: `${siteConfig.brand.name} · Commit Media S.à r.l.`,
     url: SITE_URL,
     logo: siteConfig.brand.logoPng,
     description:
-      'Luxembourg AI agency — AI agents and automation, websites, e-commerce and growth, plus Web3 / on-chain builds when they help.',
+      'Luxembourg AI agency: AI agents and automation, websites, e-commerce and growth, plus Web3 / on-chain builds when they help.',
     email: siteConfig.brand.email,
     address: {
       '@type': 'PostalAddress',

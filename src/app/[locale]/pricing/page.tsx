@@ -11,7 +11,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Pricing — Openletz',
+  title: 'Pricing · Openletz',
   description:
     'Productized starting prices for AI automation, websites and Web3 builds. Fixed quote up front.',
   alternates: { canonical: localeUrl('en', '/pricing') },
@@ -24,7 +24,7 @@ const PRICING_FAQS = [
   },
   {
     q: 'Can my project be co-funded?',
-    a: 'If you are based in Luxembourg, it may be co-funded through the SME Package — we help with the paperwork.',
+    a: 'If you are based in Luxembourg, it may be co-funded through the SME Package, and we help with the paperwork.',
   },
 ];
 

@@ -9,22 +9,22 @@ Languages: English (primary), French, German.
 
 ## What we do
 
-- AI agents & automation (our core): assistants, chatbots and automations — in English, French or German. A quick audit, a working prototype, then live in production.
+- AI agents & automation (our core): assistants, chatbots and automations, in English, French or German. A quick audit, a working prototype, then live in production.
 - Digital & growth: fast websites and e-commerce on Next.js, SEO and answer-engine optimization, content and analytics.
 - Web3 & on-chain (when it helps): smart contracts, token-gating and on-chain apps, hosted in Europe.
 
 ## Pricing
 
-Every project gets a fixed quote up front; rates on request. Based in Luxembourg, your project may be co-funded through the SME Package — we help with the paperwork.
+Every project gets a fixed quote up front; rates on request. Based in Luxembourg, your project may be co-funded through the SME Package, and we help with the paperwork.
 
 ## Work
 
 - Vins Fins (https://www.vinsfins.lu): multilingual wine shop & restaurant e-commerce (Next.js, Stripe).
 - La Grocerie (https://www.lagrocerie.lu): farm-to-table grocery & natural-wine e-commerce.
-- Gategram (https://gategram.app): our product — sell digital content on Telegram, paid in Stars.
+- Gategram (https://gategram.app): our product, sell digital content on Telegram, paid in Stars.
 - LiberClaw (https://liberclaw.ai): a personal AI assistant you control.
 - Ophis (https://ophis.fi): an intent-based DEX aggregator.
-- Skills.ws (https://www.skills.ws): our product — a marketplace of skills for AI coding assistants.
+- Skills.ws (https://www.skills.ws): our product, a marketplace of skills for AI coding assistants.
 
 ## Contact
 

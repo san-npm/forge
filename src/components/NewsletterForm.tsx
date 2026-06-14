@@ -49,7 +49,7 @@ export function NewsletterForm() {
   if (status === 'success' || status === 'already') {
     return (
       <p data-newsletter-done className="text-text-dim text-sm">
-        {status === 'already' ? "You're already subscribed — thanks." : 'Subscribed — thanks.'}
+        {status === 'already' ? "You're already subscribed, thanks." : 'Subscribed, thanks.'}
       </p>
     );
   }

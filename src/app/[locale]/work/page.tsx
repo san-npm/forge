@@ -15,7 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: 'Work — Openletz',
+    title: 'Work · Openletz',
     description: 'Selected work: AI agents, websites, e-commerce and on-chain products we have shipped.',
     alternates: { canonical: localeUrl(locale, '/work') },
   };

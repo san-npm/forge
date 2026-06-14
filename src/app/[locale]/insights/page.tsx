@@ -11,7 +11,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Insights — Openletz',
+  title: 'Insights · Openletz',
   description: 'Notes from a Luxembourg AI studio: AI automation, AEO/GEO, the EU AI Act, and shipping real products.',
   alternates: { canonical: localeUrl('en', '/insights') },
 };
@@ -39,7 +39,7 @@ export default async function InsightsPage({
       <header>
         <h1 className="text-4xl font-semibold tracking-tight text-text md:text-5xl">Insights</h1>
         <p className="mt-4 text-lg text-text-dim">
-          Notes from a Luxembourg AI studio — what we are building, and what we are learning.
+          Notes from a Luxembourg AI studio: what we are building, and what we are learning.
         </p>
       </header>
 
