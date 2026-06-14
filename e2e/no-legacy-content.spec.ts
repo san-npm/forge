@@ -1,17 +1,17 @@
 import { test, expect, request } from '@playwright/test';
 
-// Regression net for the grants→AI-agency redesign. The old identity was a
-// Luxembourg SME grants-eligibility simulator (OS-shell + quiz). This spec
-// fetches the RAW SSR HTML for every public route and proves ZERO residual
-// grants/quiz copy ships — in markup, inlined i18n, or client JS.
+// Regression net for the grants→AI-agency redesign. The KILLED identity was the
+// "Fit 4 Digital/AI" grants-CONSULTANT brand: an OS-shell homepage with an
+// eligibility QUIZ. This spec fetches the RAW SSR HTML for every public route and
+// proves those killed-identity artifacts never ship.
 //
-// Word-boundary matters: the consent flag `openletz-consent=granted` is legit
-// and MUST NOT trip the net. `grants?` is anchored with \b so it matches
-// "grant"/"grants" as whole words but not "granted"/"migrant"/"fragrant".
-// `eligibilit\w*` / `simulat...\w*` are prefix matchers so "eligibility" and
-// "simulator"/"simulateur" are caught despite a trailing word char.
-const GRANTS_RE =
-  /\b(?:grants?|subvention\w*|simulat(?:eur|or)\w*|fit ?4 ?(?:digital|ai)|aides?|eligibilit\w*|quiz)\b/i;
+// IMPORTANT: generic funding vocabulary (grant / eligibility / 70% / subvention)
+// is NOT matched — the SME Package is a LEGITIMATE current service the owner asked
+// for, and its UI strings ("State grant", "Eligibility", the simulator) inline
+// site-wide. So the net targets only the specific killed-brand markers: the
+// "Fit 4 Digital/AI" positioning and the "quiz". The hard openletz_start_quiz tool
+// and openletz.com host checks below remain the strongest signals.
+const GRANTS_RE = /\b(?:fit ?4 ?(?:digital|ai)|quiz)\b/i;
 
 const ROUTES = ['/', '/about', '/contact', '/pricing', '/services', '/work', '/insights'];
 
