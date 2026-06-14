@@ -38,7 +38,8 @@ export function ProofStripSection({ label, logos, metrics }: ProofStripSectionPr
 
         <Hairline className="my-10" />
 
-        {/* Static, defensible metrics: big Anton numbers, lime accent. */}
+        {/* Static, defensible metrics: big Anton numbers (or a qualitative
+            credential rendered as Anton text), lime accent. */}
         <ul role="list" className="flex flex-wrap gap-x-16 gap-y-8">
           {metrics.map((m) => (
             <li key={m.id} className="flex flex-col">
@@ -46,8 +47,14 @@ export function ProofStripSection({ label, logos, metrics }: ProofStripSectionPr
                 className="font-display leading-none tracking-tight text-accent"
                 style={{ fontSize: 'clamp(2.75rem, 6vw, 4.5rem)' }}
               >
-                {m.value === null ? null : <CountUp to={m.value} />}
-                {m.suffix ?? ''}
+                {m.value === null ? (
+                  m.text
+                ) : (
+                  <>
+                    <CountUp to={m.value} />
+                    {m.suffix ?? ''}
+                  </>
+                )}
               </span>
               <span className="mt-2 max-w-[14ch] font-mono text-xs uppercase tracking-[0.14em] text-text-dim">
                 {m.label}

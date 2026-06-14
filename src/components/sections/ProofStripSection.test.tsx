@@ -11,8 +11,9 @@ const props: ProofStripSectionProps = {
     { slug: 'lagrocerie', name: 'La Grocerie', src: '/clients/lagrocerie.png', href: 'https://www.lagrocerie.lu' },
   ],
   metrics: [
-    { id: 'shipped', label: 'Products shipped & live', value: 6, suffix: '' },
-    { id: 'years', label: 'Years building', value: 5, suffix: '+' },
+    { id: 'years', label: 'Years building and marketing', value: 5, suffix: '+' },
+    { id: 'disciplines', label: 'Disciplines shipped: AI, web and on-chain', value: 3, suffix: '' },
+    { id: 'alephPartner', label: 'Marketing partner to Aleph Cloud', value: null, text: 'Aleph Cloud' },
   ],
 };
 
@@ -34,17 +35,25 @@ describe('ProofStripSection', () => {
 
   it('renders the static metric labels and real values in SSR (no live placeholder)', () => {
     const { container } = render(<ProofStripSection {...props} />);
-    expect(screen.getByText('Products shipped & live')).toBeInTheDocument();
-    expect(screen.getByText('Years building')).toBeInTheDocument();
+    expect(screen.getByText('Years building and marketing')).toBeInTheDocument();
+    expect(screen.getByText('Disciplines shipped: AI, web and on-chain')).toBeInTheDocument();
     // The real numbers paint immediately (CountUp seeds to `to`).
-    expect(container.textContent).toContain('6');
     expect(container.textContent).toContain('5');
+    expect(container.textContent).toContain('3');
   });
 
-  it('shows no degraded "—" placeholder and no Aleph metric', () => {
+  it('renders the Aleph Cloud marketing credential as Anton text (not a number)', () => {
+    render(<ProofStripSection {...props} />);
+    expect(screen.getByText('Marketing partner to Aleph Cloud')).toBeInTheDocument();
+    // "Aleph Cloud" appears as the big Anton credential value.
+    expect(screen.getByText('Aleph Cloud')).toBeInTheDocument();
+  });
+
+  it('does not advertise a bare product count and shows no degraded "—" placeholder', () => {
     const { container } = render(<ProofStripSection {...props} />);
     expect(container.textContent).not.toContain('—');
-    expect(container.textContent).not.toMatch(/aleph/i);
-    expect(container.textContent).not.toMatch(/node/i);
+    expect(container.textContent).not.toMatch(/products?\s+(shipped|live|built)/i);
+    // Honest naming only: never "Aleph.im".
+    expect(container.textContent).not.toMatch(/aleph\.im/i);
   });
 });
