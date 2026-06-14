@@ -7,10 +7,14 @@ import {
   safeAuditFetch,
   extractSignals,
 } from '@/lib/audit-fetch';
+import { rateLimit } from '@/lib/rateLimit';
 
 const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 5;
-const hits = new Map<string, number[]>();
+// Hard cap on the response body we will buffer from an arbitrary allowed host.
+// Reading is streamed and aborted once this many bytes have been consumed so a
+// huge (or infinite) body cannot exhaust memory.
+const MAX_BODY_BYTES = 1_000_000;
 
 function clientIp(req: Request): string {
   const fwd = req.headers.get('x-forwarded-for');
@@ -18,16 +22,42 @@ function clientIp(req: Request): string {
   return req.headers.get('x-real-ip') ?? 'unknown';
 }
 
-function rateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  if (recent.length >= MAX_PER_WINDOW) {
-    hits.set(ip, recent);
-    return true;
+/**
+ * Read a response body but stop after {@link MAX_BODY_BYTES}. Streams chunks from
+ * the body reader, decodes incrementally, and cancels the stream once the cap is
+ * hit so we never buffer an unbounded body. Falls back to `response.text()` only
+ * when no readable stream is available.
+ */
+async function readCapped(response: Response, maxBytes: number): Promise<string> {
+  const body = response.body;
+  if (!body) {
+    // No stream to meter; text() is the only option. Slice as a backstop.
+    return (await response.text()).slice(0, maxBytes);
   }
-  recent.push(now);
-  hits.set(ip, recent);
-  return false;
+
+  const reader = body.getReader();
+  const decoder = new TextDecoder('utf-8');
+  let out = '';
+  let read = 0;
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      if (!value) continue;
+      const remaining = maxBytes - read;
+      const chunk = value.length > remaining ? value.subarray(0, remaining) : value;
+      out += decoder.decode(chunk, { stream: true });
+      read += chunk.length;
+      if (read >= maxBytes) {
+        await reader.cancel();
+        return out;
+      }
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  out += decoder.decode();
+  return out;
 }
 
 async function probe(origin: string, file: string): Promise<boolean> {
@@ -45,7 +75,7 @@ async function probe(origin: string, file: string): Promise<boolean> {
 
 export async function POST(req: Request) {
   const ip = clientIp(req);
-  if (rateLimited(ip)) {
+  if (!rateLimit(ip, { limit: MAX_PER_WINDOW, windowMs: WINDOW_MS }).ok) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
   }
 
@@ -82,7 +112,14 @@ export async function POST(req: Request) {
       signal: AbortSignal.timeout(8000),
     });
     finalUrl = resolved;
-    html = (await response.text()).slice(0, 1_000_000);
+    // Reject early if the host advertises a body larger than the cap, before we
+    // read a single byte.
+    const declared = Number(response.headers.get('content-length'));
+    if (Number.isFinite(declared) && declared > MAX_BODY_BYTES) {
+      return NextResponse.json({ error: 'Response too large to audit' }, { status: 413 });
+    }
+    // Stream the body and stop at the cap so a huge response can't exhaust memory.
+    html = await readCapped(response, MAX_BODY_BYTES);
   } catch (err) {
     // Never throw to the client. A blocked host (SSRF guard) is a 400; any other
     // failure (DNS, network, timeout, too many redirects) is a generic 502.
