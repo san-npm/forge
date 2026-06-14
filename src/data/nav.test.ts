@@ -44,3 +44,15 @@ describe('FOOTER', () => {
     expect(hrefs).toContain('/legal/terms');
   });
 });
+
+describe('footer surfaces Phase 3 routes', () => {
+  const hrefs = FOOTER.flatMap((c) => c.links.map((l) => l.href));
+  it('includes /services, /pricing, /audit and /insights', () => {
+    for (const href of ['/services', '/pricing', '/audit', '/insights']) {
+      expect(hrefs).toContain(href);
+    }
+  });
+  it('has exactly 4 columns', () => {
+    expect(FOOTER).toHaveLength(4);
+  });
+});

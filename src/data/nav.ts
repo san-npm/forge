@@ -24,9 +24,11 @@ export const FOOTER: FooterColumn[] = FooterSchema.parse([
   {
     heading: 'Services',
     links: [
-      { label: 'AI agents & automation', href: '/services#ai' },
-      { label: 'Digital & Growth', href: '/services#marketing' },
-      { label: 'Web3 & On-Chain', href: '/services#web3' },
+      // Label differs from the 'Services' column heading on purpose so the
+      // Footer's getByText(heading) assertion finds a single match.
+      { label: 'All services', href: '/services' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Audit', href: '/audit' },
     ],
   },
   {
