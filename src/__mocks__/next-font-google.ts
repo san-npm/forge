@@ -13,6 +13,6 @@ function makeFont(variable: string) {
   });
 }
 
-export const Space_Grotesk = makeFont('--font-display');
-export const Inter = makeFont('--font-body');
+export const Anton = makeFont('--font-display');
+export const Hanken_Grotesk = makeFont('--font-body');
 export const JetBrains_Mono = makeFont('--font-mono');
