@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import type { Locale } from '@/lib/site-config';
 import { siteConfig } from '@/lib/site-config';
-import { FOOTER } from '@/data/nav';
+import { getFooter } from '@/data/nav';
 import { NewsletterForm } from '@/components/NewsletterForm';
 
 export function Footer({ locale }: { locale: Locale }) {
   const prefix = locale === 'en' ? '' : `/${locale}`;
+  const footer = getFooter(locale);
   // External links (mailto:, https://) keep their absolute href; internal
   // page links get the locale prefix.
   const resolve = (href: string) =>
@@ -15,7 +16,7 @@ export function Footer({ locale }: { locale: Locale }) {
     <footer data-footer className="border-t border-hairline px-6 py-16">
       <div className="mx-auto max-w-5xl">
         <div className="grid gap-10 md:grid-cols-4">
-          {FOOTER.map((col) => (
+          {footer.map((col) => (
             <div key={col.heading} data-footer-col>
               <h3 className="font-mono text-xs uppercase tracking-widest text-text-dim">
                 {col.heading}
@@ -33,7 +34,7 @@ export function Footer({ locale }: { locale: Locale }) {
           ))}
         </div>
         <div className="mt-12 max-w-md">
-          <NewsletterForm />
+          <NewsletterForm locale={locale} />
         </div>
         <p className="mt-12 text-sm text-text-dim">{siteConfig.brand.legalEntity}</p>
       </div>

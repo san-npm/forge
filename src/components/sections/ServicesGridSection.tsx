@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import type { ServicesGridSectionProps } from '@/lib/schema';
 import type { Locale } from '@/lib/site-config';
-import { SERVICES } from '@/data/services';
+import { getServices } from '@/data/services';
+import { getUiStrings, type UiStrings } from '@/data/ui';
 import { localeHref } from '@/lib/locale-href';
 import { SectionHeading } from '@/components/sections/SectionHeading';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -11,17 +12,20 @@ export function ServicesGridSection({
   ctaLabel,
   ctaHref,
   locale,
-}: ServicesGridSectionProps & { locale: Locale }) {
+  ui,
+}: ServicesGridSectionProps & { locale: Locale; ui?: UiStrings }) {
   const href = localeHref(ctaHref, locale);
+  const t = ui ?? getUiStrings(locale);
+  const services = getServices(locale);
 
   return (
     <section data-section="servicesGrid" className="px-6 py-24 md:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          kicker="What we do"
-          title="Three Ways We Build"
-          accent="Build"
-          subhead="AI agents and automation lead. Digital and growth carry it. Web3 adds depth when it helps."
+          kicker={t.sections.servicesKicker}
+          title={t.sections.servicesTitle}
+          accent={t.sections.servicesAccent}
+          subhead={t.sections.servicesSubhead}
         />
 
         <ScrollReveal
@@ -30,7 +34,7 @@ export function ServicesGridSection({
           className="mt-14 grid gap-6 md:grid-cols-3"
         >
           {order.map((key, i) => {
-            const svc = SERVICES[key];
+            const svc = services[key];
             return (
               <div
                 key={key}

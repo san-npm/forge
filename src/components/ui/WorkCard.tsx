@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { WorkItem } from '@/lib/schema';
+import { getUiStrings, type UiStrings } from '@/data/ui';
 
 /**
  * Maps a WORK slug to its real screenshot in /public/work. The data slug for
@@ -31,6 +32,8 @@ export interface WorkCardProps {
   item: WorkItem;
   /** Featured cards get a wider hero image and a larger name. */
   featured?: boolean;
+  /** Active-locale UI strings (kind labels + the VISIT affordance). EN default. */
+  ui?: UiStrings;
 }
 
 /**
@@ -40,9 +43,10 @@ export interface WorkCardProps {
  * the link; hover lifts the border to lime with a glow and zooms the shot. The
  * link is external (the live product), so it opens in a new tab.
  */
-export function WorkCard({ item, featured = false }: WorkCardProps) {
+export function WorkCard({ item, featured = false, ui }: WorkCardProps) {
+  const t = ui ?? getUiStrings('en');
   const shot = WORK_SCREENSHOTS[item.slug];
-  const kind = WORK_KIND_LABEL[item.kind] ?? item.kind.toUpperCase();
+  const kind = t.kindLabels[item.kind] ?? WORK_KIND_LABEL[item.kind] ?? item.kind.toUpperCase();
 
   return (
     <Link
@@ -93,7 +97,7 @@ export function WorkCard({ item, featured = false }: WorkCardProps) {
         </h3>
         <p className="mt-3 max-w-xl text-text-dim">{item.blurb}</p>
         <span className="mt-6 inline-flex items-center gap-1.5 font-mono text-sm uppercase tracking-[0.12em] text-accent transition-transform duration-base ease-out group-hover:translate-x-0.5">
-          Visit <span aria-hidden>↗</span>
+          {t.common.visit} <span aria-hidden>↗</span>
         </span>
       </div>
     </Link>

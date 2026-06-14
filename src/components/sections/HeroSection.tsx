@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import type { HeroSectionProps } from '@/lib/schema';
 import type { Locale } from '@/lib/site-config';
+import { getUiStrings, type UiStrings } from '@/data/ui';
 import { Reveal } from '@/components/ui/Reveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { KineticHeadline } from '@/components/ui/KineticHeadline';
@@ -16,16 +17,6 @@ const ACCENT_WORDS: Record<Locale, string[]> = {
   fr: ['pensent', 'bougent', 'transigent'],
   de: ['denken', 'bewegen', 'handeln'],
 };
-
-const CAPABILITIES = [
-  'AI AGENTS',
-  'AUTOMATION',
-  'CHATBOTS',
-  'WEB & SHOPS',
-  'WEB3',
-  'ON-CHAIN',
-  'GROWTH',
-];
 
 /**
  * Locale-prefixes an INTERNAL path href (en at `/`, fr/de under `/fr` `/de`).
@@ -69,8 +60,10 @@ export function HeroSection({
   primaryCta,
   secondaryCta,
   locale,
-}: HeroSectionProps & { locale: Locale }) {
+  ui,
+}: HeroSectionProps & { locale: Locale; ui?: UiStrings }) {
   const accent = ACCENT_WORDS[locale] ?? ACCENT_WORDS.en;
+  const t = ui ?? getUiStrings(locale);
 
   return (
     <section
@@ -83,7 +76,7 @@ export function HeroSection({
           as="p"
           className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-text-dim"
         >
-          <span className="text-accent">/</span> Luxembourg AI studio
+          <span className="text-accent">/</span> {t.hero.kicker}
         </Reveal>
 
         {/* LCP node: real text at full opacity in SSR. KineticHeadline only
@@ -125,7 +118,7 @@ export function HeroSection({
 
       {/* Capability ticker below the fold line. */}
       <div className="mt-16 w-full md:mt-20">
-        <Marquee items={CAPABILITIES} aria-label="What we build" />
+        <Marquee items={t.hero.capabilities} aria-label={t.hero.marqueeLabel} />
       </div>
     </section>
   );

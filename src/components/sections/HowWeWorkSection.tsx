@@ -1,16 +1,22 @@
 import type { HowWeWorkSectionProps } from '@/lib/schema';
+import { getUiStrings, type UiStrings } from '@/data/ui';
 import { SectionHeading } from '@/components/sections/SectionHeading';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
-export function HowWeWorkSection({ steps, smePackageNote }: HowWeWorkSectionProps) {
+export function HowWeWorkSection({
+  steps,
+  smePackageNote,
+  ui,
+}: HowWeWorkSectionProps & { ui?: UiStrings }) {
+  const t = ui ?? getUiStrings('en');
   return (
     <section data-section="howWeWork" className="px-6 py-24 md:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          kicker="The process"
-          title="How We Work"
-          accent="Work"
-          subhead="A short, honest path from idea to something live you can measure."
+          kicker={t.sections.processKicker}
+          title={t.sections.processTitle}
+          accent={t.sections.processAccent}
+          subhead={t.sections.processSubhead}
         />
 
         <ScrollReveal

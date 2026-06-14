@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from 'react';
 import type { Locale } from '@/lib/site-config';
+import { getUiStrings } from '@/data/ui';
 import { Link, usePathname } from '@/i18n/routing';
 
 const LOCALES: { code: Locale; label: string; short: string }[] = [
@@ -43,6 +44,7 @@ export function LanguageDropdown({ locale }: { locale: Locale }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const menuId = useId();
   const current = LOCALES.find((l) => l.code === locale) ?? LOCALES[0];
+  const changeLanguage = getUiStrings(locale).nav.changeLanguage;
 
   useEffect(() => {
     if (!open) return;
@@ -68,7 +70,7 @@ export function LanguageDropdown({ locale }: { locale: Locale }) {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls={menuId}
-        aria-label="Change language"
+        aria-label={changeLanguage}
         data-cursor
         className="inline-flex items-center gap-1.5 rounded-full border border-hairline px-3 py-1.5 text-sm text-text-dim transition-colors duration-base ease-out hover:border-accent hover:text-text"
       >

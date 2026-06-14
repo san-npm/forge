@@ -4,9 +4,11 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { LOCALES, type Locale, localeUrl } from '@/lib/site-config';
 import { localeHref } from '@/lib/locale-href';
-import { getAllPosts, getPostBySlug } from '@/lib/blog';
+import { getAllPosts, getPostBySlug, getPostBody } from '@/lib/blog';
+import { getUiStrings } from '@/data/ui';
+import { getStartProject } from '@/data/nav';
 import { renderMarkdown } from '@/lib/markdown';
-import { breadcrumbJsonLd } from '@/lib/jsonld';
+import { breadcrumbJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 
 export function generateStaticParams() {
@@ -27,7 +29,7 @@ export async function generateMetadata({
   return {
     title: `${title} · Openletz`,
     description,
-    alternates: { canonical: localeUrl('en', `/insights/${slug}`) },
+    alternates: { canonical: localeUrl(locale, `/insights/${slug}`) },
   };
 }
 
@@ -42,10 +44,11 @@ export default async function InsightPage({
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const t = getUiStrings(locale);
   const title = post.title[locale] ?? post.title.en ?? slug;
-  const html = renderMarkdown(post.content);
+  const html = renderMarkdown(getPostBody(post, locale));
   const crumbs = breadcrumbJsonLd(locale, [
-    { name: 'Home', url: localeUrl(locale) },
+    { name: homeBreadcrumbLabel(locale), url: localeUrl(locale) },
     { name: 'Insights', url: localeUrl(locale, '/insights') },
     { name: title, url: localeUrl(locale, `/insights/${slug}`) },
   ]);
@@ -62,7 +65,7 @@ export default async function InsightPage({
         {/* ---- Header: kicker, date, GIANT title, author. Title in static HTML. ---- */}
         <header className="mx-auto max-w-3xl">
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-text-dim">
-            <span className="text-accent">/</span> Insights
+            <span className="text-accent">/</span> {t.insights.readerKicker}
             <span className="mx-3 text-hairline">·</span>
             <span>{post.date}</span>
           </p>
@@ -74,7 +77,7 @@ export default async function InsightPage({
           </h1>
           {post.author ? (
             <p className="mt-6 font-mono text-sm uppercase tracking-[0.14em] text-text-dim">
-              By <span className="text-text">{post.author}</span>
+              {t.insights.by} <span className="text-text">{post.author}</span>
             </p>
           ) : null}
         </header>
@@ -102,10 +105,10 @@ export default async function InsightPage({
             href={localeHref('/insights', locale)}
             className="ol-link inline-flex items-center gap-1.5 font-mono text-sm uppercase tracking-[0.14em] text-text-dim"
           >
-            <span aria-hidden>{'<-'}</span> Back to insights
+            <span aria-hidden>{'<-'}</span> {t.insights.backToInsights}
           </Link>
           <Link href={localeHref('/contact', locale)} className="ol-btn">
-            Start a project
+            {getStartProject(locale)}
           </Link>
         </div>
       </article>

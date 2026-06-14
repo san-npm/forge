@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { ProofLogoSchema, ProofMetricSchema, type ProofLogo, type ProofMetric } from '@/lib/schema';
 import { WORK } from '@/data/work';
+import type { Locale } from '@/lib/site-config';
 
 export type { ProofLogo, ProofMetric };
 
@@ -32,13 +33,34 @@ export const PROOF_LOGOS: ProofLogo[] = z.array(ProofLogoSchema).parse(
  * The Work grid already lists the products, so we no longer advertise a raw
  * product count here.
  */
-export const PROOF_METRICS: ProofMetric[] = z.array(ProofMetricSchema).parse([
-  { id: 'years', label: 'Years building and marketing', value: 5, suffix: '+' },
-  { id: 'disciplines', label: 'Disciplines shipped: AI, web and on-chain', value: 3, suffix: '' },
-  {
-    id: 'alephPartner',
-    label: 'Marketing partner to Aleph Cloud',
-    value: null,
-    text: 'Aleph Cloud',
-  },
-]);
+const PROOF_METRICS_I18N: Record<Locale, ProofMetric[]> = {
+  en: [
+    { id: 'years', label: 'Years building and marketing', value: 5, suffix: '+' },
+    { id: 'disciplines', label: 'Disciplines shipped: AI, web and on-chain', value: 3, suffix: '' },
+    { id: 'alephPartner', label: 'Marketing partner to Aleph Cloud', value: null, text: 'Aleph Cloud' },
+  ],
+  fr: [
+    { id: 'years', label: 'Ans à construire et à marketer', value: 5, suffix: '+' },
+    { id: 'disciplines', label: 'Disciplines livrées : IA, web et on-chain', value: 3, suffix: '' },
+    { id: 'alephPartner', label: 'Partenaire marketing d’Aleph Cloud', value: null, text: 'Aleph Cloud' },
+  ],
+  de: [
+    { id: 'years', label: 'Jahre Aufbau und Marketing', value: 5, suffix: '+' },
+    { id: 'disciplines', label: 'Gelieferte Disziplinen: KI, Web und On-Chain', value: 3, suffix: '' },
+    { id: 'alephPartner', label: 'Marketingpartner von Aleph Cloud', value: null, text: 'Aleph Cloud' },
+  ],
+};
+
+const PARSED_PROOF_METRICS: Record<Locale, ProofMetric[]> = {
+  en: z.array(ProofMetricSchema).parse(PROOF_METRICS_I18N.en),
+  fr: z.array(ProofMetricSchema).parse(PROOF_METRICS_I18N.fr),
+  de: z.array(ProofMetricSchema).parse(PROOF_METRICS_I18N.de),
+};
+
+/** Active-locale proof metrics. */
+export function getProofMetrics(locale: Locale): ProofMetric[] {
+  return PARSED_PROOF_METRICS[locale];
+}
+
+// EN constant kept for the proof tests and the EN homepage spine.
+export const PROOF_METRICS: ProofMetric[] = PARSED_PROOF_METRICS.en;

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { SelectedWorkSectionProps } from '@/lib/schema';
 import type { Locale } from '@/lib/site-config';
+import { getUiStrings, type UiStrings } from '@/data/ui';
 import { localeHref } from '@/lib/locale-href';
 import { SectionHeading } from '@/components/sections/SectionHeading';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -10,21 +11,23 @@ export function SelectedWorkSection({
   items,
   viewAllHref,
   locale,
-}: SelectedWorkSectionProps & { locale: Locale }) {
+  ui,
+}: SelectedWorkSectionProps & { locale: Locale; ui?: UiStrings }) {
+  const t = ui ?? getUiStrings(locale);
   return (
     <section data-section="selectedWork" className="px-6 py-24 md:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          kicker="Our work"
-          title="Selected Work"
-          accent="Work"
-          subhead="Real products we designed, built and shipped, plus the brands we help grow."
+          kicker={t.sections.selectedWorkKicker}
+          title={t.sections.selectedWorkTitle}
+          accent={t.sections.selectedWorkAccent}
+          subhead={t.sections.selectedWorkSubhead}
           action={
             <Link
               href={localeHref(viewAllHref, locale)}
               className="ol-link inline-flex items-center gap-1 font-mono text-sm uppercase tracking-[0.14em] text-text-dim"
             >
-              All work <span aria-hidden>→</span>
+              {t.sections.allWork} <span aria-hidden>→</span>
             </Link>
           }
         />
@@ -42,7 +45,7 @@ export function SelectedWorkSection({
               // First card spans both columns as the featured, wide hero card.
               className={i === 0 ? 'md:col-span-2' : ''}
             >
-              <WorkCard item={w} featured={i === 0} />
+              <WorkCard item={w} featured={i === 0} ui={t} />
             </li>
           ))}
         </ScrollReveal>

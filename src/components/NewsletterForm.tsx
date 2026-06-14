@@ -2,10 +2,13 @@
 
 import { useState, type FormEvent } from 'react';
 import { NewsletterSchema } from '@/lib/schema';
+import type { Locale } from '@/lib/site-config';
+import { getUiStrings } from '@/data/ui';
 
 type Status = 'idle' | 'submitting' | 'success' | 'already' | 'error';
 
-export function NewsletterForm() {
+export function NewsletterForm({ locale = 'en' as Locale }: { locale?: Locale }) {
+  const t = getUiStrings(locale).newsletter;
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
 
@@ -17,7 +20,7 @@ export function NewsletterForm() {
     const parsed = NewsletterSchema.safeParse(candidate);
     if (!parsed.success) {
       setStatus('error');
-      setError('Please enter a valid email.');
+      setError(t.invalid);
       return;
     }
 
@@ -39,17 +42,17 @@ export function NewsletterForm() {
         return;
       }
       setStatus('error');
-      setError(data.error ?? 'Something went wrong.');
+      setError(data.error ?? t.error);
     } catch {
       setStatus('error');
-      setError('Network error. Please try again.');
+      setError(t.networkError);
     }
   }
 
   if (status === 'success' || status === 'already') {
     return (
       <p data-newsletter-done className="text-text-dim text-sm">
-        {status === 'already' ? "You're already subscribed, thanks." : 'Subscribed, thanks.'}
+        {status === 'already' ? t.already : t.subscribed}
       </p>
     );
   }
@@ -57,7 +60,7 @@ export function NewsletterForm() {
   return (
     <form onSubmit={onSubmit} noValidate className="flex flex-col gap-2" data-newsletter-form>
       <label htmlFor="nl-email" className="text-text-dim text-sm">
-        Email
+        {t.email}
       </label>
       <div className="flex gap-2">
         <input
@@ -69,7 +72,7 @@ export function NewsletterForm() {
           className="ol-input flex-1"
         />
         <button type="submit" disabled={status === 'submitting'} className="ol-btn">
-          {status === 'submitting' ? '…' : 'Subscribe'}
+          {status === 'submitting' ? '…' : t.subscribe}
         </button>
       </div>
       {status === 'error' && <p role="alert" className="text-text-dim text-xs">{error}</p>}
