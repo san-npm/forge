@@ -204,6 +204,44 @@ export async function safeAuditFetch(
 
 const has = (re: RegExp, s: string) => re.test(s);
 
+/** A parsed `<meta>` tag: its attributes lower-cased into a map. */
+type MetaAttrs = Record<string, string>;
+
+const META_TAG_RE = /<meta\b[^>]*>/gi;
+const ATTR_RE = /([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*("([^"]*)"|'([^']*)'|([^\s"'>]+))/g;
+
+/**
+ * Parse every `<meta>` tag in `html` into an attribute map. Attributes are read
+ * ORDER-INDEPENDENTLY so `<meta content="…" name="description">` is treated the
+ * same as `<meta name="description" content="…">`. Names are lower-cased.
+ */
+function parseMetaTags(html: string): MetaAttrs[] {
+  const tags: MetaAttrs[] = [];
+  for (const tagMatch of html.matchAll(META_TAG_RE)) {
+    const attrs: MetaAttrs = {};
+    for (const attr of tagMatch[0].matchAll(ATTR_RE)) {
+      const name = attr[1].toLowerCase();
+      const value = attr[3] ?? attr[4] ?? attr[5] ?? '';
+      attrs[name] = value;
+    }
+    tags.push(attrs);
+  }
+  return tags;
+}
+
+/** True if any parsed meta tag identifies itself (name/property) as `key`. */
+function hasMetaNamed(metas: MetaAttrs[], key: string): boolean {
+  return metas.some((m) => m.name?.toLowerCase() === key || m.property?.toLowerCase() === key);
+}
+
+/** Content of the first meta tag whose name/property matches `key`, else ''. */
+function metaContent(metas: MetaAttrs[], key: string): string {
+  const tag = metas.find(
+    (m) => m.name?.toLowerCase() === key || m.property?.toLowerCase() === key,
+  );
+  return (tag?.content ?? '').trim();
+}
+
 /** Extract AuditSignals from raw HTML + out-of-band probe results. Pure & DOM-free. */
 export function extractSignals(
   finalUrl: string,
@@ -211,12 +249,11 @@ export function extractSignals(
   probes: { robotsTxt: boolean; sitemap: boolean; llmsTxt: boolean },
 ): AuditSignals {
   const head = html.slice(0, 200_000); // cap work
+  const metas = parseMetaTags(head);
   const titleMatch = head.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   const title = titleMatch ? titleMatch[1].replace(/\s+/g, ' ').trim() : '';
-  const descMatch = head.match(
-    /<meta[^>]+name=["']description["'][^>]*content=["']([^"']*)["']/i,
-  );
-  const desc = descMatch ? descMatch[1].trim() : '';
+  // Order-independent: matches `<meta content="…" name="description">` too.
+  const desc = metaContent(metas, 'description');
   const h1Count = (head.match(/<h1[\s>]/gi) || []).length;
   const text = html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
@@ -239,8 +276,8 @@ export function extractSignals(
     hasMetaDescription: desc.length > 0,
     metaDescriptionLength: desc.length,
     h1Count,
-    hasViewport: has(/<meta[^>]+name=["']viewport["']/i, head),
-    hasOpenGraph: has(/<meta[^>]+property=["']og:/i, head),
+    hasViewport: hasMetaNamed(metas, 'viewport'),
+    hasOpenGraph: metas.some((m) => (m.property ?? '').toLowerCase().startsWith('og:')),
     hasStructuredData: has(/<script[^>]+type=["']application\/ld\+json["']/i, head),
     hasCanonical: has(/<link[^>]+rel=["']canonical["']/i, head),
     hasRobotsTxt: probes.robotsTxt,
