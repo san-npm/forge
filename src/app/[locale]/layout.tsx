@@ -1,7 +1,6 @@
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import Script from 'next/script';
 import type { Metadata } from 'next';
 import { routing } from '@/i18n/routing';
 import { safeJsonLd } from '@/lib/safeJsonLd';
@@ -182,28 +181,27 @@ export default async function LocaleLayout({
   return (
     <html lang={loc} className={fontVariables} suppressHydrationWarning>
       <head>
-        <Script
-          id="json-ld-org"
+        {/* Site-wide JSON-LD. Plain <script> (NOT next/script) so the structured
+            data renders into the static SSR HTML — next/script defers it into the
+            React Flight payload, invisible to AI crawlers / structured-data parsers
+            that read raw markup without executing JS. */}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd()) }}
         />
-        <Script
-          id="json-ld-website"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(webSiteJsonLd()) }}
         />
-        <Script
-          id="json-ld-localbusiness"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(professionalServiceJsonLd()) }}
         />
-        <Script
-          id="json-ld-breadcrumb"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumb) }}
         />
-        <Script
-          id="json-ld-faq"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd(AGENCY_FAQS)) }}
         />
