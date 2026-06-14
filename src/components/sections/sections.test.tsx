@@ -55,7 +55,7 @@ describe('SelectedWorkSection', () => {
       const link = screen.getByRole('link', { name: new RegExp(w.name, 'i') });
       expect(link).toHaveAttribute('href', w.link);
     }
-    expect(screen.getByRole('link', { name: /view all work/i })).toHaveAttribute('href', '/work');
+    expect(screen.getByRole('link', { name: /all work/i })).toHaveAttribute('href', '/work');
   });
 });
 
@@ -91,8 +91,13 @@ describe('TrustBlockSection', () => {
     render(
       <TrustBlockSection type="trustBlock" facts={ABOUT.facts} headline="European by default." />,
     );
-    for (const fact of ABOUT.facts) expect(screen.getByText(fact)).toBeInTheDocument();
-    expect(screen.getByText('European by default.')).toBeInTheDocument();
+    for (const fact of ABOUT.facts)
+      expect(screen.getByText(fact, { exact: false })).toBeInTheDocument();
+    // The headline renders with a lime accent word (split across spans), so
+    // assert on the heading's full normalized text content rather than a node.
+    expect(
+      screen.getByRole('heading', { level: 2 }).textContent?.replace(/\s+/g, ' ').trim(),
+    ).toBe('European by default.');
   });
 });
 
@@ -106,6 +111,7 @@ describe('EnquiryFormSection', () => {
         pillars={CONTACT.types}
         callLine={CONTACT.callLine}
         bookCallHref="/contact"
+        locale="en"
       />,
     );
     expect(container.querySelector('#enquiry')).toBeInTheDocument();

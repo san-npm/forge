@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import type { EnquiryFormSectionProps } from '@/lib/schema';
+import type { Locale } from '@/lib/site-config';
+import { localeHref } from '@/lib/locale-href';
 import { EnquiryForm } from '@/components/EnquiryForm';
+import { SectionHeading } from '@/components/sections/SectionHeading';
 
 export function EnquiryFormSection({
   id,
@@ -8,20 +11,26 @@ export function EnquiryFormSection({
   pillars,
   callLine,
   bookCallHref,
-}: EnquiryFormSectionProps) {
+  locale,
+}: EnquiryFormSectionProps & { locale: Locale }) {
   return (
-    <section data-section="enquiryForm" id={id} className="px-6 py-24">
-      <div className="mx-auto max-w-2xl">
-        <h2 className="text-3xl font-semibold text-text">{headline}</h2>
-        <div className="mt-8">
+    <section data-section="enquiryForm" id={id} className="px-6 py-28 md:py-32">
+      <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-2 md:items-start">
+        {/* Left: the poster pitch. */}
+        <div className="md:sticky md:top-28">
+          <SectionHeading kicker="Start a project" title="Let's Build It" accent="Build" subhead={headline} />
+          <p className="mt-8 text-sm text-text-dim">
+            {callLine}{' '}
+            <Link href={localeHref(bookCallHref, locale)} className="ol-link text-accent">
+              Book a 15-minute intro call
+            </Link>
+          </p>
+        </div>
+
+        {/* Right: the enquiry form island (ol- field + button styling). */}
+        <div className="rounded-2xl border border-hairline bg-surface p-7 md:p-8">
           <EnquiryForm pillars={pillars} />
         </div>
-        <p className="mt-6 text-sm text-text-dim">
-          {callLine}{' '}
-          <Link href={bookCallHref} className="ol-link text-hot">
-            Book a 15-minute intro call
-          </Link>
-        </p>
       </div>
     </section>
   );

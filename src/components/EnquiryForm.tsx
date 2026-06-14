@@ -107,7 +107,7 @@ export function EnquiryForm({ pillars }: { pillars: string[] }) {
         <p role="alert" className="text-text-dim text-sm">{error}</p>
       )}
 
-      <MagneticButton type="submit" disabled={status === 'submitting'}>
+      <MagneticButton type="submit" disabled={status === 'submitting'} className="ol-btn mt-2 w-fit disabled:opacity-60">
         {status === 'submitting' ? 'Sending…' : 'Start a project'}
       </MagneticButton>
     </form>
