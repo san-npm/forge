@@ -38,3 +38,16 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* --- view-transition polish (gated behind no-preference) --- */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: var(--dur-base);
+    animation-timing-function: var(--ease-out);
+  }
+  ::view-transition-group(*) {
+    animation-duration: var(--dur-base);
+    animation-timing-function: var(--ease-out);
+  }
+}
