@@ -64,13 +64,9 @@ export function AuditForm({ enquiryHref }: { enquiryHref: string }) {
           placeholder="yourdomain.com"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-1 rounded-md border border-hairline bg-surface-2 px-4 py-3 text-text placeholder:text-text-dim"
+          className="ol-input flex-1"
         />
-        <button
-          type="submit"
-          disabled={loading}
-          className="rounded-md bg-hot px-6 py-3 font-medium text-bg disabled:opacity-60"
-        >
+        <button type="submit" disabled={loading} className="ol-btn justify-center disabled:opacity-60">
           {loading ? 'Checking...' : 'Run the audit'}
         </button>
       </form>
@@ -82,39 +78,41 @@ export function AuditForm({ enquiryHref }: { enquiryHref: string }) {
       ) : null}
 
       {result ? (
-        <div className="mt-10" data-testid="audit-result">
-          <div className="flex items-baseline gap-4">
+        <div className="mt-12" data-testid="audit-result">
+          <div className="flex flex-wrap items-end gap-6 border-b border-hairline pb-8">
             <div>
-              <p className="text-sm uppercase tracking-wide text-text-dim">Grade</p>
-              <p className="text-5xl font-semibold text-text">{result.grade}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-text-dim">Grade</p>
+              <p
+                className="mt-2 font-display uppercase leading-none text-accent"
+                style={{ fontSize: 'clamp(3.5rem, 10vw, 6rem)' }}
+              >
+                {result.grade}
+              </p>
             </div>
-            <p className="text-text-dim">
+            <p className="pb-3 font-mono text-text-dim">
               {result.score} / {result.maxScore}
             </p>
           </div>
 
-          <ul className="mt-8 divide-y divide-hairline border-y border-hairline">
+          <ul className="mt-8 divide-y divide-hairline border-b border-hairline">
             {result.checks.map((c) => (
-              <li key={c.id} className="flex items-start gap-3 py-3">
-                <span aria-hidden className={c.pass ? 'text-hot' : 'text-text-dim'}>
+              <li key={c.id} className="flex items-start gap-3 py-4">
+                <span aria-hidden className={c.pass ? 'text-accent' : 'text-text-dim'}>
                   {c.pass ? '✓' : '✗'}
                 </span>
                 <span>
                   <span className="block text-text">{c.label}</span>
                   {!c.pass ? (
-                    <span className="block text-sm text-text-dim">{c.recommendation}</span>
+                    <span className="mt-1 block text-sm text-text-dim">{c.recommendation}</span>
                   ) : null}
                 </span>
               </li>
             ))}
           </ul>
 
-          <div className="mt-8">
-            <a
-              href={enquiryHref}
-              className="inline-flex items-center rounded-md bg-hot px-6 py-3 font-medium text-bg"
-            >
-              Fix this with us
+          <div className="mt-10">
+            <a href={enquiryHref} className="ol-btn" data-cta>
+              Fix this with us <span aria-hidden>→</span>
             </a>
           </div>
         </div>
