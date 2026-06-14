@@ -22,6 +22,21 @@ describe('offerCatalogJsonLd', () => {
     const items = node.itemListElement as Array<Record<string, unknown>>;
     expect(items.length).toBe(PRICING.tiers.length);
     expect(items[0]['@type']).toBe('Offer');
-    expect((items[0].priceSpecification as Record<string, unknown>).priceCurrency).toBe('EUR');
+    expect(items[0].name).toBe(PRICING.tiers[0].name);
+  });
+
+  it('emits NO numeric price or currency (projects are quoted up front)', () => {
+    const node = offerCatalogJsonLd(PRICING.tiers) as Record<string, unknown>;
+    const items = node.itemListElement as Array<Record<string, unknown>>;
+    for (const item of items) {
+      expect(item.price).toBeUndefined();
+      expect(item.priceCurrency).toBeUndefined();
+      expect(item.priceSpecification).toBeUndefined();
+    }
+    // No fabricated figure or placeholder anywhere in the serialized node.
+    const serialized = JSON.stringify(node);
+    expect(serialized).not.toContain('€');
+    expect(serialized).not.toMatch(/from\s*€?X/i);
+    expect(serialized).not.toContain('priceCurrency');
   });
 });

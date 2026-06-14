@@ -129,7 +129,7 @@ describe('IconKeySchema / PriceTierSchema / PricingSchema', () => {
   const tier = {
     name: 'AI',
     icon: 'ai',
-    price: 'from €X',
+    price: 'Fixed quote',
     desc: 'd',
     feats: ['1', '2', '3'],
   };

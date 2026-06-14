@@ -90,9 +90,13 @@ describe('PRICING', () => {
       expect(t.feats).toHaveLength(3);
     }
   });
-  it('the three pillar tiers use a "from €" anchor', () => {
-    const anchored = PRICING.tiers.filter((t) => t.price.startsWith('from €'));
-    expect(anchored.length).toBeGreaterThanOrEqual(3);
+  it('uses honest non-numeric framing — no "from €" / placeholder anchors', () => {
+    for (const t of PRICING.tiers) {
+      expect(t.price).not.toContain('€');
+      expect(t.price).not.toMatch(/from\s*€?X/i);
+    }
+    expect(PRICING.lead).not.toContain('€');
+    expect(PRICING.lead).toContain('fixed quote');
   });
   it('keeps the SME Package note', () => {
     expect(PRICING.note).toContain('SME Package');
