@@ -151,7 +151,11 @@ export type ProofLogo = z.infer<typeof ProofLogoSchema>;
 export const ProofMetricSchema = z.object({
   id: z.string().min(1),
   label: z.string().min(1),
+  // Numeric metrics carry a `value` (rendered via CountUp). Qualitative
+  // credentials carry a short Anton `text` instead (no fabricated number) and
+  // set `value: null`. Exactly one of the two is shown.
   value: z.number().nullable(),
+  text: z.string().min(1).optional(),
   suffix: z.string().optional(),
   live: z.boolean().optional(),
 });
