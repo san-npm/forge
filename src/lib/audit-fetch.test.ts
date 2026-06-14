@@ -215,4 +215,19 @@ describe('extractSignals', () => {
     expect(s.h1Count).toBe(2);
     expect(s.https).toBe(false);
   });
+
+  it('detects meta tags with attributes in reversed order (content before name)', () => {
+    const reversed = `<!doctype html><html><head>
+      <meta content="width=device-width, initial-scale=1" name="viewport">
+      <meta content="${'y'.repeat(120)}" name="description">
+      <meta content="Reversed OG" property="og:title">
+      </head><body><h1>x</h1></body></html>`;
+    const s = extractSignals('https://example.com/', reversed, {
+      robotsTxt: false, sitemap: false, llmsTxt: false,
+    });
+    expect(s.hasViewport).toBe(true);
+    expect(s.hasMetaDescription).toBe(true);
+    expect(s.metaDescriptionLength).toBe(120);
+    expect(s.hasOpenGraph).toBe(true);
+  });
 });
