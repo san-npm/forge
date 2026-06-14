@@ -1,0 +1,69 @@
+---
+title:
+  en: "Make your website readable by AI"
+slug: make-your-website-readable-by-ai
+date: "2026-06-02"
+excerpt:
+  en: "AI assistants and AI search read your site differently from a human. If your content only exists after JavaScript runs, the machines that now route buyers may never see it. Here is what to fix, and why it matters now."
+metaDescription:
+  en: "A practical guide to AEO and GEO: how AI assistants and AI search read websites, why server-rendered HTML, structured data and llms.txt matter, and what to do about it."
+keywords: ["AEO", "GEO", "answer engine optimization", "structured data", "llms.txt", "AI search"]
+author: "Clément Fermaud"
+---
+
+## A new kind of reader
+
+For twenty years we optimised for one reader: a search engine that crawled your
+HTML, ranked it, and sent a person to click. That reader is no longer alone.
+Now an AI assistant reads your site, summarises it, and answers the question
+*without* the click. People ask the assistant. The assistant reads you, or it
+does not.
+
+This is what people mean by AEO (answer engine optimization) and GEO (generative
+engine optimization). The goal is no longer only to rank. It is to be *legible*
+to a machine that will speak on your behalf.
+
+## How an AI reader is different
+
+A human is patient. A crawler is literal. An AI reader is somewhere in between,
+and it has three habits worth designing for.
+
+- **It often reads the raw HTML, not the rendered page.** Many AI crawlers do
+  not run your JavaScript. If your headline, your prices, or your product copy
+  only appear *after* a client-side fetch, the machine sees an empty shell.
+- **It trusts structure.** Clear headings, real lists, and explicit labels help
+  it understand what is a price, what is a step, what is an answer.
+- **It rewards directness.** Content that answers a question in the first
+  sentence travels further than content that buries the point.
+
+## What to actually do
+
+You do not need a rebuild. You need four things in place.
+
+**Server-render the content that matters.** Your core copy, your prices, your
+FAQs, and your headings should be present in the HTML that arrives before any
+script runs. View source. If the text is not there, neither is your business to
+an AI reader.
+
+**Add structured data.** A little JSON-LD that says *this is an Organisation,
+this is a Product, this is an FAQ* removes ambiguity. You are handing the machine
+a labelled map instead of asking it to guess.
+
+**Write a clear `llms.txt`.** It is a plain-text file at the root of your domain
+that tells AI tools, in your words, what your site is and where the important
+pages live. Think of it as a short briefing for the machine.
+
+**Answer the question first.** Lead each page with the answer, then explain. The
+inverted pyramid was always good writing. Now it is good engineering too.
+
+## Why now and not later
+
+Buyer behaviour is already shifting. People ask an assistant to compare options,
+shortlist suppliers, and explain a service before they ever land on a website.
+If the assistant cannot read you, you are absent from that conversation, and you
+will not see it in your analytics because there was no visit to record.
+
+The sites that win the next few years are not the loudest. They are the ones a
+machine can read, quote, and recommend without friction. We build this in by
+default, because it is the same discipline as building a fast, honest,
+well-structured site. The robots just made it non-negotiable.
