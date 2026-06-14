@@ -47,7 +47,7 @@ describe('HowWeWorkSection', () => {
 });
 
 describe('SelectedWorkSection', () => {
-  it('renders all 6 work cards as links to the live products + view-all', () => {
+  it('renders every work card (products + Aleph Cloud) as links to live URLs + view-all', () => {
     render(
       <SelectedWorkSection type="selectedWork" items={WORK} viewAllHref="/work" locale="en" />,
     );
@@ -56,6 +56,17 @@ describe('SelectedWorkSection', () => {
       expect(link).toHaveAttribute('href', w.link);
     }
     expect(screen.getByRole('link', { name: /all work/i })).toHaveAttribute('href', '/work');
+  });
+
+  it('frames the Aleph Cloud card as a marketing engagement (GROWTH · MARKETING tag)', () => {
+    render(
+      <SelectedWorkSection type="selectedWork" items={WORK} viewAllHref="/work" locale="en" />,
+    );
+    expect(screen.getByText(/growth · marketing/i)).toBeInTheDocument();
+    const link = screen.getByRole('link', { name: /aleph cloud/i });
+    expect(link).toHaveAttribute('href', 'https://aleph.cloud');
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'));
   });
 });
 

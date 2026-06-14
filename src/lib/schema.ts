@@ -44,11 +44,11 @@ export const WorkItemSchema = z.object({
   about: z.string(),
   did: z.array(z.string()),
   stack: z.array(z.string()),
-  tag: z.enum(['ai', 'web', 'web3']).optional(),
+  tag: z.enum(['ai', 'web', 'web3', 'marketing']).optional(),
 });
 export type WorkItem = z.infer<typeof WorkItemSchema>;
 
-export const WorkSchema = z.array(WorkItemSchema).length(6);
+export const WorkSchema = z.array(WorkItemSchema).length(7);
 
 export const AboutSchema = z.object({
   bioLead: z.string(),

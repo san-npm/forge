@@ -3,12 +3,13 @@
 import { useState, type ReactNode } from 'react';
 import type { WorkItem } from '@/lib/schema';
 
-type Tag = 'ai' | 'web' | 'web3';
+type Tag = 'ai' | 'web' | 'web3' | 'marketing';
 const TAGS: { key: Tag | 'all'; label: string }[] = [
   { key: 'all', label: 'All' },
   { key: 'ai', label: 'AI' },
   { key: 'web', label: 'Web' },
   { key: 'web3', label: 'Web3' },
+  { key: 'marketing', label: 'Growth' },
 ];
 
 export function WorkFilter({

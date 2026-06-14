@@ -40,13 +40,15 @@ export const HOME_SECTIONS: Section[] = [
   },
   {
     type: 'selectedWork',
-    items: WORK,                     // 6, order significant
+    items: WORK,                     // 6 products + the Aleph Cloud marketing card; order significant
     viewAllHref: '/work',
   },
   {
     type: 'deeperProof',
-    shippedCount: WORK.length,       // 6, defensible
-    metrics: PROOF_METRICS,          // live signals; never fabricated
+    // Honest shipped-PRODUCT count: marketing engagements (Aleph Cloud) are a
+    // credential, not a product, so they are excluded from this number.
+    shippedCount: WORK.filter((w) => w.tag !== 'marketing').length,
+    metrics: PROOF_METRICS,          // founder-operator proof; never fabricated
     testimonials: TESTIMONIALS,      // data-driven; empty until owner provides; empty-safe
   },
   {
