@@ -151,3 +151,51 @@ describe('LEGACY_REDIRECTS coverage', () => {
     for (const r of contentRules) expect(r.destination).not.toBe('/');
   });
 });
+
+const findRule = (source: string) => LEGACY_REDIRECTS.find((r) => r.source === source);
+
+describe('LEGACY_REDIRECTS locale-prefixed legacy URLs', () => {
+  it('redirects the moved legal pages (unprefixed) to /legal/*', () => {
+    expect(findRule('/privacy')?.destination).toBe('/legal/privacy');
+    expect(findRule('/terms')?.destination).toBe('/legal/terms');
+  });
+
+  it('emits /fr and /de variants of legacy sources with locale-prefixed destinations', () => {
+    // blog post -> /work, fr/de keep their prefix on the destination
+    expect(findRule('/fr/blog/fit-4-ai-guide-complet')?.destination).toBe('/fr/work');
+    expect(findRule('/de/agents/chatgpt')?.destination).toBe('/de/about');
+    // index that folds to home keeps the locale root for fr/de (not bare '/')
+    expect(findRule('/fr/aides')?.destination).toBe('/fr');
+    expect(findRule('/de/blog')?.destination).toBe('/de');
+    // moved legal pages get locale-prefixed destinations too
+    expect(findRule('/fr/privacy')?.destination).toBe('/fr/legal/privacy');
+    expect(findRule('/de/terms')?.destination).toBe('/de/legal/terms');
+  });
+
+  it('emits explicit /en variants that fold to the unprefixed destination', () => {
+    expect(findRule('/en/blog/fit-4-ai-guide-complet')?.destination).toBe('/work');
+    expect(findRule('/en/agents/chatgpt')?.destination).toBe('/about');
+    expect(findRule('/en/aides')?.destination).toBe('/');
+    expect(findRule('/en/privacy')?.destination).toBe('/legal/privacy');
+  });
+
+  it('carries wildcard :slug params through source and destination on every locale', () => {
+    expect(findRule('/blog/:slug')?.destination).toBe('/work');
+    expect(findRule('/fr/blog/:slug')?.destination).toBe('/fr/work');
+    expect(findRule('/de/blog/:slug')?.destination).toBe('/de/work');
+    expect(findRule('/en/blog/:slug')?.destination).toBe('/work');
+    expect(findRule('/agents/:slug')?.destination).toBe('/about');
+    expect(findRule('/fr/agents/:slug')?.destination).toBe('/fr/about');
+  });
+
+  it('keeps every locale-prefixed legacy source a permanent 301', () => {
+    const prefixed = LEGACY_REDIRECTS.filter((r) => /^\/(en|fr|de)\//.test(r.source));
+    expect(prefixed.length).toBeGreaterThan(0);
+    for (const r of prefixed) expect(r.permanent).toBe(true);
+  });
+
+  it('has no duplicate sources after locale expansion', () => {
+    const s = LEGACY_REDIRECTS.map((r) => r.source);
+    expect(new Set(s).size).toBe(s.length);
+  });
+});
