@@ -17,7 +17,7 @@ function assertNever(x: never): never {
 function renderSection(section: Section, locale: Locale, key: number) {
   switch (section.type) {
     case 'hero':
-      return <HeroSection key={key} {...section} />;
+      return <HeroSection key={key} {...section} locale={locale} />;
     case 'proofStrip':
       // Wrapped in Suspense: ProofStripSection is async (live fetch + Date.now)
       // and must not block the static shell of the page above it.
