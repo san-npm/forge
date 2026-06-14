@@ -279,3 +279,12 @@ export const NewsletterSchema = z.object({
     .regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
 });
 export type NewsletterPayload = z.infer<typeof NewsletterSchema>;
+
+export const TestimonialSchema = z.object({
+  quote: z.string().min(1),
+  name: z.string().min(1),
+  role: z.string().min(1),
+  company: z.string().min(1),
+  photo: z.string().optional(),
+});
+export const TestimonialsSchema = z.array(TestimonialSchema);
