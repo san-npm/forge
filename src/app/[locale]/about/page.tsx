@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
-import { ABOUT } from '@/data/about';
+import { getAbout } from '@/data/about';
+import { getStartProject } from '@/data/nav';
+import { getUiStrings } from '@/data/ui';
 import { Testimonials } from '@/components/Testimonials';
 import { TESTIMONIALS } from '@/data/testimonials';
 import { LOCALES, type Locale, localeUrl } from '@/lib/site-config';
 import { localeHref } from '@/lib/locale-href';
-import { breadcrumbJsonLd } from '@/lib/jsonld';
+import { breadcrumbJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 import { Reveal } from '@/components/ui/Reveal';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -22,9 +24,15 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const about = getAbout(locale);
+  const aboutTitles: Record<Locale, string> = {
+    en: 'About · Openletz',
+    fr: 'À propos · Openletz',
+    de: 'Über uns · Openletz',
+  };
   return {
-    title: 'About · Openletz',
-    description: ABOUT.bioLead,
+    title: aboutTitles[locale],
+    description: about.bioLead,
     alternates: { canonical: localeUrl(locale, '/about') },
   };
 }
@@ -39,8 +47,20 @@ function initialsOf(name: string): string {
     .join('');
 }
 
+/** Splits a sentence around an accent substring into [before, after] parts. */
+function splitAccent(text: string, accent: string): [string, string] {
+  const i = text.indexOf(accent);
+  if (i === -1) return [text, ''];
+  return [text.slice(0, i), text.slice(i + accent.length)];
+}
+
 /** Body extracted so it can be unit-tested without async params. */
 export function AboutBody({ locale = 'en' as Locale }: { locale?: Locale }) {
+  const ABOUT = getAbout(locale);
+  const t = getUiStrings(locale);
+  const a = t.about;
+  const [closingBefore, closingAfter] = splitAccent(a.closingTitle, a.closingTitleAccent);
+
   return (
     <main className="overflow-hidden">
       {/* ---- Hero ---- */}
@@ -50,7 +70,7 @@ export function AboutBody({ locale = 'en' as Locale }: { locale?: Locale }) {
             as="p"
             className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-text-dim"
           >
-            <span className="text-accent">/</span> About
+            <span className="text-accent">/</span> {a.heroKicker}
           </Reveal>
 
           <KineticHeadline
@@ -58,8 +78,9 @@ export function AboutBody({ locale = 'en' as Locale }: { locale?: Locale }) {
             className="font-display uppercase leading-[0.92] tracking-[-0.01em] text-text text-balance"
           >
             <span className="block" style={{ fontSize: 'clamp(2.5rem, 8vw, 6.5rem)' }}>
-              One studio. One person you{' '}
-              <span className="text-accent">talk</span> to.
+              {a.heroTitleA}
+              <span className="text-accent">{a.heroTitleAccent}</span>
+              {a.heroTitleB}
             </span>
           </KineticHeadline>
         </div>
@@ -81,7 +102,7 @@ export function AboutBody({ locale = 'en' as Locale }: { locale?: Locale }) {
                 {initialsOf(ABOUT.founderName)}
               </span>
               <span className="absolute bottom-5 left-5 font-mono text-[0.625rem] uppercase tracking-[0.16em] text-text-dim">
-                Commit Media · Luxembourg
+                {a.placeholderCaption}
               </span>
             </div>
           </Reveal>
@@ -105,7 +126,7 @@ export function AboutBody({ locale = 'en' as Locale }: { locale?: Locale }) {
       <section className="px-6 pb-16 md:pb-20">
         <div className="mx-auto max-w-5xl">
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-text-dim">
-            <span className="text-accent">/</span> European by default
+            <span className="text-accent">/</span> {a.euKicker}
           </p>
           <ScrollReveal
             as="ul"
@@ -144,11 +165,13 @@ export function AboutBody({ locale = 'en' as Locale }: { locale?: Locale }) {
               className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
             >
-              Work with me <span className="text-accent">directly</span>.
+              {closingBefore}
+              <span className="text-accent">{a.closingTitleAccent}</span>
+              {closingAfter}
             </h2>
             <div className="mt-8 flex justify-center">
               <Link href={localeHref('/contact', locale)} className="ol-btn" data-cta>
-                Start a project
+                {getStartProject(locale)}
               </Link>
             </div>
           </div>
@@ -167,7 +190,7 @@ export default async function AboutPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const crumbs = breadcrumbJsonLd(locale, [
-    { name: 'Home', url: localeUrl(locale) },
+    { name: homeBreadcrumbLabel(locale), url: localeUrl(locale) },
     { name: 'About', url: localeUrl(locale, '/about') },
   ]);
   return (

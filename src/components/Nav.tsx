@@ -2,11 +2,15 @@
 
 import Link from 'next/link';
 import type { Locale } from '@/lib/site-config';
-import { NAV, START_PROJECT } from '@/data/nav';
+import { getNav, getStartProject } from '@/data/nav';
+import { getUiStrings } from '@/data/ui';
 import { LanguageDropdown } from '@/components/LanguageDropdown';
 
 export function Nav({ locale }: { locale: Locale }) {
   const prefix = locale === 'en' ? '' : `/${locale}`;
+  const nav = getNav(locale);
+  const startProject = getStartProject(locale);
+  const ui = getUiStrings(locale);
   return (
     <nav
       data-nav
@@ -15,12 +19,12 @@ export function Nav({ locale }: { locale: Locale }) {
       <Link
         href={`${prefix}/`}
         className="font-display text-xl uppercase tracking-wide text-text"
-        aria-label="Openletz home"
+        aria-label={ui.nav.home}
       >
         Openletz
       </Link>
       <ul role="list" className="hidden items-center gap-7 md:flex">
-        {NAV.map((item) => (
+        {nav.map((item) => (
           <li key={item.href}>
             <Link
               href={`${prefix}${item.href}`}
@@ -34,7 +38,7 @@ export function Nav({ locale }: { locale: Locale }) {
       <div className="flex items-center gap-3">
         <LanguageDropdown locale={locale} />
         <Link href={`${prefix}/#enquiry`} className="ol-btn" data-cta>
-          {START_PROJECT}
+          {startProject}
         </Link>
       </div>
     </nav>

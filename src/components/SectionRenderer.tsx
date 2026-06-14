@@ -1,5 +1,6 @@
 import type { Section } from '@/lib/schema';
 import type { Locale } from '@/lib/site-config';
+import { getUiStrings, type UiStrings } from '@/data/ui';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ProofStripSection } from '@/components/sections/ProofStripSection';
 import { ServicesGridSection } from '@/components/sections/ServicesGridSection';
@@ -13,25 +14,25 @@ function assertNever(x: never): never {
   throw new Error(`Unhandled section: ${JSON.stringify(x)}`);
 }
 
-function renderSection(section: Section, locale: Locale, key: number) {
+function renderSection(section: Section, locale: Locale, ui: UiStrings, key: number) {
   switch (section.type) {
     case 'hero':
-      return <HeroSection key={key} {...section} locale={locale} />;
+      return <HeroSection key={key} {...section} locale={locale} ui={ui} />;
     case 'proofStrip':
       // Static now (no live fetch): render directly, no Suspense boundary.
       return <ProofStripSection key={key} {...section} />;
     case 'servicesGrid':
-      return <ServicesGridSection key={key} {...section} locale={locale} />;
+      return <ServicesGridSection key={key} {...section} locale={locale} ui={ui} />;
     case 'howWeWork':
-      return <HowWeWorkSection key={key} {...section} />;
+      return <HowWeWorkSection key={key} {...section} ui={ui} />;
     case 'selectedWork':
-      return <SelectedWorkSection key={key} {...section} locale={locale} />;
+      return <SelectedWorkSection key={key} {...section} locale={locale} ui={ui} />;
     case 'deeperProof':
       return <DeeperProofSection key={key} {...section} />;
     case 'trustBlock':
-      return <TrustBlockSection key={key} {...section} />;
+      return <TrustBlockSection key={key} {...section} ui={ui} />;
     case 'enquiryForm':
-      return <EnquiryFormSection key={key} {...section} locale={locale} />;
+      return <EnquiryFormSection key={key} {...section} locale={locale} ui={ui} />;
     default:
       return assertNever(section);
   }
@@ -44,5 +45,6 @@ export function SectionRenderer({
   sections: Section[];
   locale: Locale;
 }) {
-  return <>{sections.map((section, i) => renderSection(section, locale, i))}</>;
+  const ui = getUiStrings(locale);
+  return <>{sections.map((section, i) => renderSection(section, locale, ui, i))}</>;
 }

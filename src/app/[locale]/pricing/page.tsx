@@ -3,9 +3,10 @@ import Link from 'next/link';
 import { setRequestLocale } from 'next-intl/server';
 import { LOCALES, type Locale, localeUrl } from '@/lib/site-config';
 import { localeHref } from '@/lib/locale-href';
-import { PRICING } from '@/data/pricing';
-import { START_PROJECT } from '@/data/nav';
-import { offerCatalogJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/jsonld';
+import { getPricing } from '@/data/pricing';
+import { getStartProject } from '@/data/nav';
+import { getUiStrings } from '@/data/ui';
+import { offerCatalogJsonLd, breadcrumbJsonLd, faqJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 import { Reveal } from '@/components/ui/Reveal';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -15,23 +16,40 @@ export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: 'Pricing · Openletz',
-  description:
-    'No price anchors: every project gets a fixed quote up front, scoped to what you actually need.',
-  alternates: { canonical: localeUrl('en', '/pricing') },
+const META: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'Pricing · Openletz',
+    description: 'No price anchors: every project gets a fixed quote up front, scoped to what you actually need.',
+  },
+  fr: {
+    title: 'Tarifs · Openletz',
+    description: 'Pas de prix d’appel : chaque projet reçoit un devis fixe en amont, calibré sur vos besoins réels.',
+  },
+  de: {
+    title: 'Preise · Openletz',
+    description: 'Keine Preisanker: Jedes Projekt erhält vorab ein festes Angebot, zugeschnitten auf das, was Sie wirklich brauchen.',
+  },
 };
 
-const PRICING_FAQS = [
-  {
-    q: 'Why no public prices?',
-    a: 'Because honest scoping beats a number that fits nobody. You tell us what you want to build, we scope it, and every project gets a fixed quote up front.',
-  },
-  {
-    q: 'Can my project be co-funded?',
-    a: 'If you are based in Luxembourg, most projects qualify for 70% state co-funding through the SME Package, and we help with the paperwork.',
-  },
-];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: META[locale].title,
+    description: META[locale].description,
+    alternates: { canonical: localeUrl(locale, '/pricing') },
+  };
+}
+
+/** Splits a sentence around an accent substring into [before, after] parts. */
+function splitAccent(text: string, accent: string): [string, string] {
+  const i = text.indexOf(accent);
+  if (i === -1) return [text, ''];
+  return [text.slice(0, i), text.slice(i + accent.length)];
+}
 
 export default async function PricingPage({
   params,
@@ -41,8 +59,14 @@ export default async function PricingPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const PRICING = getPricing(locale);
+  const t = getUiStrings(locale);
+  const p = t.pricing;
+  const startProject = getStartProject(locale);
+  const [closingBefore, closingAfter] = splitAccent(p.closingTitle, p.closingTitleAccent);
+
   const crumbs = breadcrumbJsonLd(locale, [
-    { name: 'Home', url: localeUrl(locale) },
+    { name: homeBreadcrumbLabel(locale), url: localeUrl(locale) },
     { name: 'Pricing', url: localeUrl(locale, '/pricing') },
   ]);
 
@@ -54,7 +78,7 @@ export default async function PricingPage({
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd(PRICING_FAQS)) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd(p.faqs)) }}
       />
       <script
         type="application/ld+json"
@@ -68,7 +92,7 @@ export default async function PricingPage({
             as="p"
             className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-text-dim"
           >
-            <span className="text-accent">/</span> Pricing
+            <span className="text-accent">/</span> {p.heroKicker}
           </Reveal>
 
           <KineticHeadline
@@ -76,7 +100,9 @@ export default async function PricingPage({
             className="font-display uppercase leading-[0.92] tracking-[-0.01em] text-text text-balance"
           >
             <span className="block" style={{ fontSize: 'clamp(2.5rem, 8vw, 6.5rem)' }}>
-              A fixed <span className="text-accent">quote</span>, up front.
+              {p.heroTitleA}
+              <span className="text-accent">{p.heroTitleAccent}</span>
+              {p.heroTitleB}
             </span>
           </KineticHeadline>
 
@@ -86,9 +112,9 @@ export default async function PricingPage({
 
           {/* Honest SME funding line with the real value. */}
           <Reveal as="p" className="mt-6 max-w-2xl text-base text-text-dim">
-            Most projects qualify for 70% state co-funding.{' '}
+            {p.fundingLead}{' '}
             <Link href={localeHref('/sme-package', locale)} className="ol-link text-accent">
-              See the SME Package.
+              {p.seeSmePackage}
             </Link>
           </Reveal>
         </div>
@@ -114,7 +140,7 @@ export default async function PricingPage({
             >
               {tier.highlight && (
                 <span className="mb-4 w-fit rounded-full border border-accent px-3 py-1 font-mono text-[0.625rem] uppercase tracking-[0.16em] text-accent">
-                  Most popular
+                  {p.mostPopular}
                 </span>
               )}
               <h2
@@ -148,16 +174,17 @@ export default async function PricingPage({
       <section className="px-6 pb-20 md:pb-24">
         <div className="mx-auto max-w-4xl">
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.28em] text-text-dim">
-            <span className="text-accent">/</span> FAQ
+            <span className="text-accent">/</span> {t.common.faqKicker}
           </p>
           <h2
             className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
             style={{ fontSize: 'clamp(2.25rem, 6vw, 5rem)' }}
           >
-            Questions, <span className="text-accent">answered</span>
+            {t.common.questionsAnsweredPre}
+            <span className="text-accent">{t.common.questionsAnsweredAccent}</span>
           </h2>
           <dl className="mt-12 divide-y divide-hairline border-t border-hairline">
-            {PRICING_FAQS.map((f) => (
+            {p.faqs.map((f) => (
               <div key={f.q} className="py-7">
                 <dt className="text-lg font-semibold text-text md:text-xl">{f.q}</dt>
                 <dd className="mt-3 max-w-2xl text-text-dim">{f.a}</dd>
@@ -174,14 +201,14 @@ export default async function PricingPage({
             className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
             style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
           >
-            Tell us what you want to <span className="text-accent">build</span>.
+            {closingBefore}
+            <span className="text-accent">{p.closingTitleAccent}</span>
+            {closingAfter}
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-text-dim">
-            We scope it, quote it up front, and ship it.
-          </p>
+          <p className="mx-auto mt-5 max-w-xl text-text-dim">{p.closingLead}</p>
           <div className="mt-8 flex justify-center">
             <Link href={localeHref('/contact', locale)} className="ol-btn" data-cta>
-              {START_PROJECT}
+              {startProject}
             </Link>
           </div>
         </div>

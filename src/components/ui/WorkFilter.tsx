@@ -2,23 +2,28 @@
 
 import { useState, type ReactNode } from 'react';
 import type { WorkItem } from '@/lib/schema';
+import { getUiStrings, type UiStrings } from '@/data/ui';
 
 type Tag = 'ai' | 'web' | 'web3' | 'marketing';
-const TAGS: { key: Tag | 'all'; label: string }[] = [
-  { key: 'all', label: 'All' },
-  { key: 'ai', label: 'AI' },
-  { key: 'web', label: 'Web' },
-  { key: 'web3', label: 'Web3' },
-  { key: 'marketing', label: 'Growth' },
-];
 
 export function WorkFilter({
   items,
   children,
+  ui,
 }: {
   items: WorkItem[];
   children: (visible: WorkItem[]) => ReactNode;
+  ui?: UiStrings;
 }) {
+  const t = ui ?? getUiStrings('en');
+  const f = t.work.filters;
+  const tags: { key: Tag | 'all'; label: string }[] = [
+    { key: 'all', label: f.all },
+    { key: 'ai', label: f.ai },
+    { key: 'web', label: f.web },
+    { key: 'web3', label: f.web3 },
+    { key: 'marketing', label: f.growth },
+  ];
   const [active, setActive] = useState<Tag | 'all'>('all');
   const visible = active === 'all' ? items : items.filter((w) => w.tag === active);
 
@@ -26,10 +31,10 @@ export function WorkFilter({
     <div data-work-filter>
       <div
         role="tablist"
-        aria-label="Filter work by type"
+        aria-label={t.work.filterLabel}
         className="flex flex-wrap gap-2.5"
       >
-        {TAGS.map(({ key, label }) => (
+        {tags.map(({ key, label }) => (
           <button
             key={key}
             type="button"

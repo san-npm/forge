@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { setRequestLocale } from 'next-intl/server';
 import { LOCALES, type Locale, localeUrl } from '@/lib/site-config';
 import { localeHref } from '@/lib/locale-href';
-import { breadcrumbJsonLd, faqJsonLd } from '@/lib/jsonld';
+import { breadcrumbJsonLd, faqJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
 import { safeJsonLd } from '@/lib/safeJsonLd';
-import { SME_PACKAGE } from '@/data/sme-package';
+import { getSmePackage } from '@/data/sme-package';
+import { getUiStrings } from '@/data/ui';
+import { getStartProject } from '@/data/nav';
 import { Reveal } from '@/components/ui/Reveal';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { KineticHeadline } from '@/components/ui/KineticHeadline';
@@ -18,18 +20,44 @@ export function generateStaticParams() {
 /** Shared poster size for the page's section h2s (mirrors SectionHeading). */
 const SECTION_HEADLINE_FONT_SIZE = 'clamp(2.25rem, 6vw, 5rem)';
 
-export const metadata: Metadata = {
-  title: 'SME Package: 70% funding for your Luxembourg project | Openletz',
-  description:
-    'The Luxembourg SME Package reimburses 70% of an eligible digital or AI project, from EUR 3,000 to EUR 25,000. Estimate your grant, then we scope, build and help you claim it.',
-  alternates: { canonical: localeUrl('en', '/sme-package') },
+const META: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'SME Package: 70% funding for your Luxembourg project | Openletz',
+    description:
+      'The Luxembourg SME Package reimburses 70% of an eligible digital or AI project, from EUR 3,000 to EUR 25,000. Estimate your grant, then we scope, build and help you claim it.',
+  },
+  fr: {
+    title: 'SME Package : 70 % de financement pour votre projet luxembourgeois | Openletz',
+    description:
+      'Le SME Package luxembourgeois rembourse 70 % d’un projet digital ou IA éligible, de 3 000 EUR à 25 000 EUR. Estimez votre aide, puis nous cadrons, développons et vous aidons à la demander.',
+  },
+  de: {
+    title: 'SME Package: 70 % Förderung für Ihr Luxemburger Projekt | Openletz',
+    description:
+      'Das Luxemburger SME Package erstattet 70 % eines förderfähigen Digital- oder KI-Projekts, von 3.000 EUR bis 25.000 EUR. Schätzen Sie Ihre Förderung, dann planen, bauen und beantragen wir es mit Ihnen.',
+  },
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: META[locale].title,
+    description: META[locale].description,
+    alternates: { canonical: localeUrl(locale, '/sme-package') },
+  };
+}
 
 /** Body extracted so it can be rendered without async params / setRequestLocale. */
 export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale }) {
-  const data = SME_PACKAGE;
+  const data = getSmePackage(locale);
+  const t = getUiStrings(locale);
+  const ui = t.sme;
   const crumbs = breadcrumbJsonLd(locale, [
-    { name: 'Home', url: localeUrl(locale) },
+    { name: homeBreadcrumbLabel(locale), url: localeUrl(locale) },
     { name: 'SME Package', url: localeUrl(locale, '/sme-package') },
   ]);
 
@@ -68,7 +96,9 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
                 className="block"
                 style={{ fontSize: 'clamp(2.5rem, 7vw, 5.5rem)' }}
               >
-                Get <span className="text-accent">70%</span> of your project funded.
+                {ui.heroTitleA}
+                <span className="text-accent">{ui.heroTitleAccent}</span>
+                {ui.heroTitleB}
               </span>
             </KineticHeadline>
 
@@ -94,7 +124,9 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
             className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
             style={{ fontSize: SECTION_HEADLINE_FONT_SIZE }}
           >
-            State <span className="text-accent">aid</span> for Luxembourg SMEs
+            {ui.whatTitleA}
+            <span className="text-accent">{ui.whatTitleAccent}</span>
+            {ui.whatTitleB}
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {data.what.body.map((para) => (
@@ -110,13 +142,15 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
       <section data-section="sme-categories" className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-6xl">
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.28em] text-text-dim">
-            <span className="text-accent">/</span> What it can fund
+            <span className="text-accent">/</span> {ui.catKicker}
           </p>
           <h2
             className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
             style={{ fontSize: SECTION_HEADLINE_FONT_SIZE }}
           >
-            Where the <span className="text-accent">70%</span> applies
+            {ui.catTitleA}
+            <span className="text-accent">{ui.catTitleAccent}</span>
+            {ui.catTitleB}
           </h2>
 
           <ScrollReveal
@@ -150,13 +184,14 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
       <section data-section="sme-steps" className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-5xl">
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.28em] text-text-dim">
-            <span className="text-accent">/</span> How it works
+            <span className="text-accent">/</span> {ui.stepsKicker}
           </p>
           <h2
             className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
             style={{ fontSize: SECTION_HEADLINE_FONT_SIZE }}
           >
-            From idea to <span className="text-accent">reimbursement</span>
+            {ui.stepsTitleA}
+            <span className="text-accent">{ui.stepsTitleAccent}</span>
           </h2>
 
           <ScrollReveal
@@ -197,13 +232,14 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
       <section data-section="sme-bonus" className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-6xl">
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.28em] text-text-dim">
-            <span className="text-accent">/</span> What Openletz adds
+            <span className="text-accent">/</span> {ui.bonusKicker}
           </p>
           <h2
             className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
             style={{ fontSize: SECTION_HEADLINE_FONT_SIZE }}
           >
-            Not just the <span className="text-accent">build</span>
+            {ui.bonusTitleA}
+            <span className="text-accent">{ui.bonusTitleAccent}</span>
           </h2>
 
           <ScrollReveal
@@ -236,13 +272,13 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2">
           <div>
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.28em] text-text-dim">
-              <span className="text-accent">/</span> Who qualifies
+              <span className="text-accent">/</span> {ui.eligibilityKicker}
             </p>
             <h2
               className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
               style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
             >
-              Eligibility
+              {ui.eligibilityTitle}
             </h2>
             <ul role="list" className="mt-8 grid gap-4">
               {data.eligibility.points.map((p) => (
@@ -258,7 +294,7 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
 
           <div className="flex flex-col rounded-2xl border border-hairline bg-surface p-7 md:p-8">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-text-dim">
-              The honest part
+              {ui.honestPart}
             </p>
             <p className="mt-4 text-text-dim">{data.eligibility.caveat}</p>
             <a
@@ -267,7 +303,7 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
               rel="noopener noreferrer"
               className="ol-link mt-6 inline-flex items-center gap-1.5 font-mono text-sm uppercase tracking-[0.12em] text-accent"
             >
-              Read the official programme <span aria-hidden>↗</span>
+              {ui.readOfficial} <span aria-hidden>↗</span>
             </a>
           </div>
         </div>
@@ -277,13 +313,14 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
       <section data-section="sme-faq" className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-4xl">
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.28em] text-text-dim">
-            <span className="text-accent">/</span> FAQ
+            <span className="text-accent">/</span> {t.common.faqKicker}
           </p>
           <h2
             className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
             style={{ fontSize: SECTION_HEADLINE_FONT_SIZE }}
           >
-            Questions, <span className="text-accent">answered</span>
+            {t.common.questionsAnsweredPre}
+            <span className="text-accent">{t.common.questionsAnsweredAccent}</span>
           </h2>
 
           <dl className="mt-12 divide-y divide-hairline border-t border-hairline">
@@ -304,15 +341,13 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
             className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
             style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
           >
-            Let us scope a project that <span className="text-accent">qualifies</span>.
+            {ui.closingTitleA}
+            <span className="text-accent">{ui.closingTitleAccent}</span>.
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-text-dim">
-            Tell us what you want to build. We will scope it to fit the programme,
-            help with the application, and build it.
-          </p>
+          <p className="mx-auto mt-5 max-w-xl text-text-dim">{ui.closingLead}</p>
           <div className="mt-8 flex justify-center">
             <Link href={localeHref('/contact', locale)} className="ol-btn" data-cta>
-              Start a project
+              {getStartProject(locale)}
             </Link>
           </div>
         </div>

@@ -2,6 +2,8 @@
 'use client';
 
 import { useState } from 'react';
+import type { Locale } from '@/lib/site-config';
+import { getUiStrings } from '@/data/ui';
 
 interface Check {
   id: string;
@@ -19,7 +21,14 @@ interface AuditResponse {
   checks: Check[];
 }
 
-export function AuditForm({ enquiryHref }: { enquiryHref: string }) {
+export function AuditForm({
+  enquiryHref,
+  locale = 'en' as Locale,
+}: {
+  enquiryHref: string;
+  locale?: Locale;
+}) {
+  const t = getUiStrings(locale).audit;
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -38,12 +47,12 @@ export function AuditForm({ enquiryHref }: { enquiryHref: string }) {
       });
       const json = await res.json();
       if (!res.ok) {
-        setError(json.error ?? 'Something went wrong. Please try again.');
+        setError(json.error ?? t.genericError);
         return;
       }
       setResult(json as AuditResponse);
     } catch {
-      setError('Something went wrong. Please try again.');
+      setError(t.genericError);
     } finally {
       setLoading(false);
     }
@@ -53,7 +62,7 @@ export function AuditForm({ enquiryHref }: { enquiryHref: string }) {
     <div>
       <form onSubmit={onSubmit} className="flex flex-col gap-3 sm:flex-row">
         <label htmlFor="audit-url" className="sr-only">
-          Website URL
+          {t.urlLabel}
         </label>
         <input
           id="audit-url"
@@ -61,13 +70,13 @@ export function AuditForm({ enquiryHref }: { enquiryHref: string }) {
           type="text"
           inputMode="url"
           required
-          placeholder="yourdomain.com"
+          placeholder={t.placeholder}
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           className="ol-input flex-1"
         />
         <button type="submit" disabled={loading} className="ol-btn justify-center disabled:opacity-60">
-          {loading ? 'Checking...' : 'Run the audit'}
+          {loading ? t.checking : t.run}
         </button>
       </form>
 
@@ -81,7 +90,7 @@ export function AuditForm({ enquiryHref }: { enquiryHref: string }) {
         <div className="mt-12" data-testid="audit-result">
           <div className="flex flex-wrap items-end gap-6 border-b border-hairline pb-8">
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.16em] text-text-dim">Grade</p>
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-text-dim">{t.grade}</p>
               <p
                 className="mt-2 font-display uppercase leading-none text-accent"
                 style={{ fontSize: 'clamp(3.5rem, 10vw, 6rem)' }}
@@ -112,7 +121,7 @@ export function AuditForm({ enquiryHref }: { enquiryHref: string }) {
 
           <div className="mt-10">
             <a href={enquiryHref} className="ol-btn" data-cta>
-              Fix this with us <span aria-hidden>→</span>
+              {t.fixWithUs} <span aria-hidden>→</span>
             </a>
           </div>
         </div>

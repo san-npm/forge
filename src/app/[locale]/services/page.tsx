@@ -3,9 +3,10 @@ import Link from 'next/link';
 import { setRequestLocale } from 'next-intl/server';
 import { LOCALES, type Locale, localeUrl } from '@/lib/site-config';
 import { localeHref } from '@/lib/locale-href';
-import { SERVICES, type ServiceKey } from '@/data/services';
-import { START_PROJECT } from '@/data/nav';
-import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/jsonld';
+import { getServices, type ServiceKey } from '@/data/services';
+import { getStartProject } from '@/data/nav';
+import { getUiStrings } from '@/data/ui';
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 import { Reveal } from '@/components/ui/Reveal';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -15,31 +16,45 @@ export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: 'Services · Openletz',
-  description:
-    'One Luxembourg studio: AI agents & automation, digital & growth, and Web3 when it helps.',
-  alternates: { canonical: localeUrl('en', '/services') },
+const META: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'Services · Openletz',
+    description: 'One Luxembourg studio: AI agents & automation, digital & growth, and Web3 when it helps.',
+  },
+  fr: {
+    title: 'Services · Openletz',
+    description: 'Un seul studio luxembourgeois : agents IA & automatisation, digital & croissance, et du Web3 quand il aide.',
+  },
+  de: {
+    title: 'Leistungen · Openletz',
+    description: 'Ein Luxemburger Studio: KI-Agenten & Automatisierung, Digital & Wachstum und Web3, wo es hilft.',
+  },
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: META[locale].title,
+    description: META[locale].description,
+    alternates: { canonical: localeUrl(locale, '/services') },
+  };
+}
 
 // order significant: AI (front door) -> Growth -> Web3
 const ORDER: ServiceKey[] = ['ai', 'marketing', 'web3'];
 
-const SERVICES_FAQS = [
-  {
-    q: 'Do I have to use all three?',
-    a: 'No. AI is the usual front door; we add growth and Web3 only when they help.',
-  },
-  {
-    q: 'Where does my data live?',
-    a: 'In Europe. We choose tools with GDPR and the EU AI Act in mind and can deploy on EU or Aleph-hosted infrastructure.',
-  },
-];
-
 /** Body extracted so it can be unit-tested without async params / setRequestLocale. */
 export function ServicesBody({ locale = 'en' as Locale }: { locale?: Locale }) {
+  const SERVICES = getServices(locale);
+  const t = getUiStrings(locale);
+  const startProject = getStartProject(locale);
+  const servicesFaqs = t.services.faqs;
   const crumbs = breadcrumbJsonLd(locale, [
-    { name: 'Home', url: localeUrl(locale) },
+    { name: homeBreadcrumbLabel(locale), url: localeUrl(locale) },
     { name: 'Services', url: localeUrl(locale, '/services') },
   ]);
 
@@ -54,7 +69,7 @@ export function ServicesBody({ locale = 'en' as Locale }: { locale?: Locale }) {
       ))}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd(SERVICES_FAQS)) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd(servicesFaqs)) }}
       />
       <script
         type="application/ld+json"
@@ -68,7 +83,7 @@ export function ServicesBody({ locale = 'en' as Locale }: { locale?: Locale }) {
             as="p"
             className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-text-dim"
           >
-            <span className="text-accent">/</span> What we do
+            <span className="text-accent">/</span> {t.services.heroKicker}
           </Reveal>
 
           {/* LCP-style poster headline: real text at full opacity in SSR. */}
@@ -77,20 +92,21 @@ export function ServicesBody({ locale = 'en' as Locale }: { locale?: Locale }) {
             className="font-display uppercase leading-[0.92] tracking-[-0.01em] text-text text-balance"
           >
             <span className="block" style={{ fontSize: 'clamp(2.5rem, 8vw, 6.5rem)' }}>
-              One studio, three ways <span className="text-accent">in</span>.
+              {t.services.heroTitleA}
+              <span className="text-accent">{t.services.heroTitleAccent}</span>
+              {t.services.heroTitleB}
             </span>
           </KineticHeadline>
 
           <Reveal as="p" className="mt-7 max-w-2xl text-lg text-text-dim md:text-xl">
-            AI agents and automation are the front door. Websites and growth carry
-            it all. Web3 when it helps.
+            {t.services.heroLead}
           </Reveal>
 
           {/* Soft, honest SME Package funding line. */}
           <Reveal as="p" className="mt-6 max-w-2xl text-base text-text-dim">
-            Up to 70% of your project can be state funded.{' '}
+            {t.services.fundingLead}{' '}
             <Link href={localeHref('/sme-package', locale)} className="ol-link text-accent">
-              See the SME Package.
+              {t.services.seeSmePackage}
             </Link>
           </Reveal>
         </div>
@@ -167,7 +183,7 @@ export function ServicesBody({ locale = 'en' as Locale }: { locale?: Locale }) {
 
                 <div className="mt-8">
                   <Link href={localeHref('/contact', locale)} className="ol-btn" data-cta>
-                    {START_PROJECT}
+                    {startProject}
                   </Link>
                 </div>
               </section>
@@ -180,16 +196,17 @@ export function ServicesBody({ locale = 'en' as Locale }: { locale?: Locale }) {
       <section className="px-6 pb-20 md:pb-24">
         <div className="mx-auto max-w-4xl">
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.28em] text-text-dim">
-            <span className="text-accent">/</span> FAQ
+            <span className="text-accent">/</span> {t.common.faqKicker}
           </p>
           <h2
             className="font-display uppercase leading-[0.95] tracking-[-0.01em] text-text text-balance"
             style={{ fontSize: 'clamp(2.25rem, 6vw, 5rem)' }}
           >
-            Questions, <span className="text-accent">answered</span>
+            {t.common.questionsAnsweredPre}
+            <span className="text-accent">{t.common.questionsAnsweredAccent}</span>
           </h2>
           <dl className="mt-12 divide-y divide-hairline border-t border-hairline">
-            {SERVICES_FAQS.map((f) => (
+            {servicesFaqs.map((f) => (
               <div key={f.q} className="py-7">
                 <dt className="text-lg font-semibold text-text md:text-xl">{f.q}</dt>
                 <dd className="mt-3 max-w-2xl text-text-dim">{f.a}</dd>

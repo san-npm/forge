@@ -4,7 +4,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { LOCALES, type Locale, localeUrl } from '@/lib/site-config';
 import { localeHref } from '@/lib/locale-href';
 import { getAllPosts, type BlogPost } from '@/lib/blog';
-import { breadcrumbJsonLd } from '@/lib/jsonld';
+import { getUiStrings } from '@/data/ui';
+import { breadcrumbJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 import { Reveal } from '@/components/ui/Reveal';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -14,12 +15,19 @@ export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: 'Insights · Openletz',
-  description:
-    'Notes from a Luxembourg AI studio: AI automation, AEO and GEO, the EU AI Act, state funding, and shipping real products.',
-  alternates: { canonical: localeUrl('en', '/insights') },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const i = getUiStrings(locale).insights;
+  return {
+    title: i.metaTitle,
+    description: i.metaDescription,
+    alternates: { canonical: localeUrl(locale, '/insights') },
+  };
+}
 
 /** Two-digit lime index, e.g. 01, 02 (purely typographic, decorative). */
 function indexLabel(i: number): string {
@@ -34,9 +42,11 @@ export default async function InsightsPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = getUiStrings(locale);
+  const ins = t.insights;
   const posts = getAllPosts();
   const crumbs = breadcrumbJsonLd(locale, [
-    { name: 'Home', url: localeUrl(locale) },
+    { name: homeBreadcrumbLabel(locale), url: localeUrl(locale) },
     { name: 'Insights', url: localeUrl(locale, '/insights') },
   ]);
 
@@ -60,7 +70,7 @@ export default async function InsightsPage({
             as="p"
             className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-text-dim"
           >
-            <span className="text-accent">/</span> Insights / Notes from a Luxembourg AI studio
+            <span className="text-accent">/</span> {ins.kicker}
           </Reveal>
 
           <KineticHeadline
@@ -68,19 +78,20 @@ export default async function InsightsPage({
             className="font-display uppercase leading-[0.92] tracking-[-0.01em] text-text text-balance"
           >
             <span className="block" style={{ fontSize: 'clamp(2.5rem, 8vw, 6rem)' }}>
-              Field <span className="text-accent">notes</span>
+              {ins.titleA}
+              <span className="text-accent">{ins.titleAccent}</span>
             </span>
           </KineticHeadline>
 
           <Reveal as="p" className="mt-7 max-w-2xl text-lg text-text-dim md:text-xl">
-            What we are building, what we are learning, and how to make it pay.
+            {ins.lead}
           </Reveal>
         </div>
       </section>
 
       {posts.length === 0 ? (
         <section className="px-6 pb-28">
-          <p className="mx-auto max-w-6xl text-text-dim">New posts are on the way.</p>
+          <p className="mx-auto max-w-6xl text-text-dim">{ins.noPosts}</p>
         </section>
       ) : (
         <>
@@ -97,7 +108,7 @@ export default async function InsightsPage({
                 >
                   <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.2em] text-text-dim">
                     <span className="rounded-full border border-accent px-3 py-1 text-accent">
-                      Latest
+                      {ins.latest}
                     </span>
                     <span>{featured.date}</span>
                   </div>
@@ -111,7 +122,7 @@ export default async function InsightsPage({
                     {excerptOf(featured)}
                   </p>
                   <span className="mt-8 inline-flex items-center gap-1.5 font-mono text-sm uppercase tracking-[0.12em] text-accent transition-transform duration-base ease-out group-hover:translate-x-0.5">
-                    Read <span aria-hidden>{'->'}</span>
+                    {t.common.read} <span aria-hidden>{'->'}</span>
                   </span>
                 </Link>
               </Reveal>
@@ -157,7 +168,7 @@ export default async function InsightsPage({
                         </h3>
                         <p className="mt-4 flex-1 text-text-dim">{excerptOf(post)}</p>
                         <span className="mt-6 inline-flex items-center gap-1.5 font-mono text-sm uppercase tracking-[0.12em] text-accent transition-transform duration-base ease-out group-hover:translate-x-0.5">
-                          Read <span aria-hidden>{'->'}</span>
+                          {t.common.read} <span aria-hidden>{'->'}</span>
                         </span>
                       </Link>
                     </li>

@@ -1,18 +1,60 @@
 import { AboutSchema, type About } from '@/lib/schema';
+import type { Locale } from '@/lib/site-config';
 
 export type { About };
 
-// Ported verbatim from src/components/os/osData.ts (ABOUT).
-export const ABOUT: About = AboutSchema.parse({
-  bioLead:
-    'Openletz is the studio name of Commit Media, a small Luxembourg shop. I design, build and market AI and web products, usually end to end, with a trusted crew when a project needs more hands.',
-  founderName: 'Clément Fermaud',
-  founderRole:
-    'Founder. I run marketing for Aleph Cloud, and I build my own products (LiberClaw, Gategram, Ophis and Skills.ws) alongside client work like Vins Fins and La Grocerie.',
-  facts: [
-    'Based in Luxembourg, in the EU',
-    'You work with me directly: no account managers, no offshore handoff',
-    'AI tools chosen with GDPR and the EU AI Act in mind; hosting in Europe',
-  ],
-  entity: 'Commit Media S.à r.l. · RCS B276192 · Luxembourg',
-});
+const ABOUT_I18N: Record<Locale, About> = {
+  en: {
+    bioLead:
+      'Openletz is the studio name of Commit Media, a small Luxembourg shop. I design, build and market AI and web products, usually end to end, with a trusted crew when a project needs more hands.',
+    founderName: 'Clément Fermaud',
+    founderRole:
+      'Founder. I run marketing for Aleph Cloud, and I build my own products (LiberClaw, Gategram, Ophis and Skills.ws) alongside client work like Vins Fins and La Grocerie.',
+    facts: [
+      'Based in Luxembourg, in the EU',
+      'You work with me directly: no account managers, no offshore handoff',
+      'AI tools chosen with GDPR and the EU AI Act in mind; hosting in Europe',
+    ],
+    entity: 'Commit Media S.à r.l. · RCS B276192 · Luxembourg',
+  },
+  fr: {
+    bioLead:
+      "Openletz est le nom de studio de Commit Media, une petite structure luxembourgeoise. Je conçois, développe et commercialise des produits IA et web, le plus souvent de bout en bout, avec une équipe de confiance quand un projet demande plus de bras.",
+    founderName: 'Clément Fermaud',
+    founderRole:
+      'Fondateur. Je dirige le marketing d’Aleph Cloud et je développe mes propres produits (LiberClaw, Gategram, Ophis et Skills.ws) en parallèle de missions clients comme Vins Fins et La Grocerie.',
+    facts: [
+      'Basé au Luxembourg, dans l’UE',
+      'Vous travaillez directement avec moi : pas de chargés de compte, pas de sous-traitance offshore',
+      'Outils IA choisis en pensant au RGPD et au règlement européen sur l’IA ; hébergement en Europe',
+    ],
+    entity: 'Commit Media S.à r.l. · RCS B276192 · Luxembourg',
+  },
+  de: {
+    bioLead:
+      'Openletz ist der Studioname von Commit Media, einem kleinen Luxemburger Betrieb. Ich gestalte, entwickle und vermarkte KI- und Web-Produkte, meist von A bis Z, mit einem eingespielten Team, wenn ein Projekt mehr Hände braucht.',
+    founderName: 'Clément Fermaud',
+    founderRole:
+      'Gründer. Ich verantworte das Marketing für Aleph Cloud und entwickle meine eigenen Produkte (LiberClaw, Gategram, Ophis und Skills.ws) neben Kundenprojekten wie Vins Fins und La Grocerie.',
+    facts: [
+      'Ansässig in Luxemburg, in der EU',
+      'Sie arbeiten direkt mit mir: keine Account-Manager, keine Auslagerung ins Ausland',
+      'KI-Werkzeuge mit Blick auf DSGVO und EU-KI-Verordnung gewählt; Hosting in Europa',
+    ],
+    entity: 'Commit Media S.à r.l. · RCS B276192 · Luxembourg',
+  },
+};
+
+const PARSED_ABOUT: Record<Locale, About> = {
+  en: AboutSchema.parse(ABOUT_I18N.en),
+  fr: AboutSchema.parse(ABOUT_I18N.fr),
+  de: AboutSchema.parse(ABOUT_I18N.de),
+};
+
+/** Active-locale about content. */
+export function getAbout(locale: Locale): About {
+  return PARSED_ABOUT[locale];
+}
+
+// EN constant kept for the data tests and the EN homepage spine.
+export const ABOUT: About = PARSED_ABOUT.en;

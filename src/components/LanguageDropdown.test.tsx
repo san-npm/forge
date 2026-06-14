@@ -56,7 +56,8 @@ describe('LanguageDropdown', () => {
   it('marks the active locale as current', async () => {
     const user = userEvent.setup();
     render(<LanguageDropdown locale="fr" />);
-    await user.click(screen.getByRole('button', { name: /change language/i }));
+    // The trigger's accessible name is localized (fr: "Changer de langue").
+    await user.click(screen.getByRole('button', { name: /changer de langue/i }));
     const active = screen.getByRole('menuitem', { name: /français/i });
     expect(active).toHaveAttribute('aria-current', 'true');
   });

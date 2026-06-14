@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent, type ReactNode } from 'react';
 import { ContactPayloadSchema, type ContactPayload } from '@/lib/schema';
+import { getUiStrings, type UiStrings } from '@/data/ui';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 
 const COMPANY_SIZES: NonNullable<ContactPayload['companySize']>[] = [
@@ -13,7 +14,8 @@ const BUDGETS: NonNullable<ContactPayload['budget']>[] = [
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-export function EnquiryForm({ pillars }: { pillars: string[] }) {
+export function EnquiryForm({ pillars, ui }: { pillars: string[]; ui?: UiStrings }) {
+  const t = ui ?? getUiStrings('en');
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string>('');
 
@@ -36,7 +38,7 @@ export function EnquiryForm({ pillars }: { pillars: string[] }) {
     const parsed = ContactPayloadSchema.safeParse(candidate);
     if (!parsed.success) {
       setStatus('error');
-      setError('Please enter your name and a valid email.');
+      setError(t.enquiryForm.invalid);
       return;
     }
 
@@ -52,54 +54,54 @@ export function EnquiryForm({ pillars }: { pillars: string[] }) {
       }
       const data = (await res.json().catch(() => ({}))) as { error?: string };
       setStatus('error');
-      setError(data.error ?? 'Something went wrong. Please try again.');
+      setError(data.error ?? t.enquiryForm.generalError);
     } catch {
       setStatus('error');
-      setError('Network error. Please try again.');
+      setError(t.enquiryForm.networkError);
     }
   }
 
   if (status === 'success') {
     return (
       <p data-enquiry-success className="text-text">
-        Thanks, we've got it. We reply within one business day.
+        {t.enquiryForm.success}
       </p>
     );
   }
 
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-4" data-enquiry-form>
-      <Field label="Name" id="name">
+      <Field label={t.enquiryForm.name} id="name">
         <input id="name" name="name" required maxLength={500} className="ol-input" />
       </Field>
-      <Field label="Email" id="email">
+      <Field label={t.enquiryForm.email} id="email">
         <input id="email" name="email" type="email" required maxLength={500} className="ol-input" />
       </Field>
-      <Field label="Company size" id="companySize">
+      <Field label={t.enquiryForm.companySize} id="companySize">
         <select id="companySize" name="companySize" className="ol-input" defaultValue="">
-          <option value="" disabled>Choose&hellip;</option>
+          <option value="" disabled>{t.enquiryForm.choose}</option>
           {COMPANY_SIZES.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
       </Field>
-      <Field label="What can we help with (pillar)" id="pillar">
+      <Field label={t.enquiryForm.pillar} id="pillar">
         <select id="pillar" name="pillar" className="ol-input" defaultValue="">
-          <option value="" disabled>Choose&hellip;</option>
+          <option value="" disabled>{t.enquiryForm.choose}</option>
           {pillars.map((p) => (
-            <option key={p} value={p}>{p}</option>
+            <option key={p} value={p}>{t.pillarLabels[p] ?? p}</option>
           ))}
         </select>
       </Field>
-      <Field label="Budget" id="budget">
+      <Field label={t.enquiryForm.budget} id="budget">
         <select id="budget" name="budget" className="ol-input" defaultValue="">
-          <option value="" disabled>Choose&hellip;</option>
+          <option value="" disabled>{t.enquiryForm.choose}</option>
           {BUDGETS.map((b) => (
             <option key={b} value={b}>{b}</option>
           ))}
         </select>
       </Field>
-      <Field label="Tell us what you want to build (message)" id="message">
+      <Field label={t.enquiryForm.message} id="message">
         <textarea id="message" name="message" rows={4} maxLength={2000} className="ol-input" />
       </Field>
 
@@ -108,7 +110,7 @@ export function EnquiryForm({ pillars }: { pillars: string[] }) {
       )}
 
       <MagneticButton type="submit" disabled={status === 'submitting'} className="ol-btn mt-2 w-fit disabled:opacity-60">
-        {status === 'submitting' ? 'Sending…' : 'Start a project'}
+        {status === 'submitting' ? t.enquiryForm.sending : t.enquiryForm.submit}
       </MagneticButton>
     </form>
   );

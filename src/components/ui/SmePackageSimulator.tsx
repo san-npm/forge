@@ -4,6 +4,8 @@ import { useId, useState } from 'react';
 import Link from 'next/link';
 import type { Locale } from '@/lib/site-config';
 import { localeHref } from '@/lib/locale-href';
+import { getUiStrings } from '@/data/ui';
+import { getStartProject } from '@/data/nav';
 import {
   computeSmePackage,
   SME_MIN,
@@ -14,7 +16,9 @@ import {
 const STEP = 500;
 const DEFAULT_BUDGET = 10000;
 
-/** EUR with no decimals, e.g. 10000 -> "EUR 10,000". */
+/** EUR with no decimals, e.g. 10000 -> "EUR 10,000". The "EUR " code prefix
+ * reads cleaner than the symbol on this ink/lime canvas and stays language
+ * neutral; grouping uses en-US thousands separators for a consistent layout. */
 const eur = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'EUR',
@@ -22,7 +26,6 @@ const eur = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 0,
 });
 function formatEur(n: number): string {
-  // "EUR 10,000" reads cleaner than the symbol on this ink/lime canvas.
   return eur.format(n).replace('EUR', 'EUR ').replace('  ', ' ');
 }
 
@@ -42,6 +45,7 @@ interface SmePackageSimulatorProps {
  * the animation (the global token kill-switch flattens the transition).
  */
 export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulatorProps) {
+  const t = getUiStrings(locale).sme.simulator;
   const [budget, setBudget] = useState(DEFAULT_BUDGET);
   const sliderId = useId();
   const inputId = useId();
@@ -72,7 +76,7 @@ export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulator
             htmlFor={sliderId}
             className="font-mono text-xs uppercase tracking-[0.2em] text-text-dim"
           >
-            Project budget
+            {t.projectBudget}
           </label>
           <div className="flex items-center gap-1.5">
             <span className="font-mono text-sm text-text-dim">EUR</span>
@@ -85,7 +89,7 @@ export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulator
               step={STEP}
               value={budget}
               onChange={(e) => commitInput(e.target.value)}
-              aria-label="Project budget in euros"
+              aria-label={t.budgetAria}
               className="ol-input w-28 px-3 py-2 text-right font-mono text-base"
             />
           </div>
@@ -99,7 +103,7 @@ export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulator
           step={STEP}
           value={sliderValue}
           onChange={(e) => setBudget(Number(e.target.value))}
-          aria-label="Project budget slider"
+          aria-label={t.sliderAria}
           className="ol-range mt-2 w-full"
         />
         <div className="flex justify-between font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-text-dim">
@@ -116,7 +120,7 @@ export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulator
       >
         <div>
           <dt className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
-            Project budget
+            {t.projectBudget}
           </dt>
           <dd
             className="mt-1 font-display uppercase leading-[0.95] tracking-[-0.01em] text-text"
@@ -127,7 +131,7 @@ export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulator
         </div>
         <div>
           <dt className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
-            State grant ({grantPct}%)
+            {t.stateGrant} ({grantPct}%)
           </dt>
           <dd
             className="mt-1 font-display uppercase leading-[0.95] tracking-[-0.01em] text-accent"
@@ -138,7 +142,7 @@ export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulator
         </div>
         <div>
           <dt className="font-mono text-xs uppercase tracking-[0.18em] text-text-dim">
-            Your net cost
+            {t.yourNetCost}
           </dt>
           <dd
             className="mt-1 font-display uppercase leading-[0.95] tracking-[-0.01em] text-accent"
@@ -153,7 +157,9 @@ export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulator
       <div
         className="mt-7 flex h-3 w-full overflow-hidden rounded-full border border-hairline"
         role="img"
-        aria-label={`${grantPct} percent state grant, ${netPct} percent your net cost`}
+        aria-label={t.splitAriaTemplate
+          .replace('{grant}', String(grantPct))
+          .replace('{net}', String(netPct))}
       >
         <span
           className="block bg-accent transition-[width] duration-base ease-out"
@@ -165,38 +171,34 @@ export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulator
         />
       </div>
       <div className="mt-2 flex justify-between font-mono text-[0.6875rem] uppercase tracking-[0.14em]">
-        <span className="text-accent">Grant {grantPct}%</span>
-        <span className="text-text-dim">You {netPct}%</span>
+        <span className="text-accent">{t.grantLabel} {grantPct}%</span>
+        <span className="text-text-dim">{t.youLabel} {netPct}%</span>
       </div>
 
       {/* Clamp note, only when outside the band. */}
       {clamped && (
         <p className="mt-5 rounded-lg border border-hairline bg-surface-2 px-4 py-3 text-sm text-text-dim">
-          {budget > SME_MAX
-            ? 'Eligible costs are capped at EUR 25,000. Above that, only EUR 25,000 counts toward the grant.'
-            : 'The minimum eligible project is EUR 3,000.'}
+          {budget > SME_MAX ? t.capNote : t.minNote}
         </p>
       )}
 
       {/* Honest caveat, always visible. */}
       <p className="mt-5 text-sm text-text-dim">
-        Indicative estimate. Actual aid depends on your eligibility and Ministry
-        of the Economy approval. The SME Package reimburses 70% after the project
-        is delivered.{' '}
+        {t.caveat}{' '}
         <a
           href={officialUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="ol-link text-text"
         >
-          Official programme details
+          {t.officialDetails}
         </a>
         .
       </p>
 
       <div className="mt-7">
         <Link href={localeHref('/contact', locale)} className="ol-btn" data-cta>
-          Start a project
+          {getStartProject(locale)}
         </Link>
       </div>
     </div>

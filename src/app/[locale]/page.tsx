@@ -1,6 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { SectionRenderer } from '@/components/SectionRenderer';
-import { HOME_SECTIONS } from '@/data/pages/home';
+import { getHomeSections } from '@/data/pages/home';
 import { LOCALES, type Locale } from '@/lib/site-config';
 
 export function generateStaticParams() {
@@ -16,7 +16,7 @@ export default async function HomePage({
   setRequestLocale(locale);
   return (
     <main>
-      <SectionRenderer sections={HOME_SECTIONS} locale={locale} />
+      <SectionRenderer sections={getHomeSections(locale)} locale={locale} />
     </main>
   );
 }
