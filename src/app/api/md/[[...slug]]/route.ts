@@ -1,8 +1,12 @@
 import { NextResponse } from 'next/server';
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
-import { SITE_URL } from '@/lib/site-config';
+import { SITE_URL, LOCALES, type Locale } from '@/lib/site-config';
 import fs from 'fs';
 import path from 'path';
+
+function asLocale(lang: string): Locale | undefined {
+  return (LOCALES as readonly string[]).includes(lang) ? (lang as Locale) : undefined;
+}
 
 // Markdown-for-Agents endpoint.
 // The middleware rewrites GETs carrying `Accept: text/markdown` on any locale
@@ -32,10 +36,11 @@ function renderMarkdown(pathname: string): string {
   const blogPost = pathname.match(/^\/([a-z]{2})\/blog\/([^/]+)$/);
   if (blogPost) {
     const [, lang, slug] = blogPost;
+    const loc = asLocale(lang);
     const post = getPostBySlug(slug);
     if (post) {
-      const title = post.title?.[lang] ?? post.title?.fr ?? slug;
-      const excerpt = post.excerpt?.[lang] ?? post.excerpt?.fr ?? '';
+      const title = (loc && post.title?.[loc]) ?? post.title?.fr ?? slug;
+      const excerpt = (loc && post.excerpt?.[loc]) ?? post.excerpt?.fr ?? '';
       return `# ${title}\n\n_${post.date}_\n\n> ${excerpt}\n\n${post.content.trim()}\n`;
     }
   }
@@ -43,10 +48,11 @@ function renderMarkdown(pathname: string): string {
   const blogIndex = pathname.match(/^\/([a-z]{2})\/blog$/);
   if (blogIndex) {
     const [, lang] = blogIndex;
+    const loc = asLocale(lang);
     const posts = getAllPosts();
     const lines = posts.map((p) => {
-      const title = p.title?.[lang] ?? p.title?.fr ?? p.slug;
-      const excerpt = p.excerpt?.[lang] ?? p.excerpt?.fr ?? '';
+      const title = (loc && p.title?.[loc]) ?? p.title?.fr ?? p.slug;
+      const excerpt = (loc && p.excerpt?.[loc]) ?? p.excerpt?.fr ?? '';
       return `- [${title}](${SITE_URL}/${lang}/blog/${p.slug}) — ${p.date}\n  ${excerpt}`;
     });
     return `# OpenLetz Blog\n\n${lines.join('\n\n')}\n`;
