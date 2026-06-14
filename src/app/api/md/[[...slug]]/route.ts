@@ -61,7 +61,7 @@ function renderMarkdown(pathname: string): string {
     const lines = posts.map((p) => {
       const title = (loc && p.title?.[loc]) ?? p.title?.fr ?? p.slug;
       const excerpt = (loc && p.excerpt?.[loc]) ?? p.excerpt?.fr ?? '';
-      return `- [${title}](${SITE_URL}/${lang}/insights/${p.slug}) — ${p.date}\n  ${excerpt}`;
+      return `- [${title}](${SITE_URL}/${lang}/insights/${p.slug}) · ${p.date}\n  ${excerpt}`;
     });
     return `# OpenLetz Blog\n\n${lines.join('\n\n')}\n`;
   }

@@ -15,7 +15,7 @@ export function Nav({ locale }: { locale: Locale }) {
       <Link
         href={`${prefix}/`}
         className="font-display text-xl uppercase tracking-wide text-text"
-        aria-label="Openletz — home"
+        aria-label="Openletz home"
       >
         Openletz
       </Link>

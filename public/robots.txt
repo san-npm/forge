@@ -1,4 +1,4 @@
-# OpenLetz — https://openletz.ai
+# OpenLetz · https://openletz.ai
 # Content Signals (https://contentsignals.org/) express AI usage preferences
 # alongside the standard crawl rules below.
 

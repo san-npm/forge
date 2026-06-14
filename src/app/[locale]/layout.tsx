@@ -48,15 +48,15 @@ export async function generateMetadata({
   const loc = (hasLocale(LOCALES, locale) ? locale : DEFAULT_LOCALE) as Locale;
 
   const titles: Record<Locale, string> = {
-    en: 'Openletz — A Luxembourg AI agency',
-    fr: 'Openletz — Une agence IA au Luxembourg',
-    de: 'Openletz — Eine KI-Agentur in Luxemburg',
+    en: 'Openletz · A Luxembourg AI agency',
+    fr: 'Openletz · Une agence IA au Luxembourg',
+    de: 'Openletz · Eine KI-Agentur in Luxemburg',
   };
 
   const descriptions: Record<Locale, string> = {
-    en: 'Openletz is a Luxembourg AI agency. We build AI agents, chatbots and automation, the websites and shops around them, and Web3 when it helps — hosted in Europe.',
-    fr: "Openletz est une agence IA au Luxembourg. Nous concevons des agents IA, chatbots et automatisations, les sites et boutiques autour, et du Web3 quand c'est utile — hebergés en Europe.",
-    de: 'Openletz ist eine KI-Agentur in Luxemburg. Wir bauen KI-Agenten, Chatbots und Automatisierung, die Websites und Shops dazu und Web3, wenn es hilft — gehostet in Europa.',
+    en: 'Openletz is a Luxembourg AI agency. We build AI agents, chatbots and automation, the websites and shops around them, and Web3 when it helps, hosted in Europe.',
+    fr: "Openletz est une agence IA au Luxembourg. Nous concevons des agents IA, chatbots et automatisations, les sites et boutiques autour, et du Web3 quand c'est utile, hebergés en Europe.",
+    de: 'Openletz ist eine KI-Agentur in Luxemburg. Wir bauen KI-Agenten, Chatbots und Automatisierung, die Websites und Shops dazu und Web3, wenn es hilft, gehostet in Europa.',
   };
 
   const canonicalUrl = localeUrl(loc);
@@ -89,7 +89,7 @@ export async function generateMetadata({
       'GDPR',
     ],
     authors: [{ name: 'Openletz', url: SITE_URL }],
-    creator: 'Openletz — Commit Media S.à r.l.',
+    creator: 'Openletz · Commit Media S.à r.l.',
     publisher: 'Openletz',
     formatDetection: { telephone: true, email: true },
     alternates: {
@@ -109,7 +109,7 @@ export async function generateMetadata({
           url: `${SITE_URL}/og-image.png`,
           width: 1200,
           height: 630,
-          alt: 'Openletz — A Luxembourg AI agency',
+          alt: 'Openletz · A Luxembourg AI agency',
         },
       ],
     },

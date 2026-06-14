@@ -1,4 +1,4 @@
-# Openletz — Luxembourg AI agency
+# Openletz · Luxembourg AI agency
 
 > Openletz is a Luxembourg AI agency. We build AI agents, chatbots and automations for businesses, plus the websites and shops around them. When a project needs blockchain, we build that too. Everything is hosted in Europe. Tagline: "Websites that think, move and transact."
 
@@ -20,7 +20,7 @@ Openletz is the studio name of Commit Media S.à r.l., registered in Luxembourg 
 
 ### AI agents & automation (our core)
 
-We build AI agents, chatbots and automations for everyday business use — assistants that answer from your own documents, copilots inside existing workflows, and automation that removes repetitive operational work. We start with a short audit to find the one or two things worth automating first, build a working prototype, then ship it to production. Multilingual (English, French, German). Builds are designed to be EU AI Act-compliant.
+We build AI agents, chatbots and automations for everyday business use: assistants that answer from your own documents, copilots inside existing workflows, and automation that removes repetitive operational work. We start with a short audit to find the one or two things worth automating first, build a working prototype, then ship it to production. Multilingual (English, French, German). Builds are designed to be EU AI Act-compliant.
 
 ### Digital & growth
 
@@ -28,20 +28,20 @@ Fast, modern websites and e-commerce on Next.js, then made discoverable: SEO plu
 
 ### Web3 & on-chain (when it helps)
 
-Not the headline — a tool we reach for when a product is genuinely better with payments, ownership or token-gating built in. We build smart contracts and on-chain apps and host them in Europe. Scoped per project.
+Not the headline, but a tool we reach for when a product is genuinely better with payments, ownership or token-gating built in. We build smart contracts and on-chain apps and host them in Europe. Scoped per project.
 
 ## Pricing
 
-Every project gets a fixed quote up front; rates are on request. Based in Luxembourg, a project may be co-funded through the SME Package, which can meaningfully reduce the net cost — we help with the paperwork.
+Every project gets a fixed quote up front; rates are on request. Based in Luxembourg, a project may be co-funded through the SME Package, which can meaningfully reduce the net cost, and we help with the paperwork.
 
 ## Shipped work
 
-- Vins Fins (https://www.vinsfins.lu) — multilingual wine shop & restaurant e-commerce, built on Next.js with Stripe, Luxembourg VAT, shipping and bookings.
-- La Grocerie (https://www.lagrocerie.lu) — farm-to-table grocery & natural-wine e-commerce, sister site to Vins Fins, with real-time stock.
-- Gategram (https://gategram.app) — our own product: sell digital content on Telegram, paid in Stars, instant delivery, creator keeps 95%. Open source.
-- LiberClaw (https://liberclaw.ai) — a personal AI assistant with email, calendar and notes skills wired into your own accounts.
-- Ophis (https://ophis.fi) — an intent-based DEX aggregator: you say what you want, it finds the best on-chain swap and protects you from MEV.
-- Skills.ws (https://www.skills.ws) — our own product: a marketplace of ready-made skills for AI coding assistants like Claude Code, Cursor and Codex.
+- Vins Fins (https://www.vinsfins.lu): multilingual wine shop & restaurant e-commerce, built on Next.js with Stripe, Luxembourg VAT, shipping and bookings.
+- La Grocerie (https://www.lagrocerie.lu): farm-to-table grocery & natural-wine e-commerce, sister site to Vins Fins, with real-time stock.
+- Gategram (https://gategram.app): our own product, sell digital content on Telegram, paid in Stars, instant delivery, creator keeps 95%. Open source.
+- LiberClaw (https://liberclaw.ai): a personal AI assistant with email, calendar and notes skills wired into your own accounts.
+- Ophis (https://ophis.fi): an intent-based DEX aggregator, you say what you want, it finds the best on-chain swap and protects you from MEV.
+- Skills.ws (https://www.skills.ws): our own product, a marketplace of ready-made skills for AI coding assistants like Claude Code, Cursor and Codex.
 
 ## Contact
 
@@ -52,7 +52,7 @@ Every project gets a fixed quote up front; rates are on request. Based in Luxemb
 ## Frequently asked questions
 
 **What is Openletz?**
-Openletz is a Luxembourg AI agency — the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud. We build AI agents, chatbots and automations, plus websites and growth, and Web3 when a product needs it.
+Openletz is a Luxembourg AI agency, the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud. We build AI agents, chatbots and automations, plus websites and growth, and Web3 when a product needs it.
 
 **What does Openletz do?**
 AI agents and automation (our core), digital and web marketing, and Web3 / on-chain builds when they help. AI tools are chosen with GDPR and the EU AI Act in mind; hosting is in Europe.

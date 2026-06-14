@@ -23,7 +23,7 @@ export async function generateMetadata({
   const title = post.title[locale] ?? post.title.en ?? slug;
   const description = post.metaDescription?.[locale] ?? post.excerpt[locale] ?? post.excerpt.en ?? '';
   return {
-    title: `${title} — Openletz`,
+    title: `${title} · Openletz`,
     description,
     alternates: { canonical: localeUrl('en', `/insights/${slug}`) },
   };

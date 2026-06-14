@@ -15,7 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: 'Contact — Openletz',
+    title: 'Contact · Openletz',
     description: CONTACT.lead,
     alternates: { canonical: localeUrl(locale, '/contact') },
   };
