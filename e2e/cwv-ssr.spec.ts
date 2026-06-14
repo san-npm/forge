@@ -12,18 +12,24 @@ const HERO = HOME_SECTIONS.find((s) => s.type === 'hero') as HeroSectionProps;
 const LCP_BUDGET_MS = 2000;
 const CLS_BUDGET = 0.1;
 
-// React escapes text content for HTML (e.g. `&` -> `&amp;`), so the raw served
-// markup encodes the copy. Decode the entities that appear in our copy before
-// substring-matching — this keeps the assertion exact (the H1/lead must really be
-// in the SSR markup) without falsely failing on standard entity encoding.
-function decodeEntities(html: string): string {
+// The H1 is a real, full-opacity SSR node, but the kinetic headline wraps accent
+// words in <span> and React injects <!-- --> text-split markers, so the copy is
+// present yet not a contiguous substring of the raw markup. Crawlers extract text
+// content, so we do the same: strip comments + tags, decode entities, collapse
+// whitespace, THEN substring-match. This keeps the assertion exact (the copy must
+// really be in the served HTML text) without failing on intra-text markup.
+function ssrText(html: string): string {
   return html
+    .replace(/<!--.*?-->/gs, '')
+    .replace(/<[^>]*>/g, '')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&#x27;/g, "'")
-    .replace(/&#39;/g, "'");
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 type CwvPage = { path: string; ssrMustContain: string[] };
@@ -80,9 +86,9 @@ test.describe('SSR / AI-crawler content (JavaScript disabled)', () => {
       const res = await ctx.get(path);
       expect(res.status(), `status for ${path}`).toBe(200);
       const html = await res.text();
-      const decoded = decodeEntities(html);
+      const text = ssrText(html);
       for (const needle of ssrMustContain) {
-        expect(decoded, `SSR HTML for ${path} must contain "${needle}"`).toContain(needle);
+        expect(text, `SSR HTML for ${path} must contain "${needle}"`).toContain(needle);
       }
       // The LCP H1 must NOT be hidden at opacity:0 in the static markup.
       expect(html, `SSR HTML for ${path} must not pre-hide content`).not.toMatch(/opacity:\s*0[^.\d]/);
