@@ -6,14 +6,11 @@ import { HOME_SECTIONS } from '@/data/pages/home';
 import type { Section } from '@/lib/schema';
 import type { Locale } from '@/lib/site-config';
 
-// ProofStripSection is an async Server Component (fetches live data). In the
-// unit-test environment it can't be resolved synchronously, so we stub it with
-// a synchronous shell that keeps the data-section marker for the count assertion.
+// ProofStripSection renders a CountUp island; stub it with a static shell that
+// keeps the data-section marker so the section-count assertion stays focused on
+// the renderer, not the proof internals.
 vi.mock('@/components/sections/ProofStripSection', () => ({
   ProofStripSection: ({ label }: { label: string }) => (
-    <section data-section="proofStrip" aria-label={label} />
-  ),
-  ProofStripShell: ({ label }: { label: string }) => (
     <section data-section="proofStrip" aria-label={label} />
   ),
 }));

@@ -26,15 +26,15 @@ describe('PROOF_METRICS', () => {
   it('carries a years-building metric', () => {
     expect(PROOF_METRICS.some((m) => m.id === 'years')).toBe(true);
   });
-  it('declares the Aleph live metric with value: null, live: true (filled at runtime)', () => {
-    const aleph = PROOF_METRICS.find((m) => m.id === 'alephNodes');
-    expect(aleph).toBeDefined();
-    expect(aleph?.value).toBeNull();
-    expect(aleph?.live).toBe(true);
+  it('carries NO Aleph / decentralized-network metric', () => {
+    expect(PROOF_METRICS.some((m) => m.id === 'alephNodes')).toBe(false);
+    expect(PROOF_METRICS.some((m) => /aleph|node/i.test(m.label))).toBe(false);
   });
-  it('fabricates no live numbers (every live metric starts null)', () => {
+  it('every metric has a real, static value (no live placeholders, no nulls)', () => {
     for (const m of PROOF_METRICS) {
-      if (m.live) expect(m.value).toBeNull();
+      expect(m.value).not.toBeNull();
+      expect(typeof m.value).toBe('number');
+      expect(m.live).toBeUndefined();
     }
   });
 });
