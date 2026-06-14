@@ -105,4 +105,48 @@ body > * {
   .ol-link:hover {
     background-size: 100% 1px;
   }
+
+  /* lime range slider (SME simulator). Track is a hairline well; the filled
+     portion + thumb are electric lime. Reset native appearance so the styling
+     is consistent across WebKit and Firefox; reduced-motion keeps it static. */
+  .ol-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    cursor: pointer;
+  }
+  .ol-range:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-glow);
+  }
+  .ol-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 16px var(--accent-glow);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .ol-range::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+  }
+  .ol-range::-moz-range-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 16px var(--accent-glow);
+  }
+  .ol-range::-moz-range-track {
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--surface-2);
+  }
 }

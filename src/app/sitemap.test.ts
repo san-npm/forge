@@ -35,6 +35,14 @@ describe('sitemap', () => {
     expect(urls).toContain(`${SITE_URL}/insights`);
   });
 
+  it('lists the SME Package page on every locale, with hreflang alternates', () => {
+    for (const locale of LOCALES) {
+      expect(urls).toContain(localeUrl(locale, '/sme-package'));
+    }
+    const en = entries.find((e) => e.url === `${SITE_URL}/sme-package`);
+    expect(en?.alternates?.languages?.['x-default']).toBe(`${SITE_URL}/sme-package`);
+  });
+
   it('lists FR and DE variants of the Phase-3 routes', () => {
     for (const path of ['/services', '/pricing', '/audit', '/insights']) {
       expect(urls).toContain(localeUrl('fr', path));

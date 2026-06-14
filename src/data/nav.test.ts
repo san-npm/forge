@@ -52,6 +52,11 @@ describe('footer surfaces Phase 3 routes', () => {
       expect(hrefs).toContain(href);
     }
   });
+  it('surfaces the SME Package funding page (discoverable in the footer)', () => {
+    const funding = FOOTER.flatMap((c) => c.links).find((l) => l.href === '/sme-package');
+    expect(funding).toBeDefined();
+    expect(funding?.label).toBe('Funding');
+  });
   it('has exactly 4 columns', () => {
     expect(FOOTER).toHaveLength(4);
   });

@@ -7,6 +7,7 @@ import { getAllPosts } from '@/lib/blog';
 const STATIC_PATHS: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]['changeFrequency'] }[] = [
   { path: '', priority: 1.0, freq: 'weekly' },
   { path: '/services', priority: 0.7, freq: 'monthly' },
+  { path: '/sme-package', priority: 0.7, freq: 'monthly' },
   { path: '/pricing', priority: 0.7, freq: 'monthly' },
   { path: '/audit', priority: 0.7, freq: 'monthly' },
   { path: '/work', priority: 0.8, freq: 'monthly' },
