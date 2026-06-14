@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import sitemap from '@/app/sitemap';
-import { localeUrl } from '@/lib/site-config';
+import { localeUrl, SITE_URL } from '@/lib/site-config';
 
 describe('sitemap', () => {
   const entries = sitemap();
@@ -24,14 +24,25 @@ describe('sitemap', () => {
     }
   });
 
-  it('does NOT yet include Phase-3 routes', () => {
-    const joined = urls.join('\n');
-    for (const later of ['/services', '/pricing', '/audit', '/insights']) {
-      expect(joined).not.toContain(later);
+  it('uses the openletz.ai apex on every URL', () => {
+    for (const url of urls) expect(url.startsWith('https://openletz.ai')).toBe(true);
+  });
+
+  it('lists the new Phase-3 static routes on the apex (EN)', () => {
+    expect(urls).toContain(`${SITE_URL}/services`);
+    expect(urls).toContain(`${SITE_URL}/pricing`);
+    expect(urls).toContain(`${SITE_URL}/audit`);
+    expect(urls).toContain(`${SITE_URL}/insights`);
+  });
+
+  it('lists FR and DE variants of the Phase-3 routes', () => {
+    for (const path of ['/services', '/pricing', '/audit', '/insights']) {
+      expect(urls).toContain(localeUrl('fr', path));
+      expect(urls).toContain(localeUrl('de', path));
     }
   });
 
-  it('uses the openletz.ai apex on every URL', () => {
-    for (const url of urls) expect(url.startsWith('https://openletz.ai')).toBe(true);
+  it('lists the agency insights post', () => {
+    expect(urls).toContain(`${SITE_URL}/insights/ai-agents-luxembourg-businesses`);
   });
 });
