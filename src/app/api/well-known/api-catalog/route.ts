@@ -14,7 +14,7 @@ export async function GET() {
           { href: `${base}/.well-known/openapi.yaml`, type: 'application/yaml' },
         ],
         'service-doc': [
-          { href: `${base}/en/blog`, type: 'text/html' },
+          { href: `${base}/en/insights`, type: 'text/html' },
         ],
         status: [
           { href: `${base}/api/health`, type: 'application/json' },

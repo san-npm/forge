@@ -1,6 +1,8 @@
 // Tiny, dependency-free markdown -> HTML for our own MDX post bodies.
 // Escapes HTML FIRST so author content cannot inject markup, then applies a
 // small, safe subset (headings, bold, inline code, lists, paragraphs).
+// Supported: headings, **bold**, *italic*, `inline code`, - bullet lists,
+// paragraphs. NO links/images (by design — never emits href/src).
 
 function escapeHtml(s: string): string {
   return s

@@ -55,7 +55,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const post of getAllPosts()) {
     const path = `/insights/${post.slug}`;
-    const postModified = post.date ? new Date(post.date) : lastModified;
+    const d = new Date(post.date);
+    const postModified = !isNaN(d.getTime()) ? d : lastModified;
     for (const locale of LOCALES) {
       out.push({
         url: localeUrl(locale, path),
