@@ -35,8 +35,8 @@ describe('SERVICES', () => {
 });
 
 describe('WORK', () => {
-  it('has exactly 6 items in order', () => {
-    expect(WORK).toHaveLength(6);
+  it('has the 6 built products plus the Aleph Cloud marketing card, in order', () => {
+    expect(WORK).toHaveLength(7);
     expect(WORK.map((w) => w.slug)).toEqual([
       'vinsfins',
       'lagrocerie',
@@ -44,6 +44,7 @@ describe('WORK', () => {
       'liberclaw',
       'ophis',
       'skillsws',
+      'alephcloud',
     ]);
   });
   it('every item links to a live https URL', () => {
@@ -51,12 +52,38 @@ describe('WORK', () => {
   });
   it('derives a valid filter tag for every item (mapped from kind)', () => {
     const tags = WORK.map((w) => w.tag);
-    expect(tags).toEqual(['web', 'web', 'web', 'ai', 'web3', 'ai']);
-    // every item carries a tag, and every tag is one of the 3 filter values
+    expect(tags).toEqual(['web', 'web', 'web', 'ai', 'web3', 'ai', 'marketing']);
+    // every item carries a tag, and every tag is one of the 4 filter values
     for (const w of WORK) {
       expect(w.tag).toBeDefined();
-      expect(['ai', 'web', 'web3']).toContain(w.tag);
+      expect(['ai', 'web', 'web3', 'marketing']).toContain(w.tag);
     }
+  });
+
+  describe('Aleph Cloud marketing credential (honest framing)', () => {
+    const aleph = WORK.find((w) => w.slug === 'alephcloud')!;
+    it('is present, links to aleph.cloud, and is tagged marketing', () => {
+      expect(aleph).toBeTruthy();
+      expect(aleph.name).toBe('Aleph Cloud');
+      expect(aleph.link).toBe('https://aleph.cloud');
+      expect(aleph.tag).toBe('marketing');
+    });
+    it('uses a kind that signals a marketing engagement, NOT a built product', () => {
+      expect(aleph.kind).toBe('Growth & marketing');
+      expect(aleph.kind.toLowerCase()).not.toMatch(/e-?commerce|our product/);
+    });
+    it('blurb and about make clear it is marketed, not built, and never say "Aleph.im"', () => {
+      const copy = `${aleph.blurb} ${aleph.about}`;
+      expect(copy.toLowerCase()).toMatch(/marketing/);
+      expect(copy).not.toMatch(/aleph\.im/i);
+      // Does not claim Openletz built Aleph Cloud.
+      expect(aleph.blurb.toLowerCase()).not.toMatch(/we built/);
+    });
+  });
+
+  it('never lists LibertAI anywhere in the work data', () => {
+    const all = JSON.stringify(WORK);
+    expect(all).not.toMatch(/libertai/i);
   });
 });
 

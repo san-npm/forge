@@ -2,13 +2,15 @@ import { WorkSchema, type WorkItem } from '@/lib/schema';
 
 export type { WorkItem };
 
-// Ported verbatim from src/components/os/osData.ts (WORK). Order is significant.
-// `tag` is ADDED for the /work filter and mapped from `kind`:
+// Ported verbatim from src/components/os/osData.ts (WORK), plus the Aleph Cloud
+// marketing credential. Order is significant. `tag` is ADDED for the /work
+// filter and mapped from `kind`:
 //   E-commerce -> 'web'
 //   Our product (Gategram = Telegram paywall) -> 'web'
 //   AI assistant -> 'ai'
 //   Web3 / DeFi -> 'web3'
 //   Our product (Skills.ws = AI tooling marketplace) -> 'ai'
+//   Growth & marketing (Aleph Cloud = a client we market, NOT a product) -> 'marketing'
 export const WORK: WorkItem[] = WorkSchema.parse([
   {
     slug: 'vinsfins',
@@ -108,5 +110,22 @@ export const WORK: WorkItem[] = WorkSchema.parse([
     ],
     stack: ['Next.js', 'Vercel', 'npm'],
     tag: 'ai',
+  },
+  {
+    slug: 'alephcloud',
+    name: 'Aleph Cloud',
+    // A marketing engagement, NOT a product we built. The kind makes that explicit.
+    kind: 'Growth & marketing',
+    link: 'https://aleph.cloud',
+    blurb: 'Brand, content and growth marketing for the decentralized AI and Web3 cloud.',
+    about:
+      'A multi-year marketing engagement, not a product we built. We run brand, content and growth marketing for Aleph Cloud, the decentralized cloud for AI and Web3: positioning, written and visual content, and the campaigns that bring developers and projects on board.',
+    did: [
+      'Brand, content and growth marketing as the engaged partner',
+      'Positioning and messaging for a technical, developer audience',
+      'Written and visual content across channels',
+    ],
+    stack: ['Brand', 'Content', 'Growth'],
+    tag: 'marketing',
   },
 ]);

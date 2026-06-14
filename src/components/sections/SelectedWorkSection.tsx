@@ -19,6 +19,7 @@ const SCREENSHOTS: Record<string, string> = {
   liberclaw: '/work/liberclaw.webp',
   ophis: '/work/ophis.webp',
   skillsws: '/work/skills.webp',
+  alephcloud: '/work/alephcloud.webp',
 };
 
 export function SelectedWorkSection({
@@ -33,7 +34,7 @@ export function SelectedWorkSection({
           kicker="Our work"
           title="Selected Work"
           accent="Work"
-          subhead="Real products we designed, built and shipped, live and in the wild."
+          subhead="Real products we designed, built and shipped, plus the brands we help grow."
           action={
             <Link
               href={localeHref(viewAllHref, locale)}
@@ -71,6 +72,7 @@ const KIND_LABEL: Record<string, string> = {
   'Our product': 'OUR PRODUCT',
   'AI assistant': 'AI ASSISTANT',
   'Web3 / DeFi': 'WEB3 · DEFI',
+  'Growth & marketing': 'GROWTH · MARKETING',
 };
 
 function WorkCard({ item, featured }: { item: WorkItem; featured: boolean }) {
