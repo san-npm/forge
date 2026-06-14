@@ -27,6 +27,7 @@ export const FOOTER: FooterColumn[] = FooterSchema.parse([
       // A footer link label must never duplicate a column heading text
       // (Footer.test does getByText(heading)).
       { label: 'All services', href: '/services' },
+      { label: 'Funding', href: '/sme-package' },
       { label: 'Pricing', href: '/pricing' },
       { label: 'Audit', href: '/audit' },
     ],
