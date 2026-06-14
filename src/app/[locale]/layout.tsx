@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import { routing } from '@/i18n/routing';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 import { SITE_URL, LOCALES, DEFAULT_LOCALE, localeUrl, type Locale } from '@/lib/site-config';
+import { isProductionHost } from '@/lib/indexing';
 import { fontVariables } from '@/lib/fonts';
 import {
   organizationJsonLd,
@@ -21,10 +22,6 @@ import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
 import Providers from './providers';
 import '../globals.css';
-
-// Preview deployments must never be indexed. If hosting ever moves off Vercel,
-// re-implement this guard against the new platform's env.
-const IS_PRODUCTION_HOST = process.env.VERCEL_ENV === 'production';
 
 const localeOg: Record<Locale, string> = {
   en: 'en_GB',
@@ -64,7 +61,7 @@ export async function generateMetadata({
   };
 
   const canonicalUrl = localeUrl(loc);
-  const shouldIndex = IS_PRODUCTION_HOST;
+  const shouldIndex = isProductionHost();
 
   const languages: Record<string, string> = {};
   for (const l of LOCALES) {
