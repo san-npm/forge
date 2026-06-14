@@ -9,15 +9,15 @@ export const SERVICES = ServicesSchema.parse({
     kicker: 'What we do · AI',
     title: 'AI agents & automation',
     lead:
-      'This is the core of what we do. We build AI agents, chatbots and automations for businesses in Luxembourg — from a quick audit to something running in production, usually in a few weeks.',
+      'This is the core of what we do. We build AI agents, chatbots and automations for businesses in Luxembourg, from a quick audit to something running in production, usually in a few weeks.',
     what: [
       {
         t: 'Agents & chatbots',
-        d: 'Assistants that answer questions, handle support and do back-office work — in French, English, German or Luxembourgish.',
+        d: 'Assistants that answer questions, handle support and do back-office work, in French, English, German or Luxembourgish.',
       },
       {
         t: 'Automations',
-        d: 'The repetitive stuff — documents, leads, CRM, ops — handled, with the time saved you can actually measure.',
+        d: 'The repetitive stuff (documents, leads, CRM, ops) handled, with the time saved you can actually measure.',
       },
       {
         t: 'Where to start',
@@ -26,35 +26,35 @@ export const SERVICES = ServicesSchema.parse({
     ],
     how: ['A quick audit', 'A working prototype you can click', 'Live, with numbers to show it works'],
     proof:
-      "We pick tools with GDPR and the EU AI Act in mind. LiberClaw, a personal AI assistant, is one of our own — it's in the Work folder.",
+      "We pick tools with GDPR and the EU AI Act in mind. LiberClaw, a personal AI assistant, is one of our own: it's in the Work folder.",
     footer:
-      "In Luxembourg? Your project may be co-funded through the SME Package — we'll help with the paperwork.",
+      "In Luxembourg? Your project may be co-funded through the SME Package, and we'll help with the paperwork.",
   },
   web3: {
     kicker: 'What we do · Web3',
     title: 'Web3 & On-Chain',
     lead:
-      "Not the headline — a tool we reach for when it helps. If a product is better with payments, ownership or token-gating built in, we'll build it on-chain and host it in Europe.",
+      "Not the headline, but a tool we reach for when it helps. If a product is better with payments, ownership or token-gating built in, we'll build it on-chain and host it in Europe.",
     what: [
       {
         t: 'Apps & smart contracts',
-        d: 'Token-gating, mints and full on-chain apps — built carefully, with audits in mind.',
+        d: 'Token-gating, mints and full on-chain apps, built carefully, with audits in mind.',
       },
       { t: 'Token-gated access', d: 'Memberships, paywalls and communities tied to a wallet.' },
       { t: 'European hosting', d: 'Run in Europe, no lock-in.' },
     ],
     how: ['Scope & architecture', 'Build & careful testing', 'Launch + support'],
     proof:
-      'We ship real on-chain products, not decks — Ophis (a DEX aggregator) and Gategram are both in the Work folder.',
+      'We ship real on-chain products, not decks. Ophis (a DEX aggregator) and Gategram are both in the Work folder.',
   },
   marketing: {
     kicker: 'What we do · Growth',
     title: 'Digital & Growth',
-    lead: 'The websites and shops that carry it all — and the marketing to get them seen.',
+    lead: 'The websites and shops that carry it all, plus the marketing to get them seen.',
     what: [
       {
         t: 'Websites & shops',
-        d: 'Fast, modern builds on Next.js — like Vins Fins and La Grocerie.',
+        d: 'Fast, modern builds on Next.js, like Vins Fins and La Grocerie.',
       },
       {
         t: 'Getting found',
@@ -62,7 +62,7 @@ export const SERVICES = ServicesSchema.parse({
       },
       {
         t: 'Content & analytics',
-        d: 'A simple loop — publish, measure, improve — with GA4 and Search Console wired in.',
+        d: 'A simple loop (publish, measure, improve) with GA4 and Search Console wired in.',
       },
     ],
     how: ['Position & design', 'Build & instrument', 'Grow & report'],

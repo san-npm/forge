@@ -7,7 +7,7 @@ import { CONTACT } from '@/data/contact';
 import { PROOF_LOGOS, PROOF_METRICS } from '@/data/proof';
 import { TESTIMONIALS } from '@/data/testimonials';
 
-// The locked studio spine (spec §7). Order is significant — do not reorder.
+// The locked studio spine (spec §7). Order is significant; do not reorder.
 // Built from the Phase-1 typed data modules; carries ONLY the per-variant props
 // declared by the Section union in src/lib/schema.ts.
 export const HOME_SECTIONS: Section[] = [
@@ -45,9 +45,9 @@ export const HOME_SECTIONS: Section[] = [
   },
   {
     type: 'deeperProof',
-    shippedCount: WORK.length,       // 6 — defensible
+    shippedCount: WORK.length,       // 6, defensible
     metrics: PROOF_METRICS,          // live signals; never fabricated
-    testimonials: TESTIMONIALS,      // data-driven; empty until owner provides — empty-safe
+    testimonials: TESTIMONIALS,      // data-driven; empty until owner provides; empty-safe
   },
   {
     type: 'trustBlock',
@@ -62,6 +62,6 @@ export const HOME_SECTIONS: Section[] = [
     callLine: CONTACT.callLine,
     bookCallHref: '/contact',
   },
-  // NOTE: no `footer` section — the footer is layout-level (<Footer/> in the
+  // NOTE: no `footer` section; the footer is layout-level (<Footer/> in the
   // locale layout). The in-page spine ends at the closing enquiry form.
 ];

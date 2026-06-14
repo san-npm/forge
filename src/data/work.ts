@@ -17,7 +17,7 @@ export const WORK: WorkItem[] = WorkSchema.parse([
     link: 'https://www.vinsfins.lu',
     blurb: 'A multilingual wine shop & restaurant in the Grund.',
     about:
-      "Vins Fins is a wine bar and restaurant in Luxembourg's Grund. We built their online shop and booking site — hundreds of wines, four languages, and a checkout that handles Luxembourg VAT and shipping.",
+      "Vins Fins is a wine bar and restaurant in Luxembourg's Grund. We built their online shop and booking site: hundreds of wines, four languages, and a checkout that handles Luxembourg VAT and shipping.",
     did: [
       'Designed and built the site on Next.js',
       'Stripe checkout with Luxembourg VAT',
@@ -51,7 +51,7 @@ export const WORK: WorkItem[] = WorkSchema.parse([
     link: 'https://gategram.app',
     blurb: 'Sell digital content on Telegram, paid in Stars.',
     about:
-      'Our own product: a way for creators to sell digital content inside Telegram and get paid in Stars — instant delivery, and the creator keeps 95%. Open source.',
+      'Our own product: a way for creators to sell digital content inside Telegram and get paid in Stars, with instant delivery, and the creator keeps 95%. Open source.',
     did: [
       'Designed and built the product end to end',
       'Telegram bot + Stars payments',
@@ -68,7 +68,7 @@ export const WORK: WorkItem[] = WorkSchema.parse([
     link: 'https://liberclaw.ai',
     blurb: 'A personal AI assistant you actually control.',
     about:
-      'LiberClaw is a personal AI assistant — email, calendar, notes and more, wired into your own accounts. We work on its skills and on how it gets real things done for you.',
+      'LiberClaw is a personal AI assistant for email, calendar, notes and more, wired into your own accounts. We work on its skills and on how it gets real things done for you.',
     did: [
       'Built assistant skills for email, calendar and notes',
       'Wired them into real accounts',
@@ -84,7 +84,7 @@ export const WORK: WorkItem[] = WorkSchema.parse([
     link: 'https://ophis.fi',
     blurb: 'An intent-based DEX aggregator for better swaps.',
     about:
-      'Ophis is a DEX aggregator — you say what you want, it finds the best way to swap on-chain and protects you from MEV. We handle the product, the brand and the front-end.',
+      'Ophis is a DEX aggregator: you say what you want, it finds the best way to swap on-chain and protects you from MEV. We handle the product, the brand and the front-end.',
     did: [
       'Product, brand and front-end',
       'Intent-based swap flow',
