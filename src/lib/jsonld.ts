@@ -171,12 +171,6 @@ export { localeUrl };
 // ---------------------------------------------------------------------------
 import type { ServiceKey, ServiceData, PriceTier } from '@/lib/schema';
 
-/** Parse a 'from €1,500' / 'from €X' price string into a numeric minimum, or null. */
-function parseFromPrice(price: string): number | null {
-  const m = price.replace(/[\s,]/g, '').match(/(\d+(?:\.\d+)?)/);
-  return m ? Number(m[1]) : null;
-}
-
 /** Service node — one per pillar. @id anchored under /services. */
 export function serviceJsonLd(key: ServiceKey, data: ServiceData): object {
   return {
@@ -192,7 +186,13 @@ export function serviceJsonLd(key: ServiceKey, data: ServiceData): object {
   };
 }
 
-/** OfferCatalog node — all pricing tiers. @id anchored under /pricing. */
+/**
+ * OfferCatalog node — all pricing tiers. @id anchored under /pricing.
+ *
+ * Each project is quoted up front, so we deliberately emit NO numeric
+ * price/priceCurrency/priceSpecification — only name/description/category. This
+ * keeps the node schema-valid without advertising a fabricated figure.
+ */
 export function offerCatalogJsonLd(tiers: PriceTier[]): object {
   return {
     '@context': 'https://schema.org',
@@ -201,18 +201,11 @@ export function offerCatalogJsonLd(tiers: PriceTier[]): object {
     name: 'Openletz packages',
     url: `${SITE_URL}/pricing`,
     provider: { '@id': `${SITE_URL}/#organization` },
-    itemListElement: tiers.map((t) => {
-      const min = parseFromPrice(t.price);
-      return {
-        '@type': 'Offer',
-        name: t.name,
-        description: t.desc,
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          priceCurrency: 'EUR',
-          ...(min !== null ? { minPrice: min, price: min } : {}),
-        },
-      };
-    }),
+    itemListElement: tiers.map((t) => ({
+      '@type': 'Offer',
+      name: t.name,
+      description: t.desc,
+      category: 'Service',
+    })),
   };
 }
