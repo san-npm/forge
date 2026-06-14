@@ -33,9 +33,15 @@ export async function GET(
 }
 
 function renderMarkdown(pathname: string): string {
-  const blogPost = pathname.match(/^\/([a-z]{2})\/insights\/([^/]+)$/);
+  // Insights post: locale-prefixed `/fr/insights/<slug>` OR the canonical
+  // unprefixed English `/insights/<slug>` (en is unprefixed with
+  // localePrefix: 'as-needed', so it must be matched explicitly as 'en').
+  const blogPost =
+    pathname.match(/^\/([a-z]{2})\/insights\/([^/]+)$/) ??
+    pathname.match(/^()(?:\/insights\/([^/]+))$/);
   if (blogPost) {
-    const [, lang, slug] = blogPost;
+    const lang = blogPost[1] || 'en';
+    const slug = blogPost[2];
     const loc = asLocale(lang);
     const post = getPostBySlug(slug);
     if (post) {
@@ -45,9 +51,11 @@ function renderMarkdown(pathname: string): string {
     }
   }
 
-  const blogIndex = pathname.match(/^\/([a-z]{2})\/insights$/);
+  // Insights index: locale-prefixed `/fr/insights` OR unprefixed English `/insights`.
+  const blogIndex =
+    pathname.match(/^\/([a-z]{2})\/insights$/) ?? pathname.match(/^()(?:\/insights)$/);
   if (blogIndex) {
-    const [, lang] = blogIndex;
+    const lang = blogIndex[1] || 'en';
     const loc = asLocale(lang);
     const posts = getAllPosts();
     const lines = posts.map((p) => {
