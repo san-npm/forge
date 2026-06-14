@@ -42,7 +42,7 @@ export function Reveal({ children, stagger = 0, as = 'div', className, ...rest }
   if (reduced || !mounted) {
     const Tag = as;
     return (
-      <Tag className={className} {...rest}>
+      <Tag className={className} data-reveal {...rest}>
         {children}
       </Tag>
     );
@@ -52,6 +52,7 @@ export function Reveal({ children, stagger = 0, as = 'div', className, ...rest }
   return (
     <MotionTag
       className={className}
+      data-reveal
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '0px 0px -10% 0px' }}
