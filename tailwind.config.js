@@ -11,11 +11,15 @@ module.exports = {
         bg: 'var(--bg)',
         surface: 'var(--surface)',
         'surface-2': 'var(--surface-2)',
+        ink2: 'var(--ink-2)',
         text: 'var(--text)',
         'text-dim': 'var(--text-dim)',
         hairline: 'var(--hairline)',
-        hot: 'var(--hot)',
+        // `hot` now resolves to the lime accent so existing text-hot/border-hot
+        // usages turn lime without a sweep.
+        hot: 'var(--accent)',
         accent: 'var(--accent)',
+        'accent-dim': 'var(--accent-dim)',
       },
       fontFamily: {
         display: ['var(--font-display)', 'ui-sans-serif', 'system-ui', 'sans-serif'],

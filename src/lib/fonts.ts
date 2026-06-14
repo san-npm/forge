@@ -1,22 +1,23 @@
-import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
+import { Anton, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google';
 
-// Display — high-contrast grotesque with character (H1, large display type).
-export const display = Space_Grotesk({
+// Display — ultra-bold condensed poster face for GIANT kinetic headlines, big
+// numbers, section labels and work names. ALL-CAPS-friendly; display-only.
+export const display = Anton({
   subsets: ['latin', 'latin-ext'],
-  weight: ['500', '600', '700'],
+  weight: ['400'],
   variable: '--font-display',
   display: 'swap',
 });
 
-// Body — clean humanist/grotesque sans (running text, UI).
-export const body = Inter({
+// Body — characterful modern grotesque (running text, UI, sub/lead copy).
+export const body = Hanken_Grotesk({
   subsets: ['latin', 'latin-ext'],
-  weight: ['400', '500', '600'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-body',
   display: 'swap',
 });
 
-// Mono — kickers / metric labels / genuine technical accents, used sparingly.
+// Mono — kickers / labels / marquee / metric tags, used as a technical accent.
 export const mono = JetBrains_Mono({
   subsets: ['latin', 'latin-ext'],
   weight: ['400', '500'],
