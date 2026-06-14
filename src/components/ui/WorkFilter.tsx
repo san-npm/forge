@@ -24,7 +24,11 @@ export function WorkFilter({
 
   return (
     <div data-work-filter>
-      <div role="tablist" aria-label="Filter work by type" className="flex gap-2">
+      <div
+        role="tablist"
+        aria-label="Filter work by type"
+        className="flex flex-wrap gap-2.5"
+      >
         {TAGS.map(({ key, label }) => (
           <button
             key={key}
@@ -32,14 +36,14 @@ export function WorkFilter({
             role="tab"
             aria-selected={active === key}
             onClick={() => setActive(key)}
-            className="ol-chip"
+            className="ol-chip font-mono text-xs uppercase tracking-[0.16em]"
             data-active={active === key}
           >
             {label}
           </button>
         ))}
       </div>
-      <div className="mt-6">{children(visible)}</div>
+      <div className="mt-10">{children(visible)}</div>
     </div>
   );
 }
