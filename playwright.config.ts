@@ -5,7 +5,12 @@ const BASE_URL = `http://localhost:${PORT}`;
 
 export default defineConfig({
   testDir: './e2e',
-  fullyParallel: true,
+  // Run serially: the webServer is `next dev`, which compiles routes on demand.
+  // Parallel workers all cold-compile at once and starve each other past the
+  // per-test timeout (the 52-test redirects sweep is the worst offender). One
+  // worker keeps every route warm-on-first-hit and the full suite green in ~35s.
+  fullyParallel: false,
+  workers: 1,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   reporter: 'list',
