@@ -33,7 +33,7 @@ export async function GET(
 }
 
 function renderMarkdown(pathname: string): string {
-  const blogPost = pathname.match(/^\/([a-z]{2})\/blog\/([^/]+)$/);
+  const blogPost = pathname.match(/^\/([a-z]{2})\/insights\/([^/]+)$/);
   if (blogPost) {
     const [, lang, slug] = blogPost;
     const loc = asLocale(lang);
@@ -45,7 +45,7 @@ function renderMarkdown(pathname: string): string {
     }
   }
 
-  const blogIndex = pathname.match(/^\/([a-z]{2})\/blog$/);
+  const blogIndex = pathname.match(/^\/([a-z]{2})\/insights$/);
   if (blogIndex) {
     const [, lang] = blogIndex;
     const loc = asLocale(lang);
@@ -53,7 +53,7 @@ function renderMarkdown(pathname: string): string {
     const lines = posts.map((p) => {
       const title = (loc && p.title?.[loc]) ?? p.title?.fr ?? p.slug;
       const excerpt = (loc && p.excerpt?.[loc]) ?? p.excerpt?.fr ?? '';
-      return `- [${title}](${SITE_URL}/${lang}/blog/${p.slug}) — ${p.date}\n  ${excerpt}`;
+      return `- [${title}](${SITE_URL}/${lang}/insights/${p.slug}) — ${p.date}\n  ${excerpt}`;
     });
     return `# OpenLetz Blog\n\n${lines.join('\n\n')}\n`;
   }

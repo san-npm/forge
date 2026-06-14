@@ -51,7 +51,11 @@ export function getAllPosts(): BlogPost[] {
     };
   });
 
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts.sort((a, b) => {
+    const at = new Date(a.date).getTime() || 0;
+    const bt = new Date(b.date).getTime() || 0;
+    return bt - at;
+  });
 }
 
 export function getPostBySlug(slug: string): BlogPost | null {
