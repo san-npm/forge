@@ -48,12 +48,26 @@ test.describe('prefers-reduced-motion: reduce — content visible, no spectacle'
     test(`every section on ${route} is reachable (no element stuck at opacity:0)`, async ({ page }) => {
       await page.goto(route, { waitUntil: 'load' });
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-      // No reveal element should remain invisible after scroll under reduced-motion.
-      const stuck = await page.evaluate(() => {
+      // Count + opacity of every reveal element after scroll under reduced-motion.
+      const reveals = await page.evaluate(() => {
         const els = Array.from(document.querySelectorAll('[data-reveal]'));
-        return els.filter((el) => Number(getComputedStyle(el as HTMLElement).opacity) < 0.99).length;
+        return {
+          count: els.length,
+          stuck: els.filter((el) => Number(getComputedStyle(el as HTMLElement).opacity) < 0.99)
+            .length,
+        };
       });
-      expect(stuck, `${route} has reveal elements stuck below full opacity under reduced-motion`).toBe(0);
+      // Guard against a VACUOUS pass: `/` is the one route that renders [data-reveal]
+      // via <Reveal>, so require reveals to actually exist there — otherwise the
+      // stuck-sweep below would trivially see 0 elements and assert nothing.
+      if (route === '/') {
+        expect(reveals.count, '/ must render [data-reveal] elements for this check to be meaningful').toBeGreaterThan(0);
+      }
+      // No reveal element should remain invisible after scroll under reduced-motion.
+      expect(
+        reveals.stuck,
+        `${route} has reveal elements stuck below full opacity under reduced-motion`,
+      ).toBe(0);
     });
   }
 });
