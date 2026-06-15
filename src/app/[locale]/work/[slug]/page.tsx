@@ -9,7 +9,7 @@ import { getUiStrings } from '@/data/ui';
 import { getStartProject } from '@/data/nav';
 import { LOCALES, type Locale, localeUrl } from '@/lib/site-config';
 import { localeHref } from '@/lib/locale-href';
-import { breadcrumbJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
+import { breadcrumbJsonLd, caseStudyJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 import { Reveal } from '@/components/ui/Reveal';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -83,15 +83,21 @@ export default async function CaseStudyPage({
   const work = getWork(locale).find((w) => w.slug === slug);
   const shot = WORK_SCREENSHOTS[slug];
 
+  const caseStudyUrl = localeUrl(locale, `/work/${slug}`);
   const crumbs = breadcrumbJsonLd(locale, [
     { name: homeBreadcrumbLabel(locale), url: localeUrl(locale) },
     { name: WORK_CRUMB_LABEL[locale], url: localeUrl(locale, '/work') },
-    { name: cs.title, url: localeUrl(locale, `/work/${slug}`) },
+    { name: cs.title, url: caseStudyUrl },
   ]);
+  const article = caseStudyJsonLd({ caseStudy: cs, locale, url: caseStudyUrl, image: shot });
 
   return (
     <main className="overflow-hidden">
-      {/* BreadcrumbList JSON-LD in static SSR HTML. */}
+      {/* Article + BreadcrumbList JSON-LD in static SSR HTML. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(article) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(crumbs) }}

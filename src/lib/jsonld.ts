@@ -170,6 +170,8 @@ export { localeUrl };
 // Phase-3 additions: per-page Service / Offer builders
 // ---------------------------------------------------------------------------
 import type { ServiceKey, ServiceData, PriceTier } from '@/lib/schema';
+import type { BlogPost } from '@/lib/blog';
+import type { CaseStudy } from '@/data/case-studies';
 
 /** Service node — one per pillar. @id anchored under /services. */
 export function serviceJsonLd(key: ServiceKey, data: ServiceData): object {
@@ -224,5 +226,102 @@ export function offerCatalogJsonLd(tiers: PriceTier[]): object {
           }
         : {}),
     })),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// SEO/AEO additions: BlogPosting / Blog / Article (case study) builders
+// ---------------------------------------------------------------------------
+
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+const DEFAULT_AUTHOR = 'Clément Fermaud';
+
+/** Resolve a possibly-relative image path to an absolute openletz.ai URL. */
+function absoluteImage(image?: string): string {
+  if (!image) return DEFAULT_OG_IMAGE;
+  if (/^https?:\/\//.test(image)) return image;
+  return `${SITE_URL}${image.startsWith('/') ? '' : '/'}${image}`;
+}
+
+/** Locale-aware pick with EN fallback for `Partial<Record<Locale, string>>`. */
+function localized(map: Partial<Record<Locale, string>>, locale: Locale): string {
+  return map[locale] ?? map.en ?? '';
+}
+
+/**
+ * BlogPosting node for a single insight post. `url` / `mainEntityOfPage` are the
+ * locale-aware canonical post URL; `publisher` references the Organization node.
+ */
+export function blogPostingJsonLd(args: { post: BlogPost; locale: Locale; url: string }): object {
+  const { post, locale, url } = args;
+  const headline = localized(post.title, locale) || post.slug;
+  const description = localized(post.metaDescription ?? {}, locale) || localized(post.excerpt, locale);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline,
+    description,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { '@type': 'Person', name: post.author ?? DEFAULT_AUTHOR },
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    image: absoluteImage(post.image),
+    inLanguage: locale,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    url,
+  };
+}
+
+/**
+ * Blog node for the /insights listing, with a compact BlogPosting entry per post.
+ * Titles are locale-aware; each entry's url is the canonical post URL.
+ */
+export function blogListingJsonLd(posts: BlogPost[], locale: Locale): object {
+  const names: Record<Locale, string> = {
+    en: 'Openletz Insights',
+    fr: 'Openletz Insights',
+    de: 'Openletz Insights',
+  };
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${localeUrl(locale, '/insights')}#blog`,
+    name: names[locale],
+    inLanguage: locale,
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: localized(post.title, locale) || post.slug,
+      url: localeUrl(locale, `/insights/${post.slug}`),
+      datePublished: post.date,
+    })),
+  };
+}
+
+/**
+ * Article node for a case study. `headline` is the project name, `about` names
+ * the project, author/publisher reference the Organization node, and `url` /
+ * `mainEntityOfPage` are the canonical case-study URL. No invented dates.
+ */
+export function caseStudyJsonLd(args: {
+  caseStudy: CaseStudy;
+  locale: Locale;
+  url: string;
+  image?: string;
+}): object {
+  const { caseStudy, locale, url, image } = args;
+  const description = caseStudy.result[0] ?? caseStudy.problem[0] ?? caseStudy.kicker;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: caseStudy.title,
+    description,
+    about: caseStudy.title,
+    author: { '@id': `${SITE_URL}/#organization` },
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    image: absoluteImage(image),
+    inLanguage: locale,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    url,
   };
 }

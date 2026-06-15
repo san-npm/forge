@@ -46,6 +46,8 @@ const ROUTE_SCHEMAS: { path: string; expect: string[] }[] = [
   { path: '/services', expect: ['Organization', 'FAQPage', 'BreadcrumbList'] },
   { path: '/pricing', expect: ['Organization', 'BreadcrumbList'] },
   { path: '/work', expect: ['Organization', 'BreadcrumbList'] },
+  { path: '/insights/ai-agents-luxembourg-businesses', expect: ['Organization', 'BlogPosting', 'BreadcrumbList'] },
+  { path: '/work/vinsfins', expect: ['Organization', 'Article', 'BreadcrumbList'] },
 ];
 
 test.describe('JSON-LD presence + canonical domain', () => {
