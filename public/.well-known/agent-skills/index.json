@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "sme-funding-estimate",
+      "type": "skill-md",
+      "description": "Estimate the indicative Luxembourg SME Package co-funding (70% of eligible costs, eligible band EUR 3,000-25,000) for a digital or AI project, given a budget in euros. Use when a user asks how much public co-funding a Luxembourg SME could receive for a website, automation, or AI project, or wants a quick funding simulation before contacting Openletz.",
+      "url": "/.well-known/agent-skills/sme-funding-estimate/SKILL.md",
+      "digest": "sha256:53e33b120e3ec149bd077a8f0fde6a2457d6687e9954bda5643944952725bc07"
+    },
+    {
+      "name": "services-overview",
+      "type": "skill-md",
+      "description": "Summarise what Openletz, a Luxembourg AI agency, offers (AI agents and automation, websites and shops, digital growth, and Web3 when it helps) and help match a prospect's need to the right service. Use when a user asks what Openletz does or which service fits their problem.",
+      "url": "/.well-known/agent-skills/services-overview/SKILL.md",
+      "digest": "sha256:5f53b6641b9e8625791f5bae196c50c37311050849e39c22ee75d9a5514d05a9"
+    },
+    {
+      "name": "start-project",
+      "type": "skill-md",
+      "description": "Guide a prospect through starting a project with Openletz, a Luxembourg AI agency, including what to prepare, how scoping works, and how to get in touch. Use when a user wants to begin an engagement, request a quote, or book an intro call.",
+      "url": "/.well-known/agent-skills/start-project/SKILL.md",
+      "digest": "sha256:fd04ff2b9108fa1e658ae3456949366eb150e8d65c54eb151678b16b7a86db9c"
+    }
+  ]
+}
