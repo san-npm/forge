@@ -5,7 +5,9 @@ import { useEffect, useState } from 'react';
 import { useReportWebVitals } from 'next/web-vitals';
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+// GA4 measurement IDs are public (exposed client-side anyway); default to the
+// Openletz property, overridable via env. Loads only after consent (below).
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? 'G-H3JLD7XB5Y';
 
 /**
  * Consent-gated analytics. GA4 + GTM only load after the visitor has granted
@@ -17,11 +19,17 @@ export function Analytics() {
   const [consented, setConsented] = useState(false);
 
   useEffect(() => {
-    const has =
-      typeof document !== 'undefined' &&
-      (document.cookie.includes('openletz-consent=granted') ||
-        window.localStorage.getItem('openletz-consent') === 'granted');
-    setConsented(Boolean(has));
+    const check = () => {
+      const has =
+        typeof document !== 'undefined' &&
+        (document.cookie.includes('openletz-consent=granted') ||
+          window.localStorage.getItem('openletz-consent') === 'granted');
+      setConsented(Boolean(has));
+    };
+    check();
+    // ConsentBanner dispatches this on Accept so GA loads without a reload.
+    window.addEventListener('openletz-consent', check);
+    return () => window.removeEventListener('openletz-consent', check);
   }, []);
 
   useReportWebVitals((metric) => {
