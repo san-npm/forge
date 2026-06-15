@@ -70,7 +70,7 @@ export function LanguageDropdown({ locale }: { locale: Locale }) {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls={menuId}
-        aria-label={changeLanguage}
+        aria-label={`${changeLanguage}: ${current.short}`}
         data-cursor
         className="inline-flex items-center gap-1.5 rounded-full border border-hairline px-3 py-1.5 text-sm text-text-dim transition-colors duration-base ease-out hover:border-accent hover:text-text"
       >
