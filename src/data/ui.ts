@@ -298,7 +298,7 @@ const EN: UiStrings = {
     heroTitleAccent: 'in',
     heroTitleB: '.',
     heroLead: 'AI agents and automation are the front door. Websites and growth carry it all. Web3 when it helps.',
-    fundingLead: 'Up to 70% of your project can be state funded.',
+    fundingLead: 'Eligible Luxembourg SMEs can co-fund their project at 70% through the SME Package, subject to eligibility and Ministry of the Economy approval.',
     seeSmePackage: 'See the SME Package.',
     faqs: [
       {
@@ -315,8 +315,8 @@ const EN: UiStrings = {
     heroKicker: 'Pricing',
     heroTitleA: 'From ',
     heroTitleAccent: '€3,000',
-    heroTitleB: ', mostly state-funded.',
-    fundingLead: 'Most projects qualify for 70% state co-funding, so €3,000 is about €900 net.',
+    heroTitleB: ', with up to 70% co-funded.',
+    fundingLead: 'Eligible Luxembourg SMEs can co-fund their project at 70% through the SME Package, subject to eligibility and Ministry of the Economy approval, so €3,000 can be about €900 net.',
     seeSmePackage: 'See the SME Package.',
     mostPopular: 'Most popular',
     faqs: [
@@ -326,12 +326,12 @@ const EN: UiStrings = {
       },
       {
         q: 'Can my project be co-funded?',
-        a: 'If you are based in Luxembourg, most projects qualify for 70% state co-funding through the SME Package, and we help with the paperwork.',
+        a: 'If you are an eligible Luxembourg SME, your project can be co-funded at 70% through the SME Package, subject to eligibility and Ministry of the Economy approval, and we help with the paperwork.',
       },
     ],
     closingTitle: 'Tell us what you want to build.',
     closingTitleAccent: 'build',
-    closingLead: 'We scope it, quote it up front, and ship it, most of it state-funded.',
+    closingLead: 'We scope it, quote it up front, and ship it. Eligible Luxembourg SMEs can co-fund it at 70% through the SME Package, subject to eligibility and Ministry of the Economy approval.',
   },
   about: {
     heroKicker: 'About',
@@ -540,7 +540,7 @@ const FR: UiStrings = {
     heroTitleAccent: 'entrée',
     heroTitleB: '.',
     heroLead: 'Les agents IA et l’automatisation sont la porte d’entrée. Les sites et la croissance portent le tout. Le Web3 quand il aide.',
-    fundingLead: 'Jusqu’à 70 % de votre projet peut être financé par l’État.',
+    fundingLead: 'Les PME luxembourgeoises éligibles peuvent cofinancer leur projet à 70 % via le SME Package, sous réserve d’éligibilité et d’approbation du Ministère de l’Économie.',
     seeSmePackage: 'Découvrir le SME Package.',
     faqs: [
       {
@@ -557,8 +557,8 @@ const FR: UiStrings = {
     heroKicker: 'Tarifs',
     heroTitleA: 'À partir de ',
     heroTitleAccent: '3 000 €',
-    heroTitleB: ', en grande partie financé.',
-    fundingLead: 'La plupart des projets sont éligibles à 70 % de cofinancement de l’État, soit environ 900 € nets pour 3 000 €.',
+    heroTitleB: ', avec jusqu’à 70 % cofinancés.',
+    fundingLead: 'Les PME luxembourgeoises éligibles peuvent cofinancer leur projet à 70 % via le SME Package, sous réserve d’éligibilité et d’approbation du Ministère de l’Économie, soit environ 900 € nets pour 3 000 €.',
     seeSmePackage: 'Découvrir le SME Package.',
     mostPopular: 'Le plus demandé',
     faqs: [
@@ -568,12 +568,12 @@ const FR: UiStrings = {
       },
       {
         q: 'Mon projet peut-il être cofinancé ?',
-        a: 'Si vous êtes basé au Luxembourg, la plupart des projets sont éligibles à 70 % de cofinancement de l’État via le SME Package, et nous vous aidons avec les démarches.',
+        a: 'Si vous êtes une PME luxembourgeoise éligible, votre projet peut être cofinancé à 70 % via le SME Package, sous réserve d’éligibilité et d’approbation du Ministère de l’Économie, et nous vous aidons avec les démarches.',
       },
     ],
     closingTitle: 'Dites-nous ce que vous voulez construire.',
     closingTitleAccent: 'construire',
-    closingLead: 'Nous le cadrons, le chiffrons en amont, et le livrons, en grande partie financé par l’État.',
+    closingLead: 'Nous le cadrons, le chiffrons en amont, et le livrons. Les PME luxembourgeoises éligibles peuvent le cofinancer à 70 % via le SME Package, sous réserve d’éligibilité et d’approbation du Ministère de l’Économie.',
   },
   about: {
     heroKicker: 'À propos',
@@ -782,7 +782,7 @@ const DE: UiStrings = {
     heroTitleAccent: 'hinein',
     heroTitleB: '.',
     heroLead: 'KI-Agenten und Automatisierung sind die Eingangstür. Websites und Wachstum tragen alles. Web3, wenn es hilft.',
-    fundingLead: 'Bis zu 70 % Ihres Projekts können staatlich gefördert werden.',
+    fundingLead: 'Förderfähige Luxemburger KMU können ihr Projekt über das SME Package zu 70 % kofinanzieren, vorbehaltlich Förderfähigkeit und Genehmigung des Wirtschaftsministeriums.',
     seeSmePackage: 'Das SME Package ansehen.',
     faqs: [
       {
@@ -799,8 +799,8 @@ const DE: UiStrings = {
     heroKicker: 'Preise',
     heroTitleA: 'Ab ',
     heroTitleAccent: '3.000 €',
-    heroTitleB: ', großteils gefördert.',
-    fundingLead: 'Die meisten Projekte qualifizieren sich für 70 % staatliche Kofinanzierung, somit sind 3.000 € rund 900 € netto.',
+    heroTitleB: ', mit bis zu 70 % kofinanziert.',
+    fundingLead: 'Förderfähige Luxemburger KMU können ihr Projekt über das SME Package zu 70 % kofinanzieren, vorbehaltlich Förderfähigkeit und Genehmigung des Wirtschaftsministeriums, somit sind 3.000 € rund 900 € netto.',
     seeSmePackage: 'Das SME Package ansehen.',
     mostPopular: 'Am beliebtesten',
     faqs: [
@@ -810,12 +810,12 @@ const DE: UiStrings = {
       },
       {
         q: 'Kann mein Projekt kofinanziert werden?',
-        a: 'Wenn Sie in Luxemburg ansässig sind, qualifizieren sich die meisten Projekte für 70 % staatliche Kofinanzierung über das SME Package, und wir helfen bei den Formalitäten.',
+        a: 'Wenn Sie ein förderfähiges Luxemburger KMU sind, kann Ihr Projekt über das SME Package zu 70 % kofinanziert werden, vorbehaltlich Förderfähigkeit und Genehmigung des Wirtschaftsministeriums, und wir helfen bei den Formalitäten.',
       },
     ],
     closingTitle: 'Sagen Sie uns, was Sie bauen möchten.',
     closingTitleAccent: 'bauen',
-    closingLead: 'Wir planen es, geben vorab ein Angebot und liefern es, großteils staatlich gefördert.',
+    closingLead: 'Wir planen es, geben vorab ein Angebot und liefern es. Förderfähige Luxemburger KMU können es über das SME Package zu 70 % kofinanzieren, vorbehaltlich Förderfähigkeit und Genehmigung des Wirtschaftsministeriums.',
   },
   about: {
     heroKicker: 'Über uns',
