@@ -19,6 +19,9 @@ const nextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(self), browsing-topics=(), interest-cohort=(), idle-detection=()' },
           { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          // AI-usage preferences (contentsignals.org) as a header, so robots.txt
+          // stays standard/valid for Google + Bing parsers.
+          { key: 'Content-Signal', value: 'search=yes, ai-input=yes, ai-train=no' },
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
           {
             key: 'Content-Security-Policy',
