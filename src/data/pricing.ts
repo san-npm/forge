@@ -55,7 +55,7 @@ const PRICING_I18N: Record<Locale, Pricing> = {
         feats: ['Tailored scope', 'Monitoring & backups', 'Direct support'],
       },
     ],
-    note: 'The €3,000 start is the SME Package minimum eligible cost; eligible projects run from €3,000 to €25,000, and the programme reimburses 70%. Based in Luxembourg, your project may be co-funded; we help with the paperwork.',
+    note: 'The €3,000 start is the SME Package minimum eligible cost; eligible projects run from €3,000 to €25,000, and the programme reimburses 70%, subject to eligibility and Ministry of the Economy approval. Based in Luxembourg, your project may be co-funded; we help with the paperwork.',
   },
   fr: {
     lead: 'Les projets démarrent à partir de 3 000 €, calibrés sur votre projet. Les PME luxembourgeoises éligibles peuvent le cofinancer à 70 % via le SME Package, sous réserve d’éligibilité et d’approbation du Ministère de l’Économie, soit environ 900 € nets pour 3 000 €.',
@@ -90,7 +90,7 @@ const PRICING_I18N: Record<Locale, Pricing> = {
         feats: ['Périmètre sur mesure', 'Supervision & sauvegardes', 'Support direct'],
       },
     ],
-    note: 'Le démarrage à 3 000 € correspond au coût éligible minimum du SME Package ; les projets éligibles vont de 3 000 € à 25 000 €, et le programme rembourse 70 %. Basé au Luxembourg, votre projet peut être cofinancé ; nous vous aidons avec les démarches.',
+    note: 'Le démarrage à 3 000 € correspond au coût éligible minimum du SME Package ; les projets éligibles vont de 3 000 € à 25 000 €, et le programme rembourse 70 %, sous réserve d’éligibilité et d’approbation du Ministère de l’Économie. Basé au Luxembourg, votre projet peut être cofinancé ; nous vous aidons avec les démarches.',
   },
   de: {
     lead: 'Projekte starten ab 3.000 €, zugeschnitten auf Ihr Projekt. Förderfähige Luxemburger KMU können es über das SME Package zu 70 % kofinanzieren, vorbehaltlich Förderfähigkeit und Genehmigung des Wirtschaftsministeriums, somit sind 3.000 € rund 900 € netto.',
@@ -125,7 +125,7 @@ const PRICING_I18N: Record<Locale, Pricing> = {
         feats: ['Maßgeschneiderter Umfang', 'Monitoring & Backups', 'Direkter Support'],
       },
     ],
-    note: 'Der Start bei 3.000 € entspricht den förderfähigen Mindestkosten des SME Package; förderfähige Projekte reichen von 3.000 € bis 25.000 €, und das Programm erstattet 70 %. In Luxemburg ansässig? Ihr Projekt kann kofinanziert werden; wir helfen bei den Formalitäten.',
+    note: 'Der Start bei 3.000 € entspricht den förderfähigen Mindestkosten des SME Package; förderfähige Projekte reichen von 3.000 € bis 25.000 €, und das Programm erstattet 70 %, vorbehaltlich Förderfähigkeit und Genehmigung des Wirtschaftsministeriums. In Luxemburg ansässig? Ihr Projekt kann kofinanziert werden; wir helfen bei den Formalitäten.',
   },
 };
 

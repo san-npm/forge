@@ -15,7 +15,7 @@ export const AGENCY_FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'How much does it cost?',
-    a: 'Projects start from €3,000, the SME Package minimum eligible cost, scoped and quoted per project. Eligible projects run from €3,000 to €25,000 and the programme reimburses 70%, so €3,000 is about €900 net. Larger or custom work is scoped per project.',
+    a: 'Projects start from €3,000, the SME Package minimum eligible cost, scoped and quoted per project. Eligible projects run from €3,000 to €25,000 and the programme reimburses 70%, subject to eligibility and Ministry of the Economy approval, so €3,000 is about €900 net. Larger or custom work is scoped per project.',
   },
   {
     q: 'Can Luxembourg companies get funding?',
