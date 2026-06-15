@@ -18,11 +18,12 @@ export interface Pricing {
 }
 
 // Honest pricing anchor: projects start at the SME Package minimum eligible cost
-// of €3,000, scoped per project, with most of it state-funded (about €900 net
-// after the 70% SME Package grant). Per-locale, parsed at module load.
+// of €3,000, scoped per project. Eligible Luxembourg SMEs can co-fund at 70%
+// through the SME Package (about €900 net), subject to eligibility and Ministry
+// of the Economy approval. Per-locale, parsed at module load.
 const PRICING_I18N: Record<Locale, Pricing> = {
   en: {
-    lead: 'Projects start from €3,000, scoped to your project. Most of it is state-funded via the SME Package, so €3,000 is about €900 after the 70% grant.',
+    lead: 'Projects start from €3,000, scoped to your project. Eligible Luxembourg SMEs can co-fund it at 70% through the SME Package, subject to eligibility and Ministry of the Economy approval, so €3,000 can be about €900 net.',
     tiers: [
       {
         name: 'AI agents & automation',
@@ -57,7 +58,7 @@ const PRICING_I18N: Record<Locale, Pricing> = {
     note: 'The €3,000 start is the SME Package minimum eligible cost; eligible projects run from €3,000 to €25,000, and the programme reimburses 70%. Based in Luxembourg, your project may be co-funded; we help with the paperwork.',
   },
   fr: {
-    lead: 'Les projets démarrent à partir de 3 000 €, calibrés sur votre projet. L’essentiel est financé par l’État via le SME Package : 3 000 € reviennent à environ 900 € après l’aide de 70 %.',
+    lead: 'Les projets démarrent à partir de 3 000 €, calibrés sur votre projet. Les PME luxembourgeoises éligibles peuvent le cofinancer à 70 % via le SME Package, sous réserve d’éligibilité et d’approbation du Ministère de l’Économie, soit environ 900 € nets pour 3 000 €.',
     tiers: [
       {
         name: 'Agents IA & automatisation',
@@ -92,7 +93,7 @@ const PRICING_I18N: Record<Locale, Pricing> = {
     note: 'Le démarrage à 3 000 € correspond au coût éligible minimum du SME Package ; les projets éligibles vont de 3 000 € à 25 000 €, et le programme rembourse 70 %. Basé au Luxembourg, votre projet peut être cofinancé ; nous vous aidons avec les démarches.',
   },
   de: {
-    lead: 'Projekte starten ab 3.000 €, zugeschnitten auf Ihr Projekt. Das meiste davon ist über das SME Package staatlich gefördert: 3.000 € sind nach der 70-%-Förderung etwa 900 €.',
+    lead: 'Projekte starten ab 3.000 €, zugeschnitten auf Ihr Projekt. Förderfähige Luxemburger KMU können es über das SME Package zu 70 % kofinanzieren, vorbehaltlich Förderfähigkeit und Genehmigung des Wirtschaftsministeriums, somit sind 3.000 € rund 900 € netto.',
     tiers: [
       {
         name: 'KI-Agenten & Automatisierung',
