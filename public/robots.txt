@@ -1,13 +1,26 @@
 # OpenLetz · https://openletz.ai
-# AI-usage preferences are expressed via the Content-Signal HTTP response header (see next.config.mjs).
+#
+# AI-usage preferences (contentsignals.org / Cloudflare Content Signals Policy).
+# These signals declare how this site's content may be used:
+#   search   = inclusion in a search index and surfacing as a link.
+#   ai-input = use as input to a generative AI system at response time (e.g. RAG).
+#   ai-train = use to train or fine-tune a generative AI model.
+# By using this content you agree to the preferences expressed below. Where this
+# is not legally binding it records the operator's preference (EU Directive
+# 2019/790 Art. 4 TDM opt-out). The same policy is mirrored as a Content-Signal
+# HTTP response header (see next.config.mjs) so header- and robots-parsers agree.
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 
 # Search + AI bots: allow crawling, permit AI answer/input use, deny training.
+# Per-bot Content-Signal repeats the wildcard policy for the training-capable
+# crawlers, since a more specific User-agent group overrides the * group.
 User-agent: GPTBot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 User-agent: OAI-SearchBot
@@ -23,6 +36,7 @@ User-agent: Perplexity-User
 Allow: /
 
 User-agent: ClaudeBot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 User-agent: Claude-Web
@@ -47,6 +61,7 @@ User-agent: Bingbot
 Allow: /
 
 User-agent: CCBot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 User-agent: cohere-ai
