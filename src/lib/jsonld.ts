@@ -15,7 +15,7 @@ export const AGENCY_FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'How much does it cost?',
-    a: 'Every project is quoted per scope, with a fixed quote up front. Productized tiers start from a published "from" price; custom work is scoped per project.',
+    a: 'Projects start from €3,000, the SME Package minimum eligible cost, scoped and quoted per project. Eligible projects run from €3,000 to €25,000 and the programme reimburses 70%, so €3,000 is about €900 net. Larger or custom work is scoped per project.',
   },
   {
     q: 'Can Luxembourg companies get funding?',
@@ -27,15 +27,15 @@ export const AGENCY_FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Who runs Openletz and where is it based?',
-    a: 'Founder Clément Fermaud, in Luxembourg, through Commit Media S.à r.l. (RCS Luxembourg B276192). He also runs marketing for Aleph Cloud.',
+    a: 'Founder Clément Fermaud, in Luxembourg, through Commit Media S.à r.l. (RCS Luxembourg B276192). For years he has also contributed to the decentralized AI and Web3 ecosystem: LibertAI, LiberClaw and Aleph Cloud.',
   },
   {
     q: 'What languages do you work in?',
     a: 'English (primary), French and German.',
   },
   {
-    q: 'What has Openletz shipped?',
-    a: 'Vins Fins and La Grocerie (e-commerce), Gategram (Telegram-Stars content product), LiberClaw (personal AI assistant), Ophis (intent-based DEX aggregator), and Skills.ws (marketplace of skills for AI coding assistants).',
+    q: 'What has Openletz built?',
+    a: 'Own products: Gategram (Telegram-Stars content product), Ophis (intent-based DEX aggregator) and Skills.ws (marketplace of skills for AI coding assistants). Client builds: Vins Fins and La Grocerie (e-commerce). It has also contributed for years to LiberClaw, LibertAI and Aleph Cloud, which it does not own.',
   },
 ];
 
@@ -186,14 +186,21 @@ export function serviceJsonLd(key: ServiceKey, data: ServiceData): object {
   };
 }
 
+/** SME Package minimum eligible cost — the real "from" anchor in EUR. */
+export const STARTING_PRICE_EUR = 3000;
+
 /**
  * OfferCatalog node — all pricing tiers. @id anchored under /pricing.
  *
- * Each project is quoted up front, so we deliberately emit NO numeric
- * price/priceCurrency/priceSpecification — only name/description/category. This
- * keeps the node schema-valid without advertising a fabricated figure.
+ * Productized tiers now start at a real anchor (the SME Package minimum eligible
+ * cost, €3,000), so each "from €" tier emits a schema-valid lowPrice via a
+ * UnitPriceSpecification with `minPrice`. The "Let's talk" / custom tier carries
+ * no numeric price (it is genuinely scoped per project), so it stays figure-free.
  */
 export function offerCatalogJsonLd(tiers: PriceTier[]): object {
+  // A tier carries the numeric "from €3,000" anchor when its price string shows a
+  // euro amount; the open-ended custom tier ("Let's talk") does not.
+  const hasNumericAnchor = (price: string): boolean => /\d/.test(price) && /€|eur/i.test(price);
   return {
     '@context': 'https://schema.org',
     '@type': 'OfferCatalog',
@@ -206,6 +213,16 @@ export function offerCatalogJsonLd(tiers: PriceTier[]): object {
       name: t.name,
       description: t.desc,
       category: 'Service',
+      ...(hasNumericAnchor(t.price)
+        ? {
+            priceCurrency: 'EUR',
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              priceCurrency: 'EUR',
+              minPrice: STARTING_PRICE_EUR,
+            },
+          }
+        : {}),
     })),
   };
 }

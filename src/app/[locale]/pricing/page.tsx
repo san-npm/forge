@@ -19,15 +19,15 @@ export function generateStaticParams() {
 const META: Record<Locale, { title: string; description: string }> = {
   en: {
     title: 'Pricing · Openletz',
-    description: 'No price anchors: every project gets a fixed quote up front, scoped to what you actually need.',
+    description: 'Projects start from €3,000, scoped to your project, with most of it state-funded via the SME Package (about €900 net after the 70% grant).',
   },
   fr: {
     title: 'Tarifs · Openletz',
-    description: 'Pas de prix d’appel : chaque projet reçoit un devis fixe en amont, calibré sur vos besoins réels.',
+    description: 'Les projets démarrent à partir de 3 000 €, calibrés sur votre projet, en grande partie financés par l’État via le SME Package (environ 900 € nets après l’aide de 70 %).',
   },
   de: {
     title: 'Preise · Openletz',
-    description: 'Keine Preisanker: Jedes Projekt erhält vorab ein festes Angebot, zugeschnitten auf das, was Sie wirklich brauchen.',
+    description: 'Projekte starten ab 3.000 €, zugeschnitten auf Ihr Projekt, großteils staatlich gefördert über das SME Package (rund 900 € netto nach der 70-%-Förderung).',
   },
 };
 

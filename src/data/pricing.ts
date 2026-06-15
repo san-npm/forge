@@ -6,7 +6,7 @@ export type { IconKey };
 export interface PriceTier {
   name: string;
   icon: IconKey;
-  price: string;     // honest, non-numeric framing (e.g. 'Fixed quote')
+  price: string;     // real starting anchor (e.g. 'from €3,000') or 'Let's talk'
   desc: string;
   feats: string[];   // length 3
   highlight?: boolean;
@@ -17,16 +17,17 @@ export interface Pricing {
   note: string;
 }
 
-// Honest framing: the studio scopes and quotes each project up front rather than
-// publishing numeric price anchors. Per-locale, parsed at module load.
+// Honest pricing anchor: projects start at the SME Package minimum eligible cost
+// of €3,000, scoped per project, with most of it state-funded (about €900 net
+// after the 70% SME Package grant). Per-locale, parsed at module load.
 const PRICING_I18N: Record<Locale, Pricing> = {
   en: {
-    lead: 'Every project gets a fixed quote up front, scoped to what you actually need.',
+    lead: 'Projects start from €3,000, scoped to your project. Most of it is state-funded via the SME Package, so €3,000 is about €900 after the 70% grant.',
     tiers: [
       {
         name: 'AI agents & automation',
         icon: 'ai',
-        price: 'Fixed quote',
+        price: 'from €3,000',
         desc: 'Agents, chatbots and automations, audited first.',
         feats: ['Scoped audit first', 'Built and deployed', 'You own it'],
         highlight: true,
@@ -34,14 +35,14 @@ const PRICING_I18N: Record<Locale, Pricing> = {
       {
         name: 'Website & e-commerce',
         icon: 'growth',
-        price: 'Fixed quote',
+        price: 'from €3,000',
         desc: 'Modern sites and shops on Next.js.',
         feats: ['Design + build', 'Multilingual & SEO', 'Stripe / bookings'],
       },
       {
         name: 'Web3 build',
         icon: 'web3',
-        price: 'Fixed quote',
+        price: 'from €3,000',
         desc: 'Smart contracts and on-chain apps.',
         feats: ['Scope & architecture', 'Build & testing', 'Launch + support'],
       },
@@ -53,15 +54,15 @@ const PRICING_I18N: Record<Locale, Pricing> = {
         feats: ['Tailored scope', 'Monitoring & backups', 'Direct support'],
       },
     ],
-    note: 'Based in Luxembourg, your project may be co-funded through the SME Package. We help with the paperwork.',
+    note: 'The €3,000 start is the SME Package minimum eligible cost; eligible projects run from €3,000 to €25,000, and the programme reimburses 70%. Based in Luxembourg, your project may be co-funded; we help with the paperwork.',
   },
   fr: {
-    lead: 'Chaque projet reçoit un devis fixe en amont, calibré sur vos besoins réels.',
+    lead: 'Les projets démarrent à partir de 3 000 €, calibrés sur votre projet. L’essentiel est financé par l’État via le SME Package : 3 000 € reviennent à environ 900 € après l’aide de 70 %.',
     tiers: [
       {
         name: 'Agents IA & automatisation',
         icon: 'ai',
-        price: 'Devis fixe',
+        price: 'à partir de 3 000 €',
         desc: 'Agents, chatbots et automatisations, audités d’abord.',
         feats: ['Audit cadré d’abord', 'Développé et déployé', 'Vous en êtes propriétaire'],
         highlight: true,
@@ -69,14 +70,14 @@ const PRICING_I18N: Record<Locale, Pricing> = {
       {
         name: 'Site web & e-commerce',
         icon: 'growth',
-        price: 'Devis fixe',
+        price: 'à partir de 3 000 €',
         desc: 'Sites et boutiques modernes sur Next.js.',
         feats: ['Design + développement', 'Multilingue & SEO', 'Stripe / réservations'],
       },
       {
         name: 'Développement Web3',
         icon: 'web3',
-        price: 'Devis fixe',
+        price: 'à partir de 3 000 €',
         desc: 'Smart contracts et applis on-chain.',
         feats: ['Cadrage & architecture', 'Développement & tests', 'Lancement + support'],
       },
@@ -88,15 +89,15 @@ const PRICING_I18N: Record<Locale, Pricing> = {
         feats: ['Périmètre sur mesure', 'Supervision & sauvegardes', 'Support direct'],
       },
     ],
-    note: 'Basé au Luxembourg, votre projet peut être cofinancé via le SME Package (aides aux PME). Nous vous aidons avec les démarches.',
+    note: 'Le démarrage à 3 000 € correspond au coût éligible minimum du SME Package ; les projets éligibles vont de 3 000 € à 25 000 €, et le programme rembourse 70 %. Basé au Luxembourg, votre projet peut être cofinancé ; nous vous aidons avec les démarches.',
   },
   de: {
-    lead: 'Jedes Projekt erhält vorab ein festes Angebot, zugeschnitten auf das, was Sie wirklich brauchen.',
+    lead: 'Projekte starten ab 3.000 €, zugeschnitten auf Ihr Projekt. Das meiste davon ist über das SME Package staatlich gefördert: 3.000 € sind nach der 70-%-Förderung etwa 900 €.',
     tiers: [
       {
         name: 'KI-Agenten & Automatisierung',
         icon: 'ai',
-        price: 'Festes Angebot',
+        price: 'ab 3.000 €',
         desc: 'Agenten, Chatbots und Automatisierungen, zuerst auditiert.',
         feats: ['Zuerst klares Audit', 'Gebaut und deployt', 'Es gehört Ihnen'],
         highlight: true,
@@ -104,14 +105,14 @@ const PRICING_I18N: Record<Locale, Pricing> = {
       {
         name: 'Website & E-Commerce',
         icon: 'growth',
-        price: 'Festes Angebot',
+        price: 'ab 3.000 €',
         desc: 'Moderne Websites und Shops mit Next.js.',
         feats: ['Design + Aufbau', 'Mehrsprachig & SEO', 'Stripe / Buchungen'],
       },
       {
         name: 'Web3-Entwicklung',
         icon: 'web3',
-        price: 'Festes Angebot',
+        price: 'ab 3.000 €',
         desc: 'Smart Contracts und On-Chain-Apps.',
         feats: ['Konzept & Architektur', 'Entwicklung & Tests', 'Launch + Support'],
       },
@@ -123,7 +124,7 @@ const PRICING_I18N: Record<Locale, Pricing> = {
         feats: ['Maßgeschneiderter Umfang', 'Monitoring & Backups', 'Direkter Support'],
       },
     ],
-    note: 'In Luxemburg ansässig? Ihr Projekt kann über das SME Package (Förderung für KMU) kofinanziert werden. Wir helfen bei den Formalitäten.',
+    note: 'Der Start bei 3.000 € entspricht den förderfähigen Mindestkosten des SME Package; förderfähige Projekte reichen von 3.000 € bis 25.000 €, und das Programm erstattet 70 %. In Luxemburg ansässig? Ihr Projekt kann kofinanziert werden; wir helfen bei den Formalitäten.',
   },
 };
 
