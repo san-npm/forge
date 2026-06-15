@@ -17,6 +17,7 @@ import {
   AGENCY_FAQS,
 } from '@/lib/jsonld';
 import { Analytics } from '@/components/Analytics';
+import { ConsentBanner } from '@/components/ConsentBanner';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
 import { MagneticCursor } from '@/components/ui/MagneticCursor';
@@ -208,6 +209,7 @@ export default async function LocaleLayout({
       </head>
       <body className="antialiased">
         <Analytics />
+        <ConsentBanner locale={loc} />
         {/* Global custom cursor island: renders null on touch / reduced-motion. */}
         <MagneticCursor />
         <NextIntlClientProvider messages={messages} locale={loc}>
