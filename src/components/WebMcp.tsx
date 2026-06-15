@@ -60,9 +60,15 @@ export function estimateSmeFundingText(rawBudget: unknown): string {
 
 export function WebMcp() {
   useEffect(() => {
-    if (!('modelContext' in document)) return;
-    const modelContext = (document as unknown as { modelContext: ModelContext })
-      .modelContext;
+    // WebMCP may be exposed on `document` (W3C standards track) or `navigator`
+    // (the MCP-B polyfill surface); accept either so a scanner detects the tools
+    // whichever surface it provides.
+    const modelContext =
+      (document as unknown as { modelContext?: ModelContext }).modelContext ??
+      (typeof navigator !== 'undefined'
+        ? (navigator as unknown as { modelContext?: ModelContext }).modelContext
+        : undefined);
+    if (!modelContext || typeof modelContext.registerTool !== 'function') return;
     const controller = new AbortController();
 
     void modelContext.registerTool(
