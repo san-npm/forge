@@ -14,6 +14,7 @@ export const WORK_SCREENSHOTS: Record<string, string> = {
   lagrocerie: '/work/lagrocerie.webp',
   gategram: '/work/gategram.webp',
   liberclaw: '/work/liberclaw.webp',
+  libertai: '/work/libertai.webp',
   ophis: '/work/ophis.webp',
   skillsws: '/work/skills.webp',
   alephcloud: '/work/alephcloud.webp',
@@ -23,9 +24,11 @@ export const WORK_SCREENSHOTS: Record<string, string> = {
 export const WORK_KIND_LABEL: Record<string, string> = {
   'E-commerce': 'E-COMMERCE',
   'Our product': 'OUR PRODUCT',
+  'Client build': 'CLIENT BUILD',
   'AI assistant': 'AI ASSISTANT',
   'Web3 / DeFi': 'WEB3 · DEFI',
   'Growth & marketing': 'GROWTH · MARKETING',
+  Contributor: 'CONTRIBUTOR',
 };
 
 export interface WorkCardProps {
@@ -47,6 +50,9 @@ export function WorkCard({ item, featured = false, ui }: WorkCardProps) {
   const t = ui ?? getUiStrings('en');
   const shot = WORK_SCREENSHOTS[item.slug];
   const kind = t.kindLabels[item.kind] ?? WORK_KIND_LABEL[item.kind] ?? item.kind.toUpperCase();
+  // Projects the founder contributed to (not built / owned) wear a clearly
+  // distinct lime "CONTRIBUTOR" tag so they never read as products we built.
+  const isContributor = item.tag === 'contributed';
 
   return (
     <Link
@@ -82,8 +88,15 @@ export function WorkCard({ item, featured = false, ui }: WorkCardProps) {
             {item.name}
           </span>
         )}
-        {/* Mono kind tag, pinned over the image. */}
-        <span className="absolute left-4 top-4 rounded-full border border-hairline bg-[rgba(10,10,11,0.72)] px-3 py-1 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-text backdrop-blur-sm">
+        {/* Mono kind tag, pinned over the image. Contributor projects get a
+            distinct lime-outlined tag so they read as contributed, not built. */}
+        <span
+          className={`absolute left-4 top-4 rounded-full border px-3 py-1 font-mono text-[0.6875rem] uppercase tracking-[0.16em] backdrop-blur-sm ${
+            isContributor
+              ? 'border-accent bg-[rgba(10,10,11,0.72)] text-accent'
+              : 'border-hairline bg-[rgba(10,10,11,0.72)] text-text'
+          }`}
+        >
           {kind}
         </span>
       </div>

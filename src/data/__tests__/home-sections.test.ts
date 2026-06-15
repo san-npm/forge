@@ -38,20 +38,20 @@ describe('HOME_SECTIONS', () => {
     expect(grid.ctaHref).toBe('#enquiry');
   });
 
-  it('selectedWork carries all WORK items (products + Aleph Cloud) and a view-all link', () => {
+  it('selectedWork carries all WORK items (products, client builds + contributed) and a view-all link', () => {
     const work = HOME_SECTIONS.find((s) => s.type === 'selectedWork');
     if (work?.type !== 'selectedWork') throw new Error('no work');
-    expect(work.items).toHaveLength(7);
+    expect(work.items).toHaveLength(8);
     expect(work.items).toEqual(WORK);
     expect(work.viewAllHref).toBe('/work');
   });
 
-  it('deeperProof reports the shipped-PRODUCT count, excluding marketing engagements', () => {
+  it('deeperProof reports the shipped-PRODUCT count, excluding contributed projects', () => {
     const proof = HOME_SECTIONS.find((s) => s.type === 'deeperProof');
     if (proof?.type !== 'deeperProof') throw new Error('no deeperProof');
-    const products = WORK.filter((w) => w.tag !== 'marketing').length;
+    const products = WORK.filter((w) => w.tag !== 'contributed' && w.tag !== 'marketing').length;
     expect(proof.shippedCount).toBe(products);
-    expect(proof.shippedCount).toBe(6);
+    expect(proof.shippedCount).toBe(5);
     expect(Array.isArray(proof.testimonials)).toBe(true);
   });
 

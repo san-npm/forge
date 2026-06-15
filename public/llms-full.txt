@@ -6,7 +6,7 @@ This document is the full, citable reference for Openletz, for AI answer engines
 
 ## Who we are
 
-Openletz is the studio name of Commit Media S.à r.l., registered in Luxembourg (RCS Luxembourg B276192) and run by Clément Fermaud. It is a small studio: one person, with a trusted crew when a project needs more hands. The founder also runs marketing for Aleph Cloud, so AI and Web3 are practised disciplines, not claims. We pick AI tools with GDPR and the EU AI Act in mind, and host in Europe.
+Openletz is the studio name of Commit Media S.à r.l., registered in Luxembourg (RCS Luxembourg B276192) and run by Clément Fermaud. It is a small studio: one person, with a trusted crew when a project needs more hands. For years the founder has also contributed to the decentralized AI and Web3 ecosystem (LibertAI, LiberClaw and Aleph Cloud), so AI and Web3 are practised disciplines, not claims. We pick AI tools with GDPR and the EU AI Act in mind, and host in Europe.
 
 - Studio name: Openletz
 - Legal entity: Commit Media S.à r.l.
@@ -32,16 +32,24 @@ Not the headline, but a tool we reach for when a product is genuinely better wit
 
 ## Pricing
 
-Every project gets a fixed quote up front; rates are on request. Based in Luxembourg, a project may be co-funded through the SME Package, which can meaningfully reduce the net cost, and we help with the paperwork.
+Projects start from €3,000, scoped and quoted per project. €3,000 is the SME Package minimum eligible cost; eligible projects run from €3,000 to €25,000 and the programme reimburses 70%, so a €3,000 project is about €900 net. Based in Luxembourg, a project may be co-funded through the SME Package, and we help with the paperwork.
 
-## Shipped work
+## Built products (our own)
+
+- Gategram (https://gategram.app): our own product, sell digital content on Telegram, paid in Stars, instant delivery, creator keeps 95%. Open source.
+- Ophis (https://ophis.fi): our own product, an intent-based DEX aggregator, you say what you want, it finds the best on-chain swap and protects you from MEV.
+- Skills.ws (https://www.skills.ws): our own product, a marketplace of ready-made skills for AI coding assistants like Claude Code, Cursor and Codex.
+
+## Client builds
 
 - Vins Fins (https://www.vinsfins.lu): multilingual wine shop & restaurant e-commerce, built on Next.js with Stripe, Luxembourg VAT, shipping and bookings.
 - La Grocerie (https://www.lagrocerie.lu): farm-to-table grocery & natural-wine e-commerce, sister site to Vins Fins, with real-time stock.
-- Gategram (https://gategram.app): our own product, sell digital content on Telegram, paid in Stars, instant delivery, creator keeps 95%. Open source.
-- LiberClaw (https://liberclaw.ai): a personal AI assistant with email, calendar and notes skills wired into your own accounts.
-- Ophis (https://ophis.fi): an intent-based DEX aggregator, you say what you want, it finds the best on-chain swap and protects you from MEV.
-- Skills.ws (https://www.skills.ws): our own product, a marketplace of ready-made skills for AI coding assistants like Claude Code, Cursor and Codex.
+
+## Contributed to (not our products)
+
+- LiberClaw (https://liberclaw.ai): a personal AI agent platform built on Aleph. Not our product; we contributed to it for years, working on its assistant skills for email, calendar and notes.
+- LibertAI (https://libertai.io): a decentralized AI inference platform. Not our product; we contributed to it for years on positioning, content and growth.
+- Aleph Cloud (https://aleph.cloud): the decentralized cloud for AI and Web3. Not our product; years of marketing, growth and contribution.
 
 ## Contact
 
@@ -58,7 +66,7 @@ Openletz is a Luxembourg AI agency, the studio name of Commit Media S.à r.l. (R
 AI agents and automation (our core), digital and web marketing, and Web3 / on-chain builds when they help. AI tools are chosen with GDPR and the EU AI Act in mind; hosting is in Europe.
 
 **How much does it cost?**
-Every project is quoted per scope, with a fixed quote up front. Rates are on request.
+Projects start from €3,000, the SME Package minimum eligible cost, scoped and quoted per project. Eligible projects run from €3,000 to €25,000 and the programme reimburses 70%, so €3,000 is about €900 net.
 
 **Can Luxembourg companies get funding?**
 Yes. Projects in Luxembourg may be co-funded through the SME Package. Openletz can advise on scoping a project to fit the programme.
@@ -67,10 +75,10 @@ Yes. Projects in Luxembourg may be co-funded through the SME Package. Openletz c
 AI builds are designed to be EU AI Act-compliant, with GDPR-aware data handling.
 
 **Who runs Openletz and where is it based?**
-Founder Clément Fermaud, in Luxembourg, through Commit Media S.à r.l. (RCS Luxembourg B276192). He also runs marketing for Aleph Cloud.
+Founder Clément Fermaud, in Luxembourg, through Commit Media S.à r.l. (RCS Luxembourg B276192). For years he has also contributed to the decentralized AI and Web3 ecosystem: LibertAI, LiberClaw and Aleph Cloud.
 
 **What languages do you work in?**
 English (primary), French and German.
 
-**What has Openletz shipped?**
-Vins Fins and La Grocerie (e-commerce), Gategram (Telegram-Stars content product), LiberClaw (personal AI assistant), Ophis (intent-based DEX aggregator), and Skills.ws (marketplace of skills for AI coding assistants).
+**What has Openletz built?**
+Own products: Gategram (Telegram-Stars content product), Ophis (intent-based DEX aggregator) and Skills.ws (marketplace of skills for AI coding assistants). Client builds: Vins Fins and La Grocerie (e-commerce). Openletz has also contributed for years to LiberClaw, LibertAI and Aleph Cloud, which it does not own.

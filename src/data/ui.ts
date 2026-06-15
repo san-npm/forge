@@ -119,7 +119,7 @@ export interface UiStrings {
     titleAccent: string;
     lead: string;
     filterLabel: string;
-    filters: { all: string; ai: string; web: string; web3: string; growth: string };
+    filters: { all: string; ai: string; web: string; web3: string; growth: string; contributed: string };
   };
   caseStudy: {
     problem: string;
@@ -226,7 +226,7 @@ const EN: UiStrings = {
     selectedWorkKicker: 'Our work',
     selectedWorkTitle: 'Selected Work',
     selectedWorkAccent: 'Work',
-    selectedWorkSubhead: 'Real products we designed, built and shipped, plus the brands we help grow.',
+    selectedWorkSubhead: 'Products we built, client sites we shipped, and the decentralized AI and Web3 projects we have contributed to for years.',
     allWork: 'All work',
     trustKicker: 'Where we stand',
     trustHeadline: 'European by default.',
@@ -252,9 +252,11 @@ const EN: UiStrings = {
   kindLabels: {
     'E-commerce': 'E-COMMERCE',
     'Our product': 'OUR PRODUCT',
+    'Client build': 'CLIENT BUILD',
     'AI assistant': 'AI ASSISTANT',
     'Web3 / DeFi': 'WEB3 · DEFI',
     'Growth & marketing': 'GROWTH · MARKETING',
+    Contributor: 'CONTRIBUTOR',
   },
   pillarLabels: {
     'AI automation': 'AI automation',
@@ -311,16 +313,16 @@ const EN: UiStrings = {
   },
   pricing: {
     heroKicker: 'Pricing',
-    heroTitleA: 'A fixed ',
-    heroTitleAccent: 'quote',
-    heroTitleB: ', up front.',
-    fundingLead: 'Most projects qualify for 70% state co-funding.',
+    heroTitleA: 'From ',
+    heroTitleAccent: '€3,000',
+    heroTitleB: ', mostly state-funded.',
+    fundingLead: 'Most projects qualify for 70% state co-funding, so €3,000 is about €900 net.',
     seeSmePackage: 'See the SME Package.',
     mostPopular: 'Most popular',
     faqs: [
       {
-        q: 'Why no public prices?',
-        a: 'Because honest scoping beats a number that fits nobody. You tell us what you want to build, we scope it, and every project gets a fixed quote up front.',
+        q: 'Where does €3,000 come from?',
+        a: 'It is the SME Package minimum eligible cost. Eligible projects run from €3,000 to €25,000, the programme reimburses 70%, so a €3,000 project is about €900 after the grant. We scope each project and quote it up front.',
       },
       {
         q: 'Can my project be co-funded?',
@@ -329,7 +331,7 @@ const EN: UiStrings = {
     ],
     closingTitle: 'Tell us what you want to build.',
     closingTitleAccent: 'build',
-    closingLead: 'We scope it, quote it up front, and ship it.',
+    closingLead: 'We scope it, quote it up front, and ship it, most of it state-funded.',
   },
   about: {
     heroKicker: 'About',
@@ -345,9 +347,9 @@ const EN: UiStrings = {
     kicker: 'Selected work',
     titleA: 'Selected ',
     titleAccent: 'work',
-    lead: 'Real products we designed, built and shipped, plus the brands we help grow. Filter by what you are building.',
+    lead: 'Products we built, client sites we shipped, and the decentralized AI and Web3 projects we have contributed to for years. Filter by what you are building.',
     filterLabel: 'Filter work by type',
-    filters: { all: 'All', ai: 'AI', web: 'Web', web3: 'Web3', growth: 'Growth' },
+    filters: { all: 'All', ai: 'AI', web: 'Web', web3: 'Web3', growth: 'Growth', contributed: 'Contributed' },
   },
   caseStudy: {
     problem: 'Problem',
@@ -466,7 +468,7 @@ const FR: UiStrings = {
     selectedWorkKicker: 'Nos réalisations',
     selectedWorkTitle: 'Réalisations choisies',
     selectedWorkAccent: 'choisies',
-    selectedWorkSubhead: 'De vrais produits que nous avons conçus, développés et livrés, et les marques que nous faisons grandir.',
+    selectedWorkSubhead: 'Des produits que nous avons construits, des sites clients que nous avons livrés, et les projets d’IA décentralisée et de Web3 auxquels nous contribuons depuis des années.',
     allWork: 'Toutes les réalisations',
     trustKicker: 'Notre position',
     trustHeadline: 'Européen par défaut.',
@@ -492,9 +494,11 @@ const FR: UiStrings = {
   kindLabels: {
     'E-commerce': 'E-COMMERCE',
     'Notre produit': 'NOTRE PRODUIT',
+    'Projet client': 'PROJET CLIENT',
     'Assistant IA': 'ASSISTANT IA',
     'Web3 / DeFi': 'WEB3 · DEFI',
     'Croissance & marketing': 'CROISSANCE · MARKETING',
+    Contributeur: 'CONTRIBUTEUR',
   },
   pillarLabels: {
     'AI automation': 'Automatisation IA',
@@ -551,16 +555,16 @@ const FR: UiStrings = {
   },
   pricing: {
     heroKicker: 'Tarifs',
-    heroTitleA: 'Un ',
-    heroTitleAccent: 'devis',
-    heroTitleB: ' fixe, en amont.',
-    fundingLead: 'La plupart des projets sont éligibles à 70 % de cofinancement de l’État.',
+    heroTitleA: 'À partir de ',
+    heroTitleAccent: '3 000 €',
+    heroTitleB: ', en grande partie financé.',
+    fundingLead: 'La plupart des projets sont éligibles à 70 % de cofinancement de l’État, soit environ 900 € nets pour 3 000 €.',
     seeSmePackage: 'Découvrir le SME Package.',
     mostPopular: 'Le plus demandé',
     faqs: [
       {
-        q: 'Pourquoi pas de prix publics ?',
-        a: 'Parce qu’un cadrage honnête vaut mieux qu’un chiffre qui ne convient à personne. Vous nous dites ce que vous voulez construire, nous le cadrons, et chaque projet reçoit un devis fixe en amont.',
+        q: 'D’où viennent les 3 000 € ?',
+        a: 'C’est le coût éligible minimum du SME Package. Les projets éligibles vont de 3 000 € à 25 000 €, le programme rembourse 70 %, donc un projet de 3 000 € revient à environ 900 € après l’aide. Nous cadrons chaque projet et le chiffrons en amont.',
       },
       {
         q: 'Mon projet peut-il être cofinancé ?',
@@ -569,7 +573,7 @@ const FR: UiStrings = {
     ],
     closingTitle: 'Dites-nous ce que vous voulez construire.',
     closingTitleAccent: 'construire',
-    closingLead: 'Nous le cadrons, le chiffrons en amont, et le livrons.',
+    closingLead: 'Nous le cadrons, le chiffrons en amont, et le livrons, en grande partie financé par l’État.',
   },
   about: {
     heroKicker: 'À propos',
@@ -585,9 +589,9 @@ const FR: UiStrings = {
     kicker: 'Réalisations choisies',
     titleA: 'Réalisations ',
     titleAccent: 'choisies',
-    lead: 'De vrais produits que nous avons conçus, développés et livrés, et les marques que nous faisons grandir. Filtrez selon ce que vous construisez.',
+    lead: 'Des produits que nous avons construits, des sites clients que nous avons livrés, et les projets d’IA décentralisée et de Web3 auxquels nous contribuons depuis des années. Filtrez selon ce que vous construisez.',
     filterLabel: 'Filtrer les réalisations par type',
-    filters: { all: 'Tout', ai: 'IA', web: 'Web', web3: 'Web3', growth: 'Croissance' },
+    filters: { all: 'Tout', ai: 'IA', web: 'Web', web3: 'Web3', growth: 'Croissance', contributed: 'Contribution' },
   },
   caseStudy: {
     problem: 'Problème',
@@ -706,7 +710,7 @@ const DE: UiStrings = {
     selectedWorkKicker: 'Unsere Arbeiten',
     selectedWorkTitle: 'Ausgewählte Arbeiten',
     selectedWorkAccent: 'Arbeiten',
-    selectedWorkSubhead: 'Echte Produkte, die wir gestaltet, gebaut und geliefert haben, dazu die Marken, die wir wachsen lassen.',
+    selectedWorkSubhead: 'Produkte, die wir gebaut haben, Kunden-Websites, die wir geliefert haben, und die Projekte für dezentrale KI und Web3, an denen wir seit Jahren mitwirken.',
     allWork: 'Alle Arbeiten',
     trustKicker: 'Wofür wir stehen',
     trustHeadline: 'Europäisch von Haus aus.',
@@ -732,9 +736,11 @@ const DE: UiStrings = {
   kindLabels: {
     'E-Commerce': 'E-COMMERCE',
     'Unser Produkt': 'UNSER PRODUKT',
+    Kundenprojekt: 'KUNDENPROJEKT',
     'KI-Assistent': 'KI-ASSISTENT',
     'Web3 / DeFi': 'WEB3 · DEFI',
     'Wachstum & Marketing': 'WACHSTUM · MARKETING',
+    Mitwirkung: 'MITWIRKUNG',
   },
   pillarLabels: {
     'AI automation': 'KI-Automatisierung',
@@ -791,16 +797,16 @@ const DE: UiStrings = {
   },
   pricing: {
     heroKicker: 'Preise',
-    heroTitleA: 'Ein festes ',
-    heroTitleAccent: 'Angebot',
-    heroTitleB: ', vorab.',
-    fundingLead: 'Die meisten Projekte qualifizieren sich für 70 % staatliche Kofinanzierung.',
+    heroTitleA: 'Ab ',
+    heroTitleAccent: '3.000 €',
+    heroTitleB: ', großteils gefördert.',
+    fundingLead: 'Die meisten Projekte qualifizieren sich für 70 % staatliche Kofinanzierung, somit sind 3.000 € rund 900 € netto.',
     seeSmePackage: 'Das SME Package ansehen.',
     mostPopular: 'Am beliebtesten',
     faqs: [
       {
-        q: 'Warum keine öffentlichen Preise?',
-        a: 'Weil ehrliche Planung besser ist als eine Zahl, die zu niemandem passt. Sie sagen uns, was Sie bauen möchten, wir planen es, und jedes Projekt erhält vorab ein festes Angebot.',
+        q: 'Woher kommen die 3.000 €?',
+        a: 'Das sind die förderfähigen Mindestkosten des SME Package. Förderfähige Projekte reichen von 3.000 € bis 25.000 €, das Programm erstattet 70 %, ein Projekt für 3.000 € kostet also nach der Förderung rund 900 €. Wir planen jedes Projekt und geben vorab ein Angebot.',
       },
       {
         q: 'Kann mein Projekt kofinanziert werden?',
@@ -809,7 +815,7 @@ const DE: UiStrings = {
     ],
     closingTitle: 'Sagen Sie uns, was Sie bauen möchten.',
     closingTitleAccent: 'bauen',
-    closingLead: 'Wir planen es, geben vorab ein Angebot und liefern es.',
+    closingLead: 'Wir planen es, geben vorab ein Angebot und liefern es, großteils staatlich gefördert.',
   },
   about: {
     heroKicker: 'Über uns',
@@ -825,9 +831,9 @@ const DE: UiStrings = {
     kicker: 'Ausgewählte Arbeiten',
     titleA: 'Ausgewählte ',
     titleAccent: 'Arbeiten',
-    lead: 'Echte Produkte, die wir gestaltet, gebaut und geliefert haben, dazu die Marken, die wir wachsen lassen. Filtern Sie nach dem, was Sie bauen.',
+    lead: 'Produkte, die wir gebaut haben, Kunden-Websites, die wir geliefert haben, und die Projekte für dezentrale KI und Web3, an denen wir seit Jahren mitwirken. Filtern Sie nach dem, was Sie bauen.',
     filterLabel: 'Arbeiten nach Typ filtern',
-    filters: { all: 'Alle', ai: 'KI', web: 'Web', web3: 'Web3', growth: 'Wachstum' },
+    filters: { all: 'Alle', ai: 'KI', web: 'Web', web3: 'Web3', growth: 'Wachstum', contributed: 'Mitwirkung' },
   },
   caseStudy: {
     problem: 'Problem',

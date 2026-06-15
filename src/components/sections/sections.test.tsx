@@ -58,15 +58,21 @@ describe('SelectedWorkSection', () => {
     expect(screen.getByRole('link', { name: /all work/i })).toHaveAttribute('href', '/work');
   });
 
-  it('frames the Aleph Cloud card as a marketing engagement (GROWTH · MARKETING tag)', () => {
+  it('frames LiberClaw, LibertAI and Aleph Cloud as contributed (CONTRIBUTOR tag), not built', () => {
     render(
       <SelectedWorkSection type="selectedWork" items={WORK} viewAllHref="/work" locale="en" />,
     );
-    expect(screen.getByText(/growth · marketing/i)).toBeInTheDocument();
+    // Three CONTRIBUTOR tags, one per contributed project.
+    expect(screen.getAllByText(/^contributor$/i)).toHaveLength(3);
     const link = screen.getByRole('link', { name: /aleph cloud/i });
     expect(link).toHaveAttribute('href', 'https://aleph.cloud');
     expect(link).toHaveAttribute('target', '_blank');
     expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'));
+    // LibertAI is present and links to its site.
+    expect(screen.getByRole('link', { name: /libertai/i })).toHaveAttribute(
+      'href',
+      'https://libertai.io',
+    );
   });
 });
 

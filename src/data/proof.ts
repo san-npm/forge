@@ -5,13 +5,14 @@ import type { Locale } from '@/lib/site-config';
 
 export type { ProofLogo, ProofMetric };
 
-// Portfolio wordmarks for the "Shipped & live" strip: the PRODUCTS we built,
-// derived from WORK (order significant). Marketing engagements (e.g. Aleph
-// Cloud, tag 'marketing') are NOT products and are excluded here so the strip
-// never implies we built a client's brand. The salvaged logo PNGs live at
+// Portfolio wordmarks for the "Shipped & live" strip: the products we built and
+// shipped (our own products + client builds), derived from WORK (order
+// significant). Projects the founder only CONTRIBUTED to (LiberClaw, LibertAI,
+// Aleph Cloud, tag 'contributed') are NOT ours and are excluded here so the
+// strip never implies we built or own them. The salvaged logo PNGs live at
 // public/clients/<slug>.png. Parsed at load so bad content fails build.
 export const PROOF_LOGOS: ProofLogo[] = z.array(ProofLogoSchema).parse(
-  WORK.filter((w) => w.tag !== 'marketing').map((w) => ({
+  WORK.filter((w) => w.tag !== 'contributed' && w.tag !== 'marketing').map((w) => ({
     slug: w.slug,
     name: w.name,
     src: `/clients/${w.slug}.png`,
@@ -29,7 +30,8 @@ export const PROOF_LOGOS: ProofLogo[] = z.array(ProofLogoSchema).parse(
  *  - `disciplines`: AI, web and on-chain are three disciplines actually shipped
  *    (the Work grid is the receipt), so this is a defensible "3".
  *  - `alephPartner`: a qualitative credential rendered as Anton text (not a
- *    number) — Openletz markets Aleph Cloud, a real multi-year client.
+ *    number) and framed as a CONTRIBUTION, not ownership — the founder
+ *    contributed to Aleph Cloud (marketing and growth) for years.
  * The Work grid already lists the products, so we no longer advertise a raw
  * product count here.
  */
@@ -37,17 +39,17 @@ const PROOF_METRICS_I18N: Record<Locale, ProofMetric[]> = {
   en: [
     { id: 'years', label: 'Years building and marketing', value: 5, suffix: '+' },
     { id: 'disciplines', label: 'Disciplines shipped: AI, web and on-chain', value: 3, suffix: '' },
-    { id: 'alephPartner', label: 'Marketing partner to Aleph Cloud', value: null, text: 'Aleph Cloud' },
+    { id: 'alephPartner', label: 'Years contributing to Aleph Cloud, marketing the decentralized cloud', value: null, text: 'Aleph Cloud' },
   ],
   fr: [
     { id: 'years', label: 'Ans à construire et à marketer', value: 5, suffix: '+' },
     { id: 'disciplines', label: 'Disciplines livrées : IA, web et on-chain', value: 3, suffix: '' },
-    { id: 'alephPartner', label: 'Partenaire marketing d’Aleph Cloud', value: null, text: 'Aleph Cloud' },
+    { id: 'alephPartner', label: 'Des années de contribution à Aleph Cloud, marketing du cloud décentralisé', value: null, text: 'Aleph Cloud' },
   ],
   de: [
     { id: 'years', label: 'Jahre Aufbau und Marketing', value: 5, suffix: '+' },
     { id: 'disciplines', label: 'Gelieferte Disziplinen: KI, Web und On-Chain', value: 3, suffix: '' },
-    { id: 'alephPartner', label: 'Marketingpartner von Aleph Cloud', value: null, text: 'Aleph Cloud' },
+    { id: 'alephPartner', label: 'Jahre der Mitwirkung an Aleph Cloud, Marketing der dezentralen Cloud', value: null, text: 'Aleph Cloud' },
   ],
 };
 

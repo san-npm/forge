@@ -44,11 +44,14 @@ export const WorkItemSchema = z.object({
   about: z.string(),
   did: z.array(z.string()),
   stack: z.array(z.string()),
-  tag: z.enum(['ai', 'web', 'web3', 'marketing']).optional(),
+  // 'contributed' marks projects the founder contributed to for years (LiberClaw,
+  // LibertAI, Aleph Cloud) — NOT products Openletz built or owns. 'marketing' is
+  // kept for the legacy growth/marketing engagement framing.
+  tag: z.enum(['ai', 'web', 'web3', 'marketing', 'contributed']).optional(),
 });
 export type WorkItem = z.infer<typeof WorkItemSchema>;
 
-export const WorkSchema = z.array(WorkItemSchema).length(7);
+export const WorkSchema = z.array(WorkItemSchema).length(8);
 
 export const AboutSchema = z.object({
   bioLead: z.string(),

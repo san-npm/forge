@@ -13,19 +13,22 @@ describe('WorkGrid', () => {
     }
   });
 
-  it('renders the AI / Web / Web3 / Growth filter controls', () => {
+  it('renders the AI / Web / Web3 / Contributed filter controls', () => {
     render(<WorkGrid items={WORK} />);
     expect(screen.getByRole('tab', { name: /^all$/i })).toBeInTheDocument();
     expect(screen.getByRole('tab', { name: /^ai$/i })).toBeInTheDocument();
     expect(screen.getByRole('tab', { name: /^web3$/i })).toBeInTheDocument();
-    expect(screen.getByRole('tab', { name: /^growth$/i })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /^contributed$/i })).toBeInTheDocument();
   });
 
-  it('filtering to Growth shows only the Aleph Cloud marketing card', async () => {
+  it('filtering to Contributed shows the contributed projects, not the products we built', async () => {
     const user = userEvent.setup();
     render(<WorkGrid items={WORK} />);
-    await user.click(screen.getByRole('tab', { name: /^growth$/i }));
+    await user.click(screen.getByRole('tab', { name: /^contributed$/i }));
+    expect(screen.getByRole('link', { name: /liberclaw/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /libertai/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /aleph cloud/i })).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /vins fins/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /gategram/i })).not.toBeInTheDocument();
   });
 });

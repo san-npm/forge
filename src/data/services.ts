@@ -30,7 +30,7 @@ const SERVICES_I18N: Record<Locale, Services> = {
       ],
       how: ['A quick audit', 'A working prototype you can click', 'Live, with numbers to show it works'],
       proof:
-        "We pick tools with GDPR and the EU AI Act in mind. LiberClaw, a personal AI assistant, is one of our own: it's in the Work folder.",
+        "We pick tools with GDPR and the EU AI Act in mind. Skills.ws, our marketplace for AI coding assistants, is one of our own, and we have contributed for years to LiberClaw, a personal AI agent platform. Both are in the Work folder.",
       footer:
         "In Luxembourg? Your project may be co-funded through the SME Package, and we'll help with the paperwork.",
     },
@@ -70,7 +70,7 @@ const SERVICES_I18N: Record<Locale, Services> = {
         },
       ],
       how: ['Position & design', 'Build & instrument', 'Grow & report'],
-      proof: 'We also run marketing for live products, including Aleph Cloud.',
+      proof: 'We have contributed for years to live products, marketing the decentralized cloud Aleph Cloud.',
     },
   },
   fr: {
@@ -95,7 +95,7 @@ const SERVICES_I18N: Record<Locale, Services> = {
       ],
       how: ['Un audit rapide', 'Un prototype fonctionnel à tester en un clic', 'En production, avec des chiffres à l’appui'],
       proof:
-        "Nous choisissons nos outils en pensant au RGPD et au règlement européen sur l'IA. LiberClaw, un assistant IA personnel, est l'un des nôtres : il est dans le dossier Réalisations.",
+        "Nous choisissons nos outils en pensant au RGPD et au règlement européen sur l'IA. Skills.ws, notre marketplace pour assistants de code IA, est l'un des nôtres, et nous contribuons depuis des années à LiberClaw, une plateforme d'agent IA personnel. Les deux sont dans le dossier Réalisations.",
       footer:
         'Au Luxembourg ? Votre projet peut être cofinancé via le SME Package (aides aux PME), et nous vous aidons avec les démarches.',
     },
@@ -135,7 +135,7 @@ const SERVICES_I18N: Record<Locale, Services> = {
         },
       ],
       how: ['Positionnement & design', 'Développement & mesure', 'Croissance & reporting'],
-      proof: 'Nous gérons aussi le marketing de produits en ligne, dont Aleph Cloud.',
+      proof: 'Nous contribuons depuis des années à des produits en ligne, en assurant le marketing du cloud décentralisé Aleph Cloud.',
     },
   },
   de: {
@@ -160,7 +160,7 @@ const SERVICES_I18N: Record<Locale, Services> = {
       ],
       how: ['Ein schnelles Audit', 'Ein klickbarer, funktionierender Prototyp', 'Live, mit Zahlen, die es belegen'],
       proof:
-        'Wir wählen unsere Werkzeuge mit Blick auf die DSGVO und die EU-KI-Verordnung. LiberClaw, ein persönlicher KI-Assistent, ist eines unserer eigenen Produkte: Er liegt im Ordner Arbeiten.',
+        'Wir wählen unsere Werkzeuge mit Blick auf die DSGVO und die EU-KI-Verordnung. Skills.ws, unser Marktplatz für KI-Coding-Assistenten, ist eines unserer eigenen Produkte, und wir wirken seit Jahren an LiberClaw mit, einer persönlichen KI-Agenten-Plattform. Beide liegen im Ordner Arbeiten.',
       footer:
         'In Luxemburg? Ihr Projekt kann über das SME Package (Förderung für KMU) kofinanziert werden, und wir helfen bei den Formalitäten.',
     },
@@ -200,7 +200,7 @@ const SERVICES_I18N: Record<Locale, Services> = {
         },
       ],
       how: ['Positionierung & Design', 'Aufbau & Messung', 'Wachstum & Reporting'],
-      proof: 'Wir betreuen auch das Marketing für Live-Produkte, darunter Aleph Cloud.',
+      proof: 'Wir wirken seit Jahren an Live-Produkten mit und verantworten das Marketing der dezentralen Cloud Aleph Cloud.',
     },
   },
 };

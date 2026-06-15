@@ -53,14 +53,14 @@ export function getHomeSections(locale: Locale): Section[] {
     },
     {
       type: 'selectedWork',
-      items: work, // 6 products + the Aleph Cloud marketing card; order significant
+      items: work, // built products + client builds + the 3 contributed projects; order significant
       viewAllHref: '/work',
     },
     {
       type: 'deeperProof',
-      // Honest shipped-PRODUCT count: marketing engagements (Aleph Cloud) are a
-      // credential, not a product, so they are excluded from this number.
-      shippedCount: work.filter((w) => w.tag !== 'marketing').length,
+      // Honest shipped-PRODUCT count: projects the founder only contributed to
+      // (LiberClaw, LibertAI, Aleph Cloud) are NOT ours, so they are excluded.
+      shippedCount: work.filter((w) => w.tag !== 'contributed' && w.tag !== 'marketing').length,
       metrics, // founder-operator proof; never fabricated
       testimonials: TESTIMONIALS, // data-driven; empty until owner provides; empty-safe
     },
