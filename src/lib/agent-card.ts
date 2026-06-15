@@ -21,6 +21,9 @@ export function buildAgentCard() {
       'Conversational agent for Openletz, a Luxembourg AI agency. Answers questions about Openletz services (AI agents and automation, websites, digital growth, Web3 when it helps) and produces indicative SME Package funding estimates (70% Luxembourg state co-funding) for eligible companies.',
     url: `${base}/api/a2a`,
     preferredTransport: 'JSONRPC',
+    // The full set of interfaces this agent speaks (A2A AgentInterface[]).
+    supportedInterfaces: [{ url: `${base}/api/a2a`, transport: 'JSONRPC' }],
+    additionalInterfaces: [{ url: `${base}/api/a2a`, transport: 'JSONRPC' }],
     version: '1.0.0',
     provider: {
       organization: 'Commit Media S.à r.l.',
