@@ -19,15 +19,15 @@ export function generateStaticParams() {
 const META: Record<Locale, { title: string; description: string }> = {
   en: {
     title: 'Pricing · Openletz',
-    description: 'Projects start from €3,000, scoped to your project, with most of it state-funded via the SME Package (about €900 net after the 70% grant).',
+    description: 'Projects start from €3,000, scoped to your project. Eligible Luxembourg SMEs can co-fund at 70% via the SME Package, subject to approval (about €900 net after the grant).',
   },
   fr: {
     title: 'Tarifs · Openletz',
-    description: 'Les projets démarrent à partir de 3 000 €, calibrés sur votre projet, en grande partie financés par l’État via le SME Package (environ 900 € nets après l’aide de 70 %).',
+    description: 'Les projets démarrent à partir de 3 000 €, calibrés sur votre projet. Les PME luxembourgeoises éligibles peuvent cofinancer à 70 % via le SME Package, sous réserve d’approbation (environ 900 € nets après l’aide).',
   },
   de: {
     title: 'Preise · Openletz',
-    description: 'Projekte starten ab 3.000 €, zugeschnitten auf Ihr Projekt, großteils staatlich gefördert über das SME Package (rund 900 € netto nach der 70-%-Förderung).',
+    description: 'Projekte starten ab 3.000 €, zugeschnitten auf Ihr Projekt. Förderfähige Luxemburger KMU können über das SME Package zu 70 % kofinanzieren, vorbehaltlich Genehmigung (rund 900 € netto nach der Förderung).',
   },
 };
 
