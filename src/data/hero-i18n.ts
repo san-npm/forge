@@ -1,36 +1,42 @@
 import type { Locale } from '@/lib/site-config';
 import { HeroI18nSchema, type Hero } from '@/lib/schema';
-import { STUDIO } from '@/data/studio';
+import { getStudio } from '@/data/studio';
 
 export type { Hero };
 
-// Ported from src/components/os/osI18n.ts (HERO). EN aliases STUDIO; FR/DE are
-// hardcoded literals. The LB entry has been DROPPED (locale set is en/fr/de).
+// HERO sources its translated identity from the locale-keyed studio module
+// (getStudio) so there is ONE source of truth: tagline, sub, welcomeLead and
+// hint always equal the studio copy the Bold Kinetic hero renders, in every
+// locale. Only the CTA labels are hero-local. The old per-locale literals (and
+// the killed Aqua-OS-shell "double-click an icon / New Project" lines) are gone.
+// The LB entry has been DROPPED (locale set is en/fr/de).
+const EN = getStudio('en');
+const FR = getStudio('fr');
+const DE = getStudio('de');
+
 export const HERO: Record<Locale, Hero> = HeroI18nSchema.parse({
   en: {
-    tagline: STUDIO.tagline,
-    sub: STUDIO.sub,
-    welcomeLead: STUDIO.welcomeLead,
-    hint: STUDIO.hint,
-    newProject: 'New Project ▸',
+    tagline: EN.tagline,
+    sub: EN.sub,
+    welcomeLead: EN.welcomeLead,
+    hint: EN.hint,
+    newProject: 'Start a project',
     seeWork: 'See our work',
   },
   fr: {
-    tagline: 'Des sites qui pensent, bougent et transigent.',
-    sub: 'Une agence IA au Luxembourg.',
-    welcomeLead:
-      "On conçoit et développe vos produits digitaux de A à Z — rendus intelligents par l'IA, portés on-chain quand ça apporte vraiment, hébergés en Europe et marketés pour grandir. Un seul studio responsable, du concret livré, zéro promesse en l'air.",
-    hint: "Double-cliquez sur une icône pour découvrir ce qu'on fait — ou lancez « Nouveau projet ».",
-    newProject: 'Nouveau projet ▸',
+    tagline: FR.tagline,
+    sub: FR.sub,
+    welcomeLead: FR.welcomeLead,
+    hint: FR.hint,
+    newProject: 'Démarrer un projet',
     seeWork: 'Voir nos réalisations',
   },
   de: {
-    tagline: 'Websites, die denken, bewegen und handeln.',
-    sub: 'Eine KI-Agentur in Luxemburg.',
-    welcomeLead:
-      'Wir gestalten und entwickeln digitale Produkte von A bis Z — smart gemacht mit KI, on-chain gebracht, wo es echten Mehrwert schafft, in Europa gehostet und für Wachstum vermarktet. Ein Studio mit voller Verantwortung, echte fertige Arbeit, kein Blendwerk.',
-    hint: 'Doppelklicken Sie auf ein Icon, um zu sehen, was wir tun — oder starten Sie „Neues Projekt“.',
-    newProject: 'Neues Projekt ▸',
+    tagline: DE.tagline,
+    sub: DE.sub,
+    welcomeLead: DE.welcomeLead,
+    hint: DE.hint,
+    newProject: 'Projekt starten',
     seeWork: 'Unsere Arbeiten ansehen',
   },
 }) as Record<Locale, Hero>;

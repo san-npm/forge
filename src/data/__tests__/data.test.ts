@@ -181,7 +181,7 @@ describe('PRICING', () => {
     expect(PRICING.lead).toContain('€900');
     expect(PRICING.lead.toLowerCase()).toContain('sme package');
   });
-  it('keeps the SME Package note and the €3,000–€25,000 band framing', () => {
+  it('keeps the SME Package note and the €3,000 to €25,000 band framing', () => {
     expect(PRICING.note).toContain('SME Package');
     expect(PRICING.note).toContain('€3,000');
     expect(PRICING.note).toContain('€25,000');
