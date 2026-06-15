@@ -14,7 +14,7 @@
  */
 
 const KEY = process.env.INDEXNOW_KEY || 'bdc7fbebeb30295aa4a9f9dc3ba9b80f';
-const HOST = process.env.INDEXNOW_HOST || 'www.openletz.com';
+const HOST = process.env.INDEXNOW_HOST || 'openletz.ai';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const SITEMAP_URL = `https://${HOST}/sitemap.xml`;
 const ENDPOINT = 'https://api.indexnow.org/IndexNow';
