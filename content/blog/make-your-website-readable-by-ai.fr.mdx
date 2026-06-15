@@ -1,0 +1,64 @@
+## Un lecteur d’un genre nouveau
+
+Pendant vingt ans, nous avons optimisé pour un seul lecteur : un moteur de
+recherche qui explorait votre HTML, le classait et envoyait une personne
+cliquer. Ce lecteur n’est plus seul. Désormais, un assistant IA lit votre site,
+le résume et répond à la question *sans* le clic. Les gens interrogent
+l’assistant. L’assistant vous lit, ou ne vous lit pas.
+
+C’est ce que l’on désigne par AEO (optimisation pour les moteurs de réponse) et
+GEO (optimisation pour les moteurs génératifs). L’objectif n’est plus seulement
+de se classer. Il s’agit d’être *lisible* pour une machine qui parlera en votre
+nom.
+
+## En quoi un lecteur IA est différent
+
+Un humain est patient. Un robot d’exploration est littéral. Un lecteur IA se
+situe quelque part entre les deux, et il a trois habitudes qu’il vaut la peine
+d’anticiper.
+
+- **Il lit souvent le HTML brut, pas la page rendue.** De nombreux robots d’IA
+  n’exécutent pas votre JavaScript. Si votre titre, vos prix ou vos textes
+  produit n’apparaissent qu’*après* une requête côté client, la machine ne voit
+  qu’une coquille vide.
+- **Il se fie à la structure.** Des titres clairs, de véritables listes et des
+  libellés explicites l’aident à comprendre ce qui est un prix, ce qui est une
+  étape, ce qui est une réponse.
+- **Il récompense la franchise.** Un contenu qui répond à une question dès la
+  première phrase voyage plus loin qu’un contenu qui en enterre l’essentiel.
+
+## Ce qu’il faut concrètement faire
+
+Vous n’avez pas besoin d’une refonte. Il vous faut quatre choses en place.
+
+**Rendez côté serveur le contenu qui compte.** Vos textes essentiels, vos prix,
+vos FAQ et vos titres doivent être présents dans le HTML qui arrive avant que le
+moindre script ne s’exécute. Affichez le code source. Si le texte n’y est pas,
+votre activité non plus, pour un lecteur IA.
+
+**Ajoutez des données structurées.** Un peu de JSON-LD qui dit *ceci est une
+Organisation, ceci est un Produit, ceci est une FAQ* lève l’ambiguïté. Vous
+tendez à la machine une carte étiquetée au lieu de lui demander de deviner.
+
+**Rédigez un `llms.txt` clair.** C’est un fichier en texte brut placé à la racine
+de votre domaine, qui indique aux outils d’IA, avec vos mots, ce qu’est votre
+site et où se trouvent les pages importantes. Voyez-le comme un bref briefing
+pour la machine.
+
+**Répondez d’abord à la question.** Ouvrez chaque page par la réponse, puis
+expliquez. La pyramide inversée a toujours été une bonne écriture. C’est
+désormais aussi une bonne ingénierie.
+
+## Pourquoi maintenant et pas plus tard
+
+Le comportement des acheteurs change déjà. Les gens demandent à un assistant de
+comparer des options, de présélectionner des fournisseurs et d’expliquer un
+service avant même d’atterrir sur un site web. Si l’assistant ne peut pas vous
+lire, vous êtes absent de cette conversation, et vous ne le verrez pas dans vos
+statistiques, car il n’y a eu aucune visite à enregistrer.
+
+Les sites qui s’imposeront ces prochaines années ne sont pas les plus bruyants.
+Ce sont ceux qu’une machine peut lire, citer et recommander sans friction. Nous
+l’intégrons par défaut, car c’est la même discipline que celle qui consiste à
+bâtir un site rapide, honnête et bien structuré. Les robots ont simplement rendu
+cela non négociable.

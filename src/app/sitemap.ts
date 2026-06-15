@@ -1,83 +1,73 @@
 import type { MetadataRoute } from 'next';
-import { AGENTS } from '@/lib/agents';
+import { LOCALES, localeUrl } from '@/lib/site-config';
+import { CASE_STUDIES } from '@/data/case-studies';
 import { getAllPosts } from '@/lib/blog';
-import { localeUrl } from '@/lib/locale-url';
 
-// Core locales for sitemap — keep crawl budget focused on languages
-// relevant to Luxembourg (FR, EN, DE, LB, PT). Other locales still
-// work as routes but aren't submitted to search engines and return
-// noindex from the layout metadata.
-const locales = ['fr', 'en', 'de', 'lb', 'pt'] as const;
+// Phase-2 IA + Phase-3 routes (/services, /pricing, /audit, /insights).
+const STATIC_PATHS: { path: string; priority: number; freq: MetadataRoute.Sitemap[number]['changeFrequency'] }[] = [
+  { path: '', priority: 1.0, freq: 'weekly' },
+  { path: '/services', priority: 0.7, freq: 'monthly' },
+  { path: '/sme-package', priority: 0.7, freq: 'monthly' },
+  { path: '/pricing', priority: 0.7, freq: 'monthly' },
+  { path: '/audit', priority: 0.7, freq: 'monthly' },
+  { path: '/work', priority: 0.8, freq: 'monthly' },
+  { path: '/about', priority: 0.6, freq: 'monthly' },
+  { path: '/insights', priority: 0.7, freq: 'weekly' },
+  { path: '/contact', priority: 0.7, freq: 'monthly' },
+  { path: '/legal/privacy', priority: 0.3, freq: 'yearly' },
+  { path: '/legal/terms', priority: 0.3, freq: 'yearly' },
+];
 
-function buildAlternates(path: string) {
+function alternates(path: string) {
   const languages: Record<string, string> = {};
-  // hreflang alternates must match sitemap loc-list and noindex policy.
-  // Advertising it/es/ru/ar/tr/uk would point Google at thin, untranslated
-  // content and dilute authority — declare only the 5 shipped locales.
-  for (const locale of locales) {
-    languages[locale] = localeUrl(locale, path);
-  }
-  languages['x-default'] = localeUrl('fr', path);
+  for (const locale of LOCALES) languages[locale] = localeUrl(locale, path);
+  languages['x-default'] = localeUrl('en', path);
   return { languages };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Use distinct dates by page type to help crawlers prioritize
-  const contentDate = '2026-03-25T18:00:00.000Z'; // last content update
-  const staticDate = '2026-03-20T12:00:00.000Z';  // legal/about rarely change
+  const lastModified = new Date();
+  const out: MetadataRoute.Sitemap = [];
 
-  const staticPaths = [
-    { path: '', priority: 1.0, freq: 'weekly' as const, date: contentDate },
-    { path: '/agents', priority: 0.9, freq: 'weekly' as const, date: contentDate },
-    { path: '/pricing', priority: 0.8, freq: 'monthly' as const, date: contentDate },
-    { path: '/clients', priority: 0.8, freq: 'monthly' as const, date: contentDate },
-    { path: '/blog', priority: 0.8, freq: 'weekly' as const, date: contentDate },
-    { path: '/about', priority: 0.6, freq: 'monthly' as const, date: staticDate },
-    { path: '/contact', priority: 0.7, freq: 'monthly' as const, date: staticDate },
-    { path: '/privacy', priority: 0.3, freq: 'yearly' as const, date: staticDate },
-    { path: '/terms', priority: 0.3, freq: 'yearly' as const, date: staticDate },
-  ];
-
-  const staticPages: MetadataRoute.Sitemap = [];
-  for (const { path, priority, freq, date } of staticPaths) {
-    for (const locale of locales) {
-      staticPages.push({
+  for (const { path, priority, freq } of STATIC_PATHS) {
+    for (const locale of LOCALES) {
+      out.push({
         url: localeUrl(locale, path),
-        lastModified: date,
+        lastModified,
         changeFrequency: freq,
         priority,
-        alternates: buildAlternates(path),
+        alternates: alternates(path),
       });
     }
   }
 
-  const agentPages: MetadataRoute.Sitemap = [];
-  for (const agent of AGENTS) {
-    const path = `/agents/${agent.slug}`;
-    for (const locale of locales) {
-      agentPages.push({
+  for (const slug of Object.keys(CASE_STUDIES)) {
+    const path = `/work/${slug}`;
+    for (const locale of LOCALES) {
+      out.push({
         url: localeUrl(locale, path),
-        lastModified: contentDate,
+        lastModified,
         changeFrequency: 'monthly',
         priority: 0.7,
-        alternates: buildAlternates(path),
+        alternates: alternates(path),
       });
     }
   }
 
-  const blogPages: MetadataRoute.Sitemap = [];
   for (const post of getAllPosts()) {
-    const path = `/blog/${post.slug}`;
-    for (const locale of locales) {
-      blogPages.push({
+    const path = `/insights/${post.slug}`;
+    const d = new Date(post.date);
+    const postModified = !isNaN(d.getTime()) ? d : lastModified;
+    for (const locale of LOCALES) {
+      out.push({
         url: localeUrl(locale, path),
-        lastModified: post.date,
+        lastModified: postModified,
         changeFrequency: 'monthly',
-        priority: 0.7,
-        alternates: buildAlternates(path),
+        priority: 0.6,
+        alternates: alternates(path),
       });
     }
   }
 
-  return [...staticPages, ...agentPages, ...blogPages];
+  return out;
 }

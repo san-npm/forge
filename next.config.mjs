@@ -1,9 +1,14 @@
+import bundleAnalyzer from '@next/bundle-analyzer';
 import createNextIntlPlugin from 'next-intl/plugin';
+import { allRedirects } from './src/lib/redirects.ts';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  devIndicators: false,
+  cacheComponents: true,
   async headers() {
     return [
       {
@@ -32,85 +37,14 @@ const nextConfig = {
     ];
   },
   async rewrites() {
-    // Map RFC 9727 / agent-discovery well-known paths to app-router handlers.
-    // Next.js can't host folders whose name starts with a dot, so we rewrite.
     return [
       { source: '/.well-known/api-catalog', destination: '/api/well-known/api-catalog' },
       { source: '/.well-known/openapi.yaml', destination: '/api/well-known/openapi' },
     ];
   },
   async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'openletz.com' }],
-        destination: 'https://www.openletz.com/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'openletz.ai' }],
-        destination: 'https://www.openletz.com/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'openletz.fr' }],
-        destination: 'https://www.openletz.com/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.openletz.fr' }],
-        destination: 'https://www.openletz.com/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'openletz.info' }],
-        destination: 'https://www.openletz.com/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.openletz.info' }],
-        destination: 'https://www.openletz.com/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.openletz.ai' }],
-        destination: 'https://www.openletz.com/:path*',
-        permanent: true,
-      },
-      // Short blog URL: openletz.com/blog/xxx → /fr/blog/xxx
-      // The canonical article lives under /fr/blog/:slug (FR is the default
-      // locale). Accepting the shorter public URL form as a permanent alias
-      // makes it easier to share and matches user intent.
-      {
-        source: '/blog',
-        destination: '/fr/blog',
-        permanent: true,
-      },
-      {
-        source: '/blog/:slug',
-        destination: '/fr/blog/:slug',
-        permanent: true,
-      },
-      // Same shortcut for the new grant-program pillar pages
-      {
-        source: '/aides',
-        destination: '/fr/aides',
-        permanent: true,
-      },
-      {
-        source: '/aides/:slug',
-        destination: '/fr/aides/:slug',
-        permanent: true,
-      },
-    ];
+    return allRedirects();
   },
-
 };
 
-export default withNextIntl(nextConfig);
+export default withBundleAnalyzer(withNextIntl(nextConfig));

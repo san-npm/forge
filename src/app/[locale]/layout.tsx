@@ -1,86 +1,42 @@
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
-import Script from 'next/script';
 import type { Metadata } from 'next';
+import { routing } from '@/i18n/routing';
 import { safeJsonLd } from '@/lib/safeJsonLd';
-import { localeUrl } from '@/lib/locale-url';
-import Providers from './providers';
+import { SITE_URL, LOCALES, DEFAULT_LOCALE, localeUrl, type Locale } from '@/lib/site-config';
+import { isProductionHost } from '@/lib/indexing';
+import { fontVariables } from '@/lib/fonts';
+import {
+  organizationJsonLd,
+  professionalServiceJsonLd,
+  webSiteJsonLd,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  homeBreadcrumbLabel,
+  AGENCY_FAQS,
+} from '@/lib/jsonld';
+import { Analytics } from '@/components/Analytics';
+import { Nav } from '@/components/Nav';
+import { Footer } from '@/components/Footer';
+import { MagneticCursor } from '@/components/ui/MagneticCursor';
 import '../globals.css';
 
-const SITE_URL = 'https://www.openletz.com';
-
-// Only these locales get indexed. The other 6 still route (for users who
-// switch languages) but return noindex so Google doesn't crawl thin,
-// auto-translated copies of French content and dilute topical authority.
-const INDEXABLE_LOCALES = new Set(['fr', 'en', 'de', 'lb', 'pt']);
-
-// Preview deployments (code-name-forge-ai.vercel.app, *-git-*.vercel.app)
-// must never be indexed — Google was ranking the preview above production.
-const IS_PRODUCTION_HOST = process.env.VERCEL_ENV === 'production';
-
-const localeNames: Record<string, string> = {
-  fr: 'French',
-  en: 'English',
-  de: 'German',
-  lb: 'Luxembourgish',
-  it: 'Italian',
-  pt: 'Portuguese',
-  es: 'Spanish',
-  ru: 'Russian',
-  ar: 'Arabic',
-  tr: 'Turkish',
-  uk: 'Ukrainian',
-};
-
-const localeOg: Record<string, string> = {
-  fr: 'fr_LU',
+const localeOg: Record<Locale, string> = {
   en: 'en_GB',
+  fr: 'fr_LU',
   de: 'de_DE',
-  lb: 'lb_LU',
-  it: 'it_IT',
-  pt: 'pt_PT',
-  es: 'es_ES',
-  ru: 'ru_RU',
-  ar: 'ar_SA',
-  tr: 'tr_TR',
-  uk: 'uk_UA',
 };
 
-// Additional OG alternate locales — trimmed to match the 5 shipped locales.
-const ogAlternateLocales: Record<string, string[]> = {
-  fr: ['fr_FR', 'fr_BE', 'fr_CH'],
-  de: ['de_DE', 'de_AT', 'de_CH', 'de_LU'],
-  en: ['en_US', 'en_GB', 'en_IE'],
-  pt: ['pt_PT', 'pt_BR'],
-  lb: [],
-};
-
-// hreflang mappings — trimmed to the 5 locales we actually ship in the sitemap.
-// Previously we declared 11 languages of hreflang while only 5 were sitemapped,
-// which created soft-404 risk for Google. Targeting is now focused on
-// Luxembourg + Grande Région + the primary Lusophone workforce in Luxembourg.
-// The other locales (it/es/ru/ar/tr/uk) still route but are not advertised
-// via hreflang until we translate their content properly.
-const hreflangMap: Record<string, string[]> = {
-  fr: [
-    'fr-LU', 'fr-FR', 'fr-BE', 'fr-CH',          // Luxembourg + Grande Région
-  ],
-  en: [
-    'en', 'en-LU', 'en-GB', 'en-US', 'en-IE',    // Default anglophone + EU expat market
-  ],
-  de: [
-    'de-LU', 'de-DE', 'de-AT', 'de-CH', 'de-BE', // German-speaking Europe
-  ],
-  lb: ['lb', 'lb-LU'],
-  pt: [
-    'pt-LU', 'pt-PT', 'pt-BR',                    // Luxembourg Portuguese workforce + origin markets
-  ],
+// Per-locale hreflang targeting: Luxembourg + Grande Region + EU expat market.
+const hreflangMap: Record<Locale, string[]> = {
+  en: ['en', 'en-LU', 'en-GB', 'en-US', 'en-IE'],
+  fr: ['fr-LU', 'fr-FR', 'fr-BE', 'fr-CH'],
+  de: ['de-LU', 'de-DE', 'de-AT', 'de-CH', 'de-BE'],
 };
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+  return LOCALES.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({
@@ -89,103 +45,78 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const loc = (hasLocale(LOCALES, locale) ? locale : DEFAULT_LOCALE) as Locale;
 
-  const titles: Record<string, string> = {
-    fr: 'OpenLetz — Simulateur Aides Digitalisation & IA Luxembourg | Subventions PME',
-    en: 'OpenLetz — SME Digitalization & AI Grants Simulator Luxembourg',
-    de: 'OpenLetz — KMU Digitalisierung & KI Fördersimulator Luxemburg',
-    lb: 'OpenLetz — KMU Digitaliséierung & KI Hëllefen Simulator Lëtzebuerg',
-    it: 'OpenLetz — Simulatore Sovvenzioni Digitalizzazione & IA Lussemburgo',
-    pt: 'OpenLetz — Simulador Apoios Digitalização & IA Luxemburgo',
-    es: 'OpenLetz — Simulador Ayudas Digitalización & IA Luxemburgo | Subvenciones PYME',
-    ru: 'OpenLetz — Симулятор субсидий на цифровизацию и ИИ для МСП в Люксембурге',
-    ar: 'OpenLetz — محاكي منح الرقمنة والذكاء الاصطناعي للشركات الصغيرة في لوكسمبورغ',
-    tr: 'OpenLetz — Lüksemburg KOBİ Dijitalleşme & Yapay Zekâ Hibe Simülatörü',
-    uk: 'OpenLetz — Симулятор субсидій на цифровізацію та ШІ для МСП у Люксембурзі',
+  const titles: Record<Locale, string> = {
+    en: 'Openletz · A Luxembourg AI agency',
+    fr: 'Openletz · Une agence IA au Luxembourg',
+    de: 'Openletz · Eine KI-Agentur in Luxemburg',
   };
 
-  const descriptions: Record<string, string> = {
-    fr: "Simulateur gratuit d'éligibilité aux aides luxembourgeoises pour PME. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — jusqu'à 25 000 € de subvention.",
-    en: 'Free eligibility simulator for Luxembourg SME grants. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — up to €25,000 in funding.',
-    de: 'Kostenloser Förderfähigkeitssimulator für luxemburgische KMU. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — bis zu 25.000 €.',
-    lb: "Gratis Eligibilitéitssimulator fir Lëtzebuerger KMU. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — bis zu 25.000 € Subventioun.",
-    it: 'Simulatore gratuito di ammissibilità per sovvenzioni PMI lussemburghesi. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — fino a 25.000 €.',
-    pt: 'Simulador gratuito de elegibilidade para apoios PME luxemburgueses. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — até 25.000 €.',
-    es: 'Simulador gratuito de elegibilidad para ayudas luxemburguesas a PYMES. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — hasta 25.000 € de subvención.',
-    ru: 'Бесплатный симулятор для определения права на субсидии Люксембурга для МСП. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — до 25 000 €.',
-    ar: 'محاكي مجاني لتحديد أهلية الشركات الصغيرة والمتوسطة للحصول على منح لوكسمبورغ. SME Package، Fit 4 Digital، Fit 4 AI، Fit 4 Innovation — حتى 25,000 يورو.',
-    tr: 'Lüksemburg KOBİ hibeleri için ücretsiz uygunluk simülatörü. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — 25.000 €\'ya kadar hibe.',
-    uk: 'Безкоштовний симулятор для визначення права на субсидії Люксембургу для МСП. SME Package, Fit 4 Digital, Fit 4 AI, Fit 4 Innovation — до 25 000 €.',
+  const descriptions: Record<Locale, string> = {
+    en: 'Openletz is a Luxembourg AI agency. We build AI agents, chatbots and automation, the websites and shops around them, and Web3 when it helps, hosted in Europe.',
+    fr: "Openletz est une agence IA au Luxembourg. Nous concevons des agents IA, chatbots et automatisations, les sites et boutiques autour, et du Web3 quand c'est utile, hebergés en Europe.",
+    de: 'Openletz ist eine KI-Agentur in Luxemburg. Wir bauen KI-Agenten, Chatbots und Automatisierung, die Websites und Shops dazu und Web3, wenn es hilft, gehostet in Europa.',
   };
 
-  const canonicalUrl = localeUrl(locale);
-  const shouldIndex = IS_PRODUCTION_HOST && INDEXABLE_LOCALES.has(locale);
+  const canonicalUrl = localeUrl(loc);
+  const shouldIndex = isProductionHost();
 
-  // Build hreflang alternates
   const languages: Record<string, string> = {};
-  for (const [loc, hreflangs] of Object.entries(hreflangMap)) {
-    for (const hl of hreflangs) {
-      languages[hl] = localeUrl(loc);
+  for (const l of LOCALES) {
+    for (const hl of hreflangMap[l]) {
+      languages[hl] = localeUrl(l);
     }
   }
-  languages['x-default'] = localeUrl('fr');
-
-  // Build og:locale:alternate list — include all country variants
-  const allOgLocales = new Set<string>();
-  for (const [loc, alts] of Object.entries(ogAlternateLocales)) {
-    allOgLocales.add(localeOg[loc]);
-    for (const alt of alts) allOgLocales.add(alt);
-  }
-  allOgLocales.delete(localeOg[locale]); // exclude current
-  const ogAlternates = Array.from(allOgLocales);
+  languages['x-default'] = localeUrl(DEFAULT_LOCALE);
 
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: titles[locale] || titles.fr,
-      template: '%s | OpenLetz Luxembourg',
+      default: titles[loc],
+      template: '%s · Openletz',
     },
-    description: descriptions[locale] || descriptions.fr,
+    description: descriptions[loc],
     keywords: [
-      'aides digitalisation Luxembourg',
-      'subventions PME Luxembourg',
-      'SME Package Digital',
-      'Fit 4 Digital',
-      'Fit 4 AI',
-      'Fit 4 Innovation',
-      'Luxinnovation',
-      'grants Luxembourg SME',
-      'KMU Digitalisierung Luxemburg',
+      'Luxembourg AI agency',
+      'AI agents',
+      'AI automation',
+      'chatbots',
+      'Next.js websites Luxembourg',
+      'e-commerce Luxembourg',
+      'Web3 development',
+      'EU AI Act',
+      'GDPR',
     ],
-    authors: [{ name: 'OpenLetz', url: SITE_URL }],
-    creator: 'OpenLetz — COMMIT MEDIA SARL',
-    publisher: 'OpenLetz',
+    authors: [{ name: 'Openletz', url: SITE_URL }],
+    creator: 'Openletz · Commit Media S.à r.l.',
+    publisher: 'Openletz',
     formatDetection: { telephone: true, email: true },
     alternates: {
       canonical: canonicalUrl,
       languages,
     },
     openGraph: {
-      title: titles[locale] || titles.fr,
-      description: descriptions[locale] || descriptions.fr,
+      title: titles[loc],
+      description: descriptions[loc],
       url: canonicalUrl,
-      siteName: 'OpenLetz',
-      locale: localeOg[locale] || 'fr_LU',
-      alternateLocale: ogAlternates,
+      siteName: 'Openletz',
+      locale: localeOg[loc],
+      alternateLocale: (Object.values(localeOg) as string[]).filter((v) => v !== localeOg[loc]),
       type: 'website',
       images: [
         {
           url: `${SITE_URL}/og-image.png`,
           width: 1200,
           height: 630,
-          alt: 'OpenLetz — Simulateur aides digitalisation Luxembourg',
+          alt: 'Openletz · A Luxembourg AI agency',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: titles[locale] || titles.fr,
-      description: (descriptions[locale] || descriptions.fr).slice(0, 200),
+      title: titles[loc],
+      description: descriptions[loc].slice(0, 200),
       images: [`${SITE_URL}/og-image.png`],
     },
     other: {
@@ -193,7 +124,7 @@ export async function generateMetadata({
       'geo.placename': 'Luxembourg',
       'geo.position': '49.6117;6.1300',
       ICBM: '49.6117, 6.1300',
-      'content-language': locale,
+      'content-language': loc,
     },
     robots: {
       index: shouldIndex,
@@ -209,9 +140,7 @@ export async function generateMetadata({
     verification: {
       google: process.env.GSC_VERIFICATION || undefined,
       other: {
-        ...(process.env.BING_VERIFICATION
-          ? { 'msvalidate.01': process.env.BING_VERIFICATION }
-          : {}),
+        ...(process.env.BING_VERIFICATION ? { 'msvalidate.01': process.env.BING_VERIFICATION } : {}),
         ...(process.env.YANDEX_VERIFICATION
           ? { 'yandex-verification': process.env.YANDEX_VERIFICATION }
           : {}),
@@ -228,112 +157,6 @@ export async function generateMetadata({
   };
 }
 
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': `${SITE_URL}/#organization`,
-  name: 'OpenLetz',
-  legalName: 'COMMIT MEDIA SARL',
-  url: SITE_URL,
-  logo: `${SITE_URL}/openletz-logo.png`,
-  description:
-    "Simulateur gratuit d'aides luxembourgeoises pour la transformation digitale et l'innovation IA des PME.",
-  email: 'bob@openletz.com',
-  telephone: '+352661968051',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Luxembourg',
-    addressCountry: 'LU',
-  },
-  areaServed: [
-    { '@type': 'Country', name: 'Luxembourg' },
-    { '@type': 'AdministrativeArea', name: 'Grande Région' },
-  ],
-  sameAs: ['https://www.linkedin.com/company/openletz'],
-  knowsAbout: [
-    'SME Package Digital',
-    'SME Package AI',
-    'Fit 4 Digital',
-    'Fit 4 AI',
-    'Fit 4 Innovation',
-    'Luxinnovation',
-    'digitalisation PME',
-    'intelligence artificielle',
-  ],
-};
-
-const localBusinessJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  '@id': `${SITE_URL}/#localbusiness`,
-  name: 'OpenLetz — COMMIT MEDIA SARL',
-  url: SITE_URL,
-  logo: `${SITE_URL}/openletz-logo.png`,
-  image: `${SITE_URL}/og-image.png`,
-  description:
-    'Accompagnement des PME luxembourgeoises dans leur transformation digitale et IA. Simulateur de subventions gratuit, développement web, intégration IA.',
-  email: 'bob@openletz.com',
-  telephone: '+352661968051',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Luxembourg',
-    addressRegion: 'Luxembourg',
-    addressCountry: 'LU',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 49.6117,
-    longitude: 6.13,
-  },
-  areaServed: [
-    { '@type': 'Country', name: 'Luxembourg' },
-    { '@type': 'AdministrativeArea', name: 'Grande Région' },
-  ],
-  priceRange: '€€',
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '18:00',
-  },
-  sameAs: ['https://www.linkedin.com/company/openletz'],
-};
-
-const webAppJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  '@id': `${SITE_URL}/#webapp`,
-  name: "OpenLetz — Simulateur d'Aides Luxembourg",
-  url: SITE_URL,
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Any',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'EUR',
-  },
-  description:
-    "Simulez votre éligibilité aux aides luxembourgeoises pour la transformation digitale et l'IA. 6 programmes analysés, résultats en 10 secondes.",
-  creator: {
-    '@type': 'Organization',
-    '@id': `${SITE_URL}/#organization`,
-  },
-  inLanguage: ['fr', 'en', 'de', 'lb', 'it', 'pt', 'es', 'ru', 'ar', 'tr', 'uk'],
-  availableLanguage: [
-    { '@type': 'Language', name: 'French', alternateName: 'fr' },
-    { '@type': 'Language', name: 'English', alternateName: 'en' },
-    { '@type': 'Language', name: 'German', alternateName: 'de' },
-    { '@type': 'Language', name: 'Luxembourgish', alternateName: 'lb' },
-    { '@type': 'Language', name: 'Italian', alternateName: 'it' },
-    { '@type': 'Language', name: 'Portuguese', alternateName: 'pt' },
-    { '@type': 'Language', name: 'Spanish', alternateName: 'es' },
-    { '@type': 'Language', name: 'Russian', alternateName: 'ru' },
-    { '@type': 'Language', name: 'Arabic', alternateName: 'ar' },
-    { '@type': 'Language', name: 'Turkish', alternateName: 'tr' },
-    { '@type': 'Language', name: 'Ukrainian', alternateName: 'uk' },
-  ],
-};
-
 export default async function LocaleLayout({
   children,
   params,
@@ -348,152 +171,50 @@ export default async function LocaleLayout({
   }
 
   setRequestLocale(locale);
-
+  const loc = locale as Locale;
   const messages = await getMessages();
 
-  // BreadcrumbList JSON-LD for homepage
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: locale === 'fr' ? 'Accueil' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : locale === 'lb' ? 'Heem' : locale === 'it' ? 'Home' : 'Início',
-        item: localeUrl(locale),
-      },
-    ],
-  };
-
-  // FAQPage JSON-LD — dynamically generated from locale messages
-  const faqMessages = (messages as Record<string, Record<string, Record<string, string>>>)?.faq || {};
-  const faqEntries = [1, 2, 3, 4, 5]
-    .map((i) => {
-      const q = faqMessages[String(i)]?.q;
-      const a = faqMessages[String(i)]?.a;
-      if (!q || !a) return null;
-      return {
-        '@type': 'Question' as const,
-        name: q,
-        acceptedAnswer: { '@type': 'Answer' as const, text: a },
-      };
-    })
-    .filter(Boolean);
-
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqEntries,
-  };
-
-  const howToJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: locale === 'fr'
-      ? 'Comment simuler votre éligibilité aux aides luxembourgeoises'
-      : 'How to simulate your eligibility for Luxembourg grants',
-    description: locale === 'fr'
-      ? 'Répondez à 6 questions et découvrez les programmes de subventions auxquels votre PME est éligible.'
-      : 'Answer 6 questions and discover which grant programs your SME is eligible for.',
-    totalTime: 'PT2M',
-    step: [
-      {
-        '@type': 'HowToStep',
-        position: 1,
-        name: locale === 'fr' ? 'Lancez le simulateur' : 'Start the simulator',
-        text: locale === 'fr'
-          ? 'Cliquez sur "Commencer" pour démarrer le questionnaire gratuit.'
-          : 'Click "Start" to begin the free questionnaire.',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 2,
-        name: locale === 'fr' ? 'Répondez à 6 questions' : 'Answer 6 questions',
-        text: locale === 'fr'
-          ? 'Taille, secteur, statut luxembourgeois, maturité digitale, défi principal, usage IA.'
-          : 'Company size, sector, Luxembourg status, digital maturity, biggest challenge, AI usage.',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 3,
-        name: locale === 'fr' ? 'Découvrez vos résultats' : 'Get your results',
-        text: locale === 'fr'
-          ? 'Recevez la liste des programmes éligibles avec les montants estimés et recommandations de projets.'
-          : 'Receive the list of eligible programs with estimated grant amounts and project recommendations.',
-      },
-      {
-        '@type': 'HowToStep',
-        position: 4,
-        name: locale === 'fr' ? 'Contactez un expert' : 'Contact an expert',
-        text: locale === 'fr'
-          ? 'Demandez un accompagnement personnalisé pour monter votre dossier de subvention.'
-          : 'Request personalized support to prepare your grant application.',
-      },
-    ],
-  };
+  const breadcrumb = breadcrumbJsonLd(loc, [
+    { name: homeBreadcrumbLabel(loc), url: localeUrl(loc) },
+  ]);
 
   return (
-    <html lang={locale}>
+    <html lang={loc} className={fontVariables} suppressHydrationWarning>
       <head>
-        <Script id="gtm-init" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NR4V9KLL');`}
-        </Script>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-2Z75PD960S"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-2Z75PD960S');`}
-        </Script>
-        <Script
-          id="json-ld-org"
+        {/* Site-wide JSON-LD. Plain <script> (NOT next/script) so the structured
+            data renders into the static SSR HTML — next/script defers it into the
+            React Flight payload, invisible to AI crawlers / structured-data parsers
+            that read raw markup without executing JS. */}
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(organizationJsonLd()) }}
         />
-        <Script
-          id="json-ld-webapp"
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(webAppJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(webSiteJsonLd()) }}
         />
-        <Script
-          id="json-ld-localbusiness"
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(localBusinessJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(professionalServiceJsonLd()) }}
         />
-        <Script
-          id="json-ld-breadcrumb"
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumb) }}
         />
-        <Script
-          id="json-ld-faq"
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
-        />
-        <Script
-          id="json-ld-howto"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(howToJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd(AGENCY_FAQS)) }}
         />
       </head>
       <body className="antialiased">
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-NR4V9KLL"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
-        <NextIntlClientProvider messages={messages} locale={locale}>
-          <Providers>{children}</Providers>
+        <Analytics />
+        {/* Global custom cursor island: renders null on touch / reduced-motion. */}
+        <MagneticCursor />
+        <NextIntlClientProvider messages={messages} locale={loc}>
+          {/* Layout-level chrome: ONE Nav + ONE Footer wrap every page. */}
+          <Nav locale={loc} />
+          {children}
+          <Footer locale={loc} />
         </NextIntlClientProvider>
       </body>
     </html>

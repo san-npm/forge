@@ -1,4 +1,4 @@
-# OpenLetz — https://www.openletz.com
+# OpenLetz · https://openletz.ai
 # Content Signals (https://contentsignals.org/) express AI usage preferences
 # alongside the standard crawl rules below.
 
@@ -93,4 +93,4 @@ User-agent: YouBot
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
-Sitemap: https://www.openletz.com/sitemap.xml
+Sitemap: https://openletz.ai/sitemap.xml

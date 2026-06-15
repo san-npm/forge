@@ -1,62 +1,152 @@
+@import '../styles/tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 15, 23, 42;
-  --background-rgb: 255, 255, 255;
+html {
+  background: var(--bg);
+  color-scheme: dark;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  position: relative;
 }
 
-@layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out;
+/* --- film-grain overlay: fixed, non-interactive, subtle. inline feTurbulence
+   data-URI; overlay blend so it textures both ink and lime without washing out
+   content (which sits above at z-index:0/auto). --- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- top-centered lime bloom: very subtle radial behind content. --- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    60% 42% at 50% -6%,
+    var(--accent-glow) 0%,
+    transparent 62%
+  );
+  opacity: 0.5;
+}
+
+/* content sits above the grain + glow layers */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@layer components {
+  /* primary lime CTA pill */
+  .ol-btn {
+    @apply inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-[#0a0a0b]
+      transition-[transform,box-shadow] duration-base ease-out
+      hover:shadow-[0_0_40px_var(--accent-glow)]
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-glow)] focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
   }
-  .animate-slide-up {
-    animation: slideUp 0.5s ease-out;
+
+  /* bordered ghost CTA */
+  .ol-btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-hairline px-6 py-3 font-semibold text-text
+      transition-colors duration-base ease-out
+      hover:border-accent hover:text-accent
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-glow)];
   }
-  .animate-slide-in-right {
-    animation: slideInRight 0.4s ease-out;
+
+  /* dark form field */
+  .ol-input {
+    @apply rounded-lg border border-hairline bg-surface-2 px-4 py-3 text-text
+      placeholder:text-text-dim
+      focus:border-accent focus:outline-none focus:ring-2 focus:ring-[var(--accent-glow)];
   }
-  .animate-slide-in-left {
-    animation: slideInLeft 0.4s ease-out;
+
+  /* filter chip */
+  .ol-chip {
+    @apply rounded-full border border-hairline px-4 py-1.5 text-sm text-text-dim transition-colors duration-base ease-out
+      hover:border-accent hover:text-text;
   }
-}
+  .ol-chip[data-active='true'] {
+    @apply border-accent bg-accent text-[#0a0a0b];
+  }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  /* underline-on-hover link (animated underline via background-size) */
+  .ol-link {
+    @apply relative text-text transition-colors duration-base ease-out hover:text-accent;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition:
+      color var(--dur-base) var(--ease-out),
+      background-size var(--dur-base) var(--ease-out);
+  }
+  .ol-link:hover {
+    background-size: 100% 1px;
+  }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* Custom scrollbar for chat */
-.chat-messages::-webkit-scrollbar {
-  width: 6px;
-}
-.chat-messages::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 3px;
-}
-.chat-messages::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
+  /* lime range slider (SME simulator). Track is a hairline well; the filled
+     portion + thumb are electric lime. Reset native appearance so the styling
+     is consistent across WebKit and Firefox; reduced-motion keeps it static. */
+  .ol-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    cursor: pointer;
+  }
+  .ol-range:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-glow);
+  }
+  .ol-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 16px var(--accent-glow);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .ol-range::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+  }
+  .ol-range::-moz-range-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 16px var(--accent-glow);
+  }
+  .ol-range::-moz-range-track {
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--surface-2);
+  }
 }
