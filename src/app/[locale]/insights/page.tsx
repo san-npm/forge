@@ -5,7 +5,7 @@ import { LOCALES, type Locale, localeUrl } from '@/lib/site-config';
 import { localeHref } from '@/lib/locale-href';
 import { getAllPosts, type BlogPost } from '@/lib/blog';
 import { getUiStrings } from '@/data/ui';
-import { breadcrumbJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
+import { breadcrumbJsonLd, blogListingJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 import { Reveal } from '@/components/ui/Reveal';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -49,6 +49,7 @@ export default async function InsightsPage({
     { name: homeBreadcrumbLabel(locale), url: localeUrl(locale) },
     { name: 'Insights', url: localeUrl(locale, '/insights') },
   ]);
+  const blogListing = blogListingJsonLd(posts, locale);
 
   const [featured, ...rest] = posts;
 
@@ -57,7 +58,11 @@ export default async function InsightsPage({
 
   return (
     <main className="overflow-hidden">
-      {/* BreadcrumbList JSON-LD in static SSR HTML. */}
+      {/* Blog + BreadcrumbList JSON-LD in static SSR HTML. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(blogListing) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(crumbs) }}
