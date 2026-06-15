@@ -1,4 +1,4 @@
-# Authentication
+# Auth.md
 
 Openletz (https://openletz.ai) is a public marketing website. It requires **no
 authentication**. There are no logins, API keys, tokens, or paywalls for reading
