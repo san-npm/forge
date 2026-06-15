@@ -55,6 +55,7 @@ const nextConfig = {
     return [
       { source: '/.well-known/api-catalog', destination: '/api/well-known/api-catalog' },
       { source: '/.well-known/openapi.yaml', destination: '/api/well-known/openapi' },
+      { source: '/.well-known/agent-card.json', destination: '/api/well-known/agent-card' },
     ];
   },
   async redirects() {
