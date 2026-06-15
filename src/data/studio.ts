@@ -13,7 +13,7 @@ const STUDIO_I18N: Record<Locale, Studio> = {
     sub: 'A Luxembourg AI agency.',
     welcomeLead:
       "We're a small Luxembourg studio. We build AI agents, chatbots and automations that actually save time, plus the websites and shops around them. When a project needs blockchain, we build that too. Everything runs in Europe, and it's yours to keep.",
-    hint: 'Double-click an icon to see what we do, or hit "New Project" to start.',
+    hint: 'See what we do, or start a project whenever you are ready.',
   },
   fr: {
     name: 'Openletz',
@@ -21,7 +21,7 @@ const STUDIO_I18N: Record<Locale, Studio> = {
     sub: 'Une agence IA au Luxembourg.',
     welcomeLead:
       "Nous sommes un petit studio luxembourgeois. Nous concevons des agents IA, des chatbots et des automatisations qui font vraiment gagner du temps, ainsi que les sites et boutiques qui vont avec. Quand un projet a besoin de blockchain, nous la construisons aussi. Tout tourne en Europe, et tout vous appartient.",
-    hint: 'Double-cliquez sur une icône pour découvrir ce que nous faisons, ou lancez « Nouveau projet ».',
+    hint: 'Découvrez ce que nous faisons, ou démarrez un projet quand vous le souhaitez.',
   },
   de: {
     name: 'Openletz',
@@ -29,7 +29,7 @@ const STUDIO_I18N: Record<Locale, Studio> = {
     sub: 'Eine KI-Agentur in Luxemburg.',
     welcomeLead:
       'Wir sind ein kleines Luxemburger Studio. Wir bauen KI-Agenten, Chatbots und Automatisierungen, die wirklich Zeit sparen, dazu die Websites und Shops drumherum. Wenn ein Projekt Blockchain braucht, bauen wir auch das. Alles läuft in Europa, und alles gehört Ihnen.',
-    hint: 'Doppelklicken Sie auf ein Icon, um zu sehen, was wir tun, oder starten Sie „Neues Projekt".',
+    hint: 'Sehen Sie, was wir tun, oder starten Sie ein Projekt, wann immer Sie möchten.',
   },
 };
 

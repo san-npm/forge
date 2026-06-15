@@ -30,7 +30,7 @@ export const PROOF_LOGOS: ProofLogo[] = z.array(ProofLogoSchema).parse(
  *  - `disciplines`: AI, web and on-chain are three disciplines actually shipped
  *    (the Work grid is the receipt), so this is a defensible "3".
  *  - `alephPartner`: a qualitative credential rendered as Anton text (not a
- *    number) and framed as a CONTRIBUTION, not ownership — the founder
+ *    number) and framed as a CONTRIBUTION, not ownership: the founder
  *    contributed to Aleph Cloud (marketing and growth) for years.
  * The Work grid already lists the products, so we no longer advertise a raw
  * product count here.

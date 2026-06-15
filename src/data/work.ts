@@ -11,7 +11,7 @@ export type { WorkItem };
 //   - client builds (Vins Fins, La Grocerie): tag 'web'
 //   - CONTRIBUTED to, never owned (LiberClaw, LibertAI, Aleph Cloud): tag
 //     'contributed', kind 'Contributor'. Their copy ONLY says the founder
-//     contributed / worked on them for years — never that Openletz built them.
+//     contributed / worked on them for years, never that Openletz built them.
 const WORK_I18N: Record<Locale, WorkItem[]> = {
   en: [
     {
