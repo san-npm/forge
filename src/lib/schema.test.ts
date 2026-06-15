@@ -93,9 +93,10 @@ describe('WorkItemSchema / WorkSchema', () => {
     did: ['x'],
     stack: ['Next.js'],
   };
-  it('accepts a work item with optional tag (incl. the marketing tag)', () => {
+  it('accepts a work item with optional tag (incl. the marketing + contributed tags)', () => {
     expect(WorkItemSchema.parse({ ...item, tag: 'web' })).toBeTruthy();
     expect(WorkItemSchema.parse({ ...item, tag: 'marketing' })).toBeTruthy();
+    expect(WorkItemSchema.parse({ ...item, tag: 'contributed' })).toBeTruthy();
     expect(WorkItemSchema.parse(item)).toBeTruthy();
   });
   it('rejects an unknown tag', () => {
@@ -107,10 +108,10 @@ describe('WorkItemSchema / WorkSchema', () => {
   it('rejects a bad slug', () => {
     expect(WorkItemSchema.safeParse({ ...item, slug: 'Vins Fins' }).success).toBe(false);
   });
-  it('requires exactly 7 items', () => {
+  it('requires exactly 8 items', () => {
     expect(WorkSchema.safeParse([item]).success).toBe(false);
-    expect(WorkSchema.safeParse(Array.from({ length: 6 }, () => item)).success).toBe(false);
-    expect(WorkSchema.safeParse(Array.from({ length: 7 }, () => item)).success).toBe(true);
+    expect(WorkSchema.safeParse(Array.from({ length: 7 }, () => item)).success).toBe(false);
+    expect(WorkSchema.safeParse(Array.from({ length: 8 }, () => item)).success).toBe(true);
   });
 });
 

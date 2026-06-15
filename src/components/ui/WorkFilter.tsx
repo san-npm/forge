@@ -4,7 +4,7 @@ import { useState, type ReactNode } from 'react';
 import type { WorkItem } from '@/lib/schema';
 import { getUiStrings, type UiStrings } from '@/data/ui';
 
-type Tag = 'ai' | 'web' | 'web3' | 'marketing';
+type Tag = 'ai' | 'web' | 'web3' | 'marketing' | 'contributed';
 
 export function WorkFilter({
   items,
@@ -17,12 +17,14 @@ export function WorkFilter({
 }) {
   const t = ui ?? getUiStrings('en');
   const f = t.work.filters;
+  // 'contributed' is the honest category for projects the founder contributed to
+  // (LiberClaw, LibertAI, Aleph Cloud), never products Openletz built.
   const tags: { key: Tag | 'all'; label: string }[] = [
     { key: 'all', label: f.all },
     { key: 'ai', label: f.ai },
     { key: 'web', label: f.web },
     { key: 'web3', label: f.web3 },
-    { key: 'marketing', label: f.growth },
+    { key: 'contributed', label: f.contributed },
   ];
   const [active, setActive] = useState<Tag | 'all'>('all');
   const visible = active === 'all' ? items : items.filter((w) => w.tag === active);

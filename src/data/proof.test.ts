@@ -3,13 +3,15 @@ import { PROOF_LOGOS, PROOF_METRICS } from '@/data/proof';
 import { WORK } from '@/data/work';
 
 describe('PROOF_LOGOS', () => {
-  const products = WORK.filter((w) => w.tag !== 'marketing');
-  it('has one wordmark per BUILT product (marketing clients excluded)', () => {
+  const products = WORK.filter((w) => w.tag !== 'contributed' && w.tag !== 'marketing');
+  it('has one wordmark per BUILT product (contributed projects excluded)', () => {
     expect(PROOF_LOGOS).toHaveLength(products.length);
     expect(PROOF_LOGOS.map((l) => l.slug)).toEqual(products.map((w) => w.slug));
   });
-  it('excludes the Aleph Cloud marketing engagement from the product wordmarks', () => {
+  it('excludes the contributed projects (LiberClaw, LibertAI, Aleph Cloud) from the wordmarks', () => {
     expect(PROOF_LOGOS.some((l) => l.slug === 'alephcloud')).toBe(false);
+    expect(PROOF_LOGOS.some((l) => l.slug === 'liberclaw')).toBe(false);
+    expect(PROOF_LOGOS.some((l) => l.slug === 'libertai')).toBe(false);
   });
   it('each logo uses /clients/<slug>.png and the live WORK link', () => {
     for (const logo of PROOF_LOGOS) {
@@ -39,11 +41,13 @@ describe('PROOF_METRICS', () => {
     expect(disciplines?.value).toBe(3);
     expect(disciplines?.label.toLowerCase()).toContain('ai');
   });
-  it('carries the Aleph Cloud marketing credential as Anton text (no fake number)', () => {
+  it('carries the Aleph Cloud contribution credential as Anton text (no fake number)', () => {
     const partner = PROOF_METRICS.find((m) => m.id === 'alephPartner');
     expect(partner).toBeTruthy();
     expect(partner?.value).toBeNull();
     expect(partner?.text).toBe('Aleph Cloud');
+    // Framed as a years-long contribution (marketing/growth), not ownership.
+    expect(partner?.label.toLowerCase()).toMatch(/contribut/);
     expect(partner?.label.toLowerCase()).toContain('marketing');
   });
   it('never says "Aleph.im" anywhere', () => {

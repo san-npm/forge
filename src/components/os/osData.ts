@@ -55,7 +55,7 @@ export const SERVICES: Record<'ai' | 'web3' | 'marketing', ServiceData> = {
       { t: 'Where to start', d: 'A short audit that finds the one or two things worth automating first.' },
     ],
     how: ['A quick audit', 'A working prototype you can click', 'Live, with numbers to show it works'],
-    proof: 'We pick tools with GDPR and the EU AI Act in mind. LiberClaw, a personal AI assistant, is one of our own — it’s in the Work folder.',
+    proof: 'We pick tools with GDPR and the EU AI Act in mind. Skills.ws, our marketplace for AI coding assistants, is one of our own, and we have contributed for years to LiberClaw, a personal AI agent platform. Both are in the Work folder.',
     footer: 'In Luxembourg? Your project may be co-funded through the SME Package — we’ll help with the paperwork.',
   },
   web3: {
@@ -147,7 +147,7 @@ export const ABOUT = {
     'Openletz is the studio name of Commit Media — a small Luxembourg shop. I design, build and market AI and web products, usually end to end, with a trusted crew when a project needs more hands.',
   founderName: 'Clément Fermaud', // photo still TODO
   founderRole:
-    'Founder. I run marketing for Aleph Cloud, and I build my own products — LiberClaw, Gategram, Ophis and Skills.ws — alongside client work like Vins Fins and La Grocerie.',
+    'Founder. I build my own products (Gategram, Ophis and Skills.ws) and do client work like Vins Fins and La Grocerie. For years I have also contributed to the decentralized AI and Web3 ecosystem: LibertAI, LiberClaw and Aleph Cloud.',
   facts: [
     'Based in Luxembourg, in the EU',
     'You work with me directly — no account managers, no offshore handoff',

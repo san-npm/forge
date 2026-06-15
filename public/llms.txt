@@ -2,7 +2,7 @@
 
 > Openletz is a Luxembourg AI agency. We build AI agents, chatbots and automations for businesses, plus the websites and shops around them. When a project needs blockchain, we build that too. Everything is hosted in Europe.
 
-Openletz is the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud in Luxembourg. He also runs marketing for Aleph Cloud. We pick AI tools with GDPR and the EU AI Act in mind.
+Openletz is the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud in Luxembourg. For years he has also contributed to the decentralized AI and Web3 ecosystem: LibertAI, LiberClaw and Aleph Cloud. We pick AI tools with GDPR and the EU AI Act in mind.
 
 Primary domain: https://openletz.ai
 Languages: English (primary), French, German.
@@ -15,16 +15,23 @@ Languages: English (primary), French, German.
 
 ## Pricing
 
-Every project gets a fixed quote up front; rates on request. Based in Luxembourg, your project may be co-funded through the SME Package, and we help with the paperwork.
+Projects start from €3,000, the SME Package minimum eligible cost, scoped and quoted per project. Eligible projects run from €3,000 to €25,000 and the programme reimburses 70%, so €3,000 is about €900 net. Based in Luxembourg, your project may be co-funded through the SME Package, and we help with the paperwork.
 
 ## Work
 
+Built products (our own):
+- Gategram (https://gategram.app): our product, sell digital content on Telegram, paid in Stars.
+- Ophis (https://ophis.fi): our product, an intent-based DEX aggregator.
+- Skills.ws (https://www.skills.ws): our product, a marketplace of skills for AI coding assistants.
+
+Client builds:
 - Vins Fins (https://www.vinsfins.lu): multilingual wine shop & restaurant e-commerce (Next.js, Stripe).
 - La Grocerie (https://www.lagrocerie.lu): farm-to-table grocery & natural-wine e-commerce.
-- Gategram (https://gategram.app): our product, sell digital content on Telegram, paid in Stars.
-- LiberClaw (https://liberclaw.ai): a personal AI assistant you control.
-- Ophis (https://ophis.fi): an intent-based DEX aggregator.
-- Skills.ws (https://www.skills.ws): our product, a marketplace of skills for AI coding assistants.
+
+Contributed to (not our products):
+- LiberClaw (https://liberclaw.ai): a personal AI agent platform built on Aleph; we contributed for years.
+- LibertAI (https://libertai.io): a decentralized AI inference platform; we contributed for years.
+- Aleph Cloud (https://aleph.cloud): the decentralized cloud for AI and Web3; years of marketing, growth and contribution.
 
 ## Contact
 

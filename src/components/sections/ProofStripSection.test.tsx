@@ -13,7 +13,7 @@ const props: ProofStripSectionProps = {
   metrics: [
     { id: 'years', label: 'Years building and marketing', value: 5, suffix: '+' },
     { id: 'disciplines', label: 'Disciplines shipped: AI, web and on-chain', value: 3, suffix: '' },
-    { id: 'alephPartner', label: 'Marketing partner to Aleph Cloud', value: null, text: 'Aleph Cloud' },
+    { id: 'alephPartner', label: 'Years contributing to Aleph Cloud, marketing the decentralized cloud', value: null, text: 'Aleph Cloud' },
   ],
 };
 
@@ -42,9 +42,11 @@ describe('ProofStripSection', () => {
     expect(container.textContent).toContain('3');
   });
 
-  it('renders the Aleph Cloud marketing credential as Anton text (not a number)', () => {
+  it('renders the Aleph Cloud contribution credential as Anton text (not a number)', () => {
     render(<ProofStripSection {...props} />);
-    expect(screen.getByText('Marketing partner to Aleph Cloud')).toBeInTheDocument();
+    expect(
+      screen.getByText('Years contributing to Aleph Cloud, marketing the decentralized cloud'),
+    ).toBeInTheDocument();
     // "Aleph Cloud" appears as the big Anton credential value.
     expect(screen.getByText('Aleph Cloud')).toBeInTheDocument();
   });

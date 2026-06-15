@@ -35,15 +35,16 @@ describe('SERVICES', () => {
 });
 
 describe('WORK', () => {
-  it('has the 6 built products plus the Aleph Cloud marketing card, in order', () => {
-    expect(WORK).toHaveLength(7);
+  it('has the 3 own products, 2 client builds and the 3 contributed projects, in order', () => {
+    expect(WORK).toHaveLength(8);
     expect(WORK.map((w) => w.slug)).toEqual([
+      'gategram',
+      'skillsws',
+      'ophis',
       'vinsfins',
       'lagrocerie',
-      'gategram',
       'liberclaw',
-      'ophis',
-      'skillsws',
+      'libertai',
       'alephcloud',
     ]);
   });
@@ -52,38 +53,71 @@ describe('WORK', () => {
   });
   it('derives a valid filter tag for every item (mapped from kind)', () => {
     const tags = WORK.map((w) => w.tag);
-    expect(tags).toEqual(['web', 'web', 'web', 'ai', 'web3', 'ai', 'marketing']);
-    // every item carries a tag, and every tag is one of the 4 filter values
+    expect(tags).toEqual([
+      'web',
+      'ai',
+      'web3',
+      'web',
+      'web',
+      'contributed',
+      'contributed',
+      'contributed',
+    ]);
+    // every item carries a tag, and every tag is one of the filter values
     for (const w of WORK) {
       expect(w.tag).toBeDefined();
-      expect(['ai', 'web', 'web3', 'marketing']).toContain(w.tag);
+      expect(['ai', 'web', 'web3', 'marketing', 'contributed']).toContain(w.tag);
     }
   });
 
-  describe('Aleph Cloud marketing credential (honest framing)', () => {
-    const aleph = WORK.find((w) => w.slug === 'alephcloud')!;
-    it('is present, links to aleph.cloud, and is tagged marketing', () => {
-      expect(aleph).toBeTruthy();
-      expect(aleph.name).toBe('Aleph Cloud');
-      expect(aleph.link).toBe('https://aleph.cloud');
-      expect(aleph.tag).toBe('marketing');
+  describe('built products vs client builds vs contributed (honest split)', () => {
+    const ownProducts = WORK.filter((w) => w.kind === 'Our product');
+    const clientBuilds = WORK.filter((w) => w.kind === 'Client build');
+    const contributed = WORK.filter((w) => w.tag === 'contributed');
+
+    it('marks Gategram, Ophis and Skills.ws as our own products', () => {
+      expect(ownProducts.map((w) => w.slug).sort()).toEqual(['gategram', 'ophis', 'skillsws']);
     });
-    it('uses a kind that signals a marketing engagement, NOT a built product', () => {
-      expect(aleph.kind).toBe('Growth & marketing');
-      expect(aleph.kind.toLowerCase()).not.toMatch(/e-?commerce|our product/);
+    it('marks Vins Fins and La Grocerie as client builds', () => {
+      expect(clientBuilds.map((w) => w.slug).sort()).toEqual(['lagrocerie', 'vinsfins']);
     });
-    it('blurb and about make clear it is marketed, not built, and never say "Aleph.im"', () => {
-      const copy = `${aleph.blurb} ${aleph.about}`;
-      expect(copy.toLowerCase()).toMatch(/marketing/);
-      expect(copy).not.toMatch(/aleph\.im/i);
-      // Does not claim Openletz built Aleph Cloud.
-      expect(aleph.blurb.toLowerCase()).not.toMatch(/we built/);
+    it('marks LiberClaw, LibertAI and Aleph Cloud as contributed (kind Contributor)', () => {
+      expect(contributed.map((w) => w.slug)).toEqual(['liberclaw', 'libertai', 'alephcloud']);
+      for (const w of contributed) expect(w.kind).toBe('Contributor');
     });
   });
 
-  it('never lists LibertAI anywhere in the work data', () => {
-    const all = JSON.stringify(WORK);
-    expect(all).not.toMatch(/libertai/i);
+  describe('contributed projects never read as products we built or own', () => {
+    const contributed = WORK.filter((w) => w.tag === 'contributed');
+    it('every contributed blurb/about says we contributed, never that we built/own them', () => {
+      for (const w of contributed) {
+        const copy = `${w.blurb} ${w.about}`.toLowerCase();
+        // Must explicitly frame as a contribution / not-our-product.
+        expect(copy).toMatch(/contribut/);
+        expect(copy).toMatch(/not our product/);
+        // Strip the honest disclaimer ("not our product") and the neutral
+        // "built on Aleph" tech-base phrase, then assert NO positive ownership
+        // claim remains ("we built X" / "our product" / "my own product").
+        const claims = copy
+          .replace(/not our product/g, '')
+          .replace(/built on aleph/g, '');
+        expect(claims).not.toMatch(/we built|our (own )?product|my own product/);
+      }
+    });
+    it('keeps their external links and never says "Aleph.im"', () => {
+      const byslug = (s: string) => contributed.find((w) => w.slug === s)!;
+      expect(byslug('liberclaw').link).toBe('https://liberclaw.ai');
+      expect(byslug('libertai').link).toBe('https://libertai.io');
+      expect(byslug('alephcloud').link).toBe('https://aleph.cloud');
+      expect(JSON.stringify(contributed)).not.toMatch(/aleph\.im/i);
+    });
+  });
+
+  it('lists LibertAI as a contributed project (not a built product)', () => {
+    const libertai = WORK.find((w) => w.slug === 'libertai')!;
+    expect(libertai).toBeTruthy();
+    expect(libertai.tag).toBe('contributed');
+    expect(libertai.kind).toBe('Contributor');
   });
 });
 
@@ -92,6 +126,20 @@ describe('ABOUT', () => {
     expect(ABOUT.facts).toHaveLength(3);
     expect(ABOUT.founderName).toBe('Clément Fermaud');
     expect(ABOUT.entity).toBe('Commit Media S.à r.l. · RCS B276192 · Luxembourg');
+  });
+  it('founder bio is honest: own products built, client work, contributed to LibertAI/LiberClaw/Aleph', () => {
+    const role = ABOUT.founderRole;
+    // Owns/builds: Gategram, Ophis, Skills.ws
+    expect(role).toMatch(/Gategram/);
+    expect(role).toMatch(/Ophis/);
+    expect(role).toMatch(/Skills\.ws/);
+    // Contributes to (never claims to build/own): LibertAI, LiberClaw, Aleph Cloud
+    expect(role.toLowerCase()).toMatch(/contribut/);
+    expect(role).toMatch(/LibertAI/);
+    expect(role).toMatch(/Aleph Cloud/);
+    // Must NOT list the contributed projects as products he builds.
+    expect(role).not.toMatch(/build my own products \([^)]*LiberClaw/i);
+    expect(role).not.toMatch(/build my own products \([^)]*LibertAI/i);
   });
 });
 
@@ -117,15 +165,25 @@ describe('PRICING', () => {
       expect(t.feats).toHaveLength(3);
     }
   });
-  it('uses honest non-numeric framing — no "from €" / placeholder anchors', () => {
-    for (const t of PRICING.tiers) {
-      expect(t.price).not.toContain('€');
+  it('anchors the entry tiers at the SME minimum (from €3,000) and keeps a "let\'s talk" tier', () => {
+    const anchored = PRICING.tiers.filter((t) => t.price.includes('€3,000'));
+    expect(anchored.length).toBeGreaterThanOrEqual(3);
+    for (const t of anchored) {
+      expect(t.price.toLowerCase()).toContain('from');
+      expect(t.price).toContain('€3,000');
+      // no leftover "from €X" placeholder
       expect(t.price).not.toMatch(/from\s*€?X/i);
     }
-    expect(PRICING.lead).not.toContain('€');
-    expect(PRICING.lead).toContain('fixed quote');
+    expect(PRICING.tiers.some((t) => t.price.toLowerCase().includes("let's talk"))).toBe(true);
   });
-  it('keeps the SME Package note', () => {
+  it('lead carries the €3,000 start and the ~€900 net-after-grant hook', () => {
+    expect(PRICING.lead).toContain('€3,000');
+    expect(PRICING.lead).toContain('€900');
+    expect(PRICING.lead.toLowerCase()).toContain('sme package');
+  });
+  it('keeps the SME Package note and the €3,000–€25,000 band framing', () => {
     expect(PRICING.note).toContain('SME Package');
+    expect(PRICING.note).toContain('€3,000');
+    expect(PRICING.note).toContain('€25,000');
   });
 });
