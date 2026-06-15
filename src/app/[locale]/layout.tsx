@@ -19,6 +19,7 @@ import { ConsentBanner } from '@/components/ConsentBanner';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
 import { MagneticCursor } from '@/components/ui/MagneticCursor';
+import { WebMcp } from '@/components/WebMcp';
 import '../globals.css';
 
 const localeOg: Record<Locale, string> = {
@@ -203,6 +204,9 @@ export default async function LocaleLayout({
       </head>
       <body className="antialiased">
         <Analytics />
+        {/* WebMCP: registers honest read-only agent tools on document.modelContext
+            after mount (HTTPS only, feature-detected). Renders null. */}
+        <WebMcp />
         <ConsentBanner locale={loc} />
         {/* Global custom cursor island: renders null on touch / reduced-motion. */}
         <MagneticCursor />
