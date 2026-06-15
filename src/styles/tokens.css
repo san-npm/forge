@@ -1,0 +1,60 @@
+/* The ONLY place design tokens are defined. Components reference these vars —
+   never raw hex, never ad-hoc ease/durations. "Bold Kinetic": ink-black canvas,
+   one electric-lime signature accent, film grain, giant poster type. */
+:root {
+  /* ---- palette (Bold Kinetic) ---- */
+  --bg: #0a0a0b; /* ink black — page base */
+  --surface: #141416; /* cards, raised surfaces */
+  --surface-2: #1b1b1e; /* nested surfaces, inputs */
+  --ink-2: #0e0e10; /* deepest ink — wells, insets */
+  --text: #fafaf7; /* primary text (off-white) */
+  --text-dim: #9a9a93; /* secondary text */
+  --hairline: rgba(255, 255, 255, 0.1); /* rules, borders, dividers */
+
+  /* ---- accent (the signature) ---- */
+  --accent: #c6ff3a; /* electric lime — THE accent */
+  --accent-dim: #a8dc1f; /* pressed / deeper lime */
+  --accent-glow: rgba(198, 255, 58, 0.35); /* bloom + focus ring + hover glow */
+
+  /* back-compat: existing text-hot / border-hot usages now read as lime */
+  --hot: var(--accent);
+
+  /* ---- easing ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* default */
+  --ease-fast: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* delight only */
+
+  /* ---- duration ---- */
+  --dur-fast: 100ms;
+  --dur-base: 200ms;
+  --dur-slow: 300ms;
+  --dur-kinetic: 700ms; /* poster headline reveals */
+
+  /* ---- stagger (word/line reveals) ---- */
+  --stagger: 40ms;
+}
+
+/* global kill-switch — reduced ≠ stripped (fades remain near-instant) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- view-transition polish (gated behind no-preference) --- */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: var(--dur-base);
+    animation-timing-function: var(--ease-out);
+  }
+  ::view-transition-group(*) {
+    animation-duration: var(--dur-base);
+    animation-timing-function: var(--ease-out);
+  }
+}

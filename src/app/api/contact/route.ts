@@ -3,21 +3,18 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import { sendNotification } from '@/lib/notifications'
 import { rateLimit } from '@/lib/rateLimit'
+import { ContactPayloadSchema } from '@/lib/schema'
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'contacts.json')
-
-const MAX_FIELD = 500
-const MAX_MESSAGE = 2000
-
-function sanitize(val: unknown, max: number): string | undefined {
-  if (typeof val !== 'string') return undefined
-  return val.trim().slice(0, max) || undefined
-}
 
 interface ContactEntry {
   name: string
   email: string
   phone?: string
+  company?: string
+  companySize?: string
+  pillar?: string
+  budget?: string
   message?: string
   submittedAt: string
 }
@@ -38,25 +35,41 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
   }
 
-  const body = await req.json()
-  const name = sanitize(body.name, MAX_FIELD)
-  const email = sanitize(body.email, MAX_FIELD)
-  const phone = sanitize(body.phone, MAX_FIELD)
-  const message = sanitize(body.message, MAX_MESSAGE)
-
-  if (!name || !email) {
+  let body: unknown
+  try {
+    body = await req.json()
+  } catch {
     return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return NextResponse.json({ error: 'Invalid email format' }, { status: 400 })
+  const parsed = ContactPayloadSchema.safeParse(body)
+  if (!parsed.success) {
+    // Provide the same error messages as the salvaged route for parity.
+    const issues = parsed.error.issues
+    const hasName = issues.some((i) => i.path.includes('name'))
+    const hasEmail = issues.some((i) => i.path.includes('email'))
+    if (hasName || hasEmail) {
+      // Check which field is the problem for the right message
+      const emailIssue = issues.find((i) => i.path.includes('email'))
+      if (emailIssue && emailIssue.code === 'invalid_string') {
+        return NextResponse.json({ error: 'Invalid email format' }, { status: 400 })
+      }
+      return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })
+    }
+    return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
   }
+
+  const { name, email, phone, company, companySize, pillar, budget, message } = parsed.data
 
   const entry: ContactEntry = {
     name,
     email,
-    phone,
-    message,
+    ...(phone !== undefined && { phone }),
+    ...(company !== undefined && { company }),
+    ...(companySize !== undefined && { companySize }),
+    ...(pillar !== undefined && { pillar }),
+    ...(budget !== undefined && { budget }),
+    ...(message !== undefined && { message }),
     submittedAt: new Date().toISOString(),
   }
 
@@ -66,12 +79,20 @@ export async function POST(req: NextRequest) {
   await fs.mkdir(path.dirname(DATA_FILE), { recursive: true })
   await fs.writeFile(DATA_FILE, JSON.stringify(contacts, null, 2))
 
+  // Build notification message context including new qualifying fields.
+  const contextLines: string[] = []
+  if (companySize) contextLines.push(`Company size: ${companySize}`)
+  if (pillar) contextLines.push(`Pillar: ${pillar}`)
+  if (budget) contextLines.push(`Budget: ${budget}`)
+  if (company) contextLines.push(`Company: ${company}`)
+  const fullMessage = [message, contextLines.join(' | ')].filter(Boolean).join('\n') || undefined
+
   sendNotification({
     type: 'new_contact',
     email,
     name,
     phone,
-    message,
+    message: fullMessage,
     timestamp: entry.submittedAt,
   })
 

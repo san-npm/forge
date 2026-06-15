@@ -5,16 +5,17 @@ info:
   title: OpenLetz Public API
   version: 1.0.0
   description: >-
-    Public endpoints for the OpenLetz Luxembourg SME grants simulator.
-    Content-negotiable: send 'Accept: text/markdown' on any /:locale/... page
-    to get a markdown rendering of that HTML page.
+    Public endpoints for Openletz, a Luxembourg AI studio.
+    Agent-discovery + content surfaces. Content-negotiable: send
+    'Accept: text/markdown' on any /:locale/... page to get a markdown
+    rendering of that HTML page.
   contact:
     name: OpenLetz
-    url: https://www.openletz.com/en/contact
+    url: https://openletz.ai/en/contact
   license:
     name: All rights reserved
 servers:
-  - url: https://www.openletz.com
+  - url: https://openletz.ai
 paths:
   /api/blog:
     get:
