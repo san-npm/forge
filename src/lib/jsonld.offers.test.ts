@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { serviceJsonLd, offerCatalogJsonLd } from '@/lib/jsonld';
+import { serviceJsonLd, offerCatalogJsonLd, STARTING_PRICE_EUR } from '@/lib/jsonld';
 import { SITE_URL } from '@/lib/site-config';
 import { SERVICES } from '@/data/services';
 import { PRICING } from '@/data/pricing';
@@ -25,18 +25,32 @@ describe('offerCatalogJsonLd', () => {
     expect(items[0].name).toBe(PRICING.tiers[0].name);
   });
 
-  it('emits NO numeric price or currency (projects are quoted up front)', () => {
+  it('emits the real €3,000 SME-minimum anchor on "from €" tiers (lowPrice via minPrice)', () => {
     const node = offerCatalogJsonLd(PRICING.tiers) as Record<string, unknown>;
     const items = node.itemListElement as Array<Record<string, unknown>>;
-    for (const item of items) {
+    // Every tier whose price string shows a euro amount carries an EUR
+    // priceSpecification with the €3,000 minPrice; "Let's talk" carries none.
+    const anchored = items.filter((i) => i.priceCurrency === 'EUR');
+    expect(anchored.length).toBeGreaterThan(0);
+    for (const item of anchored) {
+      expect(item.priceCurrency).toBe('EUR');
+      const spec = item.priceSpecification as Record<string, unknown>;
+      expect(spec['@type']).toBe('UnitPriceSpecification');
+      expect(spec.priceCurrency).toBe('EUR');
+      expect(spec.minPrice).toBe(STARTING_PRICE_EUR);
+      expect(spec.minPrice).toBe(3000);
+    }
+  });
+
+  it('leaves the open-ended custom tier figure-free (no fabricated numeric price)', () => {
+    const node = offerCatalogJsonLd(PRICING.tiers) as Record<string, unknown>;
+    const items = node.itemListElement as Array<Record<string, unknown>>;
+    // The custom / "Let's talk" tier (no euro amount in its price) emits no price.
+    const open = items.filter((i) => i.priceCurrency === undefined);
+    expect(open.length).toBeGreaterThan(0);
+    for (const item of open) {
       expect(item.price).toBeUndefined();
-      expect(item.priceCurrency).toBeUndefined();
       expect(item.priceSpecification).toBeUndefined();
     }
-    // No fabricated figure or placeholder anywhere in the serialized node.
-    const serialized = JSON.stringify(node);
-    expect(serialized).not.toContain('€');
-    expect(serialized).not.toMatch(/from\s*€?X/i);
-    expect(serialized).not.toContain('priceCurrency');
   });
 });
