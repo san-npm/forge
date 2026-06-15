@@ -74,7 +74,7 @@ const SME_PACKAGE_I18N: Record<Locale, SmePackageContent> = {
       title: 'State aid for Luxembourg SMEs',
       accent: 'aid',
       body: [
-        'The SME Package is a Luxembourg state aid scheme run by the Ministry of the Economy with Luxinnovation, in place since 2019. It reimburses 70% of the eligible cost of a qualifying project.',
+        'The SME Package is a Luxembourg state aid scheme run by the Ministry of the Economy, developed with Luxinnovation, in place since 2019. It reimburses 70% of the eligible cost of a qualifying project.',
         'Eligible projects run from EUR 3,000 to EUR 25,000 excluding VAT. They are open to SMEs with a Luxembourg business permit and a registered office in Luxembourg that meet the SME criteria. Openletz is the eligible service provider: you receive the grant, not us.',
       ],
     },
@@ -126,7 +126,7 @@ const SME_PACKAGE_I18N: Record<Locale, SmePackageContent> = {
       title: 'Une aide d’État pour les PME luxembourgeoises',
       accent: 'aide',
       body: [
-        'Le SME Package est un régime d’aide d’État luxembourgeois géré par le Ministère de l’Économie avec Luxinnovation, en place depuis 2019. Il rembourse 70 % du coût éligible d’un projet qualifiant.',
+        'Le SME Package est un régime d’aide d’État luxembourgeois géré par le Ministère de l’Économie, développé avec Luxinnovation, en place depuis 2019. Il rembourse 70 % du coût éligible d’un projet qualifiant.',
         'Les projets éligibles vont de 3 000 EUR à 25 000 EUR hors TVA. Ils sont ouverts aux PME disposant d’une autorisation d’établissement luxembourgeoise et d’un siège social au Luxembourg, répondant aux critères de PME. Openletz est le prestataire éligible : c’est vous qui recevez l’aide, pas nous.',
       ],
     },
@@ -178,7 +178,7 @@ const SME_PACKAGE_I18N: Record<Locale, SmePackageContent> = {
       title: 'Staatliche Förderung für Luxemburger KMU',
       accent: 'Förderung',
       body: [
-        'Das SME Package ist ein luxemburgisches staatliches Förderprogramm, das vom Wirtschaftsministerium mit Luxinnovation betrieben wird und seit 2019 besteht. Es erstattet 70 % der förderfähigen Kosten eines qualifizierenden Projekts.',
+        'Das SME Package ist ein luxemburgisches staatliches Förderprogramm, das vom Wirtschaftsministerium betrieben und mit Luxinnovation entwickelt wurde und seit 2019 besteht. Es erstattet 70 % der förderfähigen Kosten eines qualifizierenden Projekts.',
         'Förderfähige Projekte reichen von 3.000 EUR bis 25.000 EUR ohne Mehrwertsteuer. Sie stehen KMU mit einer luxemburgischen Niederlassungsgenehmigung und einem eingetragenen Sitz in Luxemburg offen, die die KMU-Kriterien erfüllen. Openletz ist der förderfähige Dienstleister: Sie erhalten die Förderung, nicht wir.',
       ],
     },
