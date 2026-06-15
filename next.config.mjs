@@ -37,6 +37,18 @@ const nextConfig = {
           },
         ],
       },
+      {
+        // Agent Skills discovery (cloudflare/agent-skills-discovery-rfc v0.2.0):
+        // agents fetch index.json + SKILL.md cross-origin, so the static files
+        // under public/.well-known/agent-skills/ need permissive CORS. The
+        // Content-Type is set correctly by Next's static file server.
+        source: '/.well-known/agent-skills/:path*',
+        headers: [
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Access-Control-Allow-Methods', value: 'GET, HEAD, OPTIONS' },
+          { key: 'Cache-Control', value: 'public, max-age=3600' },
+        ],
+      },
     ];
   },
   async rewrites() {
