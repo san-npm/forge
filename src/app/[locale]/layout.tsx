@@ -12,9 +12,7 @@ import {
   professionalServiceJsonLd,
   webSiteJsonLd,
   breadcrumbJsonLd,
-  faqJsonLd,
   homeBreadcrumbLabel,
-  AGENCY_FAQS,
 } from '@/lib/jsonld';
 import { Analytics } from '@/components/Analytics';
 import { ConsentBanner } from '@/components/ConsentBanner';
@@ -201,10 +199,6 @@ export default async function LocaleLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumb) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd(AGENCY_FAQS)) }}
         />
       </head>
       <body className="antialiased">

@@ -8,7 +8,7 @@ import { getAllPosts, getPostBySlug, getPostBody } from '@/lib/blog';
 import { getUiStrings } from '@/data/ui';
 import { getStartProject } from '@/data/nav';
 import { renderMarkdown } from '@/lib/markdown';
-import { breadcrumbJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
+import { breadcrumbJsonLd, blogPostingJsonLd, homeBreadcrumbLabel } from '@/lib/jsonld';
 import { safeJsonLd } from '@/lib/safeJsonLd';
 
 export function generateStaticParams() {
@@ -47,15 +47,21 @@ export default async function InsightPage({
   const t = getUiStrings(locale);
   const title = post.title[locale] ?? post.title.en ?? slug;
   const html = renderMarkdown(getPostBody(post, locale));
+  const postUrl = localeUrl(locale, `/insights/${slug}`);
   const crumbs = breadcrumbJsonLd(locale, [
     { name: homeBreadcrumbLabel(locale), url: localeUrl(locale) },
     { name: 'Insights', url: localeUrl(locale, '/insights') },
-    { name: title, url: localeUrl(locale, `/insights/${slug}`) },
+    { name: title, url: postUrl },
   ]);
+  const blogPosting = blogPostingJsonLd({ post, locale, url: postUrl });
 
   return (
     <main className="overflow-hidden">
-      {/* BreadcrumbList JSON-LD in static SSR HTML. */}
+      {/* BlogPosting + BreadcrumbList JSON-LD in static SSR HTML. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(blogPosting) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(crumbs) }}

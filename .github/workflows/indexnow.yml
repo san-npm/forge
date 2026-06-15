@@ -1,0 +1,32 @@
+name: IndexNow ping
+
+# Notify IndexNow-compatible search engines (Bing, Yandex, Seznam, ...) after a
+# push to main. The IndexNow key is public (served at /<KEY>.txt), so no secrets
+# are required. A short sleep gives Vercel time to publish the new deployment
+# before we submit the sitemap URLs.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Wait for Vercel deploy
+        run: sleep 120
+
+      - name: Ping IndexNow
+        # Don't fail the workflow if the IndexNow endpoint is flaky; a missed
+        # ping is non-critical and the next push will retry.
+        continue-on-error: true
+        run: node scripts/indexnow-ping.mjs
