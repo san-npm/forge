@@ -110,7 +110,7 @@ export default async function PricingPage({
             {PRICING.lead}
           </Reveal>
 
-          {/* Honest SME funding line with the real value. */}
+          {/* Clear SME funding line with the real value. */}
           <Reveal as="p" className="mt-6 max-w-2xl text-base text-text-dim">
             {p.fundingLead}{' '}
             <Link href={localeHref('/sme-package', locale)} className="ol-link text-accent">

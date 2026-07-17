@@ -182,7 +182,7 @@ export function SmePackageSimulator({ officialUrl, locale }: SmePackageSimulator
         </p>
       )}
 
-      {/* Honest caveat, always visible. */}
+      {/* Clear caveat, always visible. */}
       <p className="mt-5 text-sm text-text-dim">
         {t.caveat}{' '}
         <a

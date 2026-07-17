@@ -161,7 +161,7 @@ export default async function CaseStudyPage({
         </section>
       )}
 
-      {/* ---- Metrics: big lime numbers (placeholders labelled honestly) ---- */}
+      {/* ---- Metrics: big lime numbers (placeholders labelled plainly) ---- */}
       <section className="px-6 pb-16 md:pb-20">
         <ScrollReveal
           as="dl"

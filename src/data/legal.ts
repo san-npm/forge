@@ -108,7 +108,7 @@ const TERMS_I18N: Record<Locale, LegalDoc> = {
       {
         title: '2. What this site is',
         body:
-          'Openletz is the website of a Luxembourg AI agency. It presents our services and work and lets you start a project enquiry. It does not, by itself, create a contract for services.',
+          'Openletz is the website of a Luxembourg AI studio. It presents our services and work and lets you start a project enquiry. It does not, by itself, create a contract for services.',
       },
       {
         title: '3. Engagements',
@@ -137,7 +137,7 @@ const TERMS_I18N: Record<Locale, LegalDoc> = {
       {
         title: '2. Ce qu’est ce site',
         body:
-          'Openletz est le site d’une agence IA luxembourgeoise. Il présente nos services et nos réalisations et permet de démarrer une demande de projet. Il ne crée pas, à lui seul, de contrat de prestation.',
+          'Openletz est le site d’un studio IA luxembourgeois. Il présente nos services et nos réalisations et permet de démarrer une demande de projet. Il ne crée pas, à lui seul, de contrat de prestation.',
       },
       {
         title: '3. Engagements',
@@ -166,7 +166,7 @@ const TERMS_I18N: Record<Locale, LegalDoc> = {
       {
         title: '2. Was diese Website ist',
         body:
-          'Openletz ist die Website einer Luxemburger KI-Agentur. Sie stellt unsere Leistungen und Arbeiten vor und ermöglicht eine Projektanfrage. Sie begründet für sich genommen keinen Dienstleistungsvertrag.',
+          'Openletz ist die Website eines Luxemburger KI-Studios. Sie stellt unsere Leistungen und Arbeiten vor und ermöglicht eine Projektanfrage. Sie begründet für sich genommen keinen Dienstleistungsvertrag.',
       },
       {
         title: '3. Aufträge',

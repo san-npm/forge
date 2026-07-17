@@ -1,35 +1,47 @@
 'use client';
 
 import Script from 'next/script';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useReportWebVitals } from 'next/web-vitals';
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 // GA4 measurement IDs are public (exposed client-side anyway); default to the
-// Openletz property, overridable via env. Loads only after consent (below).
+// Openletz property, overridable via env.
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? 'G-H3JLD7XB5Y';
 
 /**
- * Consent-gated analytics. GA4 + GTM only load after the visitor has granted
- * consent (cookie or localStorage flag `openletz-consent=granted`). Core Web
- * Vitals report via useReportWebVitals into dataLayer (a no-op until GTM
- * loads). Scripts use next/script afterInteractive so they never block paint.
+ * Analytics with Google Consent Mode v2 (GDPR-appropriate). The gtag base loads
+ * for every visitor, but consent DEFAULT is `denied`, so GA4 sends only
+ * cookieless, aggregated pings until a choice is made: traffic is measurable
+ * (and Google's tag check passes) without setting any cookie pre-consent. When
+ * the visitor accepts (cookie/localStorage flag `openletz-consent=granted`, set
+ * by ConsentBanner, which also fires the `openletz-consent` event) we push a
+ * consent UPDATE to `granted`, unlocking full cookie-based measurement with no
+ * reload. Declining keeps the denied default. The default is seeded from the
+ * cookie so returning consenters get full measurement on first paint. Core Web
+ * Vitals report into dataLayer. Scripts use next/script afterInteractive so they
+ * never block paint.
  */
 export function Analytics() {
-  const [consented, setConsented] = useState(false);
-
   useEffect(() => {
-    const check = () => {
-      const has =
-        typeof document !== 'undefined' &&
-        (document.cookie.includes('openletz-consent=granted') ||
-          window.localStorage.getItem('openletz-consent') === 'granted');
-      setConsented(Boolean(has));
+    const grant = () => {
+      const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+      const granted =
+        document.cookie.includes('openletz-consent=granted') ||
+        window.localStorage.getItem('openletz-consent') === 'granted';
+      if (granted && typeof w.gtag === 'function') {
+        w.gtag('consent', 'update', {
+          analytics_storage: 'granted',
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+        });
+      }
     };
-    check();
-    // ConsentBanner dispatches this on Accept so GA loads without a reload.
-    window.addEventListener('openletz-consent', check);
-    return () => window.removeEventListener('openletz-consent', check);
+    grant();
+    // ConsentBanner dispatches this on Accept so tracking upgrades without a reload.
+    window.addEventListener('openletz-consent', grant);
+    return () => window.removeEventListener('openletz-consent', grant);
   }, []);
 
   useReportWebVitals((metric) => {
@@ -44,7 +56,7 @@ export function Analytics() {
     });
   });
 
-  if (!consented || (!GTM_ID && !GA_ID)) return null;
+  if (!GTM_ID && !GA_ID) return null;
 
   return (
     <>
@@ -59,16 +71,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       ) : null}
       {GA_ID ? (
         <>
+          <Script id="gtag-consent-init" strategy="afterInteractive">
+            {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+var __olGranted = document.cookie.indexOf('openletz-consent=granted') !== -1;
+gtag('consent', 'default', {
+  ad_storage: __olGranted ? 'granted' : 'denied',
+  ad_user_data: __olGranted ? 'granted' : 'denied',
+  ad_personalization: __olGranted ? 'granted' : 'denied',
+  analytics_storage: __olGranted ? 'granted' : 'denied',
+  wait_for_update: 500
+});
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+          </Script>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
             strategy="afterInteractive"
           />
-          <Script id="gtag-init" strategy="afterInteractive">
-            {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_ID}');`}
-          </Script>
         </>
       ) : null}
     </>

@@ -10,7 +10,7 @@ describe('STUDIO', () => {
   it('matches osData ground truth', () => {
     expect(STUDIO.name).toBe('Openletz');
     expect(STUDIO.tagline).toBe('Websites that think, move & transact.');
-    expect(STUDIO.sub).toBe('A Luxembourg AI agency.');
+    expect(STUDIO.sub).toBe('A Luxembourg AI studio.');
     expect(STUDIO.welcomeLead.length).toBeGreaterThan(40);
   });
 });
@@ -38,9 +38,9 @@ describe('WORK', () => {
   it('has the 3 own products, 2 client builds and the 3 contributed projects, in order', () => {
     expect(WORK).toHaveLength(8);
     expect(WORK.map((w) => w.slug)).toEqual([
-      'gategram',
-      'skillsws',
       'ophis',
+      'skillsws',
+      'gategram',
       'vinsfins',
       'lagrocerie',
       'liberclaw',
@@ -54,9 +54,9 @@ describe('WORK', () => {
   it('derives a valid filter tag for every item (mapped from kind)', () => {
     const tags = WORK.map((w) => w.tag);
     expect(tags).toEqual([
-      'web',
-      'ai',
       'web3',
+      'ai',
+      'web',
       'web',
       'web',
       'contributed',

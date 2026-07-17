@@ -9,7 +9,7 @@ import { computeSmePackage, SME_MIN, SME_MAX } from '@/lib/sme-package';
  * This is the live endpoint advertised by the agent card's `url`
  * (/.well-known/agent-card.json -> /api/a2a). It implements the single core A2A
  * method `message/send`: it reads the user's text, and replies with a Message
- * (role "agent"). The reply is honest and useful: if the text mentions a
+ * (role "agent"). The reply is candid and useful: if the text mentions a
  * budget / funding / grant amount it returns an indicative SME Package estimate
  * via computeSmePackage; otherwise it describes Openletz and points to /contact.
  *
@@ -112,7 +112,7 @@ export function buildReply(text: string): string {
   }
 
   return (
-    `Openletz is a Luxembourg AI agency (Commit Media S.à r.l.). We build AI agents and automation, ` +
+    `Openletz is a Luxembourg AI studio (Commit Media S.à r.l.). We build AI agents and automation, ` +
     `websites and shops, and the digital growth around them, with Web3 when it genuinely helps. ` +
     `Hosted in Europe, built with GDPR and the EU AI Act in mind. For eligible Luxembourg SMEs we ` +
     `also help claim the SME Package (70% state co-funding). To scope a project, get in touch at ` +

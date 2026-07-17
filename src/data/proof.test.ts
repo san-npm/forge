@@ -32,7 +32,7 @@ describe('PROOF_METRICS', () => {
   });
   it('frames years as covering both building and marketing', () => {
     const years = PROOF_METRICS.find((m) => m.id === 'years');
-    expect(years?.value).toBe(5);
+    expect(years?.value).toBe(10);
     expect(years?.suffix).toBe('+');
     expect(years?.label.toLowerCase()).toContain('marketing');
   });
@@ -41,14 +41,13 @@ describe('PROOF_METRICS', () => {
     expect(disciplines?.value).toBe(3);
     expect(disciplines?.label.toLowerCase()).toContain('ai');
   });
-  it('carries the Aleph Cloud contribution credential as Anton text (no fake number)', () => {
-    const partner = PROOF_METRICS.find((m) => m.id === 'alephPartner');
-    expect(partner).toBeTruthy();
-    expect(partner?.value).toBeNull();
-    expect(partner?.text).toBe('Aleph Cloud');
-    // Framed as a years-long contribution (marketing/growth), not ownership.
-    expect(partner?.label.toLowerCase()).toMatch(/contribut/);
-    expect(partner?.label.toLowerCase()).toContain('marketing');
+  it('carries the Europe (built and hosted) credential as Anton text (no fake number)', () => {
+    const europe = PROOF_METRICS.find((m) => m.id === 'europe');
+    expect(europe).toBeTruthy();
+    expect(europe?.value).toBeNull();
+    expect(europe?.text).toBe('Europe');
+    // Qualitative credential: built and hosted in Europe, matching the trust block.
+    expect(europe?.label.toLowerCase()).toContain('europe');
   });
   it('never says "Aleph.im" anywhere', () => {
     for (const m of PROOF_METRICS) {

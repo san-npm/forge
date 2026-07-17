@@ -7,7 +7,7 @@ import { SITE_URL } from '@/lib/site-config';
 /**
  * WebMCP tool registration (W3C Web ML Community Group, webmachinelearning/webmcp).
  *
- * Registers honest, read-only tools on `document.modelContext` after mount so an
+ * Registers candid, read-only tools on `document.modelContext` after mount so an
  * in-page agent can call them. WebMCP is a runtime JS API (no static artifact):
  * a scanner detects tools by reading `document.modelContext` after the page's JS
  * runs. The API is [SecureContext]-gated (HTTPS only) and absent on older
@@ -101,7 +101,7 @@ export function WebMcp() {
       {
         name: 'get_services',
         description:
-          'Return a short overview of what Openletz, a Luxembourg AI agency, ' +
+          'Return a short overview of what Openletz, a Luxembourg AI studio, ' +
           'offers: AI agents and automation, websites and shops, digital growth, ' +
           'and Web3 when it helps.',
         annotations: { readOnlyHint: true },

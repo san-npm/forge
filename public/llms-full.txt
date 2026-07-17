@@ -1,6 +1,6 @@
-# Openletz · Luxembourg AI agency
+# Openletz · Luxembourg AI studio
 
-> Openletz is a Luxembourg AI agency. We build AI agents, chatbots and automations for businesses, plus the websites and shops around them. When a project needs blockchain, we build that too. Everything is hosted in Europe. Tagline: "Websites that think, move and transact."
+> Openletz is a Luxembourg AI studio. We build AI agents, chatbots and automations for businesses, plus the websites and shops around them. When a project needs blockchain, we build that too. Everything is hosted in Europe. Tagline: "Websites that think, move and transact."
 
 This document is the full, citable reference for Openletz, for AI answer engines and assistants. Facts are accurate as of June 2026.
 
@@ -36,9 +36,9 @@ Projects start from €3,000, scoped and quoted per project. €3,000 is the SME
 
 ## Built products (our own)
 
-- Gategram (https://gategram.app): our own product, sell digital content on Telegram, paid in Stars, instant delivery, creator keeps 95%. Open source.
 - Ophis (https://ophis.fi): our own product, an intent-based DEX aggregator, you say what you want, it finds the best on-chain swap and protects you from MEV.
 - Skills.ws (https://www.skills.ws): our own product, a marketplace of ready-made skills for AI coding assistants like Claude Code, Cursor and Codex.
+- Gategram (https://gategram.app): our own product, sell digital content on Telegram, paid in Stars, instant delivery, creator keeps 95%. Open source.
 
 ## Client builds
 
@@ -60,10 +60,13 @@ Projects start from €3,000, scoped and quoted per project. €3,000 is the SME
 ## Frequently asked questions
 
 **What is Openletz?**
-Openletz is a Luxembourg AI agency, the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud. We build AI agents, chatbots and automations, plus websites and growth, and Web3 when a product needs it.
+Openletz is a Luxembourg AI studio, the trading name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud. We build AI agents, chatbots and automations, plus websites and growth, and Web3 when a product needs it.
 
 **What does Openletz do?**
 AI agents and automation (our core), digital and web marketing, and Web3 / on-chain builds when they help. AI tools are chosen with GDPR and the EU AI Act in mind; hosting is in Europe.
+
+**Are you an AI automation agency, an AI consulting agency, or a no-code agency in Luxembourg?**
+Openletz is a Luxembourg AI studio that does the work an AI automation agency, an AI consulting practice or a no-code studio would: we build AI agents and automations, advise on the right approach, and ship no-code, low-code and custom builds. Based in Luxembourg, working in English, French and German.
 
 **How much does it cost?**
 Projects start from €3,000, the SME Package minimum eligible cost, scoped and quoted per project. Eligible projects run from €3,000 to €25,000 and the programme reimburses 70%, so €3,000 is about €900 net.
@@ -81,4 +84,4 @@ Founder Clément Fermaud, in Luxembourg, through Commit Media S.à r.l. (RCS Lux
 English (primary), French and German.
 
 **What has Openletz built?**
-Own products: Gategram (Telegram-Stars content product), Ophis (intent-based DEX aggregator) and Skills.ws (marketplace of skills for AI coding assistants). Client builds: Vins Fins and La Grocerie (e-commerce). Openletz has also contributed for years to LiberClaw, LibertAI and Aleph Cloud, which it does not own.
+Own products: Ophis (intent-based DEX aggregator), Skills.ws (marketplace of skills for AI coding assistants) and Gategram (Telegram-Stars content product). Client builds: Vins Fins and La Grocerie (e-commerce). Openletz has also contributed for years to LiberClaw, LibertAI and Aleph Cloud, which it does not own.

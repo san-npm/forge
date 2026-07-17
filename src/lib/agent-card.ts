@@ -18,7 +18,7 @@ export function buildAgentCard() {
     protocolVersion: '0.3.0',
     name: 'Openletz Studio Agent',
     description:
-      'Conversational agent for Openletz, a Luxembourg AI agency. Answers questions about Openletz services (AI agents and automation, websites, digital growth, Web3 when it helps) and produces indicative SME Package funding estimates (70% Luxembourg state co-funding) for eligible companies.',
+      'Conversational agent for Openletz, a Luxembourg AI studio. Answers questions about Openletz services (AI agents and automation, websites, digital growth, Web3 when it helps) and produces indicative SME Package funding estimates (70% Luxembourg state co-funding) for eligible companies.',
     url: `${base}/api/a2a`,
     preferredTransport: 'JSONRPC',
     // The full set of interfaces this agent speaks (A2A AgentInterface[]).

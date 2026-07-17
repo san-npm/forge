@@ -1,6 +1,6 @@
 # Openletz
 
-> Openletz is a Luxembourg AI agency. We build AI agents, chatbots and automations for businesses, plus the websites and shops around them. When a project needs blockchain, we build that too. Everything is hosted in Europe.
+> Openletz is a Luxembourg AI studio. We build AI agents, chatbots and automations for businesses, plus the websites and shops around them. When a project needs blockchain, we build that too. Everything is hosted in Europe.
 
 Openletz is the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud in Luxembourg. For years he has also contributed to the decentralized AI and Web3 ecosystem: LibertAI, LiberClaw and Aleph Cloud. We pick AI tools with GDPR and the EU AI Act in mind.
 
@@ -9,7 +9,7 @@ Languages: English (primary), French, German.
 
 ## What we do
 
-- AI agents & automation (our core): assistants, chatbots and automations, in English, French or German. A quick audit, a working prototype, then live in production.
+- AI agents & automation (our core): assistants, chatbots and automations, plus AI consulting and no-code / low-code builds when they fit, in English, French or German. A quick audit, a working prototype, then live in production.
 - Digital & growth: fast websites and e-commerce on Next.js, SEO and answer-engine optimization, content and analytics.
 - Web3 & on-chain (when it helps): smart contracts, token-gating and on-chain apps, hosted in Europe.
 
@@ -20,9 +20,9 @@ Projects start from €3,000, the SME Package minimum eligible cost, scoped and 
 ## Work
 
 Built products (our own):
-- Gategram (https://gategram.app): our product, sell digital content on Telegram, paid in Stars.
 - Ophis (https://ophis.fi): our product, an intent-based DEX aggregator.
 - Skills.ws (https://www.skills.ws): our product, a marketplace of skills for AI coding assistants.
+- Gategram (https://gategram.app): our product, sell digital content on Telegram, paid in Stars.
 
 Client builds:
 - Vins Fins (https://www.vinsfins.lu): multilingual wine shop & restaurant e-commerce (Next.js, Stripe).

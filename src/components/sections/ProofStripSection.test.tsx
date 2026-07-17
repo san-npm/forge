@@ -11,9 +11,9 @@ const props: ProofStripSectionProps = {
     { slug: 'lagrocerie', name: 'La Grocerie', src: '/clients/lagrocerie.png', href: 'https://www.lagrocerie.lu' },
   ],
   metrics: [
-    { id: 'years', label: 'Years building and marketing', value: 5, suffix: '+' },
+    { id: 'years', label: 'Years building and marketing', value: 10, suffix: '+' },
     { id: 'disciplines', label: 'Disciplines shipped: AI, web and on-chain', value: 3, suffix: '' },
-    { id: 'alephPartner', label: 'Years contributing to Aleph Cloud, marketing the decentralized cloud', value: null, text: 'Aleph Cloud' },
+    { id: 'europe', label: 'Built and hosted in Europe', value: null, text: 'Europe' },
   ],
 };
 
@@ -38,17 +38,15 @@ describe('ProofStripSection', () => {
     expect(screen.getByText('Years building and marketing')).toBeInTheDocument();
     expect(screen.getByText('Disciplines shipped: AI, web and on-chain')).toBeInTheDocument();
     // The real numbers paint immediately (CountUp seeds to `to`).
-    expect(container.textContent).toContain('5');
+    expect(container.textContent).toContain('10');
     expect(container.textContent).toContain('3');
   });
 
-  it('renders the Aleph Cloud contribution credential as Anton text (not a number)', () => {
+  it('renders the Europe credential as Anton text (not a number)', () => {
     render(<ProofStripSection {...props} />);
-    expect(
-      screen.getByText('Years contributing to Aleph Cloud, marketing the decentralized cloud'),
-    ).toBeInTheDocument();
-    // "Aleph Cloud" appears as the big Anton credential value.
-    expect(screen.getByText('Aleph Cloud')).toBeInTheDocument();
+    expect(screen.getByText('Built and hosted in Europe')).toBeInTheDocument();
+    // "Europe" appears as the big Anton credential value.
+    expect(screen.getByText('Europe')).toBeInTheDocument();
   });
 
   it('does not advertise a bare product count and shows no degraded "—" placeholder', () => {

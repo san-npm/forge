@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Openletz (`openletz`) is the website of **a Luxembourg AI agency** (solo founder-operator: Clément Fermaud / Commit Media S.à r.l., RCS B276192). Tagline: "Websites that think, move & transact." AI agents & automation are the front door; digital & growth is the body; Web3/on-chain is secondary depth. The site's one job is to convert a qualified visitor into a **project enquiry**.
+Openletz (`openletz`) is the website of **a Luxembourg AI studio** (solo founder-operator: Clément Fermaud / Commit Media S.à r.l., RCS B276192). Tagline: "Websites that think, move & transact." AI agents & automation are the front door; digital & growth is the body; Web3/on-chain is secondary depth. The site's one job is to convert a qualified visitor into a **project enquiry**.
 
 This repo replaced an earlier Mac-OS-"Aqua" desktop homepage (scrapped) and, before that, a Fit-4-Digital grants-**consultant** identity (an OS-shell + eligibility quiz, deleted). Do not reintroduce the OS-shell, the eligibility quiz, or the "Fit 4 Digital/AI" grants-consultant positioning. NOTE: the **SME Package** page + funding simulator (`/sme-package`) IS a current, legitimate value-add service (70% state co-funding we help clients claim) — it uses funding vocabulary (grant, eligibility) on purpose; that is not the killed identity.
 
@@ -49,7 +49,7 @@ npm run test:e2e   # Playwright E2E
 - **Locale content:** UI/content strings come from `src/data/*` (typed) — never hardcode user-facing copy in components.
 - **Motion:** transform + opacity only; LCP node renders at `opacity:1` on first paint; honor `prefers-reduced-motion` (reduced ≠ stripped — keep fades).
 - **Commits:** Conventional Commits (`type(scope): subject`). **NO AI attribution** (no `Co-Authored-By`, no "Generated with Claude") — Commit Media preference.
-- **Portfolio (honest split, owner-confirmed):** **built products** (our own) = Gategram, Ophis, Skills.ws. **Client builds** = Vins Fins, La Grocerie. **CONTRIBUTED-TO, NOT owned** = LiberClaw, LibertAI, Aleph Cloud — the founder contributed to these for years; copy MUST say "contributed"/"not our product" and NEVER imply Openletz built or owns them (in Work they carry kind `Contributor` + tag `contributed`; keep their external links liberclaw.ai / libertai.io / aleph.cloud). Never list aleph-fileshare. "Greg" is an internal codename for Ophis. Never say "Aleph.im" (always "Aleph Cloud").
+- **Portfolio (built/client/contributed split, owner-confirmed):** **built products** (our own) = Gategram, Ophis, Skills.ws. **Client builds** = Vins Fins, La Grocerie. **CONTRIBUTED-TO, NOT owned** = LiberClaw, LibertAI, Aleph Cloud — the founder contributed to these for years; copy MUST say "contributed"/"not our product" and NEVER imply Openletz built or owns them (in Work they carry kind `Contributor` + tag `contributed`; keep their external links liberclaw.ai / libertai.io / aleph.cloud). Never list aleph-fileshare. "Greg" is an internal codename for Ophis. Never say "Aleph.im" (always "Aleph Cloud").
 - **SME Package:** the funding angle now has a full page + simulator (`/sme-package`, 70% state co-funding, €3k–€25k, Ministry of the Economy + Luxinnovation). Surface it (footer + soft links on services/pricing). Commit Media itself is SME-Package eligible (not Fit 4 AI). Keep funding facts exact + caveated (indicative, subject to eligibility + approval, reimbursed after delivery).
 
 ## API routes (salvaged)

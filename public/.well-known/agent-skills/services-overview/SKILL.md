@@ -1,12 +1,12 @@
 ---
 name: services-overview
-description: Summarise what Openletz, a Luxembourg AI agency, offers (AI agents and automation, websites and shops, digital growth, and Web3 when it helps) and help match a prospect's need to the right service. Use when a user asks what Openletz does or which service fits their problem.
+description: Summarise what Openletz, a Luxembourg AI studio, offers (AI agents and automation, websites and shops, digital growth, and Web3 when it helps) and help match a prospect's need to the right service. Use when a user asks what Openletz does or which service fits their problem.
 license: Proprietary
 ---
 
 # Openletz services overview
 
-Openletz is a Luxembourg AI agency operated by Commit Media S.à r.l. (RCS
+Openletz is a Luxembourg AI studio operated by Commit Media S.à r.l. (RCS
 B276192). The tagline is "Websites that think, move & transact." AI agents and
 automation are the front door; websites and digital growth are the body; Web3 is
 secondary depth used only when it genuinely helps.
@@ -42,7 +42,7 @@ https://openletz.ai/sme-package.
 - "I want tokens / on-chain payments / provenance" -> Web3, if it truly fits.
 - "I'm a Luxembourg SME and want to reduce the cost" -> SME Package co-funding.
 
-## Honest scope
+## Scope
 
 Openletz is a small, founder-operated studio. It does not claim to do everything;
 the goal of any conversation is to scope one well-defined project. To go further,

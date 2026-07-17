@@ -1,17 +1,21 @@
 import { SITE_URL, siteConfig, localeUrl, type Locale } from '@/lib/site-config';
 
 /**
- * Agency FAQ — sourced from public/llms-full.txt "Frequently asked questions".
+ * Studio FAQ, sourced from public/llms-full.txt "Frequently asked questions".
  * Replaces the old grant-simulator FAQ. Consumed by faqJsonLd in the layout.
  */
 export const AGENCY_FAQS: { q: string; a: string }[] = [
   {
     q: 'What is Openletz?',
-    a: 'Openletz is a Luxembourg AI agency, the studio name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud. We build AI agents, chatbots and automations, plus websites and growth, and Web3 when a product needs it.',
+    a: 'Openletz is a Luxembourg AI studio, the trading name of Commit Media S.à r.l. (RCS Luxembourg B276192), run by Clément Fermaud. We build AI agents, chatbots and automations, plus websites and growth, and Web3 when a product needs it.',
   },
   {
     q: 'What does Openletz do?',
     a: 'AI agents and automation (our core), digital and web marketing, and Web3 / on-chain builds when they help. AI tools are chosen with GDPR and the EU AI Act in mind; hosting is in Europe.',
+  },
+  {
+    q: 'Are you an AI automation agency, an AI consulting agency, or a no-code agency in Luxembourg?',
+    a: 'Openletz is a Luxembourg AI studio that does the work an AI automation agency, an AI consulting practice or a no-code studio would: we build AI agents and automations, advise on the right approach, and ship no-code, low-code and custom builds. Based in Luxembourg, working in English, French and German.',
   },
   {
     q: 'How much does it cost?',
@@ -35,7 +39,7 @@ export const AGENCY_FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'What has Openletz built?',
-    a: 'Own products: Gategram (Telegram-Stars content product), Ophis (intent-based DEX aggregator) and Skills.ws (marketplace of skills for AI coding assistants). Client builds: Vins Fins and La Grocerie (e-commerce). It has also contributed for years to LiberClaw, LibertAI and Aleph Cloud, which it does not own.',
+    a: 'Own products: Ophis (intent-based DEX aggregator), Skills.ws (marketplace of skills for AI coding assistants) and Gategram (Telegram-Stars content product). Client builds: Vins Fins and La Grocerie (e-commerce). It has also contributed for years to LiberClaw, LibertAI and Aleph Cloud, which it does not own.',
   },
 ];
 
@@ -43,6 +47,8 @@ const KNOWS_ABOUT = [
   'Artificial intelligence',
   'AI automation',
   'AI agents',
+  'AI consulting',
+  'No-code development',
   'Web3 development',
   'Smart contracts',
   'Web development',
@@ -62,7 +68,7 @@ export function organizationJsonLd(): object {
     url: SITE_URL,
     logo: siteConfig.brand.logoPng,
     description:
-      'Luxembourg AI agency. We build AI agents, chatbots and automation, the websites and shops around them, and Web3 when a product needs it, hosted in Europe.',
+      'Luxembourg AI studio. We build AI agents, chatbots and automation, the websites and shops around them, and Web3 when a product needs it, hosted in Europe.',
     email: siteConfig.brand.email,
     address: {
       '@type': 'PostalAddress',
@@ -88,7 +94,7 @@ export function professionalServiceJsonLd(): object {
     url: SITE_URL,
     logo: siteConfig.brand.logoPng,
     description:
-      'Luxembourg AI agency: AI agents and automation, websites, e-commerce and growth, plus Web3 / on-chain builds when they help.',
+      'Luxembourg AI studio: AI agents and automation, websites, e-commerce and growth, plus Web3 / on-chain builds when they help.',
     email: siteConfig.brand.email,
     address: {
       '@type': 'PostalAddress',
@@ -143,7 +149,7 @@ export function breadcrumbJsonLd(_locale: Locale, items: { name: string; url: st
   };
 }
 
-/** FAQPage node — KEEP. Content = agency FAQs (AGENCY_FAQS), NOT grants. */
+/** FAQPage node. KEEP. Content = studio FAQs (AGENCY_FAQS), NOT grants. */
 export function faqJsonLd(faqs: { q: string; a: string }[]): object {
   return {
     '@context': 'https://schema.org',

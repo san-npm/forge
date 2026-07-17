@@ -186,7 +186,7 @@ export interface UiStrings {
     bonusTitleAccent: string;
     eligibilityKicker: string;
     eligibilityTitle: string;
-    honestPart: string;
+    candidPart: string;
     readOfficial: string;
     closingTitleA: string;
     closingTitleAccent: string;
@@ -222,7 +222,7 @@ const EN: UiStrings = {
     processKicker: 'The process',
     processTitle: 'How We Work',
     processAccent: 'Work',
-    processSubhead: 'A short, honest path from idea to something live you can measure.',
+    processSubhead: 'A short, clear path from idea to something live you can measure.',
     selectedWorkKicker: 'Our work',
     selectedWorkTitle: 'Selected Work',
     selectedWorkAccent: 'Work',
@@ -426,7 +426,7 @@ const EN: UiStrings = {
     bonusTitleAccent: 'build',
     eligibilityKicker: 'Who qualifies',
     eligibilityTitle: 'Eligibility',
-    honestPart: 'The honest part',
+    candidPart: 'The candid part',
     readOfficial: 'Read the official programme',
     closingTitleA: 'Let us scope a project that ',
     closingTitleAccent: 'qualifies',
@@ -668,7 +668,7 @@ const FR: UiStrings = {
     bonusTitleAccent: 'développement',
     eligibilityKicker: 'Qui est éligible',
     eligibilityTitle: 'Éligibilité',
-    honestPart: 'En toute transparence',
+    candidPart: 'En toute transparence',
     readOfficial: 'Lire le programme officiel',
     closingTitleA: 'Cadrons ensemble un projet qui ',
     closingTitleAccent: 'qualifie',
@@ -910,7 +910,7 @@ const DE: UiStrings = {
     bonusTitleAccent: 'Bauen',
     eligibilityKicker: 'Wer sich qualifiziert',
     eligibilityTitle: 'Förderfähigkeit',
-    honestPart: 'Ehrlich gesagt',
+    candidPart: 'Ehrlich gesagt',
     readOfficial: 'Das offizielle Programm lesen',
     closingTitleA: 'Lassen Sie uns ein Projekt planen, das sich ',
     closingTitleAccent: 'qualifiziert',

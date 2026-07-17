@@ -6,8 +6,8 @@ export type { WorkItem };
 // Per-locale WORK. slug, name, link, stack and tag stay constant (brand names
 // and the filter tag); kind, blurb, about and did are translated. Order is
 // significant: built products first, then client builds, then projects
-// contributed to. `tag` drives the /work filter and the honest split:
-//   - built products (Gategram, Skills.ws, Ophis): tag 'web' / 'ai' / 'web3'
+// contributed to. `tag` drives the /work filter and the built/client/contributed split:
+//   - built products (Ophis, Skills.ws, Gategram): tag 'web3' / 'ai' / 'web'
 //   - client builds (Vins Fins, La Grocerie): tag 'web'
 //   - CONTRIBUTED to, never owned (LiberClaw, LibertAI, Aleph Cloud): tag
 //     'contributed', kind 'Contributor'. Their copy ONLY says the founder
@@ -15,21 +15,20 @@ export type { WorkItem };
 const WORK_I18N: Record<Locale, WorkItem[]> = {
   en: [
     {
-      slug: 'gategram',
-      name: 'Gategram',
+      slug: 'ophis',
+      name: 'Ophis',
       kind: 'Our product',
-      link: 'https://gategram.app',
-      blurb: 'Sell digital content on Telegram, paid in Stars.',
+      link: 'https://ophis.fi',
+      blurb: 'An intent-based DEX aggregator for better swaps.',
       about:
-        'Our own product: a way for creators to sell digital content inside Telegram and get paid in Stars, with instant delivery, and the creator keeps 95%. Open source.',
+        'Our own product: a DEX aggregator where you say what you want, it finds the best way to swap on-chain and protects you from MEV. We built the product, the brand and the front-end.',
       did: [
-        'Designed and built the product end to end',
-        'Telegram bot + Stars payments',
-        'Instant delivery, 95% to the creator',
-        'Open-sourced it',
+        'Product, brand and front-end',
+        'Intent-based swap flow',
+        'MEV-protected execution + receipts',
       ],
-      stack: ['Telegram', 'Payments', 'Next.js'],
-      tag: 'web',
+      stack: ['Web3', 'DeFi', 'React'],
+      tag: 'web3',
     },
     {
       slug: 'skillsws',
@@ -48,20 +47,21 @@ const WORK_I18N: Record<Locale, WorkItem[]> = {
       tag: 'ai',
     },
     {
-      slug: 'ophis',
-      name: 'Ophis',
+      slug: 'gategram',
+      name: 'Gategram',
       kind: 'Our product',
-      link: 'https://ophis.fi',
-      blurb: 'An intent-based DEX aggregator for better swaps.',
+      link: 'https://gategram.app',
+      blurb: 'Sell digital content on Telegram, paid in Stars.',
       about:
-        'Our own product: a DEX aggregator where you say what you want, it finds the best way to swap on-chain and protects you from MEV. We built the product, the brand and the front-end.',
+        'Our own product: a way for creators to sell digital content inside Telegram and get paid in Stars, with instant delivery, and the creator keeps 95%. Open source.',
       did: [
-        'Product, brand and front-end',
-        'Intent-based swap flow',
-        'MEV-protected execution + receipts',
+        'Designed and built the product end to end',
+        'Telegram bot + Stars payments',
+        'Instant delivery, 95% to the creator',
+        'Open-sourced it',
       ],
-      stack: ['Web3', 'DeFi', 'React'],
-      tag: 'web3',
+      stack: ['Telegram', 'Payments', 'Next.js'],
+      tag: 'web',
     },
     {
       slug: 'vinsfins',
@@ -148,21 +148,20 @@ const WORK_I18N: Record<Locale, WorkItem[]> = {
   ],
   fr: [
     {
-      slug: 'gategram',
-      name: 'Gategram',
+      slug: 'ophis',
+      name: 'Ophis',
       kind: 'Notre produit',
-      link: 'https://gategram.app',
-      blurb: 'Vendez du contenu numérique sur Telegram, payé en Stars.',
+      link: 'https://ophis.fi',
+      blurb: 'Un agrégateur DEX par intention pour de meilleurs swaps.',
       about:
-        'Notre propre produit : un moyen pour les créateurs de vendre du contenu numérique directement dans Telegram et d’être payés en Stars, avec livraison instantanée, le créateur conservant 95 %. Open source.',
+        'Notre propre produit : un agrégateur DEX où vous indiquez ce que vous voulez, il trouve la meilleure façon de swapper on-chain et vous protège du MEV. Nous avons construit le produit, la marque et le front-end.',
       did: [
-        'Conçu et développé le produit de bout en bout',
-        'Bot Telegram + paiements en Stars',
-        'Livraison instantanée, 95 % pour le créateur',
-        'Mis en open source',
+        'Produit, marque et front-end',
+        'Flux de swap par intention',
+        'Exécution protégée du MEV + reçus',
       ],
-      stack: ['Telegram', 'Paiements', 'Next.js'],
-      tag: 'web',
+      stack: ['Web3', 'DeFi', 'React'],
+      tag: 'web3',
     },
     {
       slug: 'skillsws',
@@ -181,20 +180,21 @@ const WORK_I18N: Record<Locale, WorkItem[]> = {
       tag: 'ai',
     },
     {
-      slug: 'ophis',
-      name: 'Ophis',
+      slug: 'gategram',
+      name: 'Gategram',
       kind: 'Notre produit',
-      link: 'https://ophis.fi',
-      blurb: 'Un agrégateur DEX par intention pour de meilleurs swaps.',
+      link: 'https://gategram.app',
+      blurb: 'Vendez du contenu numérique sur Telegram, payé en Stars.',
       about:
-        'Notre propre produit : un agrégateur DEX où vous indiquez ce que vous voulez, il trouve la meilleure façon de swapper on-chain et vous protège du MEV. Nous avons construit le produit, la marque et le front-end.',
+        'Notre propre produit : un moyen pour les créateurs de vendre du contenu numérique directement dans Telegram et d’être payés en Stars, avec livraison instantanée, le créateur conservant 95 %. Open source.',
       did: [
-        'Produit, marque et front-end',
-        'Flux de swap par intention',
-        'Exécution protégée du MEV + reçus',
+        'Conçu et développé le produit de bout en bout',
+        'Bot Telegram + paiements en Stars',
+        'Livraison instantanée, 95 % pour le créateur',
+        'Mis en open source',
       ],
-      stack: ['Web3', 'DeFi', 'React'],
-      tag: 'web3',
+      stack: ['Telegram', 'Paiements', 'Next.js'],
+      tag: 'web',
     },
     {
       slug: 'vinsfins',
@@ -281,21 +281,20 @@ const WORK_I18N: Record<Locale, WorkItem[]> = {
   ],
   de: [
     {
-      slug: 'gategram',
-      name: 'Gategram',
+      slug: 'ophis',
+      name: 'Ophis',
       kind: 'Unser Produkt',
-      link: 'https://gategram.app',
-      blurb: 'Digitale Inhalte auf Telegram verkaufen, bezahlt in Stars.',
+      link: 'https://ophis.fi',
+      blurb: 'Ein intent-basierter DEX-Aggregator für bessere Swaps.',
       about:
-        'Unser eigenes Produkt: ein Weg für Creator, digitale Inhalte direkt in Telegram zu verkaufen und in Stars bezahlt zu werden, mit sofortiger Auslieferung, wobei der Creator 95 % behält. Open Source.',
+        'Unser eigenes Produkt: ein DEX-Aggregator, bei dem Sie sagen, was Sie wollen, er findet den besten Weg, on-chain zu swappen, und schützt Sie vor MEV. Wir haben Produkt, Marke und Front-End gebaut.',
       did: [
-        'Das Produkt von A bis Z gestaltet und gebaut',
-        'Telegram-Bot + Stars-Zahlungen',
-        'Sofortige Auslieferung, 95 % für den Creator',
-        'Als Open Source veröffentlicht',
+        'Produkt, Marke und Front-End',
+        'Intent-basierter Swap-Ablauf',
+        'MEV-geschützte Ausführung + Belege',
       ],
-      stack: ['Telegram', 'Zahlungen', 'Next.js'],
-      tag: 'web',
+      stack: ['Web3', 'DeFi', 'React'],
+      tag: 'web3',
     },
     {
       slug: 'skillsws',
@@ -314,20 +313,21 @@ const WORK_I18N: Record<Locale, WorkItem[]> = {
       tag: 'ai',
     },
     {
-      slug: 'ophis',
-      name: 'Ophis',
+      slug: 'gategram',
+      name: 'Gategram',
       kind: 'Unser Produkt',
-      link: 'https://ophis.fi',
-      blurb: 'Ein intent-basierter DEX-Aggregator für bessere Swaps.',
+      link: 'https://gategram.app',
+      blurb: 'Digitale Inhalte auf Telegram verkaufen, bezahlt in Stars.',
       about:
-        'Unser eigenes Produkt: ein DEX-Aggregator, bei dem Sie sagen, was Sie wollen, er findet den besten Weg, on-chain zu swappen, und schützt Sie vor MEV. Wir haben Produkt, Marke und Front-End gebaut.',
+        'Unser eigenes Produkt: ein Weg für Creator, digitale Inhalte direkt in Telegram zu verkaufen und in Stars bezahlt zu werden, mit sofortiger Auslieferung, wobei der Creator 95 % behält. Open Source.',
       did: [
-        'Produkt, Marke und Front-End',
-        'Intent-basierter Swap-Ablauf',
-        'MEV-geschützte Ausführung + Belege',
+        'Das Produkt von A bis Z gestaltet und gebaut',
+        'Telegram-Bot + Stars-Zahlungen',
+        'Sofortige Auslieferung, 95 % für den Creator',
+        'Als Open Source veröffentlicht',
       ],
-      stack: ['Web3', 'DeFi', 'React'],
-      tag: 'web3',
+      stack: ['Telegram', 'Zahlungen', 'Next.js'],
+      tag: 'web',
     },
     {
       slug: 'vinsfins',

@@ -13,7 +13,7 @@ test.describe('prefers-reduced-motion: reduce', () => {
 
   test('the sub-line reveal still ends visible (reduced != stripped)', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByText('A Luxembourg AI agency.')).toBeVisible();
+    await expect(page.getByText('A Luxembourg AI studio.')).toBeVisible();
   });
 
   test('the enquiry form is reachable and usable', async ({ page }) => {

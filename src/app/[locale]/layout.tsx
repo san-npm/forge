@@ -48,15 +48,15 @@ export async function generateMetadata({
   const loc = (hasLocale(LOCALES, locale) ? locale : DEFAULT_LOCALE) as Locale;
 
   const titles: Record<Locale, string> = {
-    en: 'Openletz · A Luxembourg AI agency',
-    fr: 'Openletz · Une agence IA au Luxembourg',
-    de: 'Openletz · Eine KI-Agentur in Luxemburg',
+    en: 'Openletz · A Luxembourg AI studio',
+    fr: 'Openletz · Un studio IA au Luxembourg',
+    de: 'Openletz · Ein KI-Studio in Luxemburg',
   };
 
   const descriptions: Record<Locale, string> = {
-    en: 'Openletz is a Luxembourg AI agency. We build AI agents, chatbots and automation, the websites and shops around them, and Web3 when it helps, hosted in Europe.',
-    fr: "Openletz est une agence IA au Luxembourg. Nous concevons des agents IA, chatbots et automatisations, les sites et boutiques autour, et du Web3 quand c'est utile, hebergés en Europe.",
-    de: 'Openletz ist eine KI-Agentur in Luxemburg. Wir bauen KI-Agenten, Chatbots und Automatisierung, die Websites und Shops dazu und Web3, wenn es hilft, gehostet in Europa.',
+    en: 'Openletz is a Luxembourg AI studio. We build AI agents, chatbots and automation, the websites and shops around them, and Web3 when it helps, hosted in Europe.',
+    fr: "Openletz est un studio IA au Luxembourg. Nous concevons des agents IA, chatbots et automatisations, les sites et boutiques qui vont avec, et du Web3 quand c'est utile, hébergés en Europe.",
+    de: 'Openletz ist ein KI-Studio in Luxemburg. Wir bauen KI-Agenten, Chatbots und Automatisierung, die Websites und Shops dazu und Web3, wenn es hilft, gehostet in Europa.',
   };
 
   const canonicalUrl = localeUrl(loc);
@@ -78,9 +78,13 @@ export async function generateMetadata({
     },
     description: descriptions[loc],
     keywords: [
-      'Luxembourg AI agency',
+      'Luxembourg AI studio',
       'AI agents',
       'AI automation',
+      'AI automation agency Luxembourg',
+      'AI consulting agency Luxembourg',
+      'agence no-code Luxembourg',
+      'no-code development Luxembourg',
       'chatbots',
       'Next.js websites Luxembourg',
       'e-commerce Luxembourg',
@@ -109,7 +113,7 @@ export async function generateMetadata({
           url: `${SITE_URL}/og-image.png`,
           width: 1200,
           height: 630,
-          alt: 'Openletz · A Luxembourg AI agency',
+          alt: 'Openletz · A Luxembourg AI studio',
         },
       ],
     },
@@ -204,7 +208,7 @@ export default async function LocaleLayout({
       </head>
       <body className="antialiased">
         <Analytics />
-        {/* WebMCP: registers honest read-only agent tools on document.modelContext
+        {/* WebMCP: registers read-only agent tools on document.modelContext
             after mount (HTTPS only, feature-detected). Renders null. */}
         <WebMcp />
         <ConsentBanner locale={loc} />

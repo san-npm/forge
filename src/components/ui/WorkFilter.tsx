@@ -17,7 +17,7 @@ export function WorkFilter({
 }) {
   const t = ui ?? getUiStrings('en');
   const f = t.work.filters;
-  // 'contributed' is the honest category for projects the founder contributed to
+  // 'contributed' is the accurate category for projects the founder contributed to
   // (LiberClaw, LibertAI, Aleph Cloud), never products Openletz built.
   const tags: { key: Tag | 'all'; label: string }[] = [
     { key: 'all', label: f.all },

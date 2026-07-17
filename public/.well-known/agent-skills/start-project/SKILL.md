@@ -1,12 +1,12 @@
 ---
 name: start-project
-description: Guide a prospect through starting a project with Openletz, a Luxembourg AI agency, including what to prepare, how scoping works, and how to get in touch. Use when a user wants to begin an engagement, request a quote, or book an intro call.
+description: Guide a prospect through starting a project with Openletz, a Luxembourg AI studio, including what to prepare, how scoping works, and how to get in touch. Use when a user wants to begin an engagement, request a quote, or book an intro call.
 license: Proprietary
 ---
 
 # Start a project with Openletz
 
-Openletz is a Luxembourg AI agency (Commit Media S.à r.l., RCS B276192). Its one
+Openletz is a Luxembourg AI studio (Commit Media S.à r.l., RCS B276192). Its one
 job is to turn a clear need into a well-scoped project. This skill explains how
 to begin.
 
@@ -41,7 +41,7 @@ You do not need a finished brief. A few sentences are enough to start.
 - **Contact form:** https://openletz.ai/contact
 - **Email:** hello@openletz.ai
 
-## Honest note
+## A note
 
 Openletz is a small, founder-operated studio and takes on a limited number of
 projects. The first conversation is about whether there is a good fit, with no

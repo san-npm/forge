@@ -11,16 +11,16 @@
     {
       "name": "services-overview",
       "type": "skill-md",
-      "description": "Summarise what Openletz, a Luxembourg AI agency, offers (AI agents and automation, websites and shops, digital growth, and Web3 when it helps) and help match a prospect's need to the right service. Use when a user asks what Openletz does or which service fits their problem.",
+      "description": "Summarise what Openletz, a Luxembourg AI studio, offers (AI agents and automation, websites and shops, digital growth, and Web3 when it helps) and help match a prospect's need to the right service. Use when a user asks what Openletz does or which service fits their problem.",
       "url": "/.well-known/agent-skills/services-overview/SKILL.md",
-      "digest": "sha256:5f53b6641b9e8625791f5bae196c50c37311050849e39c22ee75d9a5514d05a9"
+      "digest": "sha256:3b55bb59a935dd4359e9152b090bd8bc4f28c97620a474f0fdce1c4f795c4802"
     },
     {
       "name": "start-project",
       "type": "skill-md",
-      "description": "Guide a prospect through starting a project with Openletz, a Luxembourg AI agency, including what to prepare, how scoping works, and how to get in touch. Use when a user wants to begin an engagement, request a quote, or book an intro call.",
+      "description": "Guide a prospect through starting a project with Openletz, a Luxembourg AI studio, including what to prepare, how scoping works, and how to get in touch. Use when a user wants to begin an engagement, request a quote, or book an intro call.",
       "url": "/.well-known/agent-skills/start-project/SKILL.md",
-      "digest": "sha256:fd04ff2b9108fa1e658ae3456949366eb150e8d65c54eb151678b16b7a86db9c"
+      "digest": "sha256:8574aa18d1ee844c9f04d714cf50708979af4a74a1f8c5441e2920af4f7340dc"
     }
   ]
 }

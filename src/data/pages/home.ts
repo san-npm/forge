@@ -58,7 +58,7 @@ export function getHomeSections(locale: Locale): Section[] {
     },
     {
       type: 'deeperProof',
-      // Honest shipped-PRODUCT count: projects the founder only contributed to
+      // Accurate shipped-PRODUCT count: projects the founder only contributed to
       // (LiberClaw, LibertAI, Aleph Cloud) are NOT ours, so they are excluded.
       shippedCount: work.filter((w) => w.tag !== 'contributed' && w.tag !== 'marketing').length,
       metrics, // founder-operator proof; never fabricated

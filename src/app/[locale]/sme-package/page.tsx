@@ -267,7 +267,7 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
         </div>
       </section>
 
-      {/* ---- Eligibility + honest caveats ---- */}
+      {/* ---- Eligibility + real caveats ---- */}
       <section data-section="sme-eligibility" className="px-6 py-20 md:py-24">
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2">
           <div>
@@ -294,7 +294,7 @@ export function SmePackageBody({ locale = 'en' as Locale }: { locale?: Locale })
 
           <div className="flex flex-col rounded-2xl border border-hairline bg-surface p-7 md:p-8">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-text-dim">
-              {ui.honestPart}
+              {ui.candidPart}
             </p>
             <p className="mt-4 text-text-dim">{data.eligibility.caveat}</p>
             <a

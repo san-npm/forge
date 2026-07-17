@@ -9,7 +9,7 @@ const ABOUT_I18N: Record<Locale, About> = {
       'Openletz is the studio name of Commit Media, a small Luxembourg shop. I design, build and market AI and web products, usually end to end, with a trusted crew when a project needs more hands.',
     founderName: 'Clément Fermaud',
     founderRole:
-      'Founder. I build my own products (Gategram, Ophis and Skills.ws) and do client work like Vins Fins and La Grocerie. For years I have also contributed to the decentralized AI and Web3 ecosystem: LibertAI, LiberClaw and Aleph Cloud.',
+      'Founder. I build my own products (Ophis, Skills.ws and Gategram) and do client work like Vins Fins and La Grocerie. For years I have also contributed to the decentralized AI and Web3 ecosystem: LibertAI, LiberClaw and Aleph Cloud.',
     facts: [
       'Based in Luxembourg, in the EU',
       'You work with me directly: no account managers, no offshore handoff',
@@ -22,7 +22,7 @@ const ABOUT_I18N: Record<Locale, About> = {
       "Openletz est le nom de studio de Commit Media, une petite structure luxembourgeoise. Je conçois, développe et commercialise des produits IA et web, le plus souvent de bout en bout, avec une équipe de confiance quand un projet demande plus de bras.",
     founderName: 'Clément Fermaud',
     founderRole:
-      'Fondateur. Je développe mes propres produits (Gategram, Ophis et Skills.ws) et je réalise des projets clients comme Vins Fins et La Grocerie. Depuis des années, je contribue aussi à l’écosystème de l’IA décentralisée et du Web3 : LibertAI, LiberClaw et Aleph Cloud.',
+      'Fondateur. Je développe mes propres produits (Ophis, Skills.ws et Gategram) et je réalise des projets clients comme Vins Fins et La Grocerie. Depuis des années, je contribue aussi à l’écosystème de l’IA décentralisée et du Web3 : LibertAI, LiberClaw et Aleph Cloud.',
     facts: [
       'Basé au Luxembourg, dans l’UE',
       'Vous travaillez directement avec moi : pas de chargés de compte, pas de sous-traitance offshore',
@@ -35,7 +35,7 @@ const ABOUT_I18N: Record<Locale, About> = {
       'Openletz ist der Studioname von Commit Media, einem kleinen Luxemburger Betrieb. Ich gestalte, entwickle und vermarkte KI- und Web-Produkte, meist von A bis Z, mit einem eingespielten Team, wenn ein Projekt mehr Hände braucht.',
     founderName: 'Clément Fermaud',
     founderRole:
-      'Gründer. Ich entwickle meine eigenen Produkte (Gategram, Ophis und Skills.ws) und betreue Kundenprojekte wie Vins Fins und La Grocerie. Seit Jahren wirke ich außerdem am Ökosystem der dezentralen KI und des Web3 mit: LibertAI, LiberClaw und Aleph Cloud.',
+      'Gründer. Ich entwickle meine eigenen Produkte (Ophis, Skills.ws und Gategram) und betreue Kundenprojekte wie Vins Fins und La Grocerie. Seit Jahren wirke ich außerdem am Ökosystem der dezentralen KI und des Web3 mit: LibertAI, LiberClaw und Aleph Cloud.',
     facts: [
       'Ansässig in Luxemburg, in der EU',
       'Sie arbeiten direkt mit mir: keine Account-Manager, keine Auslagerung ins Ausland',

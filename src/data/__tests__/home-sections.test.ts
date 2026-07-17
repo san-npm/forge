@@ -24,7 +24,7 @@ describe('HOME_SECTIONS', () => {
     const hero = HOME_SECTIONS.find((s) => s.type === 'hero');
     if (hero?.type !== 'hero') throw new Error('no hero');
     expect(hero.h1).toBe('Websites that think, move & transact.');
-    expect(hero.sub).toBe('A Luxembourg AI agency.');
+    expect(hero.sub).toBe('A Luxembourg AI studio.');
     expect(hero.lead).toBe(STUDIO.welcomeLead);
     expect(hero.primaryCta).toEqual({ label: 'Start a project', href: '#enquiry' });
     expect(hero.secondaryCta).toEqual({ label: 'See our work', href: '/work' });

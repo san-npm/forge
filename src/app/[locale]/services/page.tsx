@@ -102,7 +102,7 @@ export function ServicesBody({ locale = 'en' as Locale }: { locale?: Locale }) {
             {t.services.heroLead}
           </Reveal>
 
-          {/* Soft, honest SME Package funding line. */}
+          {/* Soft, up-front SME Package funding line. */}
           <Reveal as="p" className="mt-6 max-w-2xl text-base text-text-dim">
             {t.services.fundingLead}{' '}
             <Link href={localeHref('/sme-package', locale)} className="ol-link text-accent">

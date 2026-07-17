@@ -17,7 +17,7 @@ export interface Pricing {
   note: string;
 }
 
-// Honest pricing anchor: projects start at the SME Package minimum eligible cost
+// Clear pricing anchor: projects start at the SME Package minimum eligible cost
 // of €3,000, scoped per project. Eligible Luxembourg SMEs can co-fund at 70%
 // through the SME Package (about €900 net), subject to eligibility and Ministry
 // of the Economy approval. Per-locale, parsed at module load.

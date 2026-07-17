@@ -4,7 +4,7 @@ import { CountUp } from '@/components/ui/CountUp';
 import { Hairline } from '@/components/ui/Hairline';
 
 /**
- * Proof strip: the portfolio wordmarks + a couple of honest, STATIC metrics.
+ * Proof strip: the portfolio wordmarks + a couple of real, STATIC metrics.
  * No live fetch, no Suspense, no degraded placeholder; both metric values
  * are real and render in SSR HTML (CountUp shows the true number on first
  * paint and only animates up post-hydration when motion is allowed).
